@@ -1,23 +1,31 @@
 ---
-title: "Blog"
-description: |
-  This space brings together social network analysis and R programming to explore important social issues. By analyzing data from various social networks, we delve into topics like social capital, inequality, and the dynamics of social structures. Our goal is to provide tools and knowledge to help researchers better understand these topics and foster collaboration within the field.
-  
+title: ""
+subtitle: ""
 listing:
   contents: posts
   sort: "date desc"
-  type: default
+  type: grid
+  grid-columns: 2
+  image-height: 250px
+  page-size: 6
   categories: true
-  feed: true
-  sort-ui: false
-  filter-ui: false
-  fields: [date, author, title, reading-time, description, categories, image]
+  sort-ui: true
+  filter-ui: true
 page-layout: full
 title-block-banner: false
 ---
 
-::: {.content-container}
-::: {.intro-text}
-📬 Sign up for my [newsletter](#) to receive updates about new posts.
+
+::: {.blog-page}
+::: {.blog-header}
+# Blog
+
+::: {.blog-description}
+This space brings together social network analysis and R programming to explore important social issues. By analyzing data from various social networks, we delve into topics like social capital, inequality, and the dynamics of social structures. Our goal is to provide tools and knowledge to help researchers better understand these topics and foster collaboration within the field.
 :::
 :::
+
+::: {#listing-content}
+:::
+:::
+

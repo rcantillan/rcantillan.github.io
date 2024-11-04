@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://rcantillan.github.io/publication/index.html</loc>
-    <lastmod>2024-11-04T03:46:25.031Z</lastmod>
+    <loc>https://rcantillan.github.io/blog/posts/02-multihomophily/index.html</loc>
+    <lastmod>2024-11-04T14:29:31.434Z</lastmod>
   </url>
   <url>
-    <loc>https://rcantillan.github.io/about/index.html</loc>
-    <lastmod>2024-11-04T03:46:24.404Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/about.html</loc>
-    <lastmod>2024-11-04T03:46:23.736Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/blog/posts/2024-01-first-post/index.html</loc>
-    <lastmod>2024-11-04T03:46:37.363Z</lastmod>
+    <loc>https://rcantillan.github.io/blog/posts/05_multihomophily/index.html</loc>
+    <lastmod>2024-11-04T14:43:21.287Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/index.html</loc>
-    <lastmod>2024-11-04T03:46:33.153Z</lastmod>
+    <lastmod>2024-11-04T17:53:51.934Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/blog/posts/01-multihomophily/index.html</loc>
+    <lastmod>2024-11-04T14:47:04.514Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/blog/posts/03-egodescriptives/index.html</loc>
+    <lastmod>2024-11-04T14:48:24.175Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/blog/posts/04-twomode-ergm/index.html</loc>
+    <lastmod>2024-11-04T17:54:48.346Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/about/index.html</loc>
+    <lastmod>2024-11-04T14:52:42.820Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/index.html</loc>
-    <lastmod>2024-11-04T03:46:30.995Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/project/index.html</loc>
-    <lastmod>2024-11-04T03:46:24.073Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/talk/index.html</loc>
-    <lastmod>2024-11-04T03:46:24.722Z</lastmod>
+    <lastmod>2024-11-04T17:56:15.948Z</lastmod>
   </url>
 </urlset>

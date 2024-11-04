@@ -62,6 +62,7 @@ format:
       light: 
         - cosmo
         - assets/rober_light.scss
+        - assets/rober_blog.scss  # Añade esta línea
       dark:
         - cosmo
         - assets/rober_dark.scss
@@ -73,6 +74,8 @@ format:
       sidebar-width: 250px       # Ancho del sidebar
       body-width: 800px         # Ancho del contenido
       margin-width: 250px       # Ancho del margen
-      
+    include-in-header: 
+      text: |
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
       
       

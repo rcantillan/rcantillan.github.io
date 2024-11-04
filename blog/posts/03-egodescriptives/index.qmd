@@ -1,0 +1,448 @@
+---
+title: "Análisis de Redes Ego-céntricas"
+subtitle: "Descriptivos y Distancia Sociodemográfica en ELSOC 2017-2019"
+author: "Roberto Cantillan"
+date: "2023-08-09"
+summary: |
+    El prsente documento tiene por objetivo realizar la construcción de una bbdd de egos y alteris (anidados) en formato long para anáisis posteriores considerando ELSOC 2017 (w2) y 2019 (w4). Términamos con la construcción de tablas de descriptivos y la construcción de vectores de "distancia sociodemográfica" (mismatch) de parámetros de relevancia evidenciados en el paper de Bargsted et al., (2020) para el caso chileno. 
+
+---
+
+## Introducción
+
+Este documento analiza en detalle las redes ego-céntricas utilizando datos de ELSOC 2017 (w2) y 2019 (w4). Construiremos una base de datos que integra información de egos (encuestados) y sus alteri (contactos mencionados), calculando posteriormente medidas de distancia sociodemográfica entre ellos.
+
+![Egonetwork](img/egor.png){#fig-id width=80%}
+
+## Preparación del Entorno
+
+Primero cargaremos las librerías necesarias. El siguiente código utiliza `pacman::p_load()`, que tiene la ventaja de instalar los paquetes si no están presentes y luego cargarlos. Cada paquete cumple una función específica:
+
+```{r}
+#| label: setup
+#| message: false
+
+pacman::p_load(tidyverse,sjlabelled,sjPlot,vcd,texreg,ordinal, 
+               egor,haven,car,dplyr,stargazer,janitor,gridExtra,
+               ggeffects, kableExtra, questionr, JWileymisc)
+```
+
+## Carga de Datos
+
+A continuación, cargamos las bases de datos de ELSOC. Estos archivos contienen la información de las olas 2017 y 2019. El formato .RData mantiene la estructura original de los datos, incluyendo etiquetas y metadatos:
+
+```{r}
+#| label: load-data
+
+load("/home/rober/Documents/rcantillan.github.io/dat/ELSOC/ELSOC_W02_v3.00_R.RData")
+load("/home/rober/Documents/rcantillan.github.io/dat/ELSOC/ELSOC_W04_v2.01_R.RData")
+```
+
+## Preparación de datos 
+
+Este paso es crucial para el análisis de redes. Utilizamos rename() para estandarizar el nombre de la variable identificadora en ambas bases de datos. El prefijo '.' en .egoID sigue las convenciones del paquete egor para variables identificadoras:
+
+```{r}
+#| label: id-prep
+
+a <- elsoc_2017 %>% rename(.egoID = idencuesta)
+b <- elsoc_2019 %>% rename(.egoID = idencuesta)
+```
+
+### Construcción de Base de Datos de Alteri
+
+Ahora comenzamos la parte más compleja: la construcción de la base de datos de alteri. Para cada alter (contacto mencionado por el ego), necesitamos extraer múltiples características.
+
+### Primer Alter
+
+El siguiente código extrae la información del primer alter mencionado por cada ego. Analicemos cada variable seleccionada:
+
+- alter_sexo: Género del contacto (1=Hombre, 2=Mujer)
+- alter_edad: Edad en años
+- alter_rel: Tipo de relación con ego (1=Familiar, 2=Amigo, etc.)
+- alter_tiempo: Duración de la relación
+- alter_barrio: Si vive en el mismo barrio que ego
+- alter_educ: Nivel educativo
+- alter_relig: Afiliación religiosa
+- alter_ideol: Orientación política
+
+```{r}
+#| label: alter-1-prep
+
+alter_1 <- a %>%
+        dplyr::select(.egoID, 
+                      alter_sexo=r13_sexo_01,     # Recodificamos nombre de variable
+                      alter_edad=r13_edad_01,      # para mantener consistencia
+                      alter_rel=r13_relacion_01,   # Los sufijos _01 indican
+                      alter_tiempo=r13_tiempo_01,  # que corresponden al
+                      alter_barrio=r13_barrio_01,  # primer alter mencionado
+                      alter_educ=r13_educ_01,      
+                      alter_relig=r13_relig_01,    
+                      alter_ideol=r13_ideol_01)
+```
+
+### Resto de Alteri
+
+Repetimos el mismo proceso para los alteri 2 al 5. La única diferencia es el sufijo en los nombres de las variables originales (_02, _03, etc.). Este código es repetitivo pero necesario para mantener la claridad en la estructura de los datos:
+
+```{r}
+#| label: alter-2-5-prep
+
+# Segundo alter - sufijo _02 en variables originales
+alter_2 <- a %>%
+        dplyr::select(.egoID, 
+                      alter_sexo=r13_sexo_02, 
+                      alter_edad=r13_edad_02, 
+                      alter_rel=r13_relacion_02,
+                      alter_tiempo=r13_tiempo_02,
+                      alter_barrio=r13_barrio_02, 
+                      alter_educ=r13_educ_02, 
+                      alter_relig=r13_relig_02, 
+                      alter_ideol=r13_ideol_02)
+
+# Tercer alter - sufijo _03
+alter_3 <- a %>%
+        dplyr::select(.egoID, 
+                      alter_sexo=r13_sexo_03, 
+                      alter_edad=r13_edad_03, 
+                      alter_rel=r13_relacion_03,
+                      alter_tiempo=r13_tiempo_03,
+                      alter_barrio=r13_barrio_03, 
+                      alter_educ=r13_educ_03, 
+                      alter_relig=r13_relig_03, 
+                      alter_ideol=r13_ideol_03)
+
+# Cuarto alter - sufijo _04
+alter_4 <- a %>%
+        dplyr::select(.egoID, 
+                      alter_sexo=r13_sexo_04, 
+                      alter_edad=r13_edad_04, 
+                      alter_rel=r13_relacion_04,
+                      alter_tiempo=r13_tiempo_04, 
+                      alter_barrio=r13_barrio_04, 
+                      alter_educ=r13_educ_04, 
+                      alter_relig=r13_relig_04, 
+                      alter_ideol=r13_ideol_04)
+
+# Quinto alter - sufijo _05
+alter_5 <- a %>%
+        dplyr::select(.egoID, 
+                      alter_sexo=r13_sexo_05, 
+                      alter_edad=r13_edad_05, 
+                      alter_rel=r13_relacion_05,
+                      alter_tiempo=r13_tiempo_05, 
+                      alter_barrio=r13_barrio_05, 
+                      alter_educ=r13_educ_05, 
+                      alter_relig=r13_relig_05, 
+                      alter_ideol=r13_ideol_05)
+```
+
+### Identificación de Alteri
+
+Para mantener el orden de los alteri en nuestra base de datos, creamos una variable numérica que identifica la posición en que fue mencionado cada alter. Esto es crucial para análisis posteriores que consideren el orden de mención:
+
+```{r}
+#| label: alter-id
+
+# Asignamos números identificadores secuenciales
+alter_1$n <- 1  # Primer alter mencionado
+alter_2$n <- 2  # Segundo alter
+alter_3$n <- 3  # Tercer alter
+alter_4$n <- 4  # Cuarto alter
+alter_5$n <- 5  # Quinto alter
+```
+
+### Creación de Base de Datos en Formato Long
+
+Finalmente, combinamos todos los datos de alteri en un único conjunto de datos en formato longitudinal. Este paso es crucial porque:
+
+1. Permite un análisis más eficiente
+2. Facilita la comparación entre alteri
+3. Es el formato requerido por muchas funciones de análisis de redes
+
+```{r}
+#| label: create-long-format
+
+# Combinamos todas las bases de datos de alteri
+alteris <- rbind(alter_1, alter_2, alter_3, alter_4, alter_5)
+
+# Ordenamos por ID de ego para mantener la estructura jerárquica
+alteris <- arrange(alteris, .egoID)
+
+# Creamos un identificador único para cada alter
+alteris <- rowid_to_column(alteris, var = ".altID")
+
+# Convertimos a tibble para mejor manipulación
+alteris <- as_tibble(alteris)
+```
+
+## Recodificación de Variables
+
+### Recodificación de Atributos de Alteri
+
+A continuación, transformamos las variables categóricas de los alteri para facilitar el análisis. Utilizamos la función `factor` para convertir las variables en factores y `Recode` del paquete `car` para recodificar los valores. Esta recodificación es crucial para:
+
+1. Simplificar categorías
+2. Manejar valores perdidos
+3. Crear categorías interpretables
+
+```{r}
+#| label: recode-alteri
+
+# Recodificamos nivel educativo
+# 1 = básica, 2 = media, 3 = técnica, 4 = universitaria
+alteris$alter_educ <- factor(Recode(alteris$alter_educ,
+                                   "1=1;2:3=2;4=3;5=4;-999=NA"))
+
+# Recodificamos religión
+# 1-5 representan diferentes afiliaciones religiosas
+alteris$alter_relig <- factor(Recode(alteris$alter_relig,
+                                    "1=1;2=2;3=3;4=4;5=5;-999=NA"))
+
+# Recodificamos ideología política
+# 1-6 representan el espectro político de izquierda a derecha
+alteris$alter_ideol <- factor(Recode(alteris$alter_ideol,
+                                    "1=1;2=2;3=3;4=4;5=5;6=6;-999=NA"))
+
+# Recodificamos edad en grupos etarios
+# 1 = 0-18, 2 = 19-29, 3 = 30-40, 4 = 41-51, 5 = 52-62, 6 = 63+
+alteris$alter_edad <- factor(Recode(alteris$alter_edad,
+                                   "0:18=1;19:29=2;30:40=3;41:51=4;52:62=5;63:100=6"))
+
+# Recodificamos sexo (1 = hombre, 2 = mujer)
+alteris$alter_sexo <- factor(Recode(alteris$alter_sexo,
+                                   "1=1;2=2"))
+```
+
+### Preparación de Datos de Ego
+
+Ahora creamos un dataset con la información de los egos (encuestados). Seleccionamos variables equivalentes a las que tenemos para los alteri para poder hacer comparaciones directas:
+
+```{r}
+#| label: create-egos-data
+
+# Seleccionamos y renombramos variables de ego
+egos <- a %>%
+       dplyr::select(.egoID,                # ID del encuestado
+                     ego_sexo = m0_sexo,    # Sexo del encuestado
+                     ego_edad = m0_edad,    # Edad del encuestado
+                     ego_ideol = c15,       # Ideología política
+                     ego_educ = m01,        # Nivel educativo
+                     ego_relig = m38)       # Religión
+
+# Convertimos a tibble para mejor manipulación
+egos <- as_tibble(egos)
+```
+
+### Recodificación de Variables de Ego
+
+Al igual que con los alteri, recodificamos las variables de los egos para asegurar la comparabilidad:
+
+```{r}
+#| label: recode-egos
+
+# Recodificamos nivel educativo
+# Agrupamos en 4 niveles: básica, media, técnica, universitaria
+egos$ego_educ <- factor(Recode(egos$ego_educ,
+                              "1:3=1;4:5=2;6:7=3;8:10=4;-999:-888=NA"))
+
+# Recodificamos religión
+# Agrupamos en 5 categorías principales
+egos$ego_relig <- factor(Recode(egos$ego_relig,
+                               "1=1;2=2;9=3;7:8=4;3:6=5;-999:-888=NA"))
+
+# Recodificamos ideología política
+# Escala de 1-6 donde 1 = extrema izquierda, 6 = extrema derecha
+egos$ego_ideol <- factor(Recode(egos$ego_ideol,
+                               "9:10=1;6:8=2;5=3;2:4=4;0:1=5;11:12=6;-999:-888=NA"))
+
+# Recodificamos edad en los mismos grupos que los alteri
+egos$ego_edad <- factor(Recode(egos$ego_edad,
+                              "18=1;19:29=2;30:40=3;41:51=4;52:62=5;63:100=6"))
+
+# Recodificamos sexo (1 = hombre, 2 = mujer)
+egos$ego_sexo <- factor(Recode(egos$ego_sexo,
+                              "1=1;2=2"))
+```
+
+### Unión de Datos de Ego y Alteri
+
+Combinamos las bases de datos de egos y alteri mediante un left join, lo que nos permite mantener todos los alteri y sus correspondientes egos:
+
+```{r}
+#| label: join-data
+
+# Unimos las bases de datos usando el ID de ego como llave
+obs <- left_join(alteris, egos, by = ".egoID")
+
+# Creamos un indicador de caso
+obs$case <- 1
+
+# Recodificamos valores perdidos
+obs[obs == "-999"] <- NA
+obs[obs == "-888"] <- NA
+```
+
+## Análisis Descriptivos
+
+### Descriptivos (alter)
+
+Observamos la frecuencia de las categorias de los atributos de alteris. 
+```{r}
+kbl(freq(obs$alter_educ)) %>%kable_paper()
+kbl(freq(obs$alter_relig))%>%kable_paper()
+kbl(freq(obs$alter_ideol))%>%kable_paper()
+kbl(freq(obs$alter_edad)) %>%kable_paper()
+kbl(freq(obs$alter_sexo)) %>%kable_paper()
+```
+
+### Descriptivos (ego)
+
+Observamos la frecuencia de las categorias de los atributos sociodemográficos de ego. 
+```{r}
+kbl(freq(obs$ego_educ)) %>%kable_paper()
+kbl(freq(obs$ego_relig))%>%kable_paper()
+kbl(freq(obs$ego_ideol))%>%kable_paper()
+kbl(freq(obs$ego_edad)) %>%kable_paper()
+kbl(freq(obs$ego_sexo)) %>%kable_paper()
+```
+
+Las tablas muestran la distribución de frecuencias para cada característica sociodemográfica. Las columnas representan:
+1. La categoría de la variable
+2. La frecuencia absoluta (número de casos)
+3. El porcentaje del total
+
+Esta información nos permite entender la composición de la muestra tanto a nivel de egos como de alteri, y será fundamental para los análisis posteriores de homofilia y distancia social.
+
+### Análisis de Homofilia Educativa
+
+Examinamos la homofilia educativa mediante una tabla cruzada entre los niveles educativos de egos y alteri. Primero recodificamos las etiquetas para mejor interpretación:
+
+```{r}
+#| label: education-homophily
+#| warning: FALSE
+
+# Recodificamos etiquetas educativas
+obs <- obs %>%
+  dplyr::mutate(
+    ego_educ = case_when(
+      ego_educ == 1 ~ "básico",
+      ego_educ == 2 ~ "media",
+      ego_educ == 3 ~ "técnica",
+      TRUE ~ "universit."
+    )
+  ) %>%
+  dplyr::mutate(
+    alter_educ = case_when(
+      alter_educ == 1 ~ "básico",
+      alter_educ == 2 ~ "media",
+      alter_educ == 3 ~ "técnica",
+      TRUE ~ "universit."
+    )
+  )
+
+# Creamos tabla cruzada con porcentajes
+table_cont <- sjPlot::tab_xtab(
+  var.row = obs$ego_educ,
+  var.col = obs$alter_educ,
+  title = "Homofilia Educativa en Redes Personales",
+  show.row.prc = TRUE,
+  show.summary = TRUE,
+  show.col.prc = TRUE,
+  use.viewer = FALSE
+)
+table_cont
+```
+
+### Visualización de Homofilia Educativa
+
+Creamos un heatmap para visualizar los patrones de homofilia educativa:
+
+```{r}
+#| label: homophily-heatmap
+#| message: FALSE
+#| warning: FALSE
+
+# Preparamos datos para el heatmap
+table <- as.data.frame(prop.table(table(obs$ego_educ, obs$alter_educ)))
+colnames(table) <- c("Ego_educ", "Alter_educ", "Prop")
+
+# Creamos el heatmap
+ggplot(table, aes(Ego_educ, Alter_educ)) +
+  geom_tile(aes(fill = Prop)) +
+  scale_fill_gradient(low = "white", high = "black") +
+  theme_minimal() +
+  labs(
+    title = "Heatmap de Homofilia Educativa",
+    x = "Nivel Educativo de Ego",
+    y = "Nivel Educativo de Alter",
+    fill = "Proporción"
+  )
+```
+
+### Análisis de Relaciones por Tipo
+
+Calculamos promedios de tiempo de relación según el tipo de vínculo:
+
+```{r}
+#| label: relationship-analysis
+
+obs %>%
+  summarise(
+    mean.clo.esp = mean(alter_tiempo[alter_rel == "1"], na.rm = TRUE),
+    mean.clo.hijo = mean(alter_tiempo[alter_rel == "2"], na.rm = TRUE),
+    mean.clo.pari = mean(alter_tiempo[alter_rel == "3"], na.rm = TRUE),
+    mean.clo.amig = mean(alter_tiempo[alter_rel == "4"], na.rm = TRUE),
+    mean.clo.otro = mean(alter_tiempo[alter_rel == "5"], na.rm = TRUE),
+    count.par.barr = sum((alter_rel == "3" & alter_barrio == "1"), na.rm = TRUE)
+  ) %>%
+  kbl() %>%
+  kable_paper()
+```
+
+## Cálculo de Distancias Sociodemográficas
+
+### Creación de Vectores de Distancia
+
+Calculamos medidas de distancia sociodemográfica entre ego y alter. Un valor de 1 indica diferencia en el atributo:
+
+```{r}
+#| label: distance-vectors
+
+# Calculamos distancias para cada dimensión
+obs$sexo_dist <- ifelse(obs$alter_sexo == obs$ego_sexo, 0, 1)
+obs$edad_dist <- ifelse(obs$alter_edad == obs$ego_edad, 0, 1)
+obs$educ_dist <- ifelse(obs$alter_educ == obs$ego_educ, 0, 1)
+obs$ideol_dist <- ifelse(obs$alter_ideol == obs$ego_ideol, 0, 1)
+obs$relig_dist <- ifelse(obs$alter_relig == obs$ego_relig, 0, 1)
+```
+
+### Resumen de Distancias
+
+Finalmente, presentamos un resumen de las distancias sociodemográficas:
+
+```{r}
+#| label: distance-summary
+
+# Creamos tabla resumen de distancias
+kbl(egltable(
+  c("sexo_dist", "edad_dist", "educ_dist", "ideol_dist", "relig_dist"),
+  data = obs,
+  strict = TRUE
+)) %>%
+  kable_paper() 
+```
+
+Esta tabla final muestra el porcentaje de díadas ego-alter que presentan diferencias en cada dimensión sociodemográfica, permitiéndonos evaluar los patrones de homofilia en diferentes características.
+
+
+## Bibliografía. 
+
+- Bargsted Valdés, M. A., Espinoza, V., & Plaza, A. (2020). Pautas de Homofilia en Chile. Papers. Revista de Sociologia, 105(4), 583. https://doi.org/10.5565/rev/papers.2617
+
+- Smith, J. A., McPherson, M., & Smith-Lovin, L. (2014). Social Distance in the United States: Sex, Race, Religion, Age, and Education Homophily among Confidants, 1985 to 2004. American Sociological Review, 79(3), 432–456. https://doi.org/10.1177/0003122414531776
+
+
+
+
+

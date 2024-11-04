@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="This space brings together social network analysis and R programming to explore important social issues. By analyzing data from various social networks, we delve into topics like social capital, inequality, and the dynamics of social structures. Our goal is to provide tools and knowledge to help researchers better understand these topics and foster collaboration within the field.">
 
-<title>Roberto Cantillan - Blog</title>
+<title>Roberto Cantillan -</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -45,6 +44,11 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -75,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-author','listing-title','listing-reading-time','listing-description','listing-categories','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -94,11 +98,12 @@ ul.task-list li input[type="checkbox"] {
     }
   })
   </script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="alternate" type="application/rss+xml" title="Roberto Cantillan" href="index.xml"></head>
+</head>
 
 <body class="nav-fixed">
 
@@ -156,86 +161,196 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(1)</span></div><div class="category" data-category="análisis">análisis <span class="quarto-category-count">(1)</span></div><div class="category" data-category="visualización">visualización <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="ERGM">ERGM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ERGM ego">ERGM ego <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Ego networks">Ego networks <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Homophily">Homophily <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Networks">Networks <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Scientific networks">Scientific networks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Two mode">Two mode <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Blog</h1>
+
+
+<div class="blog-page">
+<section id="blog" class="level1 blog-header">
+<h1>Blog</h1>
+<div class="blog-description">
+<p>This space brings together social network analysis and R programming to explore important social issues. By analyzing data from various social networks, we delve into topics like social capital, inequality, and the dynamics of social structures. Our goal is to provide tools and knowledge to help researchers better understand these topics and foster collaboration within the field.</p>
+</div>
+</section>
+<div id="listing-content">
+
+</div>
 </div>
 
-<div>
-  <div class="description">
-    <p>This space brings together social network analysis and R programming to explore important social issues. By analyzing data from various social networks, we delve into topics like social capital, inequality, and the dynamics of social structures. Our goal is to provide tools and knowledge to help researchers better understand these topics and foster collaboration within the field.</p>
+
+
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="listing-actions-group">
+   <div class="input-group input-group-sm quarto-listing-sort">
+     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
+     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
+       <option value="" disabled="" selected="" hidden="">Order By</option>
+       <option value="index" data-direction="asc">Default</option>
+         <option value="listing-title" data-direction="asc">
+          Title
+        </option>
+         <option value="listing-date-sort" data-direction="asc">
+          Date - Oldest
+        </option>
+         <option value="listing-date-sort" data-direction="desc">
+          Date - Newest
+        </option>
+         <option value="listing-author" data-direction="asc">
+          Author
+        </option>
+     </select>
   </div>
+    <div class="input-group input-group-sm quarto-listing-filter">
+      <span class="input-group-text"><i class="bi bi-search"></i></span>
+      <input type="text" class="search form-control" placeholder="Filter">
+    </div>
 </div>
-
-
-<div class="quarto-title-meta">
-
-    
-  
-    
-  </div>
-  
-
-</header>
-
-<div class="content-container">
-<div class="intro-text">
-<p>📬 Sign up for my <a href="#">newsletter</a> to receive updates about new posts.</p>
-</div>
-</div>
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="R,análisis,visualización" data-listing-date-sort="1704855600000" data-listing-file-modified-sort="1730682257432" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2">
-<div class="thumbnail">
-<p><a href="../blog/posts/2024-01-first-post/index.html"> <img src="../blog/posts/2024-01-first-post/featured.png" class="thumbnail-image"> </a></p>
-</div>
-<div class="body">
-<a href="../blog/posts/2024-01-first-post/index.html">
-<h3 class="no-anchor listing-title">
-Análisis con R en Quarto
-</h3>
-<div class="listing-subtitle">
-
-</div>
-</a>
+<div class="list grid quarto-listing-cols-2">
+<div class="g-col-1" data-index="0" data-categories="R,Networks,Two mode,ERGM,Scientific networks" data-listing-date-sort="1730430000000" data-listing-file-modified-sort="1730729564553" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="18">
+<a href="../blog/posts/04-twomode-ergm/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="posts/04-twomode-ergm/index_files/figure-html/unnamed-chunk-1-1.png" style="height: 250px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Disrupción y Estructura en redes de producción cietífica
+</h5>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
 R
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('análisis'); return false;">
-análisis
+<div class="listing-category" onclick="window.quartoListingCategory('Networks'); return false;">
+Networks
 </div>
-<div class="listing-category" onclick="window.quartoListingCategory('visualización'); return false;">
-visualización
+<div class="listing-category" onclick="window.quartoListingCategory('Two mode'); return false;">
+Two mode
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ERGM'); return false;">
+ERGM
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Scientific networks'); return false;">
+Scientific networks
 </div>
 </div>
-<a href="../blog/posts/2024-01-first-post/index.html">
-<div class="listing-description">
-<p>Demostrando las capacidades de R y Quarto para análisis de datos.</p>
+<div class="card-text listing-description">
+La ciencia de la sustentabilidad requiere urgentemente de innovación transformadora para abordar desafíos socio-ambientales complejos. Comprender cómo emerge la…
 </div>
-</a>
-</div>
-<div class="metadata">
-<a href="../blog/posts/2024-01-first-post/index.html">
-<div class="listing-date">
-Jan 10, 2024
-</div>
+<div class="card-attribution card-text-small justify">
 <div class="listing-author">
 Roberto Cantillan
 </div>
-<div class="listing-reading-time">
-2 min
+<div class="listing-date">
+Nov 1, 2024
+</div>
+</div>
+</div>
 </div>
 </a>
 </div>
+<div class="g-col-1" data-index="1" data-categories="R,Networks,Ego networks,ERGM ego,Homophily" data-listing-date-sort="1691553600000" data-listing-file-modified-sort="1730729679271" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="19">
+<a href="../blog/posts/01-multihomophily/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="posts/01-multihomophily/index_files/figure-html/unnamed-chunk-11-1.png" style="height: 250px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+EI Index
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Networks'); return false;">
+Networks
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Ego networks'); return false;">
+Ego networks
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ERGM ego'); return false;">
+ERGM ego
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Homophily'); return false;">
+Homophily
+</div>
+</div>
+<div class="card-text listing-description">
+En el presente documento se realiza un trabajo de datos para construir una base en formato long con la encuesta COES en su ola w2 y ola w4. Adicionalmente, se analizan datos…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Roberto Cantillan
+</div>
+<div class="listing-date">
+Aug 9, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-date-sort="1691553600000" data-listing-file-modified-sort="1730727574264" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16">
+<a href="../blog/posts/03-egodescriptives/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="posts/03-egodescriptives/img/egor.png" style="height: 250px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Análisis de Redes Ego-céntricas
+</h5>
+<div class="card-text listing-description">
+Este documento analiza en detalle las redes ego-céntricas utilizando datos de ELSOC 2017 (w2) y 2019 (w4). Construiremos…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Roberto Cantillan
+</div>
+<div class="listing-date">
+Aug 9, 2023
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-categories="R,Networks,Ego networks,ERGM ego,Homophily" data-listing-date-sort="1666753200000" data-listing-file-modified-sort="1730731112700" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11">
+<a href="../blog/posts/05_multihomophily/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="posts/05_multihomophily/img/Fig14_A_600.gif" style="height: 250px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+homophily
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
+R
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Networks'); return false;">
+Networks
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Ego networks'); return false;">
+Ego networks
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('ERGM ego'); return false;">
+ERGM ego
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Homophily'); return false;">
+Homophily
+</div>
+</div>
+<div class="card-text listing-description">
+Creamos subset…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Roberto Cantillan
+</div>
+<div class="listing-date">
+Oct 26, 2022
+</div>
+</div>
+</div>
+</div>
+</a>
 </div>
 </div>
 <div class="listing-no-matching d-none">
@@ -594,7 +709,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">© 2024 Roberto Cantillan ∙ Made with <a href="https://quarto.org">Quarto</a></div>   
-    <div class="nav-footer-center"><a class="link-dark me-1" href="../accessibility.html" title="Accessibility commitment" target="_blank" rel="noopener"></a> <a class="link-dark me-1" href="" title="Substack" target="_blank" rel="noopener"></a> <a class="link-dark me-1" href="https://github.com/rcantillan" title="github" target="_blank" rel="noopener"></a> <a class="link-dark me-1" href="https://cl.linkedin.com/in/roberto-cantillan-carrasco-67620517b" title="LinkedIn" target="_blank" rel="noopener"></a> <a class="link-dark me-1" href="https://orcid.org/0000-0003-0494-0692;" title="orcid" target="_blank" rel="noopener"></a> <a class="link-dark me-1" href="https://scholar.google.com/citations?user=xZkAmvAAAAAJ&amp;hl=es" title="Google Scholar" target="_blank" rel="noopener"></a></div>
+    <div class="nav-footer-center"><a class="link-dark me-1" href="../accessibility.html" title="Accessibility commitment" target="_blank" rel="noopener"><i class="fa-solid fa-universal-access" aria-label="universal-access"></i></a> <a class="link-dark me-1" href="" title="Substack" target="_blank" rel="noopener"><i class="bi-substack " style="" role="img" aria-hidden="true"></i></a> <a class="link-dark me-1" href="https://github.com/rcantillan" title="github" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-label="github"></i></a> <a class="link-dark me-1" href="https://cl.linkedin.com/in/roberto-cantillan-carrasco-67620517b" title="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a> <a class="link-dark me-1" href="https://orcid.org/0000-0003-0494-0692;" title="orcid" target="_blank" rel="noopener"><i class="ai  ai-orcid" style="color:black"></i></a> <a class="link-dark me-1" href="https://scholar.google.com/citations?user=xZkAmvAAAAAJ&amp;hl=es" title="Google Scholar" target="_blank" rel="noopener"><i class="ai  ai-google-scholar" style="color:black"></i></a></div>
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
