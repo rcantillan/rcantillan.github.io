@@ -79,9 +79,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -159,11 +159,11 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
         
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(4)</span></div><div class="category" data-category="ERGM">ERGM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ERGM ego">ERGM ego <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Ego networks">Ego networks <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Homophily">Homophily <span class="quarto-category-count">(2)</span></div><div class="category" data-category="Networks">Networks <span class="quarto-category-count">(3)</span></div><div class="category" data-category="R">R <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Scientific networks">Scientific networks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Two mode">Two mode <span class="quarto-category-count">(1)</span></div></div></div>
+    </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 
 
@@ -217,23 +217,6 @@ ul.task-list li input[type="checkbox"] {
 <h5 class="no-anchor card-title listing-title">
 Disrupción y Estructura en redes de producción cietífica
 </h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Networks'); return false;">
-Networks
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Two mode'); return false;">
-Two mode
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ERGM'); return false;">
-ERGM
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Scientific networks'); return false;">
-Scientific networks
-</div>
-</div>
 <div class="card-text listing-description">
 La ciencia de la sustentabilidad requiere urgentemente de innovación transformadora para abordar desafíos socio-ambientales complejos. Comprender cómo emerge la…
 </div>
@@ -257,23 +240,6 @@ Nov 1, 2024
 <h5 class="no-anchor card-title listing-title">
 EI Index
 </h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Networks'); return false;">
-Networks
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ego networks'); return false;">
-Ego networks
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ERGM ego'); return false;">
-ERGM ego
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Homophily'); return false;">
-Homophily
-</div>
-</div>
 <div class="card-text listing-description">
 En el presente documento se realiza un trabajo de datos para construir una base en formato long con la encuesta COES en su ola w2 y ola w4. Adicionalmente, se analizan datos…
 </div>
@@ -320,23 +286,6 @@ Aug 9, 2023
 <h5 class="no-anchor card-title listing-title">
 homophily
 </h5>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('R'); return false;">
-R
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Networks'); return false;">
-Networks
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Ego networks'); return false;">
-Ego networks
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('ERGM ego'); return false;">
-ERGM ego
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('Homophily'); return false;">
-Homophily
-</div>
-</div>
 <div class="card-text listing-description">
 Creamos subset…
 </div>

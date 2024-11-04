@@ -130,11 +130,92 @@ p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
   }
 }
 
+/* Estilos para los iconos sociales */
+.social-icon {
+  /* Quitar bordes y fondo */
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+  margin: 0 10px !important;
+  box-shadow: none !important;
+
+  /* Estilo del ícono */
+  color: #666 !important;
+  transition: color 0.3s ease;
+
+  &:hover {
+    color: #2c3e50 !important;
+    transform: scale(1.1);
+  }
+}
+
+/* Si estás usando específicamente los íconos de Quarto */
+.quarto-social a {
+  border: none !important;
+  background: none !important;
+  padding: 0 !important;
+  margin: 0 10px !important;
+  box-shadow: none !important;
+}
+
 // Contact
 
 // social links
 .link-dark.me-1 i {
   color: $secondary !important;
+}
+
+/* Remover bordes solo de los iconos en la página principal/about */
+.about-link,
+.about-links a,
+.about-links .about-link {
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 1px !important;
+  /* Añadir estas propiedades para alinear */
+  display: inline-flex !important;
+  align-items: center !important;
+  vertical-align: middle !important;
+
+  /* Mantener el color actual */
+  color: $secondary !important;
+
+  /* Mantener el hover actual */
+  &:hover {
+    color: $secondary-light !important;
+    transform: scale(1.1);
+  }
+
+  /* Asegurar que el ícono dentro también mantenga los estilos */
+  i, .bi, .fa, .ai {
+    border: none !important;
+    background: none !important;
+    box-shadow: none !important;
+    color: inherit !important;
+    font-size: 1.1rem !important;
+    /* Añadir estas propiedades para alinear */
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    height: 1.5rem !important; /* Altura fija igual al font-size */
+    width: 1.5rem !important;  /* Ancho fijo igual al font-size */
+  }
+}
+
+/* Quitar específicamente los estilos de botón en la sección about */
+.about-links .btn {
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  
+  &:hover, &:focus, &:active {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
 }
 
 // Buttons

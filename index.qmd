@@ -1,83 +1,54 @@
 ---
 title: "Roberto Cantillan"
+pagetitle: "Roberto Cantillan"
 description: |
-  Investigador • Analista de Datos • [Otra descripción]
-image: profile.jpg
+  Sociologist • Researcher • Data Analyst 
+subtitle: "Ph.D. (c) in Sociology <br> Pontificia Universidad Católica de Chile"
+image: img/originaltheoryor00wrig_0137.jpg
+image-alt: ""
+
 about:
-  template: jolla
-  image-shape: round
-  image-width: 15em
+  template: solana
+  image-width: 28em
+  id: hero-heading
   links:
-    - text: GitHub
-      icon: github
+    - icon: github
+      aria-label: GitHub
       href: https://github.com/rcantillan
-    - text: Email
-      icon: envelope
-      href: mailto:tu@email.com
-    - text: CV
-      icon: file-text
-      href: cv.pdf
+    - icon: linkedin
+      aria-label: "LinkedIn"
+      href: https://cl.linkedin.com/in/roberto-cantillan-carrasco-67620517b
+    - icon: mastodon
+      href: https://hachyderm.io/@
+    - text: "{{< ai orcid >}}"
+      href: https://orcid.org/0000-0003-0494-0692;
+    - text: "{{< ai google-scholar >}}"
+      aria-label: "Google Scholar"
+      href: https://scholar.google.com/citations?user=xZkAmvAAAAAJ&hl=es
 page-layout: full
-sidebar: false
+
+execute: 
+  freeze: false
+  echo: false
+  warning: false
+
+header-includes: >
+  <link rel="stylesheet" href="assets/index.css">
+resources:
+  - assets/index.css
 ---
 
-:::{.column-page}
+<br><br>
 
-## Bienvenido! {.welcome}
 
-Soy Roberto Cantillan, [tu descripción profesional aquí]. Mi investigación se centra en [tus áreas de interés].
+::: {#hero-heading}
 
-## Publicaciones Recientes {.publications}
+I am a doctoral candidate in Sociology at the Pontificia Universidad Católica de Chile and an assistant at the ‘Millennium Nucleus for the Study of Labor Market Mismatch’ (LM2C2). My doctoral research uses a structural and network perspective to analyze the patterns of mobility, diffusion, and segregation in labor markets from an intragenerational viewpoint.
 
-::: {.grid}
-
-::: {.g-col-12 .g-col-md-6}
-### [Título de tu publicación más reciente]
-[Breve descripción de la publicación]
-:::
-
-::: {.g-col-12 .g-col-md-6}
-### [Título de otra publicación]
-[Breve descripción de la publicación]
-:::
+[Learn more about me &rarr;](/about){.about-links .subtitle}
 
 :::
+<!-- hero-heading -->
 
-## Blog Posts Destacados {.featured-posts}
 
-::: {.grid}
 
-::: {.g-col-12 .g-col-md-4}
-#### [Título del Post 1]
-[Breve descripción del post]
-:::
-
-::: {.g-col-12 .g-col-md-4}
-#### [Título del Post 2]
-[Breve descripción del post]
-:::
-
-::: {.g-col-12 .g-col-md-4}
-#### [Título del Post 3]
-[Breve descripción del post]
-:::
-
-:::
-
-## Proyectos Actuales {.current-projects}
-
-::: {.grid}
-
-::: {.g-col-12 .g-col-md-6}
-### [Nombre del Proyecto 1]
-[Descripción del proyecto]
-:::
-
-::: {.g-col-12 .g-col-md-6}
-### [Nombre del Proyecto 2]
-[Descripción del proyecto]
-:::
-
-:::
-
-:::
