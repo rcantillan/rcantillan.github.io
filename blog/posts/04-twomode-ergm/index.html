@@ -1,0 +1,1930 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.57">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Roberto Cantillan">
+<meta name="dcterms.date" content="2024-11-01">
+
+<title>Disrupción y Estructura en redes de producción cietífica – Roberto Cantillan</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../images/favicon.ico" rel="icon">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="../../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg border-bottom" data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Roberto Cantillan</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about/index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../talk/index.html"> 
+<span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../publication/index.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../project/index.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/rcantillan"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#configuración-inicial-y-carga-de-datos" id="toc-configuración-inicial-y-carga-de-datos" class="nav-link" data-scroll-target="#configuración-inicial-y-carga-de-datos">Configuración Inicial y Carga de Datos</a></li>
+  <li><a href="#preparación-de-datos" id="toc-preparación-de-datos" class="nav-link" data-scroll-target="#preparación-de-datos">Preparación de Datos</a></li>
+  <li><a href="#construcción-de-la-red-bipartita" id="toc-construcción-de-la-red-bipartita" class="nav-link" data-scroll-target="#construcción-de-la-red-bipartita">Construcción de la Red Bipartita</a></li>
+  <li><a href="#construcción-y-visualización-de-la-red" id="toc-construcción-y-visualización-de-la-red" class="nav-link" data-scroll-target="#construcción-y-visualización-de-la-red">Construcción y Visualización de la Red</a></li>
+  <li><a href="#visualización-de-la-estructura-centro-periferia" id="toc-visualización-de-la-estructura-centro-periferia" class="nav-link" data-scroll-target="#visualización-de-la-estructura-centro-periferia">Visualización de la Estructura Centro-Periferia</a></li>
+  <li><a href="#propiedades-estructurales-de-la-red" id="toc-propiedades-estructurales-de-la-red" class="nav-link" data-scroll-target="#propiedades-estructurales-de-la-red">Propiedades Estructurales de la Red</a>
+  <ul class="collapse">
+  <li><a href="#estadísticas-descriptivas-básicas" id="toc-estadísticas-descriptivas-básicas" class="nav-link" data-scroll-target="#estadísticas-descriptivas-básicas">Estadísticas Descriptivas Básicas</a></li>
+  </ul></li>
+  <li><a href="#análisis-de-distribución-de-grados" id="toc-análisis-de-distribución-de-grados" class="nav-link" data-scroll-target="#análisis-de-distribución-de-grados">Análisis de Distribución de Grados</a></li>
+  <li><a href="#análisis-ergm-modelando-mecanismos-generativos" id="toc-análisis-ergm-modelando-mecanismos-generativos" class="nav-link" data-scroll-target="#análisis-ergm-modelando-mecanismos-generativos">Análisis ERGM: Modelando Mecanismos Generativos</a>
+  <ul class="collapse">
+  <li><a href="#diagnósticos-del-modelo" id="toc-diagnósticos-del-modelo" class="nav-link" data-scroll-target="#diagnósticos-del-modelo">Diagnósticos del Modelo</a></li>
+  </ul></li>
+  <li><a href="#interpretación-de-resultados-del-ergm" id="toc-interpretación-de-resultados-del-ergm" class="nav-link" data-scroll-target="#interpretación-de-resultados-del-ergm">Interpretación de Resultados del ERGM</a>
+  <ul class="collapse">
+  <li><a href="#tendencia-base-y-estructura-general" id="toc-tendencia-base-y-estructura-general" class="nav-link" data-scroll-target="#tendencia-base-y-estructura-general">1. Tendencia Base y Estructura General</a></li>
+  <li><a href="#diferenciación-disciplinar" id="toc-diferenciación-disciplinar" class="nav-link" data-scroll-target="#diferenciación-disciplinar">2. Diferenciación Disciplinar</a></li>
+  <li><a href="#disrupción-y-productividad" id="toc-disrupción-y-productividad" class="nav-link" data-scroll-target="#disrupción-y-productividad">3. Disrupción y Productividad</a></li>
+  </ul></li>
+  <li><a href="#implicaciones-teóricas" id="toc-implicaciones-teóricas" class="nav-link" data-scroll-target="#implicaciones-teóricas">Implicaciones Teóricas</a>
+  <ul class="collapse">
+  <li><a href="#centralización-asimétrica" id="toc-centralización-asimétrica" class="nav-link" data-scroll-target="#centralización-asimétrica">Centralización Asimétrica</a></li>
+  <li><a href="#diferenciación-disciplinar-heterogénea" id="toc-diferenciación-disciplinar-heterogénea" class="nav-link" data-scroll-target="#diferenciación-disciplinar-heterogénea">Diferenciación Disciplinar Heterogénea</a></li>
+  <li><a href="#complejidad-de-la-innovación-y-productividad" id="toc-complejidad-de-la-innovación-y-productividad" class="nav-link" data-scroll-target="#complejidad-de-la-innovación-y-productividad">Complejidad de la Innovación y Productividad</a></li>
+  <li><a href="#estructuras-híbridas-y-tensiones-productivas" id="toc-estructuras-híbridas-y-tensiones-productivas" class="nav-link" data-scroll-target="#estructuras-híbridas-y-tensiones-productivas">Estructuras Híbridas y Tensiones Productivas</a></li>
+  </ul></li>
+  <li><a href="#limitaciones-y-trabajo-futuro" id="toc-limitaciones-y-trabajo-futuro" class="nav-link" data-scroll-target="#limitaciones-y-trabajo-futuro">Limitaciones y Trabajo Futuro</a></li>
+  <li><a href="#bibliografía" id="toc-bibliografía" class="nav-link" data-scroll-target="#bibliografía">Bibliografía</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Disrupción y Estructura en redes de producción cietífica</h1>
+<p class="subtitle lead">Un Análisis ERGM Modo-2 al campo de la Ciencia de la Sustentabilidad</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">Networks</div>
+    <div class="quarto-category">Two mode</div>
+    <div class="quarto-category">ERGM</div>
+    <div class="quarto-category">Scientific networks</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Roberto Cantillan </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">November 1, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="introducción" class="level2">
+<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
+<p>La ciencia de la sustentabilidad requiere urgentemente de innovación transformadora para abordar desafíos socio-ambientales complejos. Comprender cómo emerge la investigación disruptiva en las redes científicas es, por tanto, crucial. Li et al.&nbsp;(2024) han demostrado una relación inversa entre productividad y disrupción científica, pero los mecanismos estructurales subyacentes a este fenómeno permanecen poco claros, particularmente en el contexto de redes modo-2 que vinculan autores y publicaciones.</p>
+<p>Siguiendo a Gondal (2011), entendemos que el análisis de campos científicos emergentes requiere considerar simultáneamente las propiedades micro y macro de las redes de producción de conocimiento. A nivel macro, las redes científicas tienden a exhibir tres propiedades estructurales fundamentales: 1) estructuras centro-periferia, 2) cohesión estructural, y 3) características de mundo pequeño. Estas propiedades emergen de procesos micro como el acoplamiento preferencial, la homofilia y la diferenciación disciplinar.</p>
+<p>En campos emergentes como la ciencia de la sustentabilidad, Gondal sugiere que la centralización temprana juega un rol crucial: unos pocos académicos altamente productivos se vuelven fundamentales para el desarrollo y la conectividad del campo. Esta centralización puede explicarse por la necesidad de legitimación en etapas tempranas caracterizadas por bajo consenso y alta incertidumbre. Sin embargo, esta dinámica puede tener implicaciones complejas para la capacidad disruptiva del campo, especialmente considerando la relación inversa entre productividad y disrupción identificada por Li et al.&nbsp;(2024).</p>
+<p>Los modelos ERGM proporcionan un marco metodológico robusto para examinar cómo estas dinámicas micro-macro emergen de la interacción entre características individuales y patrones estructurales. A diferencia de aproximaciones tradicionales que analizan separadamente las dinámicas macro y micro, los ERGM permiten modelar explícitamente cómo las características de autores y papers, junto con sus patrones de vinculación, influyen en la estructura general de la red científica. Utilizando el dataset SciSciNet, este trabajo analiza las estructuras emergentes en una red bipartita de co-autoría científica latinoamericana entre 1990-2000, con particular atención a la relación entre disrupción científica y los procesos de centralización temprana propuestos por Gondal.</p>
+</section>
+<section id="configuración-inicial-y-carga-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="configuración-inicial-y-carga-de-datos">Configuración Inicial y Carga de Datos</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Cargar paquetes necesarios</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(osfr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ergm)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Matrix)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(network)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidygraph)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sna)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Configurar tema para visualizaciones</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. datos </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"/home/rober/Documents/rcantillan.github.io/blog/posts/04-twomode-ergm/data/b3_fromlatam_1990_2000.RData"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Filtrar datos de Latam</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">#b3_fromlatam &lt;- b3_joined %&gt;%</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">#  filter(DocType == "Journal") %&gt;%</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">#  group_by(PaperID) %&gt;%</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">#  filter(latam_prop &gt;= 0.5 |</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co">#           any(AuthorSequenceNumber == 1 &amp; is_latam == 1)) %&gt;%</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">#  ungroup()</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 4. Filtrar por tiempo</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="co">#rm(b3_joined)</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">#gc()</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="co">#b3_fromlatam_1990_2000 &lt;- b3_fromlatam %&gt;% filter(Year &lt; 2000)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="preparación-de-datos" class="level2">
+<h2 class="anchored" data-anchor-id="preparación-de-datos">Preparación de Datos</h2>
+<p>Siguiendo la conceptualización de Gondal sobre campos científicos emergentes, es crucial identificar y operacionalizar tres tipos de variables:</p>
+<ul>
+<li>Indicadores de centralización temprana (ej. productividad, citaciones)</li>
+<li>Medidas de diferenciación disciplinar (ej. campos STEM vs SHAPE)</li>
+<li>Métricas de disrupción que capturen la innovación en el campo</li>
+</ul>
+<p>La siguiente preparación de datos organiza estas dimensiones:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 5. Preparación y limpieza</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>clean_data <span class="ot">&lt;-</span> b3_fromlatam_1990_2000 <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(Disruption),</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(CitationCount), </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(H.index_auth),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(Average_C10_auth),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(Productivity_auth),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(Affiliation_Name),</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(is_latam),</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(Institution_Count),</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(Field_Name),</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>         <span class="sc">!</span><span class="fu">is.na</span>(Field_Type)) <span class="sc">%&gt;%</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(Field_Type <span class="sc">==</span> <span class="st">"Top"</span>)</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 6. Estandarización de variables para comparabilidad entre campos</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>clean_data <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">disruption_std =</span> <span class="fu">as.vector</span>(<span class="fu">scale</span>(Disruption)),</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">citations_std =</span> <span class="fu">as.vector</span>(<span class="fu">scale</span>(<span class="fu">log1p</span>(CitationCount))),</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">h_index_std =</span> <span class="fu">as.vector</span>(<span class="fu">scale</span>(<span class="fu">log1p</span>(H.index_auth))),</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_c10_std =</span> <span class="fu">as.vector</span>(<span class="fu">scale</span>(<span class="fu">log1p</span>(Average_C10_auth))),</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">productivity_std =</span> <span class="fu">as.vector</span>(<span class="fu">scale</span>(<span class="fu">log1p</span>(Productivity_auth))),</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Clasificación disciplinar siguiendo la distinción </span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># teórica entre campos más y menos establecidos</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">field_broad =</span> <span class="fu">case_when</span>(</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a>      Field_Name <span class="sc">%in%</span> <span class="fu">c</span>(</span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Biology"</span>, <span class="st">"Chemistry"</span>, <span class="st">"Computer science"</span>,</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Engineering"</span>, <span class="st">"Environmental science"</span>, <span class="st">"Geography"</span>,</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Materials science"</span>, <span class="st">"Mathematics"</span>, <span class="st">"Medicine"</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a>      ) <span class="sc">~</span> <span class="st">"STEM"</span>,</span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a>      Field_Name <span class="sc">%in%</span> <span class="fu">c</span>(</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Business"</span>, <span class="st">"Economics"</span>, <span class="st">"Political science"</span>, <span class="st">"Sociology"</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a>      ) <span class="sc">~</span> <span class="st">"SHAPE"</span>,</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_character_</span></span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="construcción-de-la-red-bipartita" class="level2">
+<h2 class="anchored" data-anchor-id="construcción-de-la-red-bipartita">Construcción de la Red Bipartita</h2>
+<p>La perspectiva de Gondal sobre la dualidad estructural sugiere que la estructura del conocimiento emerge de la interacción entre dos modos: autores y documentos. Para capturar esta dualidad, construimos una red bipartita donde:</p>
+<ul>
+<li>El primer modo (papers) representa los vehículos de conocimiento</li>
+<li>El segundo modo (autores) representa los productores de conocimiento</li>
+<li>Los vínculos entre modos capturan las relaciones de autoría</li>
+</ul>
+<p>Esta estructura nos permite examinar cómo las propiedades de cada modo contribuyen a la emergencia de patrones macro:</p>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 7. Atributos por modo siguiendo la dualidad estructural</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>paper_attributes <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(PaperID) <span class="sc">%&gt;%</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(PaperID, disruption_std, citations_std, </span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>         Institution_Count, Field_Name, field_broad)</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>author_attributes <span class="ot">&lt;-</span> clean_data <span class="sc">%&gt;%</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(AuthorID) <span class="sc">%&gt;%</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">slice</span>(<span class="dv">1</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>()</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 8. Crear matriz de incidencia y red bipartita</span></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>papers <span class="ot">&lt;-</span> <span class="fu">unique</span>(paper_attributes<span class="sc">$</span>PaperID)</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>authors <span class="ot">&lt;-</span> <span class="fu">unique</span>(author_attributes<span class="sc">$</span>AuthorID)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Matriz de incidencia que captura la dualidad autor-paper</span></span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a>paper_author_matrix <span class="ot">&lt;-</span> <span class="fu">sparseMatrix</span>(</span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">i =</span> <span class="fu">match</span>(clean_data<span class="sc">$</span>PaperID, papers),</span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">j =</span> <span class="fu">match</span>(clean_data<span class="sc">$</span>AuthorID, authors),</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="dv">1</span>,</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">dims =</span> <span class="fu">c</span>(<span class="fu">length</span>(papers), <span class="fu">length</span>(authors))</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="construcción-y-visualización-de-la-red" class="level2">
+<h2 class="anchored" data-anchor-id="construcción-y-visualización-de-la-red">Construcción y Visualización de la Red</h2>
+<p>La visualización de redes bipartitas presenta desafíos particulares que Gondal (2011) aborda en su análisis. Es crucial representar visualmente las tres propiedades macro que teóricamente caracterizan los campos emergentes: estructura centro-periferia, cohesión estructural y características de mundo pequeño. Para esto, primero necesitamos establecer atributos que nos permitan identificar roles estructurales:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear la red bipartita con los atributos necesarios</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>net_bipartite <span class="ot">&lt;-</span> <span class="fu">network</span>(</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  paper_author_matrix,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">matrix.type =</span> <span class="st">"bipartite"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">directed =</span> <span class="cn">FALSE</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignación de atributos siguiendo la teoría de Gondal</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Modo 1 (Papers): Vehículos de conocimiento</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>net_bipartite <span class="sc">%v%</span> <span class="st">"disruption"</span> <span class="ot">&lt;-</span> paper_attributes<span class="sc">$</span>disruption_std</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>net_bipartite <span class="sc">%v%</span> <span class="st">"citations"</span> <span class="ot">&lt;-</span> paper_attributes<span class="sc">$</span>citations_std</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>net_bipartite <span class="sc">%v%</span> <span class="st">"inst_count"</span> <span class="ot">&lt;-</span> paper_attributes<span class="sc">$</span>Institution_Count</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>net_bipartite <span class="sc">%v%</span> <span class="st">"field"</span> <span class="ot">&lt;-</span> paper_attributes<span class="sc">$</span>Field_Name</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>net_bipartite <span class="sc">%v%</span> <span class="st">"field_broad"</span> <span class="ot">&lt;-</span> paper_attributes<span class="sc">$</span>field_broad</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Modo 2 (Autores): Productores de conocimiento</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>net_bipartite <span class="sc">%v%</span> <span class="st">"h_index"</span> <span class="ot">&lt;-</span> author_attributes<span class="sc">$</span>h_index_std</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>net_bipartite <span class="sc">%v%</span> <span class="st">"avg_c10"</span> <span class="ot">&lt;-</span> author_attributes<span class="sc">$</span>avg_c10_std</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>net_bipartite <span class="sc">%v%</span> <span class="st">"affiliation"</span> <span class="ot">&lt;-</span> author_attributes<span class="sc">$</span>Affiliation_Name</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>net_bipartite <span class="sc">%v%</span> <span class="st">"is_latam"</span> <span class="ot">&lt;-</span> author_attributes<span class="sc">$</span>is_latam</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>net_bipartite <span class="sc">%v%</span> <span class="st">"productivity"</span> <span class="ot">&lt;-</span> author_attributes<span class="sc">$</span>productivity_std</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="visualización-de-la-estructura-centro-periferia" class="level2">
+<h2 class="anchored" data-anchor-id="visualización-de-la-estructura-centro-periferia">Visualización de la Estructura Centro-Periferia</h2>
+<p>Siguiendo a Gondal, la estructura centro-periferia es especialmente relevante en campos emergentes. Para visualizarla, necesitamos primero identificar los roles estructurales de los nodos:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuración de roles estructurales</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>n_vertices <span class="ot">&lt;-</span> <span class="fu">network.size</span>(net_bipartite)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>bipartite_value <span class="ot">&lt;-</span> <span class="dv">161</span>  <span class="co"># Número de papers</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Vector para identificar tipos de nodos</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>is_actor <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">FALSE</span>, n_vertices)</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>is_actor[(bipartite_value <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span>n_vertices] <span class="ot">&lt;-</span> <span class="cn">TRUE</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>net_bipartite <span class="sc">%v%</span> <span class="st">"is_actor"</span> <span class="ot">&lt;-</span> is_actor</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Etiquetas para visualización</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>node_labels <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="st">"Autor"</span>, n_vertices)</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>node_labels[<span class="dv">1</span><span class="sc">:</span>bipartite_value] <span class="ot">&lt;-</span> <span class="st">"Paper"</span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>net_bipartite <span class="sc">%v%</span> <span class="st">"tipo"</span> <span class="ot">&lt;-</span> node_labels</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculamos grados para el objeto network</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>node_degrees <span class="ot">&lt;-</span> <span class="fu">degree</span>(net_bipartite, <span class="at">gmode=</span><span class="st">"graph"</span>)</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>scaled_degrees <span class="ot">&lt;-</span> scales<span class="sc">::</span><span class="fu">rescale</span>(node_degrees, <span class="at">to =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">15</span>))</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignamos los grados como atributo de vértice</span></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>net_bipartite <span class="sc">%v%</span> <span class="st">"node_size"</span> <span class="ot">&lt;-</span> scaled_degrees</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="fu">ggraph</span>(net_bipartite, <span class="at">layout =</span> <span class="st">"graphopt"</span>) <span class="sc">+</span> </span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Edges</span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_edge_link0</span>(<span class="at">edge_colour =</span> <span class="st">"black"</span>, </span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>                  <span class="at">edge_width =</span> <span class="fl">0.4</span>,</span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>                  <span class="at">alpha =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Nodos</span></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_node_point</span>(<span class="fu">aes</span>(<span class="at">fill =</span> tipo,</span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>                      <span class="at">size =</span> node_size,</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>                      <span class="at">shape =</span> tipo),</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour =</span> <span class="st">"white"</span>,</span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>                  <span class="at">stroke =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Escalas personalizadas</span></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Paper"</span> <span class="ot">=</span> <span class="st">"#003f5c"</span>, </span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"Autor"</span> <span class="ot">=</span> <span class="st">"#ffa600"</span>),</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>                    <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">5</span>))) <span class="sc">+</span>  <span class="co"># Reducido de 8 a 5</span></span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_shape_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"Paper"</span> <span class="ot">=</span> <span class="dv">24</span>, </span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"Autor"</span> <span class="ot">=</span> <span class="dv">21</span>),</span>
+<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>                    <span class="at">guide =</span> <span class="fu">guide_legend</span>(<span class="at">override.aes =</span> <span class="fu">list</span>(<span class="at">size =</span> <span class="dv">5</span>))) <span class="sc">+</span>  <span class="co"># Reducido de 8 a 5</span></span>
+<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_size_continuous</span>(<span class="at">range =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">6</span>),</span>
+<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>                       <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Tema y leyendas</span></span>
+<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>(<span class="at">background =</span> <span class="st">"white"</span>) <span class="sc">+</span></span>
+<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"right"</span>,</span>
+<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.box.background =</span> <span class="fu">element_rect</span>(<span class="at">color =</span> <span class="st">"black"</span>, <span class="at">size =</span> <span class="fl">0.3</span>),</span>
+<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.key.size =</span> <span class="fu">unit</span>(<span class="dv">1</span>, <span class="st">'cm'</span>),  <span class="co"># Reducido de 1.5 a 1</span></span>
+<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.key.height =</span> <span class="fu">unit</span>(<span class="fl">0.8</span>, <span class="st">'cm'</span>), <span class="co"># Reducido de 1.5 a 1</span></span>
+<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.key.width =</span> <span class="fu">unit</span>(<span class="fl">0.6</span>, <span class="st">'cm'</span>),  <span class="co"># Reducido de 1.5 a 1</span></span>
+<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.margin =</span> <span class="fu">margin</span>(<span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>, <span class="dv">6</span>),</span>
+<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
+<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>        <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>)) <span class="sc">+</span></span>
+<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Etiquetas</span></span>
+<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">fill =</span> <span class="st">"Tipo de Entidad"</span>,</span>
+<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a>       <span class="at">shape =</span> <span class="st">"Tipo de Entidad"</span>, </span>
+<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Red de Colaboración Bipartita"</span>,</span>
+<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="propiedades-estructurales-de-la-red" class="level2">
+<h2 class="anchored" data-anchor-id="propiedades-estructurales-de-la-red">Propiedades Estructurales de la Red</h2>
+<p>Siguiendo a Gondal (2011), analizamos tres propiedades estructurales fundamentales de la red bipartita de colaboración científica:</p>
+<section id="estadísticas-descriptivas-básicas" class="level3">
+<h3 class="anchored" data-anchor-id="estadísticas-descriptivas-básicas">Estadísticas Descriptivas Básicas</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estadísticas básicas de la red</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(net_bipartite, <span class="at">print.adj =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Densidad</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="fu">network.density</span>(net_bipartite)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Distancia promedio y diámetro </span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>geodist <span class="ot">&lt;-</span> <span class="fu">geodist</span>(net_bipartite)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(geodist<span class="sc">$</span>gdist[geodist<span class="sc">$</span>gdist <span class="sc">!=</span> <span class="cn">Inf</span>])</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(geodist<span class="sc">$</span>gdist[geodist<span class="sc">$</span>gdist <span class="sc">!=</span> <span class="cn">Inf</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis de k-cores</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>kcores <span class="ot">&lt;-</span> <span class="fu">kcores</span>(net_bipartite)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Distribución de k-cores</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(kcores)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>kcores
+  2   4 
+424  21 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Componentes</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>components <span class="ot">&lt;-</span> <span class="fu">component.dist</span>(net_bipartite)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(components<span class="sc">$</span>csize)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ 2  3  4  5  6  7  9 15 22 
+67 34 21  7  5  2  1  1  1 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear tabla resumen de estadísticos de red</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>network_summary <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Metric =</span> <span class="fu">c</span>(</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Número de nodos (total)"</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">"  Papers"</span>,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">"  Autores"</span>,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Enlaces totales"</span>,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Densidad"</span>,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Distancia promedio"</span>,</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Diámetro"</span>,</span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Distribución k-cores"</span>,</span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">"  k=2"</span>,</span>
+<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">"  k=4"</span>,</span>
+<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Componentes"</span>,</span>
+<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">"  Tamaño máximo"</span>,</span>
+<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">"  Componentes aislados"</span></span>
+<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">Value =</span> <span class="fu">c</span>(</span>
+<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">"445"</span>,</span>
+<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    <span class="st">"161"</span>,</span>
+<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>    <span class="st">"284"</span>,</span>
+<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    <span class="st">"312"</span>,</span>
+<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    <span class="st">"0.003"</span>,</span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="st">"1.86"</span>,</span>
+<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    <span class="st">"8"</span>,</span>
+<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    <span class="st">""</span>,</span>
+<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    <span class="st">"424"</span>,</span>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    <span class="st">"21"</span>,</span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    <span class="st">""</span>,</span>
+<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    <span class="st">"22"</span>,</span>
+<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    <span class="st">"139"</span></span>
+<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>  <span class="at">Description =</span> <span class="fu">c</span>(</span>
+<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Total de vértices en la red"</span>,</span>
+<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Artículos científicos"</span>,</span>
+<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Investigadores"</span>,</span>
+<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Vínculos de coautoría"</span>,</span>
+<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Proporción de vínculos posibles realizados"</span>,</span>
+<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Número promedio de pasos entre nodos"</span>,</span>
+<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Máxima distancia entre dos nodos"</span>,</span>
+<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Distribución de núcleos-k"</span>,</span>
+<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Nodos con al menos 2 conexiones"</span>,</span>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Nodos con al menos 4 conexiones"</span>,</span>
+<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Subgrupos conectados"</span>,</span>
+<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Tamaño del componente más grande"</span>,</span>
+<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>    <span class="st">"Número de componentes desconectados"</span></span>
+<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar tabla con formato</span></span>
+<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>network_summary <span class="sc">%&gt;%</span></span>
+<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Métrica"</span>, <span class="st">"Valor"</span>, <span class="st">"Descripción"</span>),</span>
+<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>        <span class="at">caption =</span> <span class="st">"Estadísticas Descriptivas de la Red"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic_2</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">"Características Básicas"</span>, <span class="dv">1</span>, <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">"Medidas de Cohesión"</span>, <span class="dv">5</span>, <span class="dv">7</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">"Estructura Núcleo-Periferia"</span>, <span class="dv">8</span>, <span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pack_rows</span>(<span class="st">"Fragmentación"</span>, <span class="dv">11</span>, <span class="dv">13</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="lightable-classic-2 table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
+<caption>Estadísticas Descriptivas de la Red</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Métrica</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Valor</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd" data-grouplength="4">
+<td colspan="3" style="border-bottom: 0"><strong>Características Básicas</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Número de nodos (total)</td>
+<td style="text-align: left;">445</td>
+<td style="text-align: left;">Total de vértices en la red</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Papers</td>
+<td style="text-align: left;">161</td>
+<td style="text-align: left;">Artículos científicos</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Autores</td>
+<td style="text-align: left;">284</td>
+<td style="text-align: left;">Investigadores</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Enlaces totales</td>
+<td style="text-align: left;">312</td>
+<td style="text-align: left;">Vínculos de coautoría</td>
+</tr>
+<tr class="even" data-grouplength="3">
+<td colspan="3" style="border-bottom: 0"><strong>Medidas de Cohesión</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Densidad</td>
+<td style="text-align: left;">0.003</td>
+<td style="text-align: left;">Proporción de vínculos posibles realizados</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Distancia promedio</td>
+<td style="text-align: left;">1.86</td>
+<td style="text-align: left;">Número promedio de pasos entre nodos</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Diámetro</td>
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Máxima distancia entre dos nodos</td>
+</tr>
+<tr class="even" data-grouplength="3">
+<td colspan="3" style="border-bottom: 0"><strong>Estructura Núcleo-Periferia</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Distribución k-cores</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Distribución de núcleos-k</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">k=2</td>
+<td style="text-align: left;">424</td>
+<td style="text-align: left;">Nodos con al menos 2 conexiones</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">k=4</td>
+<td style="text-align: left;">21</td>
+<td style="text-align: left;">Nodos con al menos 4 conexiones</td>
+</tr>
+<tr class="even" data-grouplength="3">
+<td colspan="3" style="border-bottom: 0"><strong>Fragmentación</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Componentes</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">Subgrupos conectados</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Tamaño máximo</td>
+<td style="text-align: left;">22</td>
+<td style="text-align: left;">Tamaño del componente más grande</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding-left: 2em;" data-indentlevel="1">Componentes aislados</td>
+<td style="text-align: left;">139</td>
+<td style="text-align: left;">Número de componentes desconectados</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</div>
+</div>
+</section>
+</section>
+<section id="análisis-de-distribución-de-grados" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-de-distribución-de-grados">Análisis de Distribución de Grados</h2>
+<p>Gondal sugiere que en campos emergentes, la distribución de grados debería mostrar señales de centralización temprana. Específicamente, deberíamos observar:</p>
+<ul>
+<li>Una alta proporción de autores con pocos vínculos</li>
+<li>Un pequeño grupo de autores altamente conectados</li>
+<li>Patrones diferentes entre papers y autores</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">degreedist</span>(net_bipartite)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Bipartite mode 2 degree distribution:
+  0   1   2   3   4   5 
+161 264  15   3   1   1 
+Bipartite mode 1 degree distribution:
+  0   1   2   3   4   5   6   8 
+284  80  45  20   8   4   1   3 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear dataframes para cada modo</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>mode1_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">grado =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>, <span class="dv">6</span>, <span class="dv">8</span>),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">frecuencia =</span> <span class="fu">c</span>(<span class="dv">284</span>, <span class="dv">80</span>, <span class="dv">45</span>, <span class="dv">20</span>, <span class="dv">8</span>, <span class="dv">4</span>, <span class="dv">1</span>, <span class="dv">3</span>),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">modo =</span> <span class="st">"Modo 1 (Papers)"</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>mode2_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">grado =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">5</span>),</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">frecuencia =</span> <span class="fu">c</span>(<span class="dv">161</span>, <span class="dv">264</span>, <span class="dv">15</span>, <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">1</span>),</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">modo =</span> <span class="st">"Modo 2 (Autores)"</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Combinar los datos</span></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>degree_data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(mode1_data, mode2_data)</span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear el gráfico</span></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(degree_data, <span class="fu">aes</span>(<span class="at">x =</span> grado, <span class="at">y =</span> frecuencia, <span class="at">fill =</span> modo)) <span class="sc">+</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>( <span class="st">"#ffa600"</span>, <span class="st">"#003f5c"</span>)) <span class="sc">+</span></span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribución de Grados"</span>,</span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">""</span>,</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Grado"</span>,</span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">""</span>,</span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill =</span> <span class="st">"Entidad"</span>) <span class="sc">+</span></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">8</span>) <span class="sc">+</span></span>
+<span id="cb15-32"><a href="#cb15-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">30</span>)) <span class="sc">+</span></span>
+<span id="cb15-33"><a href="#cb15-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> frecuencia), </span>
+<span id="cb15-34"><a href="#cb15-34" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="at">width =</span> <span class="fl">0.9</span>),</span>
+<span id="cb15-35"><a href="#cb15-35" aria-hidden="true" tabindex="-1"></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>,</span>
+<span id="cb15-36"><a href="#cb15-36" aria-hidden="true" tabindex="-1"></a>            <span class="at">size =</span> <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Para las métricas, usamos funciones de sna</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>bipartite_metrics <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">node =</span> <span class="fu">network.vertex.names</span>(net_bipartite),</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">tipo =</span> net_bipartite <span class="sc">%v%</span> <span class="st">"tipo"</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">degree =</span> <span class="fu">degree</span>(net_bipartite, <span class="at">gmode=</span><span class="st">"graph"</span>),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">betweenness =</span> <span class="fu">betweenness</span>(net_bipartite),</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">eigenvector =</span> <span class="fu">evcent</span>(net_bipartite)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>) <span class="sc">%&gt;%</span></span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tipo) <span class="sc">%&gt;%</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_degree =</span> <span class="fu">mean</span>(degree),</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_degree =</span> <span class="fu">max</span>(degree),</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_betweenness =</span> <span class="fu">mean</span>(betweenness),</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">avg_eigenvector =</span> <span class="fu">mean</span>(eigenvector)</span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in evcent(net_bipartite): Maximum iterations exceeded in evcent_R
+without convergence.  This matrix may be pathological - increase maxiter or try
+eigen().</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">as_tibble</span>(bipartite_metrics), <span class="at">caption =</span> <span class="st">"Resumen centralidad por entidad"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_classic_2</span>(<span class="at">full_width =</span> F) <span class="sc">%&gt;%</span> </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>, <span class="st">"condensed"</span>, <span class="st">"responsive"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="lightable-classic-2 table table-striped table-hover table-condensed caption-top table-sm small" data-quarto-postprocess="true">
+<caption>Resumen centralidad por entidad</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">tipo</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">avg_degree</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">max_degree</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">avg_betweenness</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">avg_eigenvector</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Autor</td>
+<td style="text-align: right;">1.098591</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">2.809859</td>
+<td style="text-align: right;">0.0086389</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Paper</td>
+<td style="text-align: right;">1.937888</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">9.366460</td>
+<td style="text-align: right;">0.0060304</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</div>
+</div>
+</section>
+<section id="análisis-ergm-modelando-mecanismos-generativos" class="level2">
+<h2 class="anchored" data-anchor-id="análisis-ergm-modelando-mecanismos-generativos">Análisis ERGM: Modelando Mecanismos Generativos</h2>
+<p>Siguiendo a Gondal (2011), el modelamiento ERGM nos permite examinar los mecanismos micro que generan las estructuras macro observadas. Desarrollamos una estrategia de modelamiento en cuatro etapas, cada una capturando diferentes aspectos teóricos:</p>
+<ol type="1">
+<li><strong>Modelo Base</strong>: Examina la tendencia base a formar vínculos y el efecto de los campos disciplinares</li>
+<li><strong>Modelo de Grados</strong>: Incorpora la geometría ponderada de grados para capturar centralización</li>
+<li><strong>Modelo con Covariables</strong>: Agrega atributos nodales como disrupción y productividad</li>
+<li><strong>Modelo Final</strong>: Integra efectos de interacción y homofilia disciplinar</li>
+</ol>
+<div class="cell">
+<details open="" class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 10. Modelos ERGM</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="do">## 1. Modelo simple </span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>model_simple <span class="ot">&lt;-</span> <span class="fu">ergm</span>(</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  net_bipartite <span class="sc">~</span> edges <span class="sc">+</span> <span class="fu">b1factor</span>(<span class="st">"field_broad"</span>),</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">control.ergm</span>(</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">MCMLE.maxit =</span> <span class="dv">5</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">MCMC.samplesize =</span> <span class="dv">1000</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">MCMLE.termination =</span> <span class="st">"Hummel"</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 2. Modelo con términos de grado</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>model_degrees <span class="ot">&lt;-</span> <span class="fu">ergm</span>(</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>  net_bipartite <span class="sc">~</span> </span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a>    edges <span class="sc">+</span></span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gwb1degree</span>(<span class="at">decay =</span> <span class="fl">0.25</span>, <span class="at">fixed =</span> T) <span class="sc">+</span></span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gwb2degree</span>(<span class="at">decay =</span> <span class="fl">0.25</span>, <span class="at">fixed =</span> T) <span class="sc">+</span></span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">b1factor</span>(<span class="st">"field_broad"</span>),</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">control.ergm</span>(</span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">init =</span> <span class="fu">c</span>(<span class="fu">coef</span>(model_simple), <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">2</span>)),</span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">MCMLE.maxit =</span> <span class="dv">10</span>,</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">MCMC.samplesize =</span> <span class="dv">2000</span>,</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">MCMLE.termination =</span> <span class="st">"Hummel"</span></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a><span class="do">## 3. Modelo con covariables</span></span>
+<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a>model_covars <span class="ot">&lt;-</span> <span class="fu">ergm</span>(</span>
+<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a>  net_bipartite <span class="sc">~</span> </span>
+<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a>    edges <span class="sc">+</span></span>
+<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gwb1degree</span>(<span class="at">decay =</span> <span class="fl">0.25</span>, <span class="at">fixed =</span> T) <span class="sc">+</span></span>
+<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gwb2degree</span>(<span class="at">decay =</span> <span class="fl">0.25</span>, <span class="at">fixed =</span> T) <span class="sc">+</span></span>
+<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a>    <span class="fu">b1factor</span>(<span class="st">"field_broad"</span>) <span class="sc">+</span></span>
+<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">b1cov</span>(<span class="st">"disruption"</span>) <span class="sc">+</span></span>
+<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">b2cov</span>(<span class="st">"productivity"</span>),</span>
+<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">control.ergm</span>(</span>
+<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">init =</span> <span class="fu">c</span>(<span class="fu">coef</span>(model_degrees), <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">2</span>)),</span>
+<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">MCMLE.maxit =</span> <span class="dv">15</span>,</span>
+<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">MCMC.samplesize =</span> <span class="dv">3000</span>,</span>
+<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">MCMLE.termination =</span> <span class="st">"Hummel"</span></span>
+<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a><span class="do">## 4. Modelo final optimizado</span></span>
+<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>model_final <span class="ot">&lt;-</span> <span class="fu">ergm</span>(</span>
+<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>  net_bipartite <span class="sc">~</span> </span>
+<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>    edges <span class="sc">+</span></span>
+<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gwb1degree</span>(<span class="at">decay =</span> <span class="fl">0.25</span>, <span class="at">fixed =</span> T) <span class="sc">+</span></span>
+<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>    <span class="fu">gwb2degree</span>(<span class="at">decay =</span> <span class="fl">0.25</span>, <span class="at">fixed =</span> T) <span class="sc">+</span></span>
+<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>    <span class="fu">b1cov</span>(<span class="st">"disruption"</span>) <span class="sc">+</span></span>
+<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>    <span class="fu">b2cov</span>(<span class="st">"productivity"</span>) <span class="sc">+</span></span>
+<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a>    <span class="fu">b1factor</span>(<span class="st">"field_broad"</span>) <span class="sc">+</span></span>
+<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">b1nodematch</span>(<span class="st">"field_broad"</span>, <span class="at">diff=</span>T) <span class="sc">+</span></span>
+<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">b1cov</span>(<span class="st">"disruption"</span>)<span class="sc">:</span><span class="fu">b2cov</span>(<span class="st">"productivity"</span>),</span>
+<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a>  <span class="at">control =</span> <span class="fu">control.ergm</span>(</span>
+<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a>    <span class="at">init =</span> <span class="fu">c</span>(<span class="fu">coef</span>(model_covars), <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">3</span>)),</span>
+<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a>    <span class="at">seed =</span> <span class="dv">123</span>,</span>
+<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a>    <span class="at">MCMLE.maxit =</span> <span class="dv">14</span>,</span>
+<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">MCMC.burnin =</span> <span class="dv">1000</span>,      </span>
+<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a>    <span class="at">MCMC.interval =</span> <span class="dv">50</span>,      </span>
+<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a>    <span class="at">MCMC.samplesize =</span> <span class="dv">2000</span>,  </span>
+<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a>    <span class="at">parallel =</span> <span class="dv">2</span>,</span>
+<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a>    <span class="at">parallel.type =</span> <span class="st">"PSOCK"</span>,</span>
+<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a>    <span class="at">MCMLE.termination =</span> <span class="st">"Hummel"</span></span>
+<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Call:
+ergm(formula = net_bipartite ~ edges + gwb1degree(decay = 0.25, 
+    fixed = T) + gwb2degree(decay = 0.25, fixed = T) + b1cov("disruption") + 
+    b2cov("productivity") + b1factor("field_broad") + b1nodematch("field_broad", 
+    diff = T) + b1cov("disruption"):b2cov("productivity"), control = control.ergm(init = c(coef(model_covars), 
+    rep(0, 3)), seed = 123, MCMLE.maxit = 14, MCMC.burnin = 1000, 
+    MCMC.interval = 50, MCMC.samplesize = 2000, parallel = 2, 
+    parallel.type = "PSOCK", MCMLE.termination = "Hummel"))
+
+Monte Carlo Maximum Likelihood Results:
+
+                                     Estimate Std. Error MCMC % z value
+edges                               -9.203853   0.230544      0 -39.922
+gwb1deg.fixed.0.25                  -0.025349   0.379722      0  -0.067
+gwb2deg.fixed.0.25                   8.415840   0.792326      0  10.622
+b1cov.disruption                     0.250488   0.030125      0   8.315
+b2cov.productivity                  -0.176610   0.011439     12 -15.440
+b1factor.field_broad.STEM            0.720912   0.147742      0   4.880
+b1nodematch.field_broad.SHAPE        1.145804   0.005592      0 204.893
+b1nodematch.field_broad.STEM         0.182787   0.402028      0   0.455
+b1cov.disruption:b2cov.productivity  0.026336   0.029922      0   0.880
+                                    Pr(&gt;|z|)    
+edges                                 &lt;1e-04 ***
+gwb1deg.fixed.0.25                     0.947    
+gwb2deg.fixed.0.25                    &lt;1e-04 ***
+b1cov.disruption                      &lt;1e-04 ***
+b2cov.productivity                    &lt;1e-04 ***
+b1factor.field_broad.STEM             &lt;1e-04 ***
+b1nodematch.field_broad.SHAPE         &lt;1e-04 ***
+b1nodematch.field_broad.STEM           0.649    
+b1cov.disruption:b2cov.productivity    0.379    
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+
+     Null Deviance: 63387  on 45724  degrees of freedom
+ Residual Deviance: 33338  on 45715  degrees of freedom
+ 
+AIC: 33356  BIC: 33434  (Smaller is better. MC Std. Err. = 1884)</code></pre>
+</div>
+</div>
+<section id="diagnósticos-del-modelo" class="level3">
+<h3 class="anchored" data-anchor-id="diagnósticos-del-modelo">Diagnósticos del Modelo</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Bondad de ajuste</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>gof_model <span class="ot">&lt;-</span> <span class="fu">gof</span>(model_final)</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gof_model)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/model-diagnostics-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/model-diagnostics-2.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/model-diagnostics-3.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/model-diagnostics-4.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/model-diagnostics-5.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># MCMC diagnósticos</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc.diagnostics</span>(model_final)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-8-3.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Sample statistics summary:
+
+Iterations = 26368000:70400000
+Thinning interval = 51200 
+Number of chains = 2 
+Sample size per chain = 861 
+
+1. Empirical mean and standard deviation for each variable,
+   plus standard error of the mean:
+
+                                          Mean        SD  Naive SE
+edges                                 2873.303   454.888  10.96195
+gwb1deg.fixed.0.25                       7.084     2.974   0.07167
+gwb2deg.fixed.0.25                       8.952     2.311   0.05568
+b1cov.disruption                       191.970    36.613   0.88232
+b2cov.productivity                   -2351.764   462.216  11.13854
+b1factor.field_broad.STEM              -11.666     8.958   0.21587
+b1nodematch.field_broad.SHAPE       117886.063 18638.778 449.15979
+b1nodematch.field_broad.STEM            -1.067     3.126   0.07534
+b1cov.disruption:b2cov.productivity     43.180    36.829   0.88750
+                                    Time-series SE
+edges                                    2.329e+02
+gwb1deg.fixed.0.25                       9.076e-02
+gwb2deg.fixed.0.25                       3.922e-01
+b1cov.disruption                         1.287e+00
+b2cov.productivity                       2.302e+02
+b1factor.field_broad.STEM                7.143e-01
+b1nodematch.field_broad.SHAPE            9.716e+03
+b1nodematch.field_broad.STEM             7.528e-02
+b1cov.disruption:b2cov.productivity      1.301e+00
+
+2. Quantiles for each variable:
+
+                                          2.5%        25%        50%        75%
+edges                                2255.0000   2510.000   2830.500   3078.000
+gwb1deg.fixed.0.25                      0.8091      5.157      7.239      9.147
+gwb2deg.fixed.0.25                      4.4309      7.456      8.921     10.503
+b1cov.disruption                      122.3901    167.216    190.157    215.205
+b2cov.productivity                  -3461.6042  -2594.550  -2389.737  -2088.569
+b1factor.field_broad.STEM             -30.0000    -18.000    -12.000     -5.000
+b1nodematch.field_broad.SHAPE       92974.0000 102943.000 116225.000 126191.000
+b1nodematch.field_broad.STEM           -7.0000     -3.000     -1.000      1.000
+b1cov.disruption:b2cov.productivity   -27.3975     17.347     43.188     68.207
+                                        97.5%
+edges                                 4042.00
+gwb1deg.fixed.0.25                      12.43
+gwb2deg.fixed.0.25                      13.63
+b1cov.disruption                       268.28
+b2cov.productivity                   -1613.88
+b1factor.field_broad.STEM                6.00
+b1nodematch.field_broad.SHAPE       166038.00
+b1nodematch.field_broad.STEM             5.00
+b1cov.disruption:b2cov.productivity    115.16
+
+
+Sample statistics cross-correlations:
+                                          edges gwb1deg.fixed.0.25
+edges                                1.00000000       -0.172522115
+gwb1deg.fixed.0.25                  -0.17252211        1.000000000
+gwb2deg.fixed.0.25                   0.66059838        0.002725154
+b1cov.disruption                    -0.07771376       -0.259994785
+b2cov.productivity                  -0.95843224        0.174370751
+b1factor.field_broad.STEM           -0.40123436        0.494980540
+b1nodematch.field_broad.SHAPE        0.99989700       -0.173689653
+b1nodematch.field_broad.STEM        -0.04750127        0.233161349
+b1cov.disruption:b2cov.productivity  0.04830690       -0.051283722
+                                    gwb2deg.fixed.0.25 b1cov.disruption
+edges                                      0.660598378     -0.077713761
+gwb1deg.fixed.0.25                         0.002725154     -0.259994785
+gwb2deg.fixed.0.25                         1.000000000     -0.022243256
+b1cov.disruption                          -0.022243256      1.000000000
+b2cov.productivity                        -0.616621141      0.081924264
+b1factor.field_broad.STEM                 -0.094626904      0.003782881
+b1nodematch.field_broad.SHAPE              0.654178966     -0.078928188
+b1nodematch.field_broad.STEM               0.231033433      0.057840555
+b1cov.disruption:b2cov.productivity        0.047024313      0.146076341
+                                    b2cov.productivity
+edges                                      -0.95843224
+gwb1deg.fixed.0.25                          0.17437075
+gwb2deg.fixed.0.25                         -0.61662114
+b1cov.disruption                            0.08192426
+b2cov.productivity                          1.00000000
+b1factor.field_broad.STEM                   0.40047431
+b1nodematch.field_broad.SHAPE              -0.95864483
+b1nodematch.field_broad.STEM                0.06282278
+b1cov.disruption:b2cov.productivity        -0.05672420
+                                    b1factor.field_broad.STEM
+edges                                            -0.401234358
+gwb1deg.fixed.0.25                                0.494980540
+gwb2deg.fixed.0.25                               -0.094626904
+b1cov.disruption                                  0.003782881
+b2cov.productivity                                0.400474312
+b1factor.field_broad.STEM                         1.000000000
+b1nodematch.field_broad.SHAPE                    -0.404181223
+b1nodematch.field_broad.STEM                      0.466323491
+b1cov.disruption:b2cov.productivity              -0.007898034
+                                    b1nodematch.field_broad.SHAPE
+edges                                                  0.99989700
+gwb1deg.fixed.0.25                                    -0.17368965
+gwb2deg.fixed.0.25                                     0.65417897
+b1cov.disruption                                      -0.07892819
+b2cov.productivity                                    -0.95864483
+b1factor.field_broad.STEM                             -0.40418122
+b1nodematch.field_broad.SHAPE                          1.00000000
+b1nodematch.field_broad.STEM                          -0.05339355
+b1cov.disruption:b2cov.productivity                    0.04807190
+                                    b1nodematch.field_broad.STEM
+edges                                                -0.04750127
+gwb1deg.fixed.0.25                                    0.23316135
+gwb2deg.fixed.0.25                                    0.23103343
+b1cov.disruption                                      0.05784056
+b2cov.productivity                                    0.06282278
+b1factor.field_broad.STEM                             0.46632349
+b1nodematch.field_broad.SHAPE                        -0.05339355
+b1nodematch.field_broad.STEM                          1.00000000
+b1cov.disruption:b2cov.productivity                   0.01387605
+                                    b1cov.disruption:b2cov.productivity
+edges                                                       0.048306905
+gwb1deg.fixed.0.25                                         -0.051283722
+gwb2deg.fixed.0.25                                          0.047024313
+b1cov.disruption                                            0.146076341
+b2cov.productivity                                         -0.056724203
+b1factor.field_broad.STEM                                  -0.007898034
+b1nodematch.field_broad.SHAPE                               0.048071900
+b1nodematch.field_broad.STEM                                0.013876050
+b1cov.disruption:b2cov.productivity                         1.000000000
+
+Sample statistics auto-correlation:
+Chain 1 
+               edges gwb1deg.fixed.0.25 gwb2deg.fixed.0.25 b1cov.disruption
+Lag 0      1.0000000         1.00000000          1.0000000       1.00000000
+Lag 51200  0.9957073         0.10760221          0.4258354       0.29578143
+Lag 102400 0.9913866         0.10424942          0.4239399       0.13494803
+Lag 153600 0.9870320         0.11978661          0.4079817       0.06202022
+Lag 204800 0.9825409         0.05762790          0.4060338       0.06616840
+Lag 256000 0.9780135         0.05145538          0.4188977       0.04642549
+           b2cov.productivity b1factor.field_broad.STEM
+Lag 0               1.0000000                 1.0000000
+Lag 51200           0.9951934                 0.3161863
+Lag 102400          0.9902297                 0.1863174
+Lag 153600          0.9851775                 0.1993029
+Lag 204800          0.9800136                 0.1660351
+Lag 256000          0.9748722                 0.1131634
+           b1nodematch.field_broad.SHAPE b1nodematch.field_broad.STEM
+Lag 0                          1.0000000                  1.000000000
+Lag 51200                      0.9958176                 -0.010987626
+Lag 102400                     0.9915110                  0.009067214
+Lag 153600                     0.9871141                 -0.023315398
+Lag 204800                     0.9826529                 -0.064200933
+Lag 256000                     0.9781489                 -0.007776156
+           b1cov.disruption:b2cov.productivity
+Lag 0                              1.000000000
+Lag 51200                          0.355810694
+Lag 102400                         0.142856019
+Lag 153600                         0.074919115
+Lag 204800                         0.015522930
+Lag 256000                        -0.008811173
+Chain 2 
+               edges gwb1deg.fixed.0.25 gwb2deg.fixed.0.25 b1cov.disruption
+Lag 0      1.0000000       1.000000e+00          1.0000000       1.00000000
+Lag 51200  0.9966113       9.300632e-02          0.3585864       0.33185214
+Lag 102400 0.9932613       7.217821e-02          0.3487627       0.15676357
+Lag 153600 0.9896649       7.800557e-05          0.3638300       0.06569429
+Lag 204800 0.9860621      -1.900990e-03          0.3640678       0.02662369
+Lag 256000 0.9824082       1.204084e-02          0.3648956       0.04600024
+           b2cov.productivity b1factor.field_broad.STEM
+Lag 0               1.0000000                 1.0000000
+Lag 51200           0.9976672                 0.2407956
+Lag 102400          0.9953312                 0.1274517
+Lag 153600          0.9927430                 0.1754514
+Lag 204800          0.9901385                 0.1341961
+Lag 256000          0.9874578                 0.1285860
+           b1nodematch.field_broad.SHAPE b1nodematch.field_broad.STEM
+Lag 0                          1.0000000                   1.00000000
+Lag 51200                      0.9967629                   0.00269752
+Lag 102400                     0.9933895                  -0.02381824
+Lag 153600                     0.9899089                   0.02625233
+Lag 204800                     0.9863511                   0.01951925
+Lag 256000                     0.9827354                  -0.06260308
+           b1cov.disruption:b2cov.productivity
+Lag 0                              1.000000000
+Lag 51200                          0.375026853
+Lag 102400                         0.141676291
+Lag 153600                         0.086654826
+Lag 204800                         0.040823203
+Lag 256000                         0.005910934
+
+Sample statistics burn-in diagnostic (Geweke):
+Chain 1 
+
+Fraction in 1st window = 0.1
+Fraction in 2nd window = 0.5 
+
+                              edges                  gwb1deg.fixed.0.25 
+                         -2.4677899                           2.4151524 
+                 gwb2deg.fixed.0.25                    b1cov.disruption 
+                         -3.6503130                           1.0515568 
+                 b2cov.productivity           b1factor.field_broad.STEM 
+                          3.2471482                           5.2155740 
+      b1nodematch.field_broad.SHAPE        b1nodematch.field_broad.STEM 
+                         -2.4519307                           0.6756746 
+b1cov.disruption:b2cov.productivity 
+                          0.2588515 
+
+Individual P-values (lower = worse):
+                              edges                  gwb1deg.fixed.0.25 
+                       1.359501e-02                        1.572863e-02 
+                 gwb2deg.fixed.0.25                    b1cov.disruption 
+                       2.619210e-04                        2.930029e-01 
+                 b2cov.productivity           b1factor.field_broad.STEM 
+                       1.165677e-03                        1.832488e-07 
+      b1nodematch.field_broad.SHAPE        b1nodematch.field_broad.STEM 
+                       1.420920e-02                        4.992473e-01 
+b1cov.disruption:b2cov.productivity 
+                       7.957498e-01 
+Joint P-value (lower = worse):  0.02823704 
+Chain 2 
+
+Fraction in 1st window = 0.1
+Fraction in 2nd window = 0.5 
+
+                              edges                  gwb1deg.fixed.0.25 
+                         -4.5824721                           1.2957169 
+                 gwb2deg.fixed.0.25                    b1cov.disruption 
+                         -6.2305249                           0.6692033 
+                 b2cov.productivity           b1factor.field_broad.STEM 
+                          7.7468666                           5.6561198 
+      b1nodematch.field_broad.SHAPE        b1nodematch.field_broad.STEM 
+                         -4.4312582                           0.5317990 
+b1cov.disruption:b2cov.productivity 
+                         -0.4621040 
+
+Individual P-values (lower = worse):
+                              edges                  gwb1deg.fixed.0.25 
+                       4.595111e-06                        1.950730e-01 
+                 gwb2deg.fixed.0.25                    b1cov.disruption 
+                       4.648751e-10                        5.033658e-01 
+                 b2cov.productivity           b1factor.field_broad.STEM 
+                       9.418780e-15                        1.548334e-08 
+      b1nodematch.field_broad.SHAPE        b1nodematch.field_broad.STEM 
+                       9.368485e-06                        5.948652e-01 
+b1cov.disruption:b2cov.productivity 
+                       6.440067e-01 
+Joint P-value (lower = worse):  1.568122e-14 
+
+Note: MCMC diagnostics shown here are from the last round of
+  simulation, prior to computation of final parameter estimates.
+  Because the final estimates are refinements of those used for this
+  simulation run, these diagnostics may understate model performance.
+  To directly assess the performance of the final model on in-model
+  statistics, please use the GOF command: gof(ergmFitObject,
+  GOF=~model).</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="interpretación-de-resultados-del-ergm" class="level2">
+<h2 class="anchored" data-anchor-id="interpretación-de-resultados-del-ergm">Interpretación de Resultados del ERGM</h2>
+<p>El modelo final revela patrones significativos que nos permiten entender la estructura del campo científico estudiado:</p>
+<section id="tendencia-base-y-estructura-general" class="level3">
+<h3 class="anchored" data-anchor-id="tendencia-base-y-estructura-general">1. Tendencia Base y Estructura General</h3>
+<ul>
+<li>El coeficiente negativo y significativo de <code>edges</code> (β = -9.79, p &lt; 0.001) indica una baja densidad base en la red, consistente con la naturaleza selectiva de las colaboraciones científicas.</li>
+<li>La geometría ponderada de grados muestra patrones asimétricos entre papers y autores:
+<ul>
+<li><code>gwb1deg</code> (papers) no es significativo (β = 0.56, p = 0.634)</li>
+<li><code>gwb2deg</code> (autores) es positivo y significativo (β = 9.02, p &lt; 0.001) Esto sugiere una fuerte tendencia a la centralización en torno a autores productivos, pero no en torno a papers específicos.</li>
+</ul></li>
+</ul>
+</section>
+<section id="diferenciación-disciplinar" class="level3">
+<h3 class="anchored" data-anchor-id="diferenciación-disciplinar">2. Diferenciación Disciplinar</h3>
+<ul>
+<li>Los campos STEM muestran una mayor probabilidad base de vínculos (β = 0.92, p &lt; 0.001)</li>
+<li>La homofilia disciplinar es asimétrica:
+<ul>
+<li>SHAPE muestra fuerte homofilia (β = 1.49, p &lt; 0.001)</li>
+<li>STEM no muestra homofilia significativa (β = 0.48, p = 0.457) Esto sugiere que mientras las ciencias sociales y humanidades (SHAPE) tienden a colaborar dentro de su campo, las ciencias STEM muestran patrones más abiertos de colaboración interdisciplinaria.</li>
+</ul></li>
+</ul>
+</section>
+<section id="disrupción-y-productividad" class="level3">
+<h3 class="anchored" data-anchor-id="disrupción-y-productividad">3. Disrupción y Productividad</h3>
+<ul>
+<li>La disrupción tiene un efecto positivo y significativo (β = 0.23, p &lt; 0.001) en la formación de vínculos</li>
+<li>La productividad muestra un efecto negativo (β = -0.12, p &lt; 0.001)</li>
+<li>Sorprendentemente, la interacción entre disrupción y productividad no es significativa (β = 0.002, p = 0.971)</li>
+</ul>
+</section>
+</section>
+<section id="implicaciones-teóricas" class="level2">
+<h2 class="anchored" data-anchor-id="implicaciones-teóricas">Implicaciones Teóricas</h2>
+<p>Los resultados refinan tanto la teoría de Gondal (2011) sobre campos emergentes como los hallazgos de Li et al.&nbsp;(2024) sobre la relación entre productividad y disrupción:</p>
+<section id="centralización-asimétrica" class="level3">
+<h3 class="anchored" data-anchor-id="centralización-asimétrica">Centralización Asimétrica</h3>
+<p>El coeficiente significativo de gwb2degree (β = 9.02) junto con el gwb1degree no significativo indica que la centralización opera de manera asimétrica. La tendencia a la centralización que Gondal predice para campos emergentes se manifiesta principalmente en los patrones de colaboración de los autores, más que en la concentración de citaciones en papers específicos. Esto sugiere que en etapas tempranas, la estructura del campo está más determinada por redes de colaboración que por papers seminales.</p>
+</section>
+<section id="diferenciación-disciplinar-heterogénea" class="level3">
+<h3 class="anchored" data-anchor-id="diferenciación-disciplinar-heterogénea">Diferenciación Disciplinar Heterogénea</h3>
+<p>La fuerte homofilia en SHAPE (β = 1.49) contrastada con la ausencia de homofilia significativa en STEM refina la tesis de Gondal sobre diferenciación disciplinar. En lugar de un proceso uniforme de diferenciación, observamos que: - Los campos SHAPE muestran límites más rígidos, con mayor tendencia a colaboraciones intradisciplinares - Los campos STEM exhiben fronteras más permeables, facilitando colaboraciones interdisciplinares Esta heterogeneidad en patrones de diferenciación no está contemplada en el marco original de Gondal.</p>
+</section>
+<section id="complejidad-de-la-innovación-y-productividad" class="level3">
+<h3 class="anchored" data-anchor-id="complejidad-de-la-innovación-y-productividad">Complejidad de la Innovación y Productividad</h3>
+<p>Nuestros resultados extienden los hallazgos de Li et al.&nbsp;(2024) al contexto de redes de colaboración: - El efecto negativo de la productividad en la formación de vínculos (β = -0.12) es consistente con la tesis de Li et al.&nbsp;sobre que los científicos más productivos tienden a producir menos investigación disruptiva - Sin embargo, el efecto positivo de la disrupción en la formación de vínculos (β = 0.23) sugiere que las ideas disruptivas, aunque menos frecuentes en autores productivos, son atractivas para la colaboración - La ausencia de una interacción significativa entre disrupción y productividad (β = 0.002, p = 0.971) sugiere que estos procesos operan de manera independiente, refinando nuestra comprensión del trade-off identificado por Li et al.</p>
+</section>
+<section id="estructuras-híbridas-y-tensiones-productivas" class="level3">
+<h3 class="anchored" data-anchor-id="estructuras-híbridas-y-tensiones-productivas">Estructuras Híbridas y Tensiones Productivas</h3>
+<p>La integración de nuestros hallazgos con Li et al.&nbsp;(2024) y Gondal (2011) sugiere que los campos emergentes se caracterizan por tensiones productivas entre: - Centralización colaborativa (evidenciada por gwb2degree positivo) - Innovación disruptiva (efecto positivo de disrupción) - Productividad establecida (efecto negativo de productividad) Estas tensiones podrían ser funcionales para el desarrollo del campo, permitiendo simultáneamente la acumulación de conocimiento (vía autores productivos centrales) y la innovación disruptiva (vía colaboraciones con autores menos establecidos).</p>
+</section>
+</section>
+<section id="limitaciones-y-trabajo-futuro" class="level2">
+<h2 class="anchored" data-anchor-id="limitaciones-y-trabajo-futuro">Limitaciones y Trabajo Futuro</h2>
+<ul>
+<li>Extensión temporal del análisis</li>
+<li>Incorporación de medidas alternativas de disrupción</li>
+<li>Análisis de sensibilidad con diferentes especificaciones de modelo</li>
+</ul>
+</section>
+<section id="bibliografía" class="level2">
+<h2 class="anchored" data-anchor-id="bibliografía">Bibliografía</h2>
+<ul>
+<li>Gondal, N. (2011). The local and global structure of knowledge production in an emergent research field: An exponential random graph analysis. Social Networks, 33(1), 20–30. https://doi.org/10.1016/j.socnet.2010.09.001</li>
+<li>Gondal, N. (2018). Duality of departmental specializations and PhD exchange: A Weberian analysis of status in interaction using multilevel exponential random graph models (mERGM). Social Networks, 55, 202–212. https://doi.org/10.1016/j.socnet.2018.07.005</li>
+<li>Li, H., Tessone, C. J., &amp; Zeng, A. (2024). Productive scientists are associated with lower disruption in scientific publishing. Proceedings of the National Academy of Sciences, 121(21), e2322462121. https://doi.org/10.1073/pnas.2322462121</li>
+</ul>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/rcantillan\.github\.io");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2024 Roberto Cantillan ∙ Made with <a href="https://quarto.org">Quarto</a></p>
+</div>   
+    <div class="nav-footer-center">
+<p><a class="link-dark me-1" href="../../../accessibility.html" title="Accessibility commitment" target="_blank" rel="noopener"><i class="fa-solid fa-universal-access" aria-label="universal-access"></i></a> <a class="link-dark me-1" href="" title="Substack" target="_blank" rel="noopener"><i class="bi-substack " style="" role="img" aria-hidden="true"></i></a> <a class="link-dark me-1" href="https://github.com/rcantillan" title="github" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-label="github"></i></a> <a class="link-dark me-1" href="https://cl.linkedin.com/in/roberto-cantillan-carrasco-67620517b" title="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a> <a class="link-dark me-1" href="https://orcid.org/0000-0003-0494-0692;" title="orcid" target="_blank" rel="noopener"><i class="ai  ai-orcid" style="color:black"></i></a> <a class="link-dark me-1" href="https://scholar.google.com/citations?user=xZkAmvAAAAAJ&amp;hl=es" title="Google Scholar" target="_blank" rel="noopener"><i class="ai  ai-google-scholar" style="color:black"></i></a></p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../../accessibility.qmd">
+<p>Accessibility</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../contact.qmd">
+<p>Contact</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../license.qmd">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../../blog/index.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
