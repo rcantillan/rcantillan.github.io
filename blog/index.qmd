@@ -1,8 +1,8 @@
 ---
-title: "Meeting People Where They R"
+title: "Blog"
 description: |
-  This is my blog where I practice sharing my curiosity about R.
-  It includes notes and tutorials for my future self and hopefully also for you.
+  This space brings together social network analysis and R programming to explore important social issues. By analyzing data from various social networks, we delve into topics like social capital, inequality, and the dynamics of social structures. Our goal is to provide tools and knowledge to help researchers better understand these topics and foster collaboration within the field.
+  
 listing:
   contents: posts
   sort: "date desc"

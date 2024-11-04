@@ -1,0 +1,15 @@
+/*-- scss:defaults --*/
+
+// Light theme colors
+$spc-primary: #524B44;          // Color marrón grisáceo (título principal)
+$spc-primary-light: #666666;    // Gris más claro (para textos secundarios)
+$spc-secondary: #8C2C2E;        // Rojo oscuro (para links y acentos)
+$spc-secondary-light: #A64D4F;  // Rojo más claro (para hover)
+$spc-accent: #333333;          // Gris oscuro (para textos)
+$spc-accent-light: #F5F5F5;    // Gris muy claro (para fondos)
+$spc-accent-dark: #1A1A1A;     // Casi negro (para textos importantes)
+$spc-bg-0: #FFFFFF;            // Blanco (fondo principal)
+$spc-bg-1: #FAFAFA;            // Blanco roto (fondo secundario)
+$spc-bg-00: rgba(0, 0, 0, 0.05); // Sombras sutiles
+
+/*-- scss:rules --*/
