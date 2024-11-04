@@ -56,11 +56,39 @@
     "text": "About this site"
   },
   {
+    "objectID": "blog/posts/2024-01-first-post/index.html",
+    "href": "blog/posts/2024-01-first-post/index.html",
+    "title": "Mi Primer Post con Quarto",
+    "section": "",
+    "text": "Este es mi primer post usando Quarto. Aquí compartiré mis experiencias y aprendizajes sobre análisis de datos, R y más."
+  },
+  {
+    "objectID": "blog/posts/2024-01-first-post/index.html#por-qué-un-blog",
+    "href": "blog/posts/2024-01-first-post/index.html#por-qué-un-blog",
+    "title": "Mi Primer Post con Quarto",
+    "section": "¿Por qué un blog?",
+    "text": "¿Por qué un blog?\nExplica aquí tus motivaciones…"
+  },
+  {
+    "objectID": "blog/posts/2024-01-first-post/index.html#qué-contenido-encontrarás",
+    "href": "blog/posts/2024-01-first-post/index.html#qué-contenido-encontrarás",
+    "title": "Mi Primer Post con Quarto",
+    "section": "¿Qué contenido encontrarás?",
+    "text": "¿Qué contenido encontrarás?\nLista aquí los temas que planeas cubrir…"
+  },
+  {
+    "objectID": "blog/posts/2024-01-first-post/index.html#código-de-ejemplo",
+    "href": "blog/posts/2024-01-first-post/index.html#código-de-ejemplo",
+    "title": "Mi Primer Post con Quarto",
+    "section": "Código de ejemplo",
+    "text": "Código de ejemplo\n\nlibrary(tidyverse)\nmtcars %&gt;%\n  ggplot(aes(wt, mpg)) +\n  geom_point() +\n  theme_minimal()"
+  },
+  {
     "objectID": "blog/index.html",
     "href": "blog/index.html",
-    "title": "Blog",
+    "title": "Meeting People Where They R",
     "section": "",
-    "text": "En esta sección comparto mis pensamientos, análisis y reflexiones sobre [tus temas de interés].\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
+    "text": "📬 Sign up for my newsletter to receive updates about new posts.\n\n\n\n\n\n\n\n\n\n\n  \n\n\n\n\nMi Primer Post con Quarto\n\n\n\n\n\n\n\nnoticias\n\n\nR\n\n\nanálisis\n\n\n\n\nUna introducción a mi blog y mis planes futuros.\n\n\n\n\n\n\nJan 1, 2024\n\n\nRoberto Cantillan\n\n\n1 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",

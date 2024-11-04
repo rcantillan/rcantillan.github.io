@@ -5,7 +5,9 @@
   },
   {
     "listing": "/blog/index.html",
-    "items": []
+    "items": [
+      "/blog/posts/2024-01-first-post/index.html"
+    ]
   },
   {
     "listing": "/project/index.html",

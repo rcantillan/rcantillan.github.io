@@ -1,0 +1,32 @@
+---
+title: "Mi Primer Post con Quarto"
+description: |
+  Una introducción a mi blog y mis planes futuros.
+author: "Roberto Cantillan"
+date: "2024-01-01"
+categories: [noticias, R, análisis]
+image: "featured.jpg"
+---
+
+Este es mi primer post usando Quarto. Aquí compartiré mis experiencias y aprendizajes sobre análisis de datos, R y más.
+
+## ¿Por qué un blog?
+
+Explica aquí tus motivaciones...
+
+## ¿Qué contenido encontrarás?
+
+Lista aquí los temas que planeas cubrir...
+
+## Código de ejemplo
+
+```{r}
+#| echo: true
+#| eval: false
+
+library(tidyverse)
+mtcars %>%
+  ggplot(aes(wt, mpg)) +
+  geom_point() +
+  theme_minimal()
+```

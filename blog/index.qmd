@@ -1,16 +1,23 @@
 ---
-title: "Blog"
+title: "Meeting People Where They R"
+description: |
+  This is my blog where I practice sharing my curiosity about R.
+  It includes notes and tutorials for my future self and hopefully also for you.
 listing:
   contents: posts
   sort: "date desc"
-  type: grid
+  type: default
   categories: true
-  sort-ui: true
-  filter-ui: true
-  fields: [date, title, reading-time, description, categories, image]
   feed: true
+  sort-ui: false
+  filter-ui: false
+  fields: [date, author, title, reading-time, description, categories, image]
 page-layout: full
-title-block-banner: true
+title-block-banner: false
 ---
 
-En esta sección comparto mis pensamientos, análisis y reflexiones sobre [tus temas de interés].
+::: {.content-container}
+::: {.intro-text}
+📬 Sign up for my [newsletter](#) to receive updates about new posts.
+:::
+:::

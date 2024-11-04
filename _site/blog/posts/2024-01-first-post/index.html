@@ -6,9 +6,11 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Investigador • Analista de Datos • [Otra descripción]">
+<meta name="author" content="Roberto Cantillan">
+<meta name="dcterms.date" content="2024-01-01">
+<meta name="description" content="Una introducción a mi blog y mis planes futuros.">
 
-<title>Roberto Cantillan</title>
+<title>Roberto Cantillan - Mi Primer Post con Quarto</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,25 +23,60 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./images/favicon.ico" rel="icon">
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../images/favicon.ico" rel="icon">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -62,7 +99,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="assets/styles.css">
+<link rel="stylesheet" href="../../../assets/styles.css">
 </head>
 
 <body class="nav-fixed">
@@ -72,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg navbar-dark border-bottom">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Roberto Cantillan</span>
     </a>
   </div>
@@ -83,23 +120,23 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./about/index.html" rel="" target="">
+    <a class="nav-link" href="../../../about/index.html" rel="" target="">
  <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog/index.html" rel="" target="">
+    <a class="nav-link" href="../../../blog/index.html" rel="" target="">
  <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./talk/index.html" rel="" target="">
+    <a class="nav-link" href="../../../talk/index.html" rel="" target="">
  <span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./publication/index.html" rel="" target="">
+    <a class="nav-link" href="../../../publication/index.html" rel="" target="">
  <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./project/index.html" rel="" target="">
+    <a class="nav-link" href="../../../project/index.html" rel="" target="">
  <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item compact">
@@ -115,95 +152,85 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#por-qué-un-blog" id="toc-por-qué-un-blog" class="nav-link active" data-scroll-target="#por-qué-un-blog">¿Por qué un blog?</a></li>
+  <li><a href="#qué-contenido-encontrarás" id="toc-qué-contenido-encontrarás" class="nav-link" data-scroll-target="#qué-contenido-encontrarás">¿Qué contenido encontrarás?</a></li>
+  <li><a href="#código-de-ejemplo" id="toc-código-de-ejemplo" class="nav-link" data-scroll-target="#código-de-ejemplo">Código de ejemplo</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<div class="quarto-about-jolla page-columns page-full column-body">
-  <img src="profile.jpg" class="about-image
-  round " style="height: 15em; width: 15em;">
- <header id="title-block-header" class="quarto-title-block default">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Roberto Cantillan</h1>
-</div>
+<h1 class="title">Mi Primer Post con Quarto</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">noticias</div>
+    <div class="quarto-category">R</div>
+    <div class="quarto-category">análisis</div>
+  </div>
+  </div>
+
 <div>
   <div class="description">
-    <p>Investigador • Analista de Datos • [Otra descripción]</p>
+    <p>Una introducción a mi blog y mis planes futuros.</p>
   </div>
 </div>
+
+
 <div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Roberto Cantillan </p>
+          </div>
   </div>
-</header><main class="content page-columns page-full column-body" id="quarto-document-content">
-<div class="column-page">
-<section id="bienvenido" class="level2 welcome">
-<h2 class="welcome" data-anchor-id="bienvenido">Bienvenido!</h2>
-<p>Soy Roberto Cantillan, [tu descripción profesional aquí]. Mi investigación se centra en [tus áreas de interés].</p>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">January 1, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<p>Este es mi primer post usando Quarto. Aquí compartiré mis experiencias y aprendizajes sobre análisis de datos, R y más.</p>
+<section id="por-qué-un-blog" class="level2">
+<h2 class="anchored" data-anchor-id="por-qué-un-blog">¿Por qué un blog?</h2>
+<p>Explica aquí tus motivaciones…</p>
 </section>
-<section id="publicaciones-recientes" class="level2 publications">
-<h2 class="publications" data-anchor-id="publicaciones-recientes">Publicaciones Recientes</h2>
-<div class="grid">
-<section id="título-de-tu-publicación-más-reciente" class="level3 g-col-12 g-col-md-6">
-<h3 data-anchor-id="título-de-tu-publicación-más-reciente">[Título de tu publicación más reciente]</h3>
-<p>[Breve descripción de la publicación]</p>
+<section id="qué-contenido-encontrarás" class="level2">
+<h2 class="anchored" data-anchor-id="qué-contenido-encontrarás">¿Qué contenido encontrarás?</h2>
+<p>Lista aquí los temas que planeas cubrir…</p>
 </section>
-<section id="título-de-otra-publicación" class="level3 g-col-12 g-col-md-6">
-<h3 data-anchor-id="título-de-otra-publicación">[Título de otra publicación]</h3>
-<p>[Breve descripción de la publicación]</p>
-</section>
-</div>
-</section>
-<section id="blog-posts-destacados" class="level2 featured-posts">
-<h2 class="featured-posts" data-anchor-id="blog-posts-destacados">Blog Posts Destacados</h2>
-<div class="grid">
-<section id="título-del-post-1" class="level4 g-col-12 g-col-md-4">
-<h4 data-anchor-id="título-del-post-1">[Título del Post 1]</h4>
-<p>[Breve descripción del post]</p>
-</section>
-<section id="título-del-post-2" class="level4 g-col-12 g-col-md-4">
-<h4 data-anchor-id="título-del-post-2">[Título del Post 2]</h4>
-<p>[Breve descripción del post]</p>
-</section>
-<section id="título-del-post-3" class="level4 g-col-12 g-col-md-4">
-<h4 data-anchor-id="título-del-post-3">[Título del Post 3]</h4>
-<p>[Breve descripción del post]</p>
-</section>
-</div>
-</section>
-<section id="proyectos-actuales" class="level2 current-projects">
-<h2 class="current-projects" data-anchor-id="proyectos-actuales">Proyectos Actuales</h2>
-<div class="grid">
-<section id="nombre-del-proyecto-1" class="level3 g-col-12 g-col-md-6">
-<h3 data-anchor-id="nombre-del-proyecto-1">[Nombre del Proyecto 1]</h3>
-<p>[Descripción del proyecto]</p>
-</section>
-<section id="nombre-del-proyecto-2" class="level3 g-col-12 g-col-md-6">
-<h3 data-anchor-id="nombre-del-proyecto-2">[Nombre del Proyecto 2]</h3>
-<p>[Descripción del proyecto]</p>
-</section>
-</div>
-</section>
+<section id="código-de-ejemplo" class="level2">
+<h2 class="anchored" data-anchor-id="código-de-ejemplo">Código de ejemplo</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(wt, mpg)) <span class="sc">+</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
-</main> 
-  <hr class="about-sep">
-   <div class="about-links">
-  <a href="https://github.com/rcantillan" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">GitHub</span>
-  </a>
-  <a href="mailto:tu@email.com" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-  <a href="/cv.pdf" class="about-link" rel="" target="">
-    <i class="bi bi-file-text"></i>
-     <span class="about-link-text">CV</span>
-  </a>
-</div>
-</div>
- <!-- /main -->
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -224,6 +251,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
   const isCodeAnnotation = (el) => {
     for (const clz of el.classList) {
       if (clz.startsWith('code-annotation-')) {                     
@@ -437,7 +471,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-center">
       &nbsp;
     </div>
-    <div class="nav-footer-right"><a href="./license.html">License</a><br> <a href="./contact.html">Contact</a></div>
+    <div class="nav-footer-right"><a href="../../../license.html">License</a><br> <a href="../../../contact.html">Contact</a></div>
   </div>
 </footer>
 
