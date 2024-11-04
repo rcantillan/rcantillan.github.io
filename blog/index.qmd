@@ -1,0 +1,16 @@
+---
+title: "Blog"
+listing:
+  contents: posts
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [date, title, reading-time, description, categories, image]
+  feed: true
+page-layout: full
+title-block-banner: true
+---
+
+En esta sección comparto mis pensamientos, análisis y reflexiones sobre [tus temas de interés].
