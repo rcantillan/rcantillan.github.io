@@ -1,31 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://rcantillan.github.io/publication/index.html</loc>
-    <lastmod>2024-11-04T00:34:07.911Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/about/index.html</loc>
-    <lastmod>2024-11-04T00:34:07.035Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/about.html</loc>
-    <lastmod>2024-11-04T00:34:06.142Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/blog/index.html</loc>
-    <lastmod>2024-11-04T00:34:05.166Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/index.html</loc>
-    <lastmod>2024-11-04T00:34:05.716Z</lastmod>
-  </url>
-  <url>
     <loc>https://rcantillan.github.io/project/index.html</loc>
-    <lastmod>2024-11-04T00:34:06.578Z</lastmod>
+    <lastmod>2024-11-04T01:06:21.131Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/talk/index.html</loc>
-    <lastmod>2024-11-04T00:34:07.479Z</lastmod>
+    <lastmod>2024-11-04T01:06:21.131Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/about.html</loc>
+    <lastmod>2024-11-04T01:06:21.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/blog/index.html</loc>
+    <lastmod>2024-11-04T01:06:21.131Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/about/index.html</loc>
+    <lastmod>2024-11-04T01:06:21.131Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/blog/posts/2024-01-first-post/index.html</loc>
+    <lastmod>2024-11-04T01:06:21.131Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/publication/index.html</loc>
+    <lastmod>2024-11-04T01:06:21.131Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/index.html</loc>
+    <lastmod>2024-11-04T01:06:21.131Z</lastmod>
   </url>
 </urlset>
