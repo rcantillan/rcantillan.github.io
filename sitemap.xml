@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://rcantillan.github.io/publication/index.html</loc>
-    <lastmod>2024-11-04T00:56:29.775Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/about/index.html</loc>
-    <lastmod>2024-11-04T00:56:28.977Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/about.html</loc>
-    <lastmod>2024-11-04T00:56:28.163Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/blog/posts/2024-01-first-post/index.html</loc>
-    <lastmod>2024-11-04T01:31:27.130Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/blog/index.html</loc>
-    <lastmod>2024-11-04T01:31:27.533Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/index.html</loc>
-    <lastmod>2024-11-04T00:56:27.787Z</lastmod>
-  </url>
-  <url>
     <loc>https://rcantillan.github.io/project/index.html</loc>
-    <lastmod>2024-11-04T00:56:28.563Z</lastmod>
+    <lastmod>2024-11-04T02:06:46.216Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/talk/index.html</loc>
-    <lastmod>2024-11-04T00:56:29.364Z</lastmod>
+    <lastmod>2024-11-04T02:06:46.216Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/about.html</loc>
+    <lastmod>2024-11-04T02:06:46.216Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/blog/index.html</loc>
+    <lastmod>2024-11-04T02:06:46.216Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/about/index.html</loc>
+    <lastmod>2024-11-04T02:06:46.216Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/blog/posts/2024-01-first-post/index.html</loc>
+    <lastmod>2024-11-04T02:06:46.216Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/publication/index.html</loc>
+    <lastmod>2024-11-04T02:06:46.216Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/index.html</loc>
+    <lastmod>2024-11-04T02:06:46.216Z</lastmod>
   </url>
 </urlset>

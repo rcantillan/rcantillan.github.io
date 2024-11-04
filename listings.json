@@ -1,6 +1,10 @@
 [
   {
-    "listing": "/publication/index.html",
+    "listing": "/project/index.html",
+    "items": []
+  },
+  {
+    "listing": "/talk/index.html",
     "items": []
   },
   {
@@ -10,11 +14,7 @@
     ]
   },
   {
-    "listing": "/project/index.html",
-    "items": []
-  },
-  {
-    "listing": "/talk/index.html",
+    "listing": "/publication/index.html",
     "items": []
   }
 ]

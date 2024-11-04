@@ -1,10 +1,31 @@
 [
   {
-    "objectID": "publication/index.html",
-    "href": "publication/index.html",
-    "title": "Publicaciones",
+    "objectID": "project/index.html",
+    "href": "project/index.html",
+    "title": "Proyectos",
     "section": "",
-    "text": "Esta sección contiene mis publicaciones académicas, artículos y trabajos de investigación.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
+    "text": "Aquí puedes encontrar información sobre mis proyectos de investigación actuales y pasados.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "talk/index.html",
+    "href": "talk/index.html",
+    "title": "Charlas & Presentaciones",
+    "section": "",
+    "text": "Aquí puedes encontrar mis presentaciones y charlas en conferencias, seminarios y otros eventos académicos.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Meeting People Where They R",
+    "section": "",
+    "text": "📬 Sign up for my newsletter to receive updates about new posts.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nAnálisis con R en Quarto\n\n\n\n\n\n\nR\n\n\nanálisis\n\n\nvisualización\n\n\n\nDemostrando las capacidades de R y Quarto para análisis de datos. \n\n\n\n\n\nJan 10, 2024\n\n\nRoberto Cantillan\n\n\n2 min\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "about/index.html",
@@ -49,13 +70,6 @@
     "text": "Habilidades\n\n[Habilidad 1]\n[Habilidad 2]\n[Habilidad 3]"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site"
-  },
-  {
     "objectID": "blog/posts/2024-01-first-post/index.html",
     "href": "blog/posts/2024-01-first-post/index.html",
     "title": "Análisis con R en Quarto",
@@ -63,32 +77,46 @@
     "text": "Este post demuestra cómo usar R en Quarto para análisis y visualización de datos."
   },
   {
-    "objectID": "blog/posts/2024-01-first-post/index.html#por-qué-un-blog",
-    "href": "blog/posts/2024-01-first-post/index.html#por-qué-un-blog",
-    "title": "Mi Primer Post con Quarto",
-    "section": "¿Por qué un blog?",
-    "text": "¿Por qué un blog?\nExplica aquí tus motivaciones…"
-  },
-  {
-    "objectID": "blog/posts/2024-01-first-post/index.html#qué-contenido-encontrarás",
-    "href": "blog/posts/2024-01-first-post/index.html#qué-contenido-encontrarás",
-    "title": "Mi Primer Post con Quarto",
-    "section": "¿Qué contenido encontrarás?",
-    "text": "¿Qué contenido encontrarás?\nLista aquí los temas que planeas cubrir…"
-  },
-  {
-    "objectID": "blog/posts/2024-01-first-post/index.html#código-de-ejemplo",
-    "href": "blog/posts/2024-01-first-post/index.html#código-de-ejemplo",
-    "title": "Mi Primer Post con Quarto",
-    "section": "Código de ejemplo",
-    "text": "Código de ejemplo\n\nlibrary(tidyverse)\nmtcars %&gt;%\n  ggplot(aes(wt, mpg)) +\n  geom_point() +\n  theme_minimal()"
-  },
-  {
-    "objectID": "blog/index.html",
-    "href": "blog/index.html",
-    "title": "Meeting People Where They R",
+    "objectID": "blog/posts/2024-01-first-post/index.html#introducción",
+    "href": "blog/posts/2024-01-first-post/index.html#introducción",
+    "title": "Análisis con R en Quarto",
     "section": "",
-    "text": "📬 Sign up for my newsletter to receive updates about new posts.\n\n\n\n\n\n\n\n\n\n\n  \n\n\n\n\nAnálisis con R en Quarto\n\n\n\n\n\n\n\nR\n\n\nanálisis\n\n\nvisualización\n\n\n\n\nDemostrando las capacidades de R y Quarto para análisis de datos.\n\n\n\n\n\n\nJan 10, 2024\n\n\nRoberto Cantillan\n\n\n2 min\n\n\n\n\n\n\nNo matching items"
+    "text": "Este post demuestra cómo usar R en Quarto para análisis y visualización de datos."
+  },
+  {
+    "objectID": "blog/posts/2024-01-first-post/index.html#preparación-de-datos",
+    "href": "blog/posts/2024-01-first-post/index.html#preparación-de-datos",
+    "title": "Análisis con R en Quarto",
+    "section": "Preparación de datos",
+    "text": "Preparación de datos\nPrimero, carguemos los paquetes necesarios y preparemos algunos datos:\n\nlibrary(tidyverse)\nlibrary(scales)\n\n# Crear datos de ejemplo\nset.seed(123)\ndata &lt;- tibble(\n  fecha = seq.Date(as.Date(\"2023-01-01\"), as.Date(\"2023-12-31\"), by = \"month\"),\n  valor = rnorm(12, mean = 100, sd = 15),\n  categoria = sample(c(\"A\", \"B\", \"C\"), 12, replace = TRUE)\n)"
+  },
+  {
+    "objectID": "blog/posts/2024-01-first-post/index.html#visualización",
+    "href": "blog/posts/2024-01-first-post/index.html#visualización",
+    "title": "Análisis con R en Quarto",
+    "section": "Visualización",
+    "text": "Visualización\nAhora creemos una visualización con estos datos:\n\nggplot(data, aes(x = fecha, y = valor, color = categoria)) +\n  geom_line(size = 1) +\n  geom_point(size = 3) +\n  scale_y_continuous(labels = comma) +\n  scale_color_viridis_d() +\n  labs(\n    title = \"Tendencias por Categoría\",\n    subtitle = \"Datos simulados para el año 2023\",\n    x = \"Fecha\",\n    y = \"Valor\",\n    color = \"Categoría\"\n  ) +\n  theme_minimal() +\n  theme(\n    text = element_text(family = \"Commissioner\"),\n    plot.title = element_text(size = 16, face = \"bold\"),\n    plot.subtitle = element_text(size = 12, color = \"gray50\"),\n    panel.grid.minor = element_blank()\n  )\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\n\n\n\nEvolución temporal de valores por categoría"
+  },
+  {
+    "objectID": "blog/posts/2024-01-first-post/index.html#análisis-estadístico",
+    "href": "blog/posts/2024-01-first-post/index.html#análisis-estadístico",
+    "title": "Análisis con R en Quarto",
+    "section": "Análisis estadístico",
+    "text": "Análisis estadístico\nPodemos también realizar algunos cálculos estadísticos:\n\ndata %&gt;%\n  group_by(categoria) %&gt;%\n  summarise(\n    n = n(),\n    media = mean(valor),\n    sd = sd(valor),\n    min = min(valor),\n    max = max(valor)\n  ) %&gt;%\n  knitr::kable(digits = 2)\n\n\nResumen estadístico por categoría\n\n\ncategoria\nn\nmedia\nsd\nmin\nmax\n\n\n\n\nA\n3\n103.54\n19.23\n91.59\n125.73\n\n\nB\n4\n105.48\n13.95\n89.70\n123.38\n\n\nC\n5\n100.48\n13.59\n81.02\n118.36"
+  },
+  {
+    "objectID": "blog/posts/2024-01-first-post/index.html#conclusión",
+    "href": "blog/posts/2024-01-first-post/index.html#conclusión",
+    "title": "Análisis con R en Quarto",
+    "section": "Conclusión",
+    "text": "Conclusión\nComo podemos ver, Quarto y R trabajan perfectamente juntos para crear documentos que combinan texto, código y visualizaciones."
+  },
+  {
+    "objectID": "publication/index.html",
+    "href": "publication/index.html",
+    "title": "Publicaciones",
+    "section": "",
+    "text": "Esta sección contiene mis publicaciones académicas, artículos y trabajos de investigación.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
@@ -124,54 +152,5 @@
     "title": "Roberto Cantillan",
     "section": "",
     "text": "[Descripción del proyecto]\n\n\n\n[Descripción del proyecto]"
-  },
-  {
-    "objectID": "project/index.html",
-    "href": "project/index.html",
-    "title": "Proyectos",
-    "section": "",
-    "text": "Aquí puedes encontrar información sobre mis proyectos de investigación actuales y pasados.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "talk/index.html",
-    "href": "talk/index.html",
-    "title": "Charlas & Presentaciones",
-    "section": "",
-    "text": "Aquí puedes encontrar mis presentaciones y charlas en conferencias, seminarios y otros eventos académicos.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "blog/posts/2024-01-first-post/index.html#introducción",
-    "href": "blog/posts/2024-01-first-post/index.html#introducción",
-    "title": "Análisis con R en Quarto",
-    "section": "",
-    "text": "Este post demuestra cómo usar R en Quarto para análisis y visualización de datos."
-  },
-  {
-    "objectID": "blog/posts/2024-01-first-post/index.html#preparación-de-datos",
-    "href": "blog/posts/2024-01-first-post/index.html#preparación-de-datos",
-    "title": "Análisis con R en Quarto",
-    "section": "Preparación de datos",
-    "text": "Preparación de datos\nPrimero, carguemos los paquetes necesarios y preparemos algunos datos:\n\nlibrary(tidyverse)\nlibrary(scales)\n\n# Crear datos de ejemplo\nset.seed(123)\ndata &lt;- tibble(\n  fecha = seq.Date(as.Date(\"2023-01-01\"), as.Date(\"2023-12-31\"), by = \"month\"),\n  valor = rnorm(12, mean = 100, sd = 15),\n  categoria = sample(c(\"A\", \"B\", \"C\"), 12, replace = TRUE)\n)"
-  },
-  {
-    "objectID": "blog/posts/2024-01-first-post/index.html#visualización",
-    "href": "blog/posts/2024-01-first-post/index.html#visualización",
-    "title": "Análisis con R en Quarto",
-    "section": "Visualización",
-    "text": "Visualización\nAhora creemos una visualización con estos datos:\n\nggplot(data, aes(x = fecha, y = valor, color = categoria)) +\n  geom_line(size = 1) +\n  geom_point(size = 3) +\n  scale_y_continuous(labels = comma) +\n  scale_color_viridis_d() +\n  labs(\n    title = \"Tendencias por Categoría\",\n    subtitle = \"Datos simulados para el año 2023\",\n    x = \"Fecha\",\n    y = \"Valor\",\n    color = \"Categoría\"\n  ) +\n  theme_minimal() +\n  theme(\n    text = element_text(family = \"Commissioner\"),\n    plot.title = element_text(size = 16, face = \"bold\"),\n    plot.subtitle = element_text(size = 12, color = \"gray50\"),\n    panel.grid.minor = element_blank()\n  )\n\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n\n\n\n\n\nEvolución temporal de valores por categoría"
-  },
-  {
-    "objectID": "blog/posts/2024-01-first-post/index.html#análisis-estadístico",
-    "href": "blog/posts/2024-01-first-post/index.html#análisis-estadístico",
-    "title": "Análisis con R en Quarto",
-    "section": "Análisis estadístico",
-    "text": "Análisis estadístico\nPodemos también realizar algunos cálculos estadísticos:\n\ndata %&gt;%\n  group_by(categoria) %&gt;%\n  summarise(\n    n = n(),\n    media = mean(valor),\n    sd = sd(valor),\n    min = min(valor),\n    max = max(valor)\n  ) %&gt;%\n  knitr::kable(digits = 2)\n\n\nResumen estadístico por categoría \n\n\ncategoria\nn\nmedia\nsd\nmin\nmax\n\n\n\n\nA\n3\n103.54\n19.23\n91.59\n125.73\n\n\nB\n4\n105.48\n13.95\n89.70\n123.38\n\n\nC\n5\n100.48\n13.59\n81.02\n118.36"
-  },
-  {
-    "objectID": "blog/posts/2024-01-first-post/index.html#conclusión",
-    "href": "blog/posts/2024-01-first-post/index.html#conclusión",
-    "title": "Análisis con R en Quarto",
-    "section": "Conclusión",
-    "text": "Conclusión\nComo podemos ver, Quarto y R trabajan perfectamente juntos para crear documentos que combinan texto, código y visualizaciones."
   }
 ]
