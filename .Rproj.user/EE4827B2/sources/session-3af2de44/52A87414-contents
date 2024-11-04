@@ -1,0 +1,15 @@
+---
+title: "Publicaciones"
+listing:
+  contents: .
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [date, title, author, journal, description, categories]
+page-layout: full
+title-block-banner: true
+---
+
+Esta sección contiene mis publicaciones académicas, artículos y trabajos de investigación.

@@ -1,0 +1,44 @@
+---
+title: "Sobre mí"
+image: ../profile.jpg
+about:
+  template: solana
+  image-shape: round
+  image-width: 15em
+  links:
+    - text: GitHub
+      icon: github
+      href: https://github.com/rcantillan
+    - text: Email
+      icon: envelope
+      href: mailto:tu@email.com
+    - text: CV
+      icon: file-text
+      href: ../cv.pdf
+---
+
+## Biografía
+
+[Tu biografía aquí]
+
+## Educación
+
+- [Grado/título] en [Campo], [Universidad], [Año]
+- [Otro grado/título]
+
+## Experiencia
+
+- [Posición actual], [Institución], [Período]
+- [Experiencia previa]
+
+## Áreas de Investigación
+
+- [Área 1]
+- [Área 2]
+- [Área 3]
+
+## Habilidades
+
+- [Habilidad 1]
+- [Habilidad 2]
+- [Habilidad 3]
