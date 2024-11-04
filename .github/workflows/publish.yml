@@ -1,15 +1,18 @@
+name: Quarto Publish
+
 on:
   workflow_dispatch:
   push:
     branches: main
-
-name: Quarto Publish
 
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
+    env:
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
+    
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
@@ -18,6 +21,65 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: pre-release
+          
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            libcurl4-openssl-dev \
+            libssl-dev \
+            libxml2-dev \
+            libfontconfig1-dev \
+            libfreetype6-dev \
+            libfribidi-dev \
+            libharfbuzz-dev \
+            libicu-dev \
+            libjpeg-dev \
+            libpng-dev \
+            libtiff-dev \
+            pandoc \
+            libgit2-dev
+
+      - name: Set up R
+        uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+          use-public-rspm: true
+
+      - name: Set up R dependencies
+        uses: r-lib/actions/setup-r-dependencies@v2
+        with:
+          packages: |
+            any::knitr
+            any::rmarkdown
+            any::tidyverse
+            any::jsonlite
+            any::yaml
+            any::ggplot2
+            any::dplyr
+            any::tidyr
+            any::readr
+            any::purrr
+            any::forcats
+            any::stringr
+            any::lubridate
+            any::broom
+            any::scales
+            any::htmltools
+            any::sass
+          
+      - name: Set up pandoc
+        uses: r-lib/actions/setup-pandoc@v2
+        
+      - name: Set up TinyTeX
+        uses: r-lib/actions/setup-tinytex@v2
+        
+      - name: Cache R packages
+        uses: actions/cache@v3
+        with:
+          path: ${{ env.R_LIBS_USER }}
+          key: r-${{ runner.os }}-${{ hashFiles('**/.github/depends.Rds') }}
+          restore-keys: r-${{ runner.os }}-
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2

@@ -1,32 +1,90 @@
 ---
-title: "Mi Primer Post con Quarto"
+title: "Análisis con R en Quarto"
 description: |
-  Una introducción a mi blog y mis planes futuros.
+  Demostrando las capacidades de R y Quarto para análisis de datos.
 author: "Roberto Cantillan"
-date: "2024-01-01"
-categories: [noticias, R, análisis]
-image: "featured.jpg"
+date: "2024-01-10"
+categories: [R, análisis, visualización]
+image: "featured.png"
+code-fold: false
 ---
 
-Este es mi primer post usando Quarto. Aquí compartiré mis experiencias y aprendizajes sobre análisis de datos, R y más.
+## Introducción
 
-## ¿Por qué un blog?
+Este post demuestra cómo usar R en Quarto para análisis y visualización de datos.
 
-Explica aquí tus motivaciones...
+## Preparación de datos
 
-## ¿Qué contenido encontrarás?
-
-Lista aquí los temas que planeas cubrir...
-
-## Código de ejemplo
+Primero, carguemos los paquetes necesarios y preparemos algunos datos:
 
 ```{r}
-#| echo: true
-#| eval: false
+#| label: setup
+#| message: false
+#| warning: false
 
 library(tidyverse)
-mtcars %>%
-  ggplot(aes(wt, mpg)) +
-  geom_point() +
-  theme_minimal()
+library(scales)
+
+# Crear datos de ejemplo
+set.seed(123)
+data <- tibble(
+  fecha = seq.Date(as.Date("2023-01-01"), as.Date("2023-12-31"), by = "month"),
+  valor = rnorm(12, mean = 100, sd = 15),
+  categoria = sample(c("A", "B", "C"), 12, replace = TRUE)
+)
 ```
+
+## Visualización
+
+Ahora creemos una visualización con estos datos:
+
+```{r}
+#| label: plot
+#| fig-width: 10
+#| fig-height: 6
+#| fig-cap: "Evolución temporal de valores por categoría"
+
+ggplot(data, aes(x = fecha, y = valor, color = categoria)) +
+  geom_line(size = 1) +
+  geom_point(size = 3) +
+  scale_y_continuous(labels = comma) +
+  scale_color_viridis_d() +
+  labs(
+    title = "Tendencias por Categoría",
+    subtitle = "Datos simulados para el año 2023",
+    x = "Fecha",
+    y = "Valor",
+    color = "Categoría"
+  ) +
+  theme_minimal() +
+  theme(
+    text = element_text(family = "Commissioner"),
+    plot.title = element_text(size = 16, face = "bold"),
+    plot.subtitle = element_text(size = 12, color = "gray50"),
+    panel.grid.minor = element_blank()
+  )
+```
+
+## Análisis estadístico
+
+Podemos también realizar algunos cálculos estadísticos:
+
+```{r}
+#| label: stats
+#| tbl-cap: "Resumen estadístico por categoría"
+
+data %>%
+  group_by(categoria) %>%
+  summarise(
+    n = n(),
+    media = mean(valor),
+    sd = sd(valor),
+    min = min(valor),
+    max = max(valor)
+  ) %>%
+  knitr::kable(digits = 2)
+```
+
+## Conclusión
+
+Como podemos ver, Quarto y R trabajan perfectamente juntos para crear documentos que combinan texto, código y visualizaciones.
