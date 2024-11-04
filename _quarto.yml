@@ -40,9 +40,11 @@ website:
 format:
   html:
     theme: 
-      - assets/apero-theme.scss
-    css: assets/styles.css
+      - cosmo
+      - assets/custom.scss
+    css: styles.css
     toc: true
+    page-layout: full
     code-copy: true
     code-overflow: wrap
     mainfont: "Commissioner"
