@@ -1,0 +1,16 @@
+{
+  "hash": "bad08ca1da3d7106a9f43333eeda4e19",
+  "result": {
+    "markdown": "---\ntitle: \"Análisis con R en Quarto\"\ndescription: |\n  Demostrando las capacidades de R y Quarto para análisis de datos.\nauthor: \"Roberto Cantillan\"\ndate: \"2024-01-10\"\ncategories: [R, análisis, visualización]\nimage: \"featured.png\"\ncode-fold: false\n---\n\n\n## Introducción\n\nEste post demuestra cómo usar R en Quarto para análisis y visualización de datos.\n\n## Preparación de datos\n\nPrimero, carguemos los paquetes necesarios y preparemos algunos datos:\n\n\n::: {.cell}\n\n```{.r .cell-code}\nlibrary(tidyverse)\nlibrary(scales)\n\n# Crear datos de ejemplo\nset.seed(123)\ndata <- tibble(\n  fecha = seq.Date(as.Date(\"2023-01-01\"), as.Date(\"2023-12-31\"), by = \"month\"),\n  valor = rnorm(12, mean = 100, sd = 15),\n  categoria = sample(c(\"A\", \"B\", \"C\"), 12, replace = TRUE)\n)\n```\n:::\n\n\n## Visualización\n\nAhora creemos una visualización con estos datos:\n\n\n::: {.cell}\n\n```{.r .cell-code}\nggplot(data, aes(x = fecha, y = valor, color = categoria)) +\n  geom_line(size = 1) +\n  geom_point(size = 3) +\n  scale_y_continuous(labels = comma) +\n  scale_color_viridis_d() +\n  labs(\n    title = \"Tendencias por Categoría\",\n    subtitle = \"Datos simulados para el año 2023\",\n    x = \"Fecha\",\n    y = \"Valor\",\n    color = \"Categoría\"\n  ) +\n  theme_minimal() +\n  theme(\n    text = element_text(family = \"Commissioner\"),\n    plot.title = element_text(size = 16, face = \"bold\"),\n    plot.subtitle = element_text(size = 12, color = \"gray50\"),\n    panel.grid.minor = element_blank()\n  )\n```\n\n::: {.cell-output .cell-output-stderr}\n```\nWarning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.\nℹ Please use `linewidth` instead.\n```\n:::\n\n::: {.cell-output-display}\n![Evolución temporal de valores por categoría](index_files/figure-html/plot-1.png){width=960}\n:::\n:::\n\n\n## Análisis estadístico\n\nPodemos también realizar algunos cálculos estadísticos:\n\n\n::: {.cell tbl-cap='Resumen estadístico por categoría'}\n\n```{.r .cell-code}\ndata %>%\n  group_by(categoria) %>%\n  summarise(\n    n = n(),\n    media = mean(valor),\n    sd = sd(valor),\n    min = min(valor),\n    max = max(valor)\n  ) %>%\n  knitr::kable(digits = 2)\n```\n\n::: {.cell-output-display}\n|categoria |  n|  media|    sd|   min|    max|\n|:---------|--:|------:|-----:|-----:|------:|\n|A         |  3| 103.54| 19.23| 91.59| 125.73|\n|B         |  4| 105.48| 13.95| 89.70| 123.38|\n|C         |  5| 100.48| 13.59| 81.02| 118.36|\n:::\n:::\n\n\n## Conclusión\n\nComo podemos ver, Quarto y R trabajan perfectamente juntos para crear documentos que combinan texto, código y visualizaciones.",
+    "supporting": [
+      "index_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -4,6 +4,9 @@ project:
   resources:
     - "images/"
     - "files/"
+    
+execute:
+  freeze: true  # Esto congela los resultados de la ejecución
 
 website:
   title: "Roberto Cantillan"
@@ -31,10 +34,10 @@ website:
   
   page-footer:
     left: |
-      © 2024 Roberto Cantillan<br>
+      © 2024 Roberto Cantillan 
       Made with [Quarto](https://quarto.org)
     right: |
-      [License](/license.html)<br>
+      [License](/license.html) 
       [Contact](/contact.html)
 
 format:
