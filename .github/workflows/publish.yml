@@ -1,21 +1,27 @@
-name: Deploy to GitHub Pages
+# .github/workflows/publish.yml
 
 on:
   workflow_dispatch:
   push:
     branches: main
 
+name: Quarto Publish
+
 jobs:
-  deploy:
+  build-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - name: Checkout repository
+      - name: Check out repository
         uses: actions/checkout@v4
 
-      - name: Deploy to GitHub Pages
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Set up Quarto
+        uses: quarto-dev/quarto-actions/setup@v2
+
+      - name: Render and Publish
+        uses: quarto-dev/quarto-actions/publish@v2
         with:
-          folder: _site
-          branch: gh-pages
+          target: gh-pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
