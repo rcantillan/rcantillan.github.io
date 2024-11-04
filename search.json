@@ -200,7 +200,7 @@
     "href": "blog/index.html",
     "title": "Blog",
     "section": "",
-    "text": "Blog\n\nThis space brings together social network analysis and R programming to explore important social issues. By analyzing data from various social networks, we delve into topics like social capital, inequality, and the dynamics of social structures. Our goal is to provide tools and knowledge to help researchers better understand these topics and foster collaboration within the field.\n\n\n\n\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDisrupción y Estructura en redes de producción cietífica\n\n\n\nR\n\n\nNetworks\n\n\nTwo mode\n\n\nERGM\n\n\nScientific networks\n\n\n\n\n\n\n\nRoberto Cantillan\n\n\nNov 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAnálisis de Redes Ego-céntricas\n\n\n\n\n\n\nRoberto Cantillan\n\n\nAug 9, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nEI Index\n\n\n\nR\n\n\nNetworks\n\n\nEgo networks\n\n\nERGM ego\n\n\nHomophily\n\n\n\n\n\n\n\nRoberto Cantillan\n\n\nAug 9, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nhomophily\n\n\n\nR\n\n\nNetworks\n\n\nEgo networks\n\n\nERGM ego\n\n\nHomophily\n\n\n\n\n\n\n\nRoberto Cantillan\n\n\nOct 26, 2022\n\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Blog\n\nThis space brings together social network analysis and R programming to explore important social issues. By analyzing data from various social networks, we delve into topics like social capital, inequality, and the dynamics of social structures. Our goal is to provide tools and knowledge to help researchers better understand these topics and foster collaboration within the field.\n\n\n\n\n\n\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nDisrupción y Estructura en redes de producción cietífica\n\n\n\n\n\n\nRoberto Cantillan\n\n\nNov 1, 2024\n\n\n\n\n\n\n\n\n\n\n\n\nAnálisis de Redes Ego-céntricas\n\n\n\n\n\n\nRoberto Cantillan\n\n\nAug 9, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nEI Index\n\n\n\n\n\n\nRoberto Cantillan\n\n\nAug 9, 2023\n\n\n\n\n\n\n\n\n\n\n\n\nhomophily\n\n\n\n\n\n\nRoberto Cantillan\n\n\nOct 26, 2022\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "blog/posts/03-egodescriptives/index.html",
@@ -284,34 +284,6 @@
     "href": "index.html",
     "title": "Roberto Cantillan",
     "section": "",
-    "text": "Soy Roberto Cantillan, [tu descripción profesional aquí]. Mi investigación se centra en [tus áreas de interés].\n\n\n\n\n\n\n[Breve descripción de la publicación]\n\n\n\n[Breve descripción de la publicación]\n\n\n\n\n\n\n\n\n[Breve descripción del post]\n\n\n\n[Breve descripción del post]\n\n\n\n[Breve descripción del post]\n\n\n\n\n\n\n\n\n[Descripción del proyecto]\n\n\n\n[Descripción del proyecto]"
-  },
-  {
-    "objectID": "index.html#bienvenido",
-    "href": "index.html#bienvenido",
-    "title": "Roberto Cantillan",
-    "section": "",
-    "text": "Soy Roberto Cantillan, [tu descripción profesional aquí]. Mi investigación se centra en [tus áreas de interés]."
-  },
-  {
-    "objectID": "index.html#publicaciones-recientes",
-    "href": "index.html#publicaciones-recientes",
-    "title": "Roberto Cantillan",
-    "section": "",
-    "text": "[Breve descripción de la publicación]\n\n\n\n[Breve descripción de la publicación]"
-  },
-  {
-    "objectID": "index.html#blog-posts-destacados",
-    "href": "index.html#blog-posts-destacados",
-    "title": "Roberto Cantillan",
-    "section": "",
-    "text": "[Breve descripción del post]\n\n\n\n[Breve descripción del post]\n\n\n\n[Breve descripción del post]"
-  },
-  {
-    "objectID": "index.html#proyectos-actuales",
-    "href": "index.html#proyectos-actuales",
-    "title": "Roberto Cantillan",
-    "section": "",
-    "text": "[Descripción del proyecto]\n\n\n\n[Descripción del proyecto]"
+    "text": "I am a doctoral candidate in Sociology at the Pontificia Universidad Católica de Chile and an assistant at the ‘Millennium Nucleus for the Study of Labor Market Mismatch’ (LM2C2). My doctoral research uses a structural and network perspective to analyze the patterns of mobility, diffusion, and segregation in labor markets from an intragenerational viewpoint.\nLearn more about me →"
   }
 ]
