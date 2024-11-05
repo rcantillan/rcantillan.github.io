@@ -19,12 +19,239 @@ summary: |
 
 La ciencia de la sustentabilidad requiere urgentemente de innovación transformadora para abordar desafíos socio-ambientales complejos. Comprender cómo emerge la investigación disruptiva en las redes científicas es, por tanto, crucial. Li et al. (2024) han demostrado una relación inversa entre productividad y disrupción científica, pero los mecanismos estructurales subyacentes a este fenómeno permanecen poco claros, particularmente en el contexto de redes modo-2 que vinculan autores y publicaciones.
 
-Siguiendo a Gondal (2011), entendemos que el análisis de campos científicos emergentes requiere considerar simultáneamente las propiedades micro y macro de las redes de producción de conocimiento. A nivel macro, las redes científicas tienden a exhibir tres propiedades estructurales fundamentales: 1) estructuras centro-periferia, 2) cohesión estructural, y 3) características de mundo pequeño. Estas propiedades emergen de procesos micro como el acoplamiento preferencial, la homofilia y la diferenciación disciplinar.
+La sociología del conocimiento científico ha identificado históricamente la dualidad fundamental entre las estructuras sociales de producción y el contenido del conocimiento producido (Mannheim, 1936; Durkheim, [1933] 1984). Esta dualidad se manifiesta particularmente en campos emergentes como la ciencia de la sustentabilidad, donde la innovación conceptual y la estructura social de producción se constituyen mutuamente. A diferencia de visiones que enfatizan la fragmentación disciplinar o la mera acumulación de capital científico, proponemos que la producción de conocimiento científico emerge de la interacción entre mecanismos de cohesión estructural, procesos de legitimación y dinámicas de innovación disruptiva.
 
-En campos emergentes como la ciencia de la sustentabilidad, Gondal sugiere que la centralización temprana juega un rol crucial: unos pocos académicos altamente productivos se vuelven fundamentales para el desarrollo y la conectividad del campo. Esta centralización puede explicarse por la necesidad de legitimación en etapas tempranas caracterizadas por bajo consenso y alta incertidumbre. Sin embargo, esta dinámica puede tener implicaciones complejas para la capacidad disruptiva del campo, especialmente considerando la relación inversa entre productividad y disrupción identificada por Li et al. (2024).
+El trabajo seminal de Gondal (2011) sobre campos emergentes identifica cómo la incertidumbre inicial y la necesidad de legitimación producen una centralización temprana que estructura el desarrollo posterior del campo. Sin embargo, esta centralización no es simplemente un proceso de acumulación de capital científico como sugería Bourdieu (1975), sino que refleja una necesidad estructural más profunda: establecer las bases sociales compartidas que permiten la evaluación y validación del conocimiento en condiciones de alta incertidumbre. Esto se vincula con lo que Kuhn (1962) denominaba "ciencia normal" - la necesidad de establecer paradigmas que permitan el trabajo científico acumulativo. Sin embargo, mientras Kuhn veía los paradigmas principalmente como estructuras cognitivas, el análisis de redes modo-2 revela que estos se sostienen en estructuras relacionales específicas que emergen de patrones sistemáticos de colaboración.
+Moody (2004) profundiza esta comprensión al demostrar que la cohesión estructural que emerge en las redes de colaboración no es un simple subproducto de la centralización, sino un mecanismo generativo fundamental. Esta cohesión estructural permite la integración del conocimiento incluso en condiciones de alta especialización a través de lo que Friedkin (1998) denominó "overlapping consensus" - consensos parciales superpuestos que facilitan la comunicación entre diferentes tradiciones especializadas.
 
-Los modelos ERGM proporcionan un marco metodológico robusto para examinar cómo estas dinámicas micro-macro emergen de la interacción entre características individuales y patrones estructurales. A diferencia de aproximaciones tradicionales que analizan separadamente las dinámicas macro y micro, los ERGM permiten modelar explícitamente cómo las características de autores y papers, junto con sus patrones de vinculación, influyen en la estructura general de la red científica. Utilizando el dataset SciSciNet, este trabajo analiza las estructuras emergentes en una red bipartita de co-autoría científica latinoamericana entre 1990-2000, con particular atención a la relación entre disrupción científica y los procesos de centralización temprana propuestos por Gondal.
+Los hallazgos de Wu et al. (2019) sobre equipos pequeños y disrupción científica revelan una tensión productiva inherente a los campos científicos: mientras la cohesión estructural facilita la acumulación y validación del conocimiento, la innovación disruptiva requiere posiciones estructurales que permitan cierta autonomía respecto a los paradigmas dominantes. Esta tensión no es una simple contradicción, sino un principio organizador fundamental de los campos científicos que se resuelve a través de mecanismos de diferenciación integrada.
 
+En el caso específico de la ciencia de la sustentabilidad, la urgencia transformadora modifica la evolución típica de los campos científicos. La necesidad apremiante de innovación para abordar desafíos socio-ambientales complejos genera una mayor tolerancia temprana a innovaciones disruptivas y promueve estructuras más distribuidas de producción de conocimiento. Esto resulta particularmente evidente en la relación inversa entre productividad y disrupción identificada por Li et al. (2024), donde los actores centrales tienden a desarrollar líneas establecidas mientras que la innovación disruptiva emerge frecuentemente desde posiciones periféricas.
+
+La dimensión temporal es crucial para entender cómo estos mecanismos operan en diferentes etapas del desarrollo del campo. Los campos científicos emergentes atraviesan fases de legitimación inicial, consolidación y diferenciación, y eventual maduración e integración dinámica. En cada fase, la relación entre posición estructural y capacidad disruptiva evoluciona de manera diferenciada, mostrando inicialmente una fuerte centralización para establecer legitimidad, seguida de una diversificación de las fuentes de innovación y eventualmente alcanzando un equilibrio dinámico entre desarrollo y disrupción.
+
+### Mecanismos Generativos y Propiedades Emergentes
+Los hallazgos de Wu et al. (2019) sobre equipos pequeños y disrupción científica revelan una tensión productiva inherente a los campos científicos: mientras la cohesión estructural facilita la acumulación y validación del conocimiento (Moody, 2004), la innovación disruptiva requiere posiciones estructurales que permitan cierta autonomía respecto a los paradigmas dominantes. Esta tensión no es una simple contradicción, sino un principio organizador fundamental de los campos científicos.
+
+Esta dinámica se resuelve a través de lo que denominamos "mecanismos de diferenciación integrada":
+
+**La cohesión estructural (Moody, 2004)**:
+
+- Provee el sustrato necesario para la comunicación y validación del conocimiento
+- Facilita la difusión de estándares metodológicos y criterios de evaluación
+- Permite la especialización sin fragmentación total
+- Opera a través de patrones sistemáticos de colaboración que crean puentes entre diferentes áreas
+
+
+**La centralización temprana (Gondal, 2011)**:
+
+- Establece estándares y criterios de evaluación compartidos
+- Reduce la incertidumbre inicial sobre qué constituye conocimiento válido
+- Crea puntos de referencia comunes para el desarrollo del campo
+- Facilita la acumulación inicial de conocimiento validado
+
+
+**La autonomía estructural (Wu et al., 2019)**:
+
+- Permite la exploración de nuevas direcciones teóricas y metodológicas
+- Se asocia con posiciones periféricas o semi-periféricas en la red
+- Facilita el cuestionamiento de supuestos establecidos
+- Opera principalmente a través de equipos pequeños con mayor libertad para innovar
+
+Estos mecanismos producen propiedades emergentes que caracterizan el campo como totalidad:
+
+**H1**: La estructura reticular autor-artículo mostrará patrones de cohesión estructural (medida a través de bicomponentes) que coexisten con y facilitan la emergencia de innovación disruptiva desde posiciones periféricas. Esta hipótesis sugiere que, contrario a visiones que ven la fragmentación o la centralización como estados finales inevitables, los campos científicos desarrollan estructuras que permiten simultáneamente la integración y la innovación.
+
+### La Diferenciación como Proceso Relacional
+
+La diferenciación entre campos STEM y SHAPE emerge no tanto de divisiones epistemológicas fundamentales sino de diferentes regímenes de validación del conocimiento que se cristalizan en patrones distintivos de vinculación autor-artículo. Estos regímenes reflejan diferentes:
+
+- Criterios de validación empírica
+- Estructuras de argumentación aceptadas
+- Formas legítimas de construcción teórica
+- Patrones típicos de colaboración
+- Mecanismos de acreditación y reconocimiento
+
+Esto nos lleva a:
+
+**H2**: Los campos mostrarán diferentes patrones de cohesión estructural que reflejan sus regímenes específicos de validación, manteniendo sin embargo suficiente integración para permitir la innovación interdisciplinaria.
+Esta hipótesis se basa en la observación de Moody (2004) de que la cohesión estructural permite la especialización sin fragmentación, pero reconoce que los mecanismos específicos de cohesión varían sistemáticamente entre campos.
+
+
+### Temporalidad y Evolución en Campos Científicos Emergentes
+
+La dimensión temporal es crucial para entender cómo los mecanismos generativos operan en diferentes etapas del desarrollo de campos emergentes. Siguiendo a Gondal (2011), la evolución de estos campos no es lineal sino que exhibe tensiones dinámicas entre legitimación, innovación y estructuración. 
+
+Fases de Desarrollo Estructural
+
+1. Fase de Emergencia y Legitimación Inicial:
+
+  - Alta incertidumbre sobre criterios de validación
+  - Centralización temprana como mecanismo de reducción de incertidumbre
+  - Dependencia de autoridades externas para legitimación
+  - Formación inicial de grupos pequeños altamente cohesivos
+
+
+2. Fase de Consolidación y Diferenciación:
+
+  - Desarrollo de criterios internos de validación
+  - Emergencia de estructuras centro-periferia
+  - Diversificación de líneas de investigación
+  - Formación de subcampos especializados mientras se mantiene cohesión general
+
+
+3. Fase de Maduración e Integración Dinámica:
+
+  - Equilibrio entre innovación disruptiva y desarrollo acumulativo
+  - Estructuras de colaboración más complejas y multinivel
+  - Mecanismos establecidos para integrar conocimiento diverso
+  - Capacidad dual para mantener coherencia y generar disrupciones
+
+
+### El Caso de la Ciencia de la Sustentabilidad
+
+La ciencia de la sustentabilidad representa un caso particularmente relevante de campo científico emergente por varias razones:
+
+1. Urgencia Transformadora:
+
+  - Necesidad apremiante de innovación para abordar desafíos socio-ambientales complejos
+  - Tensión intrínseca entre la urgencia de soluciones y la necesidad de rigor científico
+  - Demanda de disrupciones que transformen paradigmas establecidos
+
+
+2. Complejidad Estructural:
+
+  - Naturaleza inherentemente interdisciplinaria
+  - Necesidad de integrar ciencias naturales y sociales
+  - Múltiples comunidades epistémicas con diferentes tradiciones
+
+
+3. Dinámica Centro-Periferia Específica:
+
+  - Li et al. (2024) identifican una relación inversa entre productividad y disrupción
+  - Los actores centrales tienden a desarrollar líneas establecidas
+  - La innovación disruptiva emerge frecuentemente desde posiciones periféricas
+
+Esto nos lleva a proponer:
+
+**H3a**: La relación entre posición estructural y capacidad disruptiva evolucionará de manera diferenciada según la fase de desarrollo del campo, mostrando:
+
+- Centralización inicial para establecer legitimidad
+- Posterior diversificación de fuentes de innovación
+- Eventual equilibrio dinámico entre desarrollo y disrupción
+
+**H3b**: En el campo específico de la ciencia de la sustentabilidad, la urgencia transformadora modificará esta evolución típica, produciendo:
+
+- Mayor tolerancia temprana a innovaciones disruptivas
+- Estructuras más distribuidas de producción de conocimiento
+- Mecanismos acelerados de validación y difusión
+
+### Implicaciones para la Estructura de Colaboración
+Esta conceptualización temporal tiene importantes implicaciones para entender cómo evolucionan las estructuras de colaboración:
+
+1. Evolución de Patrones Colaborativos:
+
+- De colaboraciones principalmente diádicas a estructuras más complejas
+- Desarrollo de "brokers" que conectan diferentes comunidades epistémicas
+- Emergencia de equipos especializados en diferentes tipos de contribución
+
+2. Transformación de Mecanismos de Legitimación:
+
+- De dependencia externa a criterios internos de validación
+- Desarrollo de estándares específicos del campo
+- Evolución de mecanismos de evaluación que balancean rigor e innovación
+
+3. Dinámica de Innovación:
+
+- as fuentes de innovación se diversifican con el tiempo
+- os roles estructurales (central vs. periférico) se vuelven más fluidos
+- merge una división del trabajo entre desarrollo y disrupción
+
+Esta perspectiva temporal enriquece nuestra comprensión de cómo los mecanismos generativos identificados anteriormente operan y evolucionan a lo largo del tiempo, sugiriendo que la capacidad de un campo para mantener su vitalidad depende de su habilidad para institucionalizar tensiones productivas entre diferentes modos de producción de conocimiento.
+
+
+## Metodología 
+
+La complejidad teórica identificada en la producción de conocimiento en campos científicos emergentes requiere una estrategia metodológica que integre diferentes aproximaciones analíticas. Proponemos combinar el análisis de cohesión estructural desarrollado por Moody (2004) con modelos exponenciales de grafos aleatorios (ERGMs) modo-2 siguiendo a Gondal (2011), para examinar cómo la dualidad entre productores y productos del conocimiento genera patrones específicos de colaboración y disrupción.
+
+### Cohesión Estructural y Patrones de Colaboración
+
+Moody (2004) demuestra que el análisis de bicomponentes en redes de coautoría proporciona una medida robusta de cohesión estructural que permite identificar cómo la especialización disciplinar coexiste con la integración del conocimiento. Un bicomponente, al requerir múltiples caminos independientes entre cada par de nodos, identifica grupos que mantienen su conectividad incluso ante la remoción de miembros individuales. Esta propiedad es particularmente relevante para entender la robustez de las estructuras de colaboración científica. Siguiendo esta aproximación, analizaremos primero la red unimodal de coautoría para:
+
+- Identificar la evolución del componente gigante y su relación con la fragmentación disciplinar
+- Examinar la distribución y composición de bicomponentes como indicadores de cohesión
+- Evaluar la robustez de las estructuras de colaboración a través del tiempo
+
+### Dualidad Estructural y ERGMs Modo-2
+
+Complementando el análisis de cohesión, los ERGMs modo-2 desarrollados por Gondal (2011) permiten modelar explícitamente la dualidad entre autores y artículos que caracteriza la producción científica. Esta aproximación modela la probabilidad de observar un vínculo autor-artículo como función de:
+
+- Características de los autores (productividad, centralidad previa)
+- Atributos de los artículos (disrupción, impacto)
+- Configuraciones estructurales locales (patrones de coautoría)
+- Variables contextuales (campo disciplinar, período temporal)
+
+### Estrategia de Modelamiento Integrada
+Nuestra estrategia procede en tres etapas:
+
+- Análisis de Cohesión Estructural:
+  - Identificación de componentes y bicomponentes
+  - Evaluación de patrones de especialización vs integración
+  - Análisis de evolución temporal de estructuras cohesivas
+
+
+- Modelamiento ERGM Modo-2:
+  - Especificación base con efectos de grado y homofilia
+  - Incorporación de términos estructurales complejos
+  - Modelamiento de interacciones entre disrupción y posición estructural
+
+
+- Integración de Resultados:
+  - Vinculación entre patrones macro de cohesión y mecanismos generativos locales
+  - Evaluación de cómo diferentes configuraciones estructurales facilitan o inhiben la innovación disruptiva
+  - Análisis de evolución temporal de mecanismos relacionales
+
+
+### Operacionalización y Medición
+
+Disrupción Científica: Siguiendo a Wu et al. (2019) y Li et al. (2024), medimos la disrupción a través de patrones de citación que indican en qué medida un artículo reorienta la atención del campo hacia nuevas direcciones. 
+
+Cohesión Estructural: Operacionalizada a través de:
+
+- Tamaño y composición de bicomponentes
+- Distribución de k-componentes
+- Medidas de conectividad robusta
+
+Posición Estructural: Capturada mediante:
+
+- Centralidad en la red de coautoría
+- Patrones de vinculación autor-artículo
+- Pertenencia a componentes cohesivos
+
+Validación y Control
+La validez del análisis se asegura mediante:
+
+Controles por factores exógenos:
+
+- Efectos temporales
+- Diferencias disciplinares
+- Variación institucional
+
+
+Diagnósticos específicos:
+
+- Convergencia de modelos ERGM
+- Bondad de ajuste de configuraciones estructurales
+- Robustez a diferentes especificaciones
+
+
+Validación cruzada entre métodos:
+
+- Consistencia entre patrones macro y micro
+- Triangulación de resultados
+- Evaluación de hipótesis alternativas
+
+Esta estrategia metodológica integrada permite examinar cómo la dualidad estructural característica de la producción científica genera simultáneamente cohesión disciplinar e innovación disruptiva, proporcionando una comprensión más profunda de la evolución de campos científicos emergentes como la ciencia de la sustentabilidad.
 
 ## Configuración Inicial y Carga de Datos
 
