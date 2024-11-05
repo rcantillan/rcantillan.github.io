@@ -176,7 +176,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">En esta página</h2>
    
   <ul>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
+  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a>
+  <ul class="collapse">
+  <li><a href="#mecanismos-generativos-y-propiedades-emergentes" id="toc-mecanismos-generativos-y-propiedades-emergentes" class="nav-link" data-scroll-target="#mecanismos-generativos-y-propiedades-emergentes">Mecanismos Generativos y Propiedades Emergentes</a></li>
+  <li><a href="#la-diferenciación-como-proceso-relacional" id="toc-la-diferenciación-como-proceso-relacional" class="nav-link" data-scroll-target="#la-diferenciación-como-proceso-relacional">La Diferenciación como Proceso Relacional</a></li>
+  <li><a href="#temporalidad-y-evolución-en-campos-científicos-emergentes" id="toc-temporalidad-y-evolución-en-campos-científicos-emergentes" class="nav-link" data-scroll-target="#temporalidad-y-evolución-en-campos-científicos-emergentes">Temporalidad y Evolución en Campos Científicos Emergentes</a></li>
+  <li><a href="#el-caso-de-la-ciencia-de-la-sustentabilidad" id="toc-el-caso-de-la-ciencia-de-la-sustentabilidad" class="nav-link" data-scroll-target="#el-caso-de-la-ciencia-de-la-sustentabilidad">El Caso de la Ciencia de la Sustentabilidad</a></li>
+  <li><a href="#implicaciones-para-la-estructura-de-colaboración" id="toc-implicaciones-para-la-estructura-de-colaboración" class="nav-link" data-scroll-target="#implicaciones-para-la-estructura-de-colaboración">Implicaciones para la Estructura de Colaboración</a></li>
+  </ul></li>
+  <li><a href="#metodología" id="toc-metodología" class="nav-link" data-scroll-target="#metodología">Metodología</a>
+  <ul class="collapse">
+  <li><a href="#cohesión-estructural-y-patrones-de-colaboración" id="toc-cohesión-estructural-y-patrones-de-colaboración" class="nav-link" data-scroll-target="#cohesión-estructural-y-patrones-de-colaboración">Cohesión Estructural y Patrones de Colaboración</a></li>
+  <li><a href="#dualidad-estructural-y-ergms-modo-2" id="toc-dualidad-estructural-y-ergms-modo-2" class="nav-link" data-scroll-target="#dualidad-estructural-y-ergms-modo-2">Dualidad Estructural y ERGMs Modo-2</a></li>
+  <li><a href="#estrategia-de-modelamiento-integrada" id="toc-estrategia-de-modelamiento-integrada" class="nav-link" data-scroll-target="#estrategia-de-modelamiento-integrada">Estrategia de Modelamiento Integrada</a></li>
+  <li><a href="#operacionalización-y-medición" id="toc-operacionalización-y-medición" class="nav-link" data-scroll-target="#operacionalización-y-medición">Operacionalización y Medición</a></li>
+  </ul></li>
   <li><a href="#configuración-inicial-y-carga-de-datos" id="toc-configuración-inicial-y-carga-de-datos" class="nav-link" data-scroll-target="#configuración-inicial-y-carga-de-datos">Configuración Inicial y Carga de Datos</a></li>
   <li><a href="#preparación-de-datos" id="toc-preparación-de-datos" class="nav-link" data-scroll-target="#preparación-de-datos">Preparación de Datos</a></li>
   <li><a href="#construcción-de-la-red-bipartita" id="toc-construcción-de-la-red-bipartita" class="nav-link" data-scroll-target="#construcción-de-la-red-bipartita">Construcción de la Red Bipartita</a></li>
@@ -254,9 +268,237 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="introducción" class="level2">
 <h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
 <p>La ciencia de la sustentabilidad requiere urgentemente de innovación transformadora para abordar desafíos socio-ambientales complejos. Comprender cómo emerge la investigación disruptiva en las redes científicas es, por tanto, crucial. Li et al.&nbsp;(2024) han demostrado una relación inversa entre productividad y disrupción científica, pero los mecanismos estructurales subyacentes a este fenómeno permanecen poco claros, particularmente en el contexto de redes modo-2 que vinculan autores y publicaciones.</p>
-<p>Siguiendo a Gondal (2011), entendemos que el análisis de campos científicos emergentes requiere considerar simultáneamente las propiedades micro y macro de las redes de producción de conocimiento. A nivel macro, las redes científicas tienden a exhibir tres propiedades estructurales fundamentales: 1) estructuras centro-periferia, 2) cohesión estructural, y 3) características de mundo pequeño. Estas propiedades emergen de procesos micro como el acoplamiento preferencial, la homofilia y la diferenciación disciplinar.</p>
-<p>En campos emergentes como la ciencia de la sustentabilidad, Gondal sugiere que la centralización temprana juega un rol crucial: unos pocos académicos altamente productivos se vuelven fundamentales para el desarrollo y la conectividad del campo. Esta centralización puede explicarse por la necesidad de legitimación en etapas tempranas caracterizadas por bajo consenso y alta incertidumbre. Sin embargo, esta dinámica puede tener implicaciones complejas para la capacidad disruptiva del campo, especialmente considerando la relación inversa entre productividad y disrupción identificada por Li et al.&nbsp;(2024).</p>
-<p>Los modelos ERGM proporcionan un marco metodológico robusto para examinar cómo estas dinámicas micro-macro emergen de la interacción entre características individuales y patrones estructurales. A diferencia de aproximaciones tradicionales que analizan separadamente las dinámicas macro y micro, los ERGM permiten modelar explícitamente cómo las características de autores y papers, junto con sus patrones de vinculación, influyen en la estructura general de la red científica. Utilizando el dataset SciSciNet, este trabajo analiza las estructuras emergentes en una red bipartita de co-autoría científica latinoamericana entre 1990-2000, con particular atención a la relación entre disrupción científica y los procesos de centralización temprana propuestos por Gondal.</p>
+<p>La sociología del conocimiento científico ha identificado históricamente la dualidad fundamental entre las estructuras sociales de producción y el contenido del conocimiento producido (Mannheim, 1936; Durkheim, [1933] 1984). Esta dualidad se manifiesta particularmente en campos emergentes como la ciencia de la sustentabilidad, donde la innovación conceptual y la estructura social de producción se constituyen mutuamente. A diferencia de visiones que enfatizan la fragmentación disciplinar o la mera acumulación de capital científico, proponemos que la producción de conocimiento científico emerge de la interacción entre mecanismos de cohesión estructural, procesos de legitimación y dinámicas de innovación disruptiva.</p>
+<p>El trabajo seminal de Gondal (2011) sobre campos emergentes identifica cómo la incertidumbre inicial y la necesidad de legitimación producen una centralización temprana que estructura el desarrollo posterior del campo. Sin embargo, esta centralización no es simplemente un proceso de acumulación de capital científico como sugería Bourdieu (1975), sino que refleja una necesidad estructural más profunda: establecer las bases sociales compartidas que permiten la evaluación y validación del conocimiento en condiciones de alta incertidumbre. Esto se vincula con lo que Kuhn (1962) denominaba “ciencia normal” - la necesidad de establecer paradigmas que permitan el trabajo científico acumulativo. Sin embargo, mientras Kuhn veía los paradigmas principalmente como estructuras cognitivas, el análisis de redes modo-2 revela que estos se sostienen en estructuras relacionales específicas que emergen de patrones sistemáticos de colaboración. Moody (2004) profundiza esta comprensión al demostrar que la cohesión estructural que emerge en las redes de colaboración no es un simple subproducto de la centralización, sino un mecanismo generativo fundamental. Esta cohesión estructural permite la integración del conocimiento incluso en condiciones de alta especialización a través de lo que Friedkin (1998) denominó “overlapping consensus” - consensos parciales superpuestos que facilitan la comunicación entre diferentes tradiciones especializadas.</p>
+<p>Los hallazgos de Wu et al.&nbsp;(2019) sobre equipos pequeños y disrupción científica revelan una tensión productiva inherente a los campos científicos: mientras la cohesión estructural facilita la acumulación y validación del conocimiento, la innovación disruptiva requiere posiciones estructurales que permitan cierta autonomía respecto a los paradigmas dominantes. Esta tensión no es una simple contradicción, sino un principio organizador fundamental de los campos científicos que se resuelve a través de mecanismos de diferenciación integrada.</p>
+<p>En el caso específico de la ciencia de la sustentabilidad, la urgencia transformadora modifica la evolución típica de los campos científicos. La necesidad apremiante de innovación para abordar desafíos socio-ambientales complejos genera una mayor tolerancia temprana a innovaciones disruptivas y promueve estructuras más distribuidas de producción de conocimiento. Esto resulta particularmente evidente en la relación inversa entre productividad y disrupción identificada por Li et al.&nbsp;(2024), donde los actores centrales tienden a desarrollar líneas establecidas mientras que la innovación disruptiva emerge frecuentemente desde posiciones periféricas.</p>
+<p>La dimensión temporal es crucial para entender cómo estos mecanismos operan en diferentes etapas del desarrollo del campo. Los campos científicos emergentes atraviesan fases de legitimación inicial, consolidación y diferenciación, y eventual maduración e integración dinámica. En cada fase, la relación entre posición estructural y capacidad disruptiva evoluciona de manera diferenciada, mostrando inicialmente una fuerte centralización para establecer legitimidad, seguida de una diversificación de las fuentes de innovación y eventualmente alcanzando un equilibrio dinámico entre desarrollo y disrupción.</p>
+<section id="mecanismos-generativos-y-propiedades-emergentes" class="level3">
+<h3 class="anchored" data-anchor-id="mecanismos-generativos-y-propiedades-emergentes">Mecanismos Generativos y Propiedades Emergentes</h3>
+<p>Los hallazgos de Wu et al.&nbsp;(2019) sobre equipos pequeños y disrupción científica revelan una tensión productiva inherente a los campos científicos: mientras la cohesión estructural facilita la acumulación y validación del conocimiento (Moody, 2004), la innovación disruptiva requiere posiciones estructurales que permitan cierta autonomía respecto a los paradigmas dominantes. Esta tensión no es una simple contradicción, sino un principio organizador fundamental de los campos científicos.</p>
+<p>Esta dinámica se resuelve a través de lo que denominamos “mecanismos de diferenciación integrada”:</p>
+<p><strong>La cohesión estructural (Moody, 2004)</strong>:</p>
+<ul>
+<li>Provee el sustrato necesario para la comunicación y validación del conocimiento</li>
+<li>Facilita la difusión de estándares metodológicos y criterios de evaluación</li>
+<li>Permite la especialización sin fragmentación total</li>
+<li>Opera a través de patrones sistemáticos de colaboración que crean puentes entre diferentes áreas</li>
+</ul>
+<p><strong>La centralización temprana (Gondal, 2011)</strong>:</p>
+<ul>
+<li>Establece estándares y criterios de evaluación compartidos</li>
+<li>Reduce la incertidumbre inicial sobre qué constituye conocimiento válido</li>
+<li>Crea puntos de referencia comunes para el desarrollo del campo</li>
+<li>Facilita la acumulación inicial de conocimiento validado</li>
+</ul>
+<p><strong>La autonomía estructural (Wu et al., 2019)</strong>:</p>
+<ul>
+<li>Permite la exploración de nuevas direcciones teóricas y metodológicas</li>
+<li>Se asocia con posiciones periféricas o semi-periféricas en la red</li>
+<li>Facilita el cuestionamiento de supuestos establecidos</li>
+<li>Opera principalmente a través de equipos pequeños con mayor libertad para innovar</li>
+</ul>
+<p>Estos mecanismos producen propiedades emergentes que caracterizan el campo como totalidad:</p>
+<p><strong>H1</strong>: La estructura reticular autor-artículo mostrará patrones de cohesión estructural (medida a través de bicomponentes) que coexisten con y facilitan la emergencia de innovación disruptiva desde posiciones periféricas. Esta hipótesis sugiere que, contrario a visiones que ven la fragmentación o la centralización como estados finales inevitables, los campos científicos desarrollan estructuras que permiten simultáneamente la integración y la innovación.</p>
+</section>
+<section id="la-diferenciación-como-proceso-relacional" class="level3">
+<h3 class="anchored" data-anchor-id="la-diferenciación-como-proceso-relacional">La Diferenciación como Proceso Relacional</h3>
+<p>La diferenciación entre campos STEM y SHAPE emerge no tanto de divisiones epistemológicas fundamentales sino de diferentes regímenes de validación del conocimiento que se cristalizan en patrones distintivos de vinculación autor-artículo. Estos regímenes reflejan diferentes:</p>
+<ul>
+<li>Criterios de validación empírica</li>
+<li>Estructuras de argumentación aceptadas</li>
+<li>Formas legítimas de construcción teórica</li>
+<li>Patrones típicos de colaboración</li>
+<li>Mecanismos de acreditación y reconocimiento</li>
+</ul>
+<p>Esto nos lleva a:</p>
+<p><strong>H2</strong>: Los campos mostrarán diferentes patrones de cohesión estructural que reflejan sus regímenes específicos de validación, manteniendo sin embargo suficiente integración para permitir la innovación interdisciplinaria. Esta hipótesis se basa en la observación de Moody (2004) de que la cohesión estructural permite la especialización sin fragmentación, pero reconoce que los mecanismos específicos de cohesión varían sistemáticamente entre campos.</p>
+</section>
+<section id="temporalidad-y-evolución-en-campos-científicos-emergentes" class="level3">
+<h3 class="anchored" data-anchor-id="temporalidad-y-evolución-en-campos-científicos-emergentes">Temporalidad y Evolución en Campos Científicos Emergentes</h3>
+<p>La dimensión temporal es crucial para entender cómo los mecanismos generativos operan en diferentes etapas del desarrollo de campos emergentes. Siguiendo a Gondal (2011), la evolución de estos campos no es lineal sino que exhibe tensiones dinámicas entre legitimación, innovación y estructuración.</p>
+<p>Fases de Desarrollo Estructural</p>
+<ol type="1">
+<li>Fase de Emergencia y Legitimación Inicial:</li>
+</ol>
+<ul>
+<li>Alta incertidumbre sobre criterios de validación</li>
+<li>Centralización temprana como mecanismo de reducción de incertidumbre</li>
+<li>Dependencia de autoridades externas para legitimación</li>
+<li>Formación inicial de grupos pequeños altamente cohesivos</li>
+</ul>
+<ol start="2" type="1">
+<li>Fase de Consolidación y Diferenciación:</li>
+</ol>
+<ul>
+<li>Desarrollo de criterios internos de validación</li>
+<li>Emergencia de estructuras centro-periferia</li>
+<li>Diversificación de líneas de investigación</li>
+<li>Formación de subcampos especializados mientras se mantiene cohesión general</li>
+</ul>
+<ol start="3" type="1">
+<li>Fase de Maduración e Integración Dinámica:</li>
+</ol>
+<ul>
+<li>Equilibrio entre innovación disruptiva y desarrollo acumulativo</li>
+<li>Estructuras de colaboración más complejas y multinivel</li>
+<li>Mecanismos establecidos para integrar conocimiento diverso</li>
+<li>Capacidad dual para mantener coherencia y generar disrupciones</li>
+</ul>
+</section>
+<section id="el-caso-de-la-ciencia-de-la-sustentabilidad" class="level3">
+<h3 class="anchored" data-anchor-id="el-caso-de-la-ciencia-de-la-sustentabilidad">El Caso de la Ciencia de la Sustentabilidad</h3>
+<p>La ciencia de la sustentabilidad representa un caso particularmente relevante de campo científico emergente por varias razones:</p>
+<ol type="1">
+<li>Urgencia Transformadora:</li>
+</ol>
+<ul>
+<li>Necesidad apremiante de innovación para abordar desafíos socio-ambientales complejos</li>
+<li>Tensión intrínseca entre la urgencia de soluciones y la necesidad de rigor científico</li>
+<li>Demanda de disrupciones que transformen paradigmas establecidos</li>
+</ul>
+<ol start="2" type="1">
+<li>Complejidad Estructural:</li>
+</ol>
+<ul>
+<li>Naturaleza inherentemente interdisciplinaria</li>
+<li>Necesidad de integrar ciencias naturales y sociales</li>
+<li>Múltiples comunidades epistémicas con diferentes tradiciones</li>
+</ul>
+<ol start="3" type="1">
+<li>Dinámica Centro-Periferia Específica:</li>
+</ol>
+<ul>
+<li>Li et al.&nbsp;(2024) identifican una relación inversa entre productividad y disrupción</li>
+<li>Los actores centrales tienden a desarrollar líneas establecidas</li>
+<li>La innovación disruptiva emerge frecuentemente desde posiciones periféricas</li>
+</ul>
+<p>Esto nos lleva a proponer:</p>
+<p><strong>H3a</strong>: La relación entre posición estructural y capacidad disruptiva evolucionará de manera diferenciada según la fase de desarrollo del campo, mostrando:</p>
+<ul>
+<li>Centralización inicial para establecer legitimidad</li>
+<li>Posterior diversificación de fuentes de innovación</li>
+<li>Eventual equilibrio dinámico entre desarrollo y disrupción</li>
+</ul>
+<p><strong>H3b</strong>: En el campo específico de la ciencia de la sustentabilidad, la urgencia transformadora modificará esta evolución típica, produciendo:</p>
+<ul>
+<li>Mayor tolerancia temprana a innovaciones disruptivas</li>
+<li>Estructuras más distribuidas de producción de conocimiento</li>
+<li>Mecanismos acelerados de validación y difusión</li>
+</ul>
+</section>
+<section id="implicaciones-para-la-estructura-de-colaboración" class="level3">
+<h3 class="anchored" data-anchor-id="implicaciones-para-la-estructura-de-colaboración">Implicaciones para la Estructura de Colaboración</h3>
+<p>Esta conceptualización temporal tiene importantes implicaciones para entender cómo evolucionan las estructuras de colaboración:</p>
+<ol type="1">
+<li>Evolución de Patrones Colaborativos:</li>
+</ol>
+<ul>
+<li>De colaboraciones principalmente diádicas a estructuras más complejas</li>
+<li>Desarrollo de “brokers” que conectan diferentes comunidades epistémicas</li>
+<li>Emergencia de equipos especializados en diferentes tipos de contribución</li>
+</ul>
+<ol start="2" type="1">
+<li>Transformación de Mecanismos de Legitimación:</li>
+</ol>
+<ul>
+<li>De dependencia externa a criterios internos de validación</li>
+<li>Desarrollo de estándares específicos del campo</li>
+<li>Evolución de mecanismos de evaluación que balancean rigor e innovación</li>
+</ul>
+<ol start="3" type="1">
+<li>Dinámica de Innovación:</li>
+</ol>
+<ul>
+<li>as fuentes de innovación se diversifican con el tiempo</li>
+<li>os roles estructurales (central vs.&nbsp;periférico) se vuelven más fluidos</li>
+<li>merge una división del trabajo entre desarrollo y disrupción</li>
+</ul>
+<p>Esta perspectiva temporal enriquece nuestra comprensión de cómo los mecanismos generativos identificados anteriormente operan y evolucionan a lo largo del tiempo, sugiriendo que la capacidad de un campo para mantener su vitalidad depende de su habilidad para institucionalizar tensiones productivas entre diferentes modos de producción de conocimiento.</p>
+</section>
+</section>
+<section id="metodología" class="level2">
+<h2 class="anchored" data-anchor-id="metodología">Metodología</h2>
+<p>La complejidad teórica identificada en la producción de conocimiento en campos científicos emergentes requiere una estrategia metodológica que integre diferentes aproximaciones analíticas. Proponemos combinar el análisis de cohesión estructural desarrollado por Moody (2004) con modelos exponenciales de grafos aleatorios (ERGMs) modo-2 siguiendo a Gondal (2011), para examinar cómo la dualidad entre productores y productos del conocimiento genera patrones específicos de colaboración y disrupción.</p>
+<section id="cohesión-estructural-y-patrones-de-colaboración" class="level3">
+<h3 class="anchored" data-anchor-id="cohesión-estructural-y-patrones-de-colaboración">Cohesión Estructural y Patrones de Colaboración</h3>
+<p>Moody (2004) demuestra que el análisis de bicomponentes en redes de coautoría proporciona una medida robusta de cohesión estructural que permite identificar cómo la especialización disciplinar coexiste con la integración del conocimiento. Un bicomponente, al requerir múltiples caminos independientes entre cada par de nodos, identifica grupos que mantienen su conectividad incluso ante la remoción de miembros individuales. Esta propiedad es particularmente relevante para entender la robustez de las estructuras de colaboración científica. Siguiendo esta aproximación, analizaremos primero la red unimodal de coautoría para:</p>
+<ul>
+<li>Identificar la evolución del componente gigante y su relación con la fragmentación disciplinar</li>
+<li>Examinar la distribución y composición de bicomponentes como indicadores de cohesión</li>
+<li>Evaluar la robustez de las estructuras de colaboración a través del tiempo</li>
+</ul>
+</section>
+<section id="dualidad-estructural-y-ergms-modo-2" class="level3">
+<h3 class="anchored" data-anchor-id="dualidad-estructural-y-ergms-modo-2">Dualidad Estructural y ERGMs Modo-2</h3>
+<p>Complementando el análisis de cohesión, los ERGMs modo-2 desarrollados por Gondal (2011) permiten modelar explícitamente la dualidad entre autores y artículos que caracteriza la producción científica. Esta aproximación modela la probabilidad de observar un vínculo autor-artículo como función de:</p>
+<ul>
+<li>Características de los autores (productividad, centralidad previa)</li>
+<li>Atributos de los artículos (disrupción, impacto)</li>
+<li>Configuraciones estructurales locales (patrones de coautoría)</li>
+<li>Variables contextuales (campo disciplinar, período temporal)</li>
+</ul>
+</section>
+<section id="estrategia-de-modelamiento-integrada" class="level3">
+<h3 class="anchored" data-anchor-id="estrategia-de-modelamiento-integrada">Estrategia de Modelamiento Integrada</h3>
+<p>Nuestra estrategia procede en tres etapas:</p>
+<ul>
+<li>Análisis de Cohesión Estructural:
+<ul>
+<li>Identificación de componentes y bicomponentes</li>
+<li>Evaluación de patrones de especialización vs integración</li>
+<li>Análisis de evolución temporal de estructuras cohesivas</li>
+</ul></li>
+<li>Modelamiento ERGM Modo-2:
+<ul>
+<li>Especificación base con efectos de grado y homofilia</li>
+<li>Incorporación de términos estructurales complejos</li>
+<li>Modelamiento de interacciones entre disrupción y posición estructural</li>
+</ul></li>
+<li>Integración de Resultados:
+<ul>
+<li>Vinculación entre patrones macro de cohesión y mecanismos generativos locales</li>
+<li>Evaluación de cómo diferentes configuraciones estructurales facilitan o inhiben la innovación disruptiva</li>
+<li>Análisis de evolución temporal de mecanismos relacionales</li>
+</ul></li>
+</ul>
+</section>
+<section id="operacionalización-y-medición" class="level3">
+<h3 class="anchored" data-anchor-id="operacionalización-y-medición">Operacionalización y Medición</h3>
+<p>Disrupción Científica: Siguiendo a Wu et al.&nbsp;(2019) y Li et al.&nbsp;(2024), medimos la disrupción a través de patrones de citación que indican en qué medida un artículo reorienta la atención del campo hacia nuevas direcciones.</p>
+<p>Cohesión Estructural: Operacionalizada a través de:</p>
+<ul>
+<li>Tamaño y composición de bicomponentes</li>
+<li>Distribución de k-componentes</li>
+<li>Medidas de conectividad robusta</li>
+</ul>
+<p>Posición Estructural: Capturada mediante:</p>
+<ul>
+<li>Centralidad en la red de coautoría</li>
+<li>Patrones de vinculación autor-artículo</li>
+<li>Pertenencia a componentes cohesivos</li>
+</ul>
+<p>Validación y Control La validez del análisis se asegura mediante:</p>
+<p>Controles por factores exógenos:</p>
+<ul>
+<li>Efectos temporales</li>
+<li>Diferencias disciplinares</li>
+<li>Variación institucional</li>
+</ul>
+<p>Diagnósticos específicos:</p>
+<ul>
+<li>Convergencia de modelos ERGM</li>
+<li>Bondad de ajuste de configuraciones estructurales</li>
+<li>Robustez a diferentes especificaciones</li>
+</ul>
+<p>Validación cruzada entre métodos:</p>
+<ul>
+<li>Consistencia entre patrones macro y micro</li>
+<li>Triangulación de resultados</li>
+<li>Evaluación de hipótesis alternativas</li>
+</ul>
+<p>Esta estrategia metodológica integrada permite examinar cómo la dualidad estructural característica de la producción científica genera simultáneamente cohesión disciplinar e innovación disruptiva, proporcionando una comprensión más profunda de la evolución de campos científicos emergentes como la ciencia de la sustentabilidad.</p>
+</section>
 </section>
 <section id="configuración-inicial-y-carga-de-datos" class="level2">
 <h2 class="anchored" data-anchor-id="configuración-inicial-y-carga-de-datos">Configuración Inicial y Carga de Datos</h2>
@@ -898,32 +1140,32 @@ ergm(formula = net_bipartite ~ edges + gwb1degree(decay = 0.25,
 Monte Carlo Maximum Likelihood Results:
 
                                      Estimate Std. Error MCMC % z value
-edges                               -9.203853   0.230544      0 -39.922
-gwb1deg.fixed.0.25                  -0.025349   0.379722      0  -0.067
-gwb2deg.fixed.0.25                   8.415840   0.792326      0  10.622
-b1cov.disruption                     0.250488   0.030125      0   8.315
-b2cov.productivity                  -0.176610   0.011439     12 -15.440
-b1factor.field_broad.STEM            0.720912   0.147742      0   4.880
-b1nodematch.field_broad.SHAPE        1.145804   0.005592      0 204.893
-b1nodematch.field_broad.STEM         0.182787   0.402028      0   0.455
-b1cov.disruption:b2cov.productivity  0.026336   0.029922      0   0.880
+edges                               -9.541165   0.099588      1 -95.807
+gwb1deg.fixed.0.25                  -1.150528   0.343174      0  -3.353
+gwb2deg.fixed.0.25                   8.941641   0.726756      0  12.303
+b1cov.disruption                     0.159001   0.040746      0   3.902
+b2cov.productivity                  -0.046516   0.012975      6  -3.585
+b1factor.field_broad.STEM            0.884419   0.127617      0   6.930
+b1nodematch.field_broad.SHAPE        1.305538   0.002365      1 551.987
+b1nodematch.field_broad.STEM         0.435505   0.400605      0   1.087
+b1cov.disruption:b2cov.productivity -0.029647   0.038695      0  -0.766
                                     Pr(&gt;|z|)    
-edges                                 &lt;1e-04 ***
-gwb1deg.fixed.0.25                     0.947    
-gwb2deg.fixed.0.25                    &lt;1e-04 ***
-b1cov.disruption                      &lt;1e-04 ***
-b2cov.productivity                    &lt;1e-04 ***
-b1factor.field_broad.STEM             &lt;1e-04 ***
-b1nodematch.field_broad.SHAPE         &lt;1e-04 ***
-b1nodematch.field_broad.STEM           0.649    
-b1cov.disruption:b2cov.productivity    0.379    
+edges                                &lt; 1e-04 ***
+gwb1deg.fixed.0.25                  0.000801 ***
+gwb2deg.fixed.0.25                   &lt; 1e-04 ***
+b1cov.disruption                     &lt; 1e-04 ***
+b2cov.productivity                  0.000337 ***
+b1factor.field_broad.STEM            &lt; 1e-04 ***
+b1nodematch.field_broad.SHAPE        &lt; 1e-04 ***
+b1nodematch.field_broad.STEM        0.276984    
+b1cov.disruption:b2cov.productivity 0.443568    
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
      Null Deviance: 63387  on 45724  degrees of freedom
- Residual Deviance: 33338  on 45715  degrees of freedom
+ Residual Deviance:  3420  on 45715  degrees of freedom
  
-AIC: 33356  BIC: 33434  (Smaller is better. MC Std. Err. = 1884)</code></pre>
+AIC: 3438  BIC: 3517  (Smaller is better. MC Std. Err. = 0.5612)</code></pre>
 </div>
 </div>
 <section id="diagnósticos-del-modelo" class="level3">
@@ -995,190 +1237,190 @@ AIC: 33356  BIC: 33434  (Smaller is better. MC Std. Err. = 1884)</code></pre>
 <div class="cell-output cell-output-stdout">
 <pre><code>Sample statistics summary:
 
-Iterations = 26368000:70400000
-Thinning interval = 51200 
+Iterations = 7795200:20800000
+Thinning interval = 12800 
 Number of chains = 2 
-Sample size per chain = 861 
+Sample size per chain = 1017 
 
 1. Empirical mean and standard deviation for each variable,
    plus standard error of the mean:
 
-                                          Mean        SD  Naive SE
-edges                                 2873.303   454.888  10.96195
-gwb1deg.fixed.0.25                       7.084     2.974   0.07167
-gwb2deg.fixed.0.25                       8.952     2.311   0.05568
-b1cov.disruption                       191.970    36.613   0.88232
-b2cov.productivity                   -2351.764   462.216  11.13854
-b1factor.field_broad.STEM              -11.666     8.958   0.21587
-b1nodematch.field_broad.SHAPE       117886.063 18638.778 449.15979
-b1nodematch.field_broad.STEM            -1.067     3.126   0.07534
-b1cov.disruption:b2cov.productivity     43.180    36.829   0.88750
+                                         Mean        SD  Naive SE
+edges                                1793.800   374.955   8.31389
+gwb1deg.fixed.0.25                     -1.236     3.384   0.07503
+gwb2deg.fixed.0.25                      4.871     2.119   0.04699
+b1cov.disruption                      134.276    31.867   0.70659
+b2cov.productivity                   -627.177   142.995   3.17063
+b1factor.field_broad.STEM              -8.034     9.561   0.21200
+b1nodematch.field_broad.SHAPE       73622.692 15364.679 340.68109
+b1nodematch.field_broad.STEM           -1.064     3.257   0.07221
+b1cov.disruption:b2cov.productivity   -22.679    32.396   0.71831
                                     Time-series SE
-edges                                    2.329e+02
-gwb1deg.fixed.0.25                       9.076e-02
-gwb2deg.fixed.0.25                       3.922e-01
-b1cov.disruption                         1.287e+00
-b2cov.productivity                       2.302e+02
-b1factor.field_broad.STEM                7.143e-01
-b1nodematch.field_broad.SHAPE            9.716e+03
-b1nodematch.field_broad.STEM             7.528e-02
-b1cov.disruption:b2cov.productivity      1.301e+00
+edges                                    1.419e+02
+gwb1deg.fixed.0.25                       1.404e-01
+gwb2deg.fixed.0.25                       1.964e-01
+b1cov.disruption                         1.647e+00
+b2cov.productivity                       4.650e+01
+b1factor.field_broad.STEM                5.314e-01
+b1nodematch.field_broad.SHAPE            6.033e+03
+b1nodematch.field_broad.STEM             7.904e-02
+b1cov.disruption:b2cov.productivity      1.548e+00
 
 2. Quantiles for each variable:
 
-                                          2.5%        25%        50%        75%
-edges                                2255.0000   2510.000   2830.500   3078.000
-gwb1deg.fixed.0.25                      0.8091      5.157      7.239      9.147
-gwb2deg.fixed.0.25                      4.4309      7.456      8.921     10.503
-b1cov.disruption                      122.3901    167.216    190.157    215.205
-b2cov.productivity                  -3461.6042  -2594.550  -2389.737  -2088.569
-b1factor.field_broad.STEM             -30.0000    -18.000    -12.000     -5.000
-b1nodematch.field_broad.SHAPE       92974.0000 102943.000 116225.000 126191.000
-b1nodematch.field_broad.STEM           -7.0000     -3.000     -1.000      1.000
-b1cov.disruption:b2cov.productivity   -27.3975     17.347     43.188     68.207
-                                        97.5%
-edges                                 4042.00
-gwb1deg.fixed.0.25                      12.43
-gwb2deg.fixed.0.25                      13.63
-b1cov.disruption                       268.28
-b2cov.productivity                   -1613.88
-b1factor.field_broad.STEM                6.00
-b1nodematch.field_broad.SHAPE       166038.00
-b1nodematch.field_broad.STEM             5.00
-b1cov.disruption:b2cov.productivity    115.16
+                                          2.5%       25%       50%        75%
+edges                                1194.8250  1529.000  1758.000  2099.0000
+gwb1deg.fixed.0.25                     -7.8392    -3.552    -1.182     0.9739
+gwb2deg.fixed.0.25                      0.5684     3.492     4.881     6.3624
+b1cov.disruption                       76.4021   112.170   133.216   155.7582
+b2cov.productivity                   -864.2451  -720.190  -635.283  -521.3639
+b1factor.field_broad.STEM             -26.0000   -15.000    -8.000    -2.0000
+b1nodematch.field_broad.SHAPE       48712.9250 63087.000 71567.000 86336.0000
+b1nodematch.field_broad.STEM           -7.0000    -3.000    -1.000     1.0000
+b1cov.disruption:b2cov.productivity   -86.7441   -44.831   -22.099    -0.6286
+                                         97.5%
+edges                                 2507.000
+gwb1deg.fixed.0.25                       5.245
+gwb2deg.fixed.0.25                       8.777
+b1cov.disruption                       198.426
+b2cov.productivity                    -357.930
+b1factor.field_broad.STEM               12.000
+b1nodematch.field_broad.SHAPE       102943.000
+b1nodematch.field_broad.STEM             6.000
+b1cov.disruption:b2cov.productivity     42.188
 
 
 Sample statistics cross-correlations:
                                           edges gwb1deg.fixed.0.25
-edges                                1.00000000       -0.172522115
-gwb1deg.fixed.0.25                  -0.17252211        1.000000000
-gwb2deg.fixed.0.25                   0.66059838        0.002725154
-b1cov.disruption                    -0.07771376       -0.259994785
-b2cov.productivity                  -0.95843224        0.174370751
-b1factor.field_broad.STEM           -0.40123436        0.494980540
-b1nodematch.field_broad.SHAPE        0.99989700       -0.173689653
-b1nodematch.field_broad.STEM        -0.04750127        0.233161349
-b1cov.disruption:b2cov.productivity  0.04830690       -0.051283722
+edges                                1.00000000        -0.13004395
+gwb1deg.fixed.0.25                  -0.13004395         1.00000000
+gwb2deg.fixed.0.25                   0.58173015         0.04610141
+b1cov.disruption                    -0.06155109        -0.15825300
+b2cov.productivity                  -0.75731442         0.07363669
+b1factor.field_broad.STEM           -0.31960829         0.47808735
+b1nodematch.field_broad.SHAPE        0.99972564        -0.13280163
+b1nodematch.field_broad.STEM        -0.07186133         0.27010786
+b1cov.disruption:b2cov.productivity -0.03750059         0.03511488
                                     gwb2deg.fixed.0.25 b1cov.disruption
-edges                                      0.660598378     -0.077713761
-gwb1deg.fixed.0.25                         0.002725154     -0.259994785
-gwb2deg.fixed.0.25                         1.000000000     -0.022243256
-b1cov.disruption                          -0.022243256      1.000000000
-b2cov.productivity                        -0.616621141      0.081924264
-b1factor.field_broad.STEM                 -0.094626904      0.003782881
-b1nodematch.field_broad.SHAPE              0.654178966     -0.078928188
-b1nodematch.field_broad.STEM               0.231033433      0.057840555
-b1cov.disruption:b2cov.productivity        0.047024313      0.146076341
+edges                                      0.581730154      -0.06155109
+gwb1deg.fixed.0.25                         0.046101410      -0.15825300
+gwb2deg.fixed.0.25                         1.000000000      -0.02641418
+b1cov.disruption                          -0.026414179       1.00000000
+b2cov.productivity                        -0.442677272       0.07030275
+b1factor.field_broad.STEM                  0.008247318       0.08442918
+b1nodematch.field_broad.SHAPE              0.572473925      -0.06240572
+b1nodematch.field_broad.STEM               0.228292084       0.05292732
+b1cov.disruption:b2cov.productivity       -0.023054664      -0.22633103
                                     b2cov.productivity
-edges                                      -0.95843224
-gwb1deg.fixed.0.25                          0.17437075
-gwb2deg.fixed.0.25                         -0.61662114
-b1cov.disruption                            0.08192426
-b2cov.productivity                          1.00000000
-b1factor.field_broad.STEM                   0.40047431
-b1nodematch.field_broad.SHAPE              -0.95864483
-b1nodematch.field_broad.STEM                0.06282278
-b1cov.disruption:b2cov.productivity        -0.05672420
+edges                                     -0.757314421
+gwb1deg.fixed.0.25                         0.073636690
+gwb2deg.fixed.0.25                        -0.442677272
+b1cov.disruption                           0.070302754
+b2cov.productivity                         1.000000000
+b1factor.field_broad.STEM                  0.162614483
+b1nodematch.field_broad.SHAPE             -0.756735806
+b1nodematch.field_broad.STEM               0.029181818
+b1cov.disruption:b2cov.productivity       -0.005573534
                                     b1factor.field_broad.STEM
-edges                                            -0.401234358
-gwb1deg.fixed.0.25                                0.494980540
-gwb2deg.fixed.0.25                               -0.094626904
-b1cov.disruption                                  0.003782881
-b2cov.productivity                                0.400474312
+edges                                            -0.319608290
+gwb1deg.fixed.0.25                                0.478087354
+gwb2deg.fixed.0.25                                0.008247318
+b1cov.disruption                                  0.084429178
+b2cov.productivity                                0.162614483
 b1factor.field_broad.STEM                         1.000000000
-b1nodematch.field_broad.SHAPE                    -0.404181223
-b1nodematch.field_broad.STEM                      0.466323491
-b1cov.disruption:b2cov.productivity              -0.007898034
+b1nodematch.field_broad.SHAPE                    -0.323381384
+b1nodematch.field_broad.STEM                      0.483681217
+b1cov.disruption:b2cov.productivity              -0.055355425
                                     b1nodematch.field_broad.SHAPE
-edges                                                  0.99989700
-gwb1deg.fixed.0.25                                    -0.17368965
-gwb2deg.fixed.0.25                                     0.65417897
-b1cov.disruption                                      -0.07892819
-b2cov.productivity                                    -0.95864483
-b1factor.field_broad.STEM                             -0.40418122
+edges                                                  0.99972564
+gwb1deg.fixed.0.25                                    -0.13280163
+gwb2deg.fixed.0.25                                     0.57247393
+b1cov.disruption                                      -0.06240572
+b2cov.productivity                                    -0.75673581
+b1factor.field_broad.STEM                             -0.32338138
 b1nodematch.field_broad.SHAPE                          1.00000000
-b1nodematch.field_broad.STEM                          -0.05339355
-b1cov.disruption:b2cov.productivity                    0.04807190
+b1nodematch.field_broad.STEM                          -0.07939152
+b1cov.disruption:b2cov.productivity                   -0.03559494
                                     b1nodematch.field_broad.STEM
-edges                                                -0.04750127
-gwb1deg.fixed.0.25                                    0.23316135
-gwb2deg.fixed.0.25                                    0.23103343
-b1cov.disruption                                      0.05784056
-b2cov.productivity                                    0.06282278
-b1factor.field_broad.STEM                             0.46632349
-b1nodematch.field_broad.SHAPE                        -0.05339355
+edges                                                -0.07186133
+gwb1deg.fixed.0.25                                    0.27010786
+gwb2deg.fixed.0.25                                    0.22829208
+b1cov.disruption                                      0.05292732
+b2cov.productivity                                    0.02918182
+b1factor.field_broad.STEM                             0.48368122
+b1nodematch.field_broad.SHAPE                        -0.07939152
 b1nodematch.field_broad.STEM                          1.00000000
-b1cov.disruption:b2cov.productivity                   0.01387605
+b1cov.disruption:b2cov.productivity                  -0.05151299
                                     b1cov.disruption:b2cov.productivity
-edges                                                       0.048306905
-gwb1deg.fixed.0.25                                         -0.051283722
-gwb2deg.fixed.0.25                                          0.047024313
-b1cov.disruption                                            0.146076341
-b2cov.productivity                                         -0.056724203
-b1factor.field_broad.STEM                                  -0.007898034
-b1nodematch.field_broad.SHAPE                               0.048071900
-b1nodematch.field_broad.STEM                                0.013876050
+edges                                                      -0.037500585
+gwb1deg.fixed.0.25                                          0.035114876
+gwb2deg.fixed.0.25                                         -0.023054664
+b1cov.disruption                                           -0.226331029
+b2cov.productivity                                         -0.005573534
+b1factor.field_broad.STEM                                  -0.055355425
+b1nodematch.field_broad.SHAPE                              -0.035594944
+b1nodematch.field_broad.STEM                               -0.051512992
 b1cov.disruption:b2cov.productivity                         1.000000000
 
 Sample statistics auto-correlation:
 Chain 1 
-               edges gwb1deg.fixed.0.25 gwb2deg.fixed.0.25 b1cov.disruption
-Lag 0      1.0000000         1.00000000          1.0000000       1.00000000
-Lag 51200  0.9957073         0.10760221          0.4258354       0.29578143
-Lag 102400 0.9913866         0.10424942          0.4239399       0.13494803
-Lag 153600 0.9870320         0.11978661          0.4079817       0.06202022
-Lag 204800 0.9825409         0.05762790          0.4060338       0.06616840
-Lag 256000 0.9780135         0.05145538          0.4188977       0.04642549
-           b2cov.productivity b1factor.field_broad.STEM
-Lag 0               1.0000000                 1.0000000
-Lag 51200           0.9951934                 0.3161863
-Lag 102400          0.9902297                 0.1863174
-Lag 153600          0.9851775                 0.1993029
-Lag 204800          0.9800136                 0.1660351
-Lag 256000          0.9748722                 0.1131634
-           b1nodematch.field_broad.SHAPE b1nodematch.field_broad.STEM
-Lag 0                          1.0000000                  1.000000000
-Lag 51200                      0.9958176                 -0.010987626
-Lag 102400                     0.9915110                  0.009067214
-Lag 153600                     0.9871141                 -0.023315398
-Lag 204800                     0.9826529                 -0.064200933
-Lag 256000                     0.9781489                 -0.007776156
-           b1cov.disruption:b2cov.productivity
-Lag 0                              1.000000000
-Lag 51200                          0.355810694
-Lag 102400                         0.142856019
-Lag 153600                         0.074919115
-Lag 204800                         0.015522930
-Lag 256000                        -0.008811173
+              edges gwb1deg.fixed.0.25 gwb2deg.fixed.0.25 b1cov.disruption
+Lag 0     1.0000000         1.00000000          1.0000000       1.00000000
+Lag 12800 0.9956059         0.50840625          0.2235229       0.63184445
+Lag 25600 0.9913324         0.27401097          0.2174909       0.41291592
+Lag 38400 0.9871442         0.16425498          0.2248615       0.25923087
+Lag 51200 0.9828187         0.09541147          0.2470875       0.15632674
+Lag 64000 0.9783423         0.05377721          0.2244551       0.09456781
+          b2cov.productivity b1factor.field_broad.STEM
+Lag 0              1.0000000                 1.0000000
+Lag 12800          0.9939038                 0.6625292
+Lag 25600          0.9887038                 0.4968717
+Lag 38400          0.9829530                 0.4082427
+Lag 51200          0.9765959                 0.3354428
+Lag 64000          0.9698111                 0.2459743
+          b1nodematch.field_broad.SHAPE b1nodematch.field_broad.STEM
+Lag 0                         1.0000000                   1.00000000
+Lag 12800                     0.9958710                   0.03613019
+Lag 25600                     0.9916576                   0.05904344
+Lag 38400                     0.9873667                   0.02833334
+Lag 51200                     0.9829982                   0.04966514
+Lag 64000                     0.9785572                   0.02395606
+          b1cov.disruption:b2cov.productivity
+Lag 0                               1.0000000
+Lag 12800                           0.6315410
+Lag 25600                           0.3942548
+Lag 38400                           0.2384983
+Lag 51200                           0.1826185
+Lag 64000                           0.1142174
 Chain 2 
-               edges gwb1deg.fixed.0.25 gwb2deg.fixed.0.25 b1cov.disruption
-Lag 0      1.0000000       1.000000e+00          1.0000000       1.00000000
-Lag 51200  0.9966113       9.300632e-02          0.3585864       0.33185214
-Lag 102400 0.9932613       7.217821e-02          0.3487627       0.15676357
-Lag 153600 0.9896649       7.800557e-05          0.3638300       0.06569429
-Lag 204800 0.9860621      -1.900990e-03          0.3640678       0.02662369
-Lag 256000 0.9824082       1.204084e-02          0.3648956       0.04600024
-           b2cov.productivity b1factor.field_broad.STEM
-Lag 0               1.0000000                 1.0000000
-Lag 51200           0.9976672                 0.2407956
-Lag 102400          0.9953312                 0.1274517
-Lag 153600          0.9927430                 0.1754514
-Lag 204800          0.9901385                 0.1341961
-Lag 256000          0.9874578                 0.1285860
-           b1nodematch.field_broad.SHAPE b1nodematch.field_broad.STEM
-Lag 0                          1.0000000                   1.00000000
-Lag 51200                      0.9967629                   0.00269752
-Lag 102400                     0.9933895                  -0.02381824
-Lag 153600                     0.9899089                   0.02625233
-Lag 204800                     0.9863511                   0.01951925
-Lag 256000                     0.9827354                  -0.06260308
-           b1cov.disruption:b2cov.productivity
-Lag 0                              1.000000000
-Lag 51200                          0.375026853
-Lag 102400                         0.141676291
-Lag 153600                         0.086654826
-Lag 204800                         0.040823203
-Lag 256000                         0.005910934
+              edges gwb1deg.fixed.0.25 gwb2deg.fixed.0.25 b1cov.disruption
+Lag 0     1.0000000          1.0000000          1.0000000        1.0000000
+Lag 12800 0.9963729          0.4312433          0.2534848        0.6892635
+Lag 25600 0.9930107          0.2676009          0.2383430        0.5219561
+Lag 38400 0.9895282          0.1574746          0.2342277        0.3953058
+Lag 51200 0.9860286          0.1313171          0.2583876        0.2881889
+Lag 64000 0.9824692          0.1401845          0.2314916        0.2271769
+          b2cov.productivity b1factor.field_broad.STEM
+Lag 0              1.0000000                 1.0000000
+Lag 12800          0.9953922                 0.6176227
+Lag 25600          0.9934641                 0.4595321
+Lag 38400          0.9910707                 0.3455482
+Lag 51200          0.9885506                 0.2667376
+Lag 64000          0.9856477                 0.2234998
+          b1nodematch.field_broad.SHAPE b1nodematch.field_broad.STEM
+Lag 0                         1.0000000                  1.000000000
+Lag 12800                     0.9966757                  0.069514043
+Lag 25600                     0.9932954                  0.002847338
+Lag 38400                     0.9898620                  0.012611512
+Lag 51200                     0.9863754                 -0.002916930
+Lag 64000                     0.9828402                  0.021163703
+          b1cov.disruption:b2cov.productivity
+Lag 0                              1.00000000
+Lag 12800                          0.67650095
+Lag 25600                          0.48866804
+Lag 38400                          0.32485661
+Lag 51200                          0.19473461
+Lag 64000                          0.09774037
 
 Sample statistics burn-in diagnostic (Geweke):
 Chain 1 
@@ -1187,56 +1429,56 @@ Fraction in 1st window = 0.1
 Fraction in 2nd window = 0.5 
 
                               edges                  gwb1deg.fixed.0.25 
-                         -2.4677899                           2.4151524 
+                         -2.7144819                           2.7695306 
                  gwb2deg.fixed.0.25                    b1cov.disruption 
-                         -3.6503130                           1.0515568 
+                         -5.5651493                           1.1617449 
                  b2cov.productivity           b1factor.field_broad.STEM 
-                          3.2471482                           5.2155740 
+                          2.7412574                           2.9405627 
       b1nodematch.field_broad.SHAPE        b1nodematch.field_broad.STEM 
-                         -2.4519307                           0.6756746 
+                         -2.6364869                           0.1974217 
 b1cov.disruption:b2cov.productivity 
-                          0.2588515 
+                         -0.2904827 
 
 Individual P-values (lower = worse):
                               edges                  gwb1deg.fixed.0.25 
-                       1.359501e-02                        1.572863e-02 
+                       6.637954e-03                        5.613712e-03 
                  gwb2deg.fixed.0.25                    b1cov.disruption 
-                       2.619210e-04                        2.930029e-01 
+                       2.619281e-08                        2.453391e-01 
                  b2cov.productivity           b1factor.field_broad.STEM 
-                       1.165677e-03                        1.832488e-07 
+                       6.120453e-03                        3.276167e-03 
       b1nodematch.field_broad.SHAPE        b1nodematch.field_broad.STEM 
-                       1.420920e-02                        4.992473e-01 
+                       8.376943e-03                        8.434976e-01 
 b1cov.disruption:b2cov.productivity 
-                       7.957498e-01 
-Joint P-value (lower = worse):  0.02823704 
+                       7.714469e-01 
+Joint P-value (lower = worse):  1.48194e-09 
 Chain 2 
 
 Fraction in 1st window = 0.1
 Fraction in 2nd window = 0.5 
 
                               edges                  gwb1deg.fixed.0.25 
-                         -4.5824721                           1.2957169 
+                         -5.3036613                           0.8314733 
                  gwb2deg.fixed.0.25                    b1cov.disruption 
-                         -6.2305249                           0.6692033 
+                        -10.5698068                           0.8925219 
                  b2cov.productivity           b1factor.field_broad.STEM 
-                          7.7468666                           5.6561198 
+                          0.9973281                           3.4928523 
       b1nodematch.field_broad.SHAPE        b1nodematch.field_broad.STEM 
-                         -4.4312582                           0.5317990 
+                         -5.4562377                           2.7779424 
 b1cov.disruption:b2cov.productivity 
-                         -0.4621040 
+                         -0.1510335 
 
 Individual P-values (lower = worse):
                               edges                  gwb1deg.fixed.0.25 
-                       4.595111e-06                        1.950730e-01 
+                       1.135028e-07                        4.057063e-01 
                  gwb2deg.fixed.0.25                    b1cov.disruption 
-                       4.648751e-10                        5.033658e-01 
+                       4.113412e-26                        3.721132e-01 
                  b2cov.productivity           b1factor.field_broad.STEM 
-                       9.418780e-15                        1.548334e-08 
+                       3.186053e-01                        4.778907e-04 
       b1nodematch.field_broad.SHAPE        b1nodematch.field_broad.STEM 
-                       9.368485e-06                        5.948652e-01 
+                       4.863289e-08                        5.470432e-03 
 b1cov.disruption:b2cov.productivity 
-                       6.440067e-01 
-Joint P-value (lower = worse):  1.568122e-14 
+                       8.799493e-01 
+Joint P-value (lower = worse):  2.274591e-12 
 
 Note: MCMC diagnostics shown here are from the last round of
   simulation, prior to computation of final parameter estimates.
