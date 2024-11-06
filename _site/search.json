@@ -247,9 +247,9 @@
   {
     "objectID": "about/index.html",
     "href": "about/index.html",
-    "title": "Sobre mí",
+    "title": "Research Overview",
     "section": "",
-    "text": "[Tu biografía aquí]"
+    "text": "::: {.content-block} ::: {.about-entity}"
   },
   {
     "objectID": "about/index.html#biografía",
@@ -348,5 +348,96 @@
     "title": "Publicaciones",
     "section": "",
     "text": "Esta sección contiene mis publicaciones académicas, artículos y trabajos de investigación.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n         \n          Author\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about/index.html#research-overview",
+    "href": "about/index.html#research-overview",
+    "title": "About",
+    "section": "",
+    "text": "I am a Doctoral Candidate…\n\n\n\n\nCausal identification of structural effects on career mobility\nDiffusion and contagion processes in occupational transitions\nFormation and evolution of career pathways\n\n\n\n\n\nOpportunity structures in occupational networks\nGender-based segregation patterns\nBarriers and facilitators of mobility\n\n\n\n[resto del contenido…]"
+  },
+  {
+    "objectID": "about/index.html#previous-research-experience",
+    "href": "about/index.html#previous-research-experience",
+    "title": "About",
+    "section": "Previous Research Experience",
+    "text": "Previous Research Experience\n\n\nHomophily and Diversity\n\nPatterns of heterogeneity in personal networks\nSocial capital distribution and network composition\nStructural constraints in relationship formation\n\n\n\nCivil Society Studies\n\nOrganizational patterns in the third sector\nSocial movement emergence and evolution\nNetwork structures in civic participation"
+  },
+  {
+    "objectID": "about/index.html#education",
+    "href": "about/index.html#education",
+    "title": "Sobre mí",
+    "section": "Education",
+    "text": "Education\n\nDoctoral Candidate in Sociology, Pontificia Universidad Católica de Chile\nMaster of Social Sciences (Civil Society Studies), Universidad de Santiago de Chile\nBachelor’s Degree in Sociology, Universidad Diego Portales"
+  },
+  {
+    "objectID": "about/index.html#methodological-expertise",
+    "href": "about/index.html#methodological-expertise",
+    "title": "Sobre mí",
+    "section": "Methodological Expertise",
+    "text": "Methodological Expertise\nMy research combines:\n\nAdvanced Network Analysis\nCausal Inference Techniques\nAgent-Based Modeling\nMixed Methods Approaches"
+  },
+  {
+    "objectID": "about/index.html#contact",
+    "href": "about/index.html#contact",
+    "title": "Roberto Cantillan",
+    "section": "Contact",
+    "text": "Contact\nEmail: ricantillan@uc.cl"
+  },
+  {
+    "objectID": "about/index.html#network-mechanisms",
+    "href": "about/index.html#network-mechanisms",
+    "title": "Research Overview",
+    "section": "Network Mechanisms",
+    "text": "Network Mechanisms\n\nCausal identification of structural effects on career mobility\nDiffusion and contagion processes in occupational transitions\nFormation and evolution of career pathways"
+  },
+  {
+    "objectID": "about/index.html#labor-market-dynamics",
+    "href": "about/index.html#labor-market-dynamics",
+    "title": "Research Overview",
+    "section": "Labor Market Dynamics",
+    "text": "Labor Market Dynamics\n\nOpportunity structures in occupational networks\nGender-based segregation patterns\nBarriers and facilitators of mobility"
+  },
+  {
+    "objectID": "about/index.html#methodological-innovation",
+    "href": "about/index.html#methodological-innovation",
+    "title": "Research Overview",
+    "section": "Methodological Innovation",
+    "text": "Methodological Innovation\n\nIntegration of network analysis with causal inference\nDevelopment of metrics for structural mobility\nApplication of agent-based models to career trajectories"
+  },
+  {
+    "objectID": "about/index.html#homophily-and-diversity-in-egocentric-networks",
+    "href": "about/index.html#homophily-and-diversity-in-egocentric-networks",
+    "title": "Research Overview",
+    "section": "Homophily and Diversity in Egocentric Networks",
+    "text": "Homophily and Diversity in Egocentric Networks\n\nPatterns of heterogeneity in personal networks across urban settings\nSocial capital distribution and network composition\nStructural constraints in relationship formation"
+  },
+  {
+    "objectID": "about/index.html#civil-society-studies",
+    "href": "about/index.html#civil-society-studies",
+    "title": "Research Overview",
+    "section": "Civil Society Studies",
+    "text": "Civil Society Studies\n\nOrganizational patterns in the third sector\nSocial movement emergence and evolution\nCommunity engagement and collective action\nNetwork structures in civic participation"
+  },
+  {
+    "objectID": "about/index.html#network-science-applications",
+    "href": "about/index.html#network-science-applications",
+    "title": "Research Overview",
+    "section": "Network Science Applications",
+    "text": "Network Science Applications\n\nScientific collaboration networks\nKnowledge diffusion processes\nStructural analysis of complex social systems"
+  },
+  {
+    "objectID": "about/index.html#homophily-and-diversity-egocentric-networks",
+    "href": "about/index.html#homophily-and-diversity-egocentric-networks",
+    "title": "Research Overview",
+    "section": "Homophily and Diversity / Egocentric Networks",
+    "text": "Homophily and Diversity / Egocentric Networks\n\nPatterns of heterogeneity in personal networks across urban settings\nSocial capital distribution and network composition\nStructural constraints in relationship formation"
+  },
+  {
+    "objectID": "about/index.html#personal-networks",
+    "href": "about/index.html#personal-networks",
+    "title": "Research Overview",
+    "section": "Personal Networks",
+    "text": "Personal Networks\n\nPatterns of heterogeneity in personal networks across urban settings\nSocial capital distribution and network composition\nStructural constraints in relationship formation\nHomophily and Diversity"
   }
 ]

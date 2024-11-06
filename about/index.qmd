@@ -1,44 +1,74 @@
 ---
-title: "Sobre mí"
-image: ../profile.jpg
-about:
-  template: solana
-  image-shape: round
-  image-width: 15em
-  links:
-    - text: GitHub
-      icon: github
-      href: https://github.com/rcantillan
-    - text: Email
-      icon: envelope
-      href: mailto:tu@email.com
-    - text: CV
-      icon: file-text
-      href: ../cv.pdf
+title: "Research Overview"
+page-layout: full
+toc: false
 ---
 
-## Biografía
 
-[Tu biografía aquí]
+::: {.about-links}
+{{< fa brands github size=lg >}}
+{{< fa envelope size=lg >}}
+{{< fa file-alt size=lg >}}
+:::
 
-## Educación
+::: {.overview-section}
+I am a Doctoral Candidate in Sociology at the Pontificia Universidad Católica de Chile and Research Assistant at the Millennium Nucleus for the Study of Labor Market Mismatch (LM2C2). My research integrates perspectives from economic sociology, social stratification, and network science to understand labor market dynamics and social inequality. My dissertation analyzes occupational mobility networks through causal inference techniques to understand how relational structures shape labor market opportunities and constraints through diffusion and contagion mechanisms. This innovative approach examines:
+:::
 
-- [Grado/título] en [Campo], [Universidad], [Año]
-- [Otro grado/título]
+::: {.research-grid}
+::: {.research-box}
+## Network Mechanisms
 
-## Experiencia
+- Causal identification of structural effects on career mobility
+- Diffusion and contagion processes in occupational transitions
+- Formation and evolution of career pathways
+:::
 
-- [Posición actual], [Institución], [Período]
-- [Experiencia previa]
+::: {.research-box}
+## Labor Market Dynamics
 
-## Áreas de Investigación
+- Opportunity structures in occupational networks
+- Gender-based segregation patterns
+- Barriers and facilitators of mobility
+:::
 
-- [Área 1]
-- [Área 2]
-- [Área 3]
+::: {.research-box}
+## Methodological Innovation
 
-## Habilidades
+- Integration of network analysis with causal inference
+- Development of metrics for structural mobility
+- Application of agent-based models to career trajectories
+:::
+:::
 
-- [Habilidad 1]
-- [Habilidad 2]
-- [Habilidad 3]
+::: {.section-title}
+# Previous Research Experience
+:::
+
+::: {.research-grid}
+::: {.research-box}
+## Personal Networks
+
+- Patterns of heterogeneity in personal networks across urban settings
+- Social capital distribution and network composition
+- Structural constraints in relationship formation
+- Homophily and Diversity
+:::
+
+::: {.research-box}
+## Civil Society Studies
+
+- Organizational patterns in the third sector
+- Social movement emergence and evolution
+- Community engagement and collective action
+- Network structures in civic participation
+:::
+
+::: {.research-box}
+## Network Science Applications
+
+- Scientific collaboration networks
+- Knowledge diffusion processes
+- Structural analysis of complex social systems
+:::
+:::

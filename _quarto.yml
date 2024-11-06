@@ -62,10 +62,11 @@ format:
       light: 
         - cosmo
         - assets/rober_light.scss
-       # - assets/rober_blog.scss  # Añade esta línea
+        - assets/rober_about.scss  # Añade esta línea
       dark:
         - cosmo
         - assets/rober_dark.scss
+        - assets/rober_about.scss  # Añade esta línea
     toc: true                    # Habilitar tabla de contenidos
     toc-location: right          # Ubicar en la derecha
     toc-title: "En esta página"  # Título en español
