@@ -6,7 +6,7 @@ project:
     - "files/"
     
 execute:
-  freeze: true  # Esto congela los resultados de la ejecución
+  freeze: auto
 
 website:
   title: "Roberto Cantillan"

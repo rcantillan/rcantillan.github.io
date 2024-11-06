@@ -1,6 +1,6 @@
 ---
 date: 2022-10-26
-title: homophily
+title: Homophily
 subtitle: Is everywhere!
 author: Roberto Cantillan
 summary: |
@@ -11,13 +11,13 @@ categories:
   - Ego networks
   - ERGM ego
   - Homophily
-title-block-banner: featured.jpg
+title-block-banner: "featured.jpg"
 title-block-banner-color: "rgba(0,38,66,0.75)"
 title-block-style: default
 ---
 
 
-![Homophily](img/Fig14_A_600.gif){#fig-id width=80%}
+![Homophily](Fig14_A_600.gif){#fig-id width=80%}
 
 
 ## libraries

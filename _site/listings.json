@@ -1,5 +1,9 @@
 [
   {
+    "listing": "/publication/index.html",
+    "items": []
+  },
+  {
     "listing": "/blog/index.html",
     "items": [
       "/blog/posts/01-multihomophily/index.html",
@@ -9,15 +13,11 @@
     ]
   },
   {
-    "listing": "/talk/index.html",
-    "items": []
-  },
-  {
-    "listing": "/publication/index.html",
-    "items": []
-  },
-  {
     "listing": "/project/index.html",
+    "items": []
+  },
+  {
+    "listing": "/talk/index.html",
     "items": []
   }
 ]
