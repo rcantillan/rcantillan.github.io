@@ -15,5 +15,9 @@
   {
     "listing": "/publication/index.html",
     "items": []
+  },
+  {
+    "listing": "/project/index.html",
+    "items": []
   }
 ]

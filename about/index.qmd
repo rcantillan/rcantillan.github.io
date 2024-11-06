@@ -1,10 +1,10 @@
 ---
 title: "Research Overview"
 page-layout: full
-toc: false
+toc: true
 ---
 
-
+::: {.about-page}
 ::: {.about-links}
 {{< fa brands github size=lg >}}
 {{< fa envelope size=lg >}}
@@ -70,5 +70,6 @@ I am a Doctoral Candidate in Sociology at the Pontificia Universidad Católica d
 - Scientific collaboration networks
 - Knowledge diffusion processes
 - Structural analysis of complex social systems
+:::
 :::
 :::

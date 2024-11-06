@@ -9,235 +9,194 @@ $burgundy-light: rgba(152, 68, 76, 0.2);
 
 /*-- scss:rules --*/
 
-// Contenedor principal
-.content-block {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 2rem 1rem;
-}
-
-// Título principal
-#title-block-header {
-  text-align: center !important;
-  margin-bottom: 3rem;
-  width: 100%;
-  
-  .title {
-    font-size: 2.5rem;
-    color: $primary;
-    position: relative;
-    display: inline-block;
+// Encapsulamos todo dentro de la clase .about-page
+.about-page {
+  // Contenedor principal
+  .content-block {
+    max-width: 1200px;
     margin: 0 auto;
-    text-align: center;
-    width: 100%;
+    padding: 2rem 1rem;
+  }
+
+  // Enlaces sociales alineados a la izquierda
+  .about-links {
+    display: flex;
+    justify-content: flex-start;
+    gap: 2rem;
+    margin: 0.1rem 0 2rem 0;
     
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 100px;
-      height: 3px;
-      background: $burgundy;
+    a {
+      color: $primary;
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        color: $burgundy;
+        transform: translateY(-3px);
+      }
     }
   }
-}
 
-// Enlaces sociales
-.about-links {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin: 0.1rem 0 2rem 0;
-  
-  a {
-    color: $primary;
-    font-size: 1.5rem;
+  // Texto de descripción
+  .about-entity {
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto 4rem;
+    
+    p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      color: $text;
+      margin-bottom: 2rem;
+      text-align: left;
+    }
+  }
+
+  // Grid para boxes de investigación
+  .research-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin: 3rem 0;
+  }
+
+  // Boxes de investigación
+  .research-box {
+    background: $background;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
+    border: 2px solid $burgundy;
+    text-align: left;
     
     &:hover {
-      color: $burgundy;
-      transform: translateY(-3px);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(152, 68, 76, 0.2);
     }
-  }
-}
 
-// Texto de descripción
-.about-entity {
-  text-align: center;
-  max-width: 900px;
-  margin: 0 auto 4rem;
-  
-  p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: $text;
-    margin-bottom: 2rem;
-  }
-}
-
-// Grid para boxes de investigación
-.research-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin: 3rem 0;
-}
-
-// Boxes de investigación
-.research-box {
-  background: $background;
-  padding: 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  transition: all 0.3s ease;
-  border: 2px solid $burgundy;
-  text-align: left;
-  
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(152, 68, 76, 0.2);
-  }
-
-  h2 {
-    color: $burgundy;
-    font-size: 1.4rem;
-    margin-bottom: 1.5rem;
-    padding-bottom: 0.8rem;
-    text-align: left;
-    position: relative;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 3px;
-      background: $burgundy;
-    }
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    text-align: left;
-    
-    li {
-      position: relative;
-      padding: 0.8rem 0 0.8rem 1.5rem;
-      border-bottom: 1px solid $burgundy-light;
-      
-      &:last-child {
-        border-bottom: none;
-      }
-      
-      &::before {
-        content: "▸";
-        position: absolute;
-        left: 0;
-        color: $burgundy;
-      }
-    }
-  }
-}
-
-// Títulos de sección
-.section-title {
-  text-align: center;
-  margin: 4rem 0 2rem;
-  
-  h1 {
-    color: $primary;
-    font-size: 2rem;
-    display: inline-block;
-    position: relative;
-    
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 80px;
-      height: 3px;
-      background: $burgundy;
-    }
-  }
-}
-
-// Boxes para educación y metodología
-.education-box, .methods-box {
-  background: $background;
-  padding: 2rem;
-  border-radius: 12px;
-  max-width: 800px;
-  margin: 2rem auto;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-  border: 2px solid $burgundy;
-  text-align: left;
-  
-  ul {
-    list-style: none;
-    padding: 0;
-    
-    li {
-      padding: 0.8rem 0 0.8rem 1.5rem;
-      position: relative;
-      
-      &::before {
-        content: "•";
-        position: absolute;
-        left: 0;
-        color: $burgundy;
-      }
-    }
-  }
-}
-
-// Quarto title banner modification
-.quarto-title-banner {
-  margin-bottom: 0;
-  padding-bottom: 0;
-  text-align: center;
-}
-
-// Description paragraph centering
-.description p {
-  text-align: center;
-}
-
-/* Responsive */
-@media screen and (max-width: 991.98px) {
-  .research-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .content-block {
-    padding: 1rem;
-  }
-  
-  #title-block-header .title {
-    font-size: 2rem;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .research-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .research-box {
-    padding: 1.5rem;
-    
     h2 {
-      font-size: 1.3rem;
+      color: $burgundy;
+      font-size: 1.4rem;
+      margin-bottom: 1.5rem;
+      padding-bottom: 0.8rem;
+      text-align: left;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: $burgundy;
+      }
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: left;
+      
+      li {
+        position: relative;
+        padding: 0.8rem 0 0.8rem 1.5rem;
+        border-bottom: 1px solid $burgundy-light;
+        
+        &:last-child {
+          border-bottom: none;
+        }
+        
+        &::before {
+          content: "▸";
+          position: absolute;
+          left: 0;
+          color: $burgundy;
+        }
+      }
     }
   }
-  
-  .about-links {
-    gap: 1.5rem;
+
+  // Títulos de sección
+  .section-title {
+    text-align: left;
+    margin: 4rem 0 2rem;
+    
+    h1 {
+      color: $primary;
+      font-size: 2rem;
+      display: inline-block;
+      position: relative;
+      
+      &::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 80px;
+        height: 3px;
+        background: $burgundy;
+      }
+    }
+  }
+
+  // Boxes para educación y metodología
+  .education-box, .methods-box {
+    background: $background;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 800px;
+    margin: 2rem auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    border: 2px solid $burgundy;
+    text-align: left;
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      
+      li {
+        padding: 0.8rem 0 0.8rem 1.5rem;
+        position: relative;
+        
+        &::before {
+          content: "•";
+          position: absolute;
+          left: 0;
+          color: $burgundy;
+        }
+      }
+    }
+  }
+
+  /* Responsive */
+  @media screen and (max-width: 991.98px) {
+    .research-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .content-block {
+      padding: 1rem;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    .research-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .research-box {
+      padding: 1.5rem;
+      
+      h2 {
+        font-size: 1.3rem;
+      }
+    }
+    
+    .about-links {
+      gap: 1.5rem;
+    }
   }
 }
