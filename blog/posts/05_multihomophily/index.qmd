@@ -11,13 +11,11 @@ categories:
   - Ego networks
   - ERGM ego
   - Homophily
-title-block-banner: "featured.jpg"
+title-block-banner: featured.jpg
 title-block-banner-color: "rgba(0,38,66,0.75)"
 title-block-style: default
 ---
 
-
-![Homophily](Fig14_A_600.gif){#fig-id width=80%}
 
 
 ## libraries
