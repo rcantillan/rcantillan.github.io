@@ -1,5 +1,8 @@
 /*-- scss:defaults --*/
 
+// Importar fuente Raleway
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap');
+
 // Define first our base colors
 $spc-primary: #524B44;          // Color marrón grisáceo (título)
 $spc-primary-light: #666666;    // Gris claro
@@ -32,22 +35,21 @@ $body-bg:                    $spc-bg-0;
 $body-secondary:             #6C757D;
 
 // Fonts
-// stylelint-disable-next-line value-keyword-case
+
 $font-family-sans-serif:     "Red Hat Text", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-// $font-family-serif: "Petrona", serif,;
-$headings-font-weight:       400;
-
+$headings-font-weight:       300;
 $font-family-monospace:      "Dank Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-
-$headings-font-family:       "Petrona";
+$headings-font-family:       "Raleway", sans-serif;
 
 // Links
+
 $link-color:                  $secondary;
 $link-decoration:             underline;
 $link-hover-color:            $secondary-light;
 $link-hover-decoration:       none;
 
 // Tables
+
 $table-border-color:          $primary;
 $table-group-separator-color: lighten($primary, 40%);
 $table-caption-color:         $body-secondary;
@@ -130,92 +132,11 @@ p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
   }
 }
 
-/* Estilos para los iconos sociales */
-.social-icon {
-  /* Quitar bordes y fondo */
-  border: none !important;
-  background: none !important;
-  padding: 0 !important;
-  margin: 0 10px !important;
-  box-shadow: none !important;
-
-  /* Estilo del ícono */
-  color: #666 !important;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #2c3e50 !important;
-    transform: scale(1.1);
-  }
-}
-
-/* Si estás usando específicamente los íconos de Quarto */
-.quarto-social a {
-  border: none !important;
-  background: none !important;
-  padding: 0 !important;
-  margin: 0 10px !important;
-  box-shadow: none !important;
-}
-
 // Contact
 
 // social links
 .link-dark.me-1 i {
   color: $secondary !important;
-}
-
-/* Remover bordes solo de los iconos en la página principal/about */
-.about-link,
-.about-links a,
-.about-links .about-link {
-  border: none !important;
-  background: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  margin: 0 1px !important;
-  /* Añadir estas propiedades para alinear */
-  display: inline-flex !important;
-  align-items: center !important;
-  vertical-align: middle !important;
-
-  /* Mantener el color actual */
-  color: $secondary !important;
-
-  /* Mantener el hover actual */
-  &:hover {
-    color: $secondary-light !important;
-    transform: scale(1.1);
-  }
-
-  /* Asegurar que el ícono dentro también mantenga los estilos */
-  i, .bi, .fa, .ai {
-    border: none !important;
-    background: none !important;
-    box-shadow: none !important;
-    color: inherit !important;
-    font-size: 1.1rem !important;
-    /* Añadir estas propiedades para alinear */
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    height: 1.5rem !important; /* Altura fija igual al font-size */
-    width: 1.5rem !important;  /* Ancho fijo igual al font-size */
-  }
-}
-
-/* Quitar específicamente los estilos de botón en la sección about */
-.about-links .btn {
-  border: none !important;
-  background: none !important;
-  box-shadow: none !important;
-  padding: 0 !important;
-  
-  &:hover, &:focus, &:active {
-    background: none !important;
-    border: none !important;
-    box-shadow: none !important;
-  }
 }
 
 // Buttons
@@ -274,17 +195,20 @@ p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
 }
 
 // title
-.navbar-title {
-  font-size: 0.75em;
-  font-weight: 500;
-  color: $primary;
-  text-transform: uppercase;
-  letter-spacing: .1em;
-
-  &:hover {
-    border-bottom: 1px solid $primary !important;
+.title {
+  font-family: $headings-font-family;
+  font-size: 2.5em;
+  font-weight: 300;
+  line-height: 1.1em;
+  letter-spacing: 0.02em;
+  
+  &.main-title {
+    font-size: 3.5em;
+    margin-bottom: 0.5em;
   }
 }
+
+
 
 // links
 .navbar-nav .nav-link {
@@ -421,46 +345,32 @@ p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
 }
 
 
-// Table of contents styling
-.toc {
-  font-size: 0.8rem;
-  padding-left: 0.5rem;
-  
-  nav {
-    ul {
-      list-style: none;
-      padding-left: 0.8rem;
-      
-      li {
-        line-height: 1.4;
-        margin-bottom: 0.4rem;
+// Title block específico para posts
+.quarto-title-block {
+  .quarto-title-banner {
+    .title, .description, .subtitle, .homophily {
+      color: white !important;
+    }
+    
+    .quarto-categories {
+      .quarto-category {  // Cambiado de listing-category a quarto-category
+        border: 1.5px solid white !important;
+        border-radius: 15px !important;
+        color: white !important;
+        background: transparent !important;
+        padding: 0.35rem 1rem !important;
+        margin: 0.2rem;
+        text-decoration: none !important;
         
-        a {
-          color: $secondary;
-          text-decoration: none;
-          
-          &:hover {
-            color: $secondary-light;
-            text-decoration: none;
-          }
+        &:hover {
+          background: rgba(255, 255, 255, 0.1) !important;
+          transform: translateY(-1px);
+          color: white !important;
+          border-color: white !important;
         }
       }
     }
   }
 }
 
-// Active TOC link
-.toc nav .active > a {
-  color: $primary;
-  font-weight: 500;
-  border-left: 2px solid $primary;
-  margin-left: -0.8rem;
-  padding-left: 0.6rem;
-}
 
-// TOC nav item on hover
-.toc nav a:hover {
-  border-left: 2px solid $secondary-light;
-  margin-left: -0.8rem;
-  padding-left: 0.6rem;
-}

@@ -11,6 +11,9 @@ categories:
   - Ego networks
   - ERGM ego
   - Homophily
+title-block-banner: featured.jpg
+title-block-banner-color: "rgba(0,38,66,0.75)"
+title-block-style: default
 ---
 
 

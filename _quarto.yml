@@ -62,7 +62,7 @@ format:
       light: 
         - cosmo
         - assets/rober_light.scss
-        - assets/rober_blog.scss  # Añade esta línea
+       # - assets/rober_blog.scss  # Añade esta línea
       dark:
         - cosmo
         - assets/rober_dark.scss
