@@ -351,7 +351,7 @@ clean_data <- clean_data %>%
   )
 ```
 
-## Construcción de la Red Bipartita
+### Construcción de la Red Bipartita
 
 La perspectiva de Gondal sobre la dualidad estructural sugiere que la estructura del conocimiento emerge de la interacción entre dos modos: autores y documentos. Para capturar esta dualidad, construimos una red bipartita donde:
 
@@ -391,7 +391,7 @@ paper_author_matrix <- sparseMatrix(
 ```
 
 
-## Construcción y Visualización de la Red
+### Construcción y Visualización de la Red
 
 La visualización de redes bipartitas presenta desafíos particulares que Gondal (2011) aborda en su análisis. Es crucial representar visualmente las tres propiedades macro que teóricamente caracterizan los campos emergentes: estructura centro-periferia, cohesión estructural y características de mundo pequeño. Para esto, primero necesitamos establecer atributos que nos permitan identificar roles estructurales:
 
@@ -421,7 +421,7 @@ net_bipartite %v% "productivity" <- author_attributes$productivity_std
 ```
 
 
-## Visualización de la Estructura Centro-Periferia
+### Visualización de la Estructura Centro-Periferia
 
 Siguiendo a Gondal, la estructura centro-periferia es especialmente relevante en campos emergentes. Para visualizarla, necesitamos primero identificar los roles estructurales de los nodos:
 
@@ -589,9 +589,7 @@ network_summary %>%
 ```
 
 
-
-
-## Análisis de Distribución de Grados
+### Análisis de Distribución de Grados
 
 Gondal sugiere que en campos emergentes, la distribución de grados debería mostrar señales de centralización temprana. Específicamente, deberíamos observar:
 
