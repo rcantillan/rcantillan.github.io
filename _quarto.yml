@@ -17,6 +17,7 @@ website:
   navbar:
     background: none
     foreground: dark
+    logo: "img/noun-small-world-network-6148828.png"
     search: true
     right:
       - text: "About"

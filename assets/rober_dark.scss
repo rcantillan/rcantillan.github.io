@@ -115,11 +115,19 @@ pre code {
   }
 }
 
-.about-links .about-link i {
-  color: $secondary !important;
-
-  &:hover {
-    color: $secondary-light !important;
+.about-links .about-link {
+  border: none !important;
+  padding: 0.2rem !important;
+  
+  i {
+    color: $secondary !important;
+    font-size: 1.5rem !important;
+    
+    &:hover {
+      color: $secondary-light !important;
+      transform: translateY(-2px);
+      transition: transform 0.2s ease;
+    }
   }
 }
 
@@ -358,3 +366,41 @@ pre code {
   margin-left: -0.8rem;
   padding-left: 0.6rem;
 }
+
+
+
+
+
+.about-links {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 1rem !important; // Esto da un espaciado uniforme entre los iconos
+  
+  .about-link {
+    border: none !important;
+    padding: 0.2rem !important;
+    line-height: 1 !important; // Esto ayuda a alinear verticalmente
+    display: flex !important; // Esto ayuda con la alineación
+    align-items: center !important;
+    justify-content: center !important;
+    
+    i {
+      color: $secondary !important;
+      font-size: 1.5rem !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      height: 1.5rem !important; // Asegura altura uniforme
+      width: 1.5rem !important;  // Asegura ancho uniforme
+      
+      &:hover {
+        color: $secondary-light !important;
+        transform: translateY(-2px);
+        transition: transform 0.2s ease;
+      }
+    }
+  }
+}
+
+

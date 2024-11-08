@@ -2,46 +2,50 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rcantillan.github.io/publication/index.html</loc>
-    <lastmod>2024-11-06T19:33:05.990Z</lastmod>
+    <lastmod>2024-11-06T22:04:13.297Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/about/index.html</loc>
-    <lastmod>2024-11-06T19:33:05.292Z</lastmod>
+    <lastmod>2024-11-08T17:41:34.634Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/about.html</loc>
-    <lastmod>2024-11-06T19:33:04.545Z</lastmod>
+    <lastmod>2024-11-06T22:04:11.899Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/posts/04-twomode-ergm/index.html</loc>
-    <lastmod>2024-11-06T19:33:03.835Z</lastmod>
+    <lastmod>2024-11-06T22:04:11.214Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/posts/05_multihomophily/index.html</loc>
-    <lastmod>2024-11-06T20:26:22.287Z</lastmod>
+    <lastmod>2024-11-06T22:04:08.118Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/index.html</loc>
-    <lastmod>2024-11-06T20:26:35.864Z</lastmod>
+    <lastmod>2024-11-08T17:21:20.179Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/posts/01-multihomophily/index.html</loc>
-    <lastmod>2024-11-06T19:32:59.687Z</lastmod>
+    <lastmod>2024-11-06T22:04:07.223Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/posts/03-egodescriptives/index.html</loc>
-    <lastmod>2024-11-06T19:33:01.981Z</lastmod>
+    <lastmod>2024-11-08T17:10:01.282Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/index.html</loc>
-    <lastmod>2024-11-06T20:26:34.211Z</lastmod>
+    <lastmod>2024-11-08T17:43:06.109Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/project/index.html</loc>
-    <lastmod>2024-11-06T19:33:04.889Z</lastmod>
+    <lastmod>2024-11-06T22:04:12.237Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/talk/index.html</loc>
-    <lastmod>2024-11-06T19:33:05.646Z</lastmod>
+    <lastmod>2024-11-06T22:04:12.971Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/blog/posts/06-ggplot/index.html</loc>
+    <lastmod>2024-11-08T17:21:23.770Z</lastmod>
   </url>
 </urlset>
