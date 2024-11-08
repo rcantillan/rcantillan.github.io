@@ -28,7 +28,8 @@ Primero cargaremos las librerías necesarias. El siguiente código utiliza `pacm
 
 pacman::p_load(tidyverse,sjlabelled,sjPlot,vcd,texreg,ordinal, 
                egor,haven,car,dplyr,stargazer,janitor,gridExtra,
-               ggeffects, kableExtra, questionr, JWileymisc)
+               ggeffects, kableExtra, questionr, JWileymisc, httr,
+               utils, plotly)
 ```
 
 ## Carga de Datos
@@ -37,9 +38,12 @@ A continuación, cargamos las bases de datos de ELSOC. Estos archivos contienen 
 
 ```{r}
 #| label: load-data
-
-load("/home/rober/Documents/rcantillan.github.io/dat/ELSOC/ELSOC_W02_v3.00_R.RData")
-load("/home/rober/Documents/rcantillan.github.io/dat/ELSOC/ELSOC_W04_v2.01_R.RData")
+#ELSOC 2017
+url <- "https://github.com/rcantillan/ricantillan.rbind.io/raw/main/dat/ELSOC/ELSOC_W02_v3.00_R.RData"
+response <- GET(url)
+local_path <- "ELSOC_W02_v3.00_R.RData"
+writeBin(response$content, local_path)
+load("ELSOC_W02_v3.00_R.RData") 
 ```
 
 ## Preparación de datos 
@@ -50,7 +54,6 @@ Este paso es crucial para el análisis de redes. Utilizamos rename() para estand
 #| label: id-prep
 
 a <- elsoc_2017 %>% rename(.egoID = idencuesta)
-b <- elsoc_2019 %>% rename(.egoID = idencuesta)
 ```
 
 ### Construcción de Base de Datos de Alteri
@@ -371,9 +374,17 @@ Creamos un heatmap para visualizar los patrones de homofilia educativa:
 table <- as.data.frame(prop.table(table(obs$ego_educ, obs$alter_educ)))
 colnames(table) <- c("Ego_educ", "Alter_educ", "Prop")
 
+# Formateamos la proporción para mostrar porcentaje con 2 decimales
+table$tooltip_text <- sprintf(
+  "Ego: %s<br>Alter: %s<br>Proporción: %.2f%%", 
+  table$Ego_educ, 
+  table$Alter_educ, 
+  table$Prop * 100
+)
+
 # Creamos el heatmap
-ggplot(table, aes(Ego_educ, Alter_educ)) +
-  geom_tile(aes(fill = Prop)) +
+p <- ggplot(table, aes(Ego_educ, Alter_educ)) +
+  geom_tile(aes(fill = Prop, text = tooltip_text)) +  # Añadimos el texto para el tooltip
   scale_fill_gradient(low = "white", high = "black") +
   theme_minimal() +
   labs(
@@ -382,6 +393,9 @@ ggplot(table, aes(Ego_educ, Alter_educ)) +
     y = "Nivel Educativo de Alter",
     fill = "Proporción"
   )
+
+# Convertimos a plotly especificando qué variables mostrar en el tooltip
+ggplotly(p, tooltip = "text")
 ```
 
 ### Análisis de Relaciones por Tipo

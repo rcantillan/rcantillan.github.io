@@ -48,7 +48,8 @@ pacman::p_load(ggplot2,
                tidyverse, 
                weights,
                survey,
-               viridis)
+               viridis,
+               plotly)
 ```
 
 ### Cargamos data
@@ -207,16 +208,30 @@ dimnames(Hpospol)=list(tamred= c("1", "2", "3", "4","5"),
                        alter = c("Izq", "Centro", "Der", "Ind/Ns", "NA"))
 
 hom_tam<-as.data.frame(round(prop.table(Hpospol,1),2))
+```
 
-hom_tam%>%
-  drop_na()%>%
-  ggplot(aes(x = tamred, y = Freq, fill = alter, na.rm = TRUE), weight = ponderador01) + 
+
+```{r}
+# Primero creamos el ggplot
+p1 <- hom_tam %>%
+  drop_na() %>%
+  ggplot(aes(x = tamred, y = Freq, fill = alter, 
+             text = paste("Tamaño de red:", tamred,
+                         "<br>Posición política:", alter,
+                         "<br>Proporción:", scales::percent(Freq, accuracy = 0.1)))) + 
   geom_bar(position = 'dodge', stat = 'identity') +
-  labs(title = "Alter political position", x = "Network size", y = "") +
-  scale_fill_viridis_d(alpha = 1, begin = 0, end = 1, direction = 1, option = "F",) +  
+  labs(title = "Alter political position", 
+       x = "Network size", 
+       y = "") +
+  scale_fill_viridis_d(alpha = 1, begin = 0, end = 1, direction = 1, option = "F") +  
   scale_y_continuous(limits = c(0, 1)) +
   theme_light()
+
+# Convertimos a plotly
+ggplotly(p1, tooltip = "text")
 ```
+
+
 
 ### Homofilia por posición política 
 ```{r}
@@ -241,16 +256,28 @@ dimnames(Hpospol)=list(ego=c("Izq", "Centro", "Der", "Ind/Ns"),
                        alter=c("Izq", "Centro", "Der", "Ind/Ns"))
 round(prop.table(Hpospol,1),2)
 qq3<-as.data.frame(round(prop.table(Hpospol,1),2))
-
-qq3%>%
-ggplot(aes(x=ego, y=Freq, fill=alter),  weight = ponderador01) + 
-  geom_bar(position = 'dodge', stat='identity') +
-  labs(title="Political dyads", x="Ego political position", y="")+
-  scale_fill_viridis_d(alpha = 1, begin = 0, end = 1, direction = 1, option = "F",) + 
-  scale_y_continuous(limits = c(0, 1))+
-    theme_light()
-
 ```
+
+
+```{r}
+# Primero creamos el ggplot
+p2 <- qq3 %>%
+  ggplot(aes(x = ego, y = Freq, fill = alter,
+             text = paste("Ego:", ego,
+                         "<br>Alter:", alter,
+                         "<br>Proporción:", scales::percent(Freq, accuracy = 0.1)))) + 
+  geom_bar(position = 'dodge', stat = 'identity') +
+  labs(title = "Political dyads", 
+       x = "Ego political position", 
+       y = "") +
+  scale_fill_viridis_d(alpha = 1, begin = 0, end = 1, direction = 1, option = "F") + 
+  scale_y_continuous(limits = c(0, 1)) +
+  theme_light()
+
+# Convertimos a plotly
+ggplotly(p2, tooltip = "text")
+```
+
 
 ### Cálculo E-I homofilia por posición política (ELSOC 2017)
 #### Indice E-I de Krackhardt y Stern (1988).
@@ -408,20 +435,36 @@ summary(ego2017$EI_index_age)
 ```
 
 
+```{r}
+# Verifica que la variable existe
+names(ego2017)  # Debería mostrar EI_index_pospol en la lista
+summary(ego2017$EI_index_pospol)  # Debería mostrar el resumen estadístico
+```
 
 ```{r, warning=FALSE}
-## Ploteamos
-ggplot(data = ego2017) + 
-  geom_histogram(mapping = aes(x = EI_index_pospol, fill = ..count..), 
-                 binwidth = 0.1, 
-                 weight = "ponderador01") + 
-  scale_fill_viridis_c(direction = 1, option = "F", guide = FALSE) + 
+# Versión corregida del plot con viridis
+p3 <- ggplot(data = ego2017,
+             aes(x = EI_index_pospol)) + 
+  geom_histogram(aes(y = after_stat(count),
+                     fill = after_stat(count),  # Agregamos fill dentro de aes()
+                     text = paste("Índice E-I:", round(x, 3),
+                                "<br>Frecuencia:", after_stat(count))),
+                 binwidth = 0.1) +
+  scale_fill_viridis_c(alpha = 1,   # Usamos scale_fill_viridis_c() para datos continuos
+                       begin = 0, 
+                       end = 1, 
+                       direction = 1, 
+                       option = "F",
+                       guide = FALSE) +  # Removemos la leyenda 
   labs(title = "Political homophily in personal networks",
        subtitle = "E-I homophily (Krackhardt & Stern, 1988)",
        caption = "source: ELSOC COES 2017",
-       x = "", 
+       x = "",
        y = "") +
   theme_light()
+
+# Convertimos a plotly
+ggplotly(p3, tooltip = "text")
 ```
 
 

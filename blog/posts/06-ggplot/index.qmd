@@ -108,11 +108,11 @@ ggplot(datos_categoricos,
 
 En este gráfico, hemos implementado varias características importantes:
 
-1. **Ordenamiento**: Usamos `fct_reorder()` para ordenar las categorías por valor
-2. **Agrupación**: Separamos las barras por grupos usando `position = "dodge"`
-3. **Etiquetas**: Añadimos valores exactos sobre cada barra
-4. **Accesibilidad**: Utilizamos la paleta viridis para mejor visibilidad
-5. **Diseño**: Aplicamos un tema moderno y limpio
+- 1. **Ordenamiento**: Usamos `fct_reorder()` para ordenar las categorías por valor
+- 2. **Agrupación**: Separamos las barras por grupos usando `position = "dodge"`
+- 3. **Etiquetas**: Añadimos valores exactos sobre cada barra
+- 4. **Accesibilidad**: Utilizamos la paleta viridis para mejor visibilidad
+- 5. **Diseño**: Aplicamos un tema moderno y limpio
 
 ### 2.2 Visualización de Redes con ggraph
 
@@ -170,15 +170,16 @@ ggraph(grafo, layout = "stress") +
 
 Esta visualización de red demuestra:
 
-1. **Estructura**: Representamos relaciones entre entidades
-2. **Atributos múltiples**: Mostramos tipo, tamaño y peso de conexiones
-3. **Diseño**: Utilizamos un layout que optimiza la visualización
-4. **Estética**: Implementamos transparencia y variación en grosor de líneas
+- 1. **Estructura**: Representamos relaciones entre entidades
+- 2. **Atributos múltiples**: Mostramos tipo, tamaño y peso de conexiones
+- 3. **Diseño**: Utilizamos un layout que optimiza la visualización
+- 4. **Estética**: Implementamos transparencia y variación en grosor de líneas
 
 
 ### 2.3 Gráficos de Mosaico Avanzados
 
 Los gráficos de mosaico son excelentes para visualizar relaciones entre variables categóricas. Son particularmente útiles cuando queremos mostrar proporciones y dependencias:
+
 
 ```{r}
 #| label: mosaico-avanzado
@@ -224,9 +225,10 @@ datos_mosaico %>%
 ```
 
 **¿Por qué usar gráficos de mosaico?**
-1. Muestran proporciones relativas entre categorías
-2. Permiten visualizar hasta 3-4 variables categóricas simultáneamente
-3. Son efectivos para identificar patrones de asociación
+
+- 1. Muestran proporciones relativas entre categorías
+- 2. Permiten visualizar hasta 3-4 variables categóricas simultáneamente
+- 3. Son efectivos para identificar patrones de asociación
 
 ### 2.4 Heatmaps Categóricos Interactivos
 
@@ -290,10 +292,11 @@ datos_heat %>%
 ```
 
 **Elementos clave del heatmap:**
-1. **Color**: Representa la intensidad o valor
-2. **Posición**: Dos dimensiones categóricas
-3. **Interactividad**: Tooltips para detalles específicos
-4. **Resumen**: Tabla complementaria para métricas clave
+
+- 1. **Color**: Representa la intensidad o valor
+- 2. **Posición**: Dos dimensiones categóricas
+- 3. **Interactividad**: Tooltips para detalles específicos
+- 4. **Resumen**: Tabla complementaria para métricas clave
 
 ### 2.5 Visualización de Flujos con ggalluvial
 
@@ -357,10 +360,11 @@ datos_flujo %>%
 ```
 
 **Ventajas de los diagramas de flujo:**
-1. Muestran cambios y transiciones
-2. Permiten seguir trayectorias individuales
-3. Visualizan proporciones cambiantes
-4. Identifican patrones de movimiento
+
+- 1. Muestran cambios y transiciones
+- 2. Permiten seguir trayectorias individuales
+- 3. Visualizan proporciones cambiantes
+- 4. Identifican patrones de movimiento
 
 
 ## 3. Visualizaciones de Distribución
@@ -431,10 +435,11 @@ datos_distribuciones %>%
 ```
 
 **¿Por qué usar gráficos ridgeline?**
-1. Muestran la forma completa de la distribución
-2. Permiten comparar múltiples categorías
-3. Son efectivos para visualizar tendencias temporales
-4. Revelan cambios en la variabilidad
+
+- 1. Muestran la forma completa de la distribución
+- 2. Permiten comparar múltiples categorías
+- 3. Son efectivos para visualizar tendencias temporales
+- 4. Revelan cambios en la variabilidad
 
 ### 3.2 Visualizaciones Compuestas con Faceting
 
@@ -505,10 +510,11 @@ datos_panel %>%
 ```
 
 **Elementos clave del faceting:**
-1. **Comparación**: Facilita la comparación entre subgrupos
-2. **Contexto**: Mantiene la consistencia en escalas
-3. **Patrones**: Revela tendencias y diferencias
-4. **Integración**: Combina múltiples perspectivas
+
+- 1. **Comparación**: Facilita la comparación entre subgrupos
+- 2. **Contexto**: Mantiene la consistencia en escalas
+- 3. **Patrones**: Revela tendencias y diferencias
+- 4. **Integración**: Combina múltiples perspectivas
 
 ### 3.3 Gráficos de Waffle para Proporciones
 
@@ -546,10 +552,11 @@ gridExtra::grid.arrange(
 ```
 
 **Ventajas de los gráficos de waffle:**
-1. Representación intuitiva de porcentajes
-2. Fácil comparación entre categorías
-3. Visualización de partes de un todo
-4. Alternativa atractiva a gráficos circulares
+
+- 1. Representación intuitiva de porcentajes
+- 2. Fácil comparación entre categorías
+- 3. Visualización de partes de un todo
+- 4. Alternativa atractiva a gráficos circulares
 
 
 ## 4. Técnicas Avanzadas de Personalización
@@ -777,10 +784,11 @@ p3 <- ggplot(datos_interactivos,
 ```
 
 **Elementos clave de la composición:**
-1. Jerarquía visual clara
-2. Uso eficiente del espacio
-3. Consistencia en el diseño
-4. Balance entre información y claridad
+
+- 1. Jerarquía visual clara
+- 2. Uso eficiente del espacio
+- 3. Consistencia en el diseño
+- 4. Balance entre información y claridad
 
 
 ## 5. Consideraciones de Accesibilidad y Mejores Prácticas

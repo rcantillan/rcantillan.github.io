@@ -273,6 +273,7 @@ library(tidygraph)
 library(kableExtra)
 library(igraph)
 library(sna)
+library(plotly)
 
 
 # Configurar tema para visualizaciones
@@ -485,8 +486,79 @@ ggraph(net_bipartite, layout = "graphopt") +
   # Etiquetas
   labs(fill = "Tipo de Entidad",
        shape = "Tipo de Entidad", 
-       title = "Red de Colaboración Bipartita",
+       title = "",
        subtitle = "")
+```
+
+
+```{r}
+#| warning: false
+#| message: false
+
+# Primero obtenemos las coordenadas usando layout stress
+coords <- create_layout(net_bipartite, layout = "graphopt")
+
+# Obtenemos la lista de bordes del objeto network de forma correcta
+edges <- as.matrix.network.edgelist(net_bipartite)
+
+# Creamos los datos para los nodos
+nodes_df <- data.frame(
+  x = coords$x,
+  y = coords$y,
+  tipo = net_bipartite %v% "tipo",
+  size = net_bipartite %v% "node_size",
+  field = net_bipartite %v% "field_broad"
+)
+
+# Creamos los datos para los enlaces
+edges_df <- data.frame(
+  x0 = coords$x[edges[,1]],
+  y0 = coords$y[edges[,1]],
+  x1 = coords$x[edges[,2]],
+  y1 = coords$y[edges[,2]]
+)
+
+# Crear el gráfico con plotly
+p <- plot_ly() %>%
+  # Agregar los enlaces
+  add_segments(
+    data = edges_df,
+    x = ~x0,
+    y = ~y0,
+    xend = ~x1,
+    yend = ~y1,
+    line = list(color = "gray80", width = 0.5),
+    hoverinfo = "none",
+    showlegend = FALSE
+  ) %>%
+  # Agregar los nodos
+  add_markers(
+    data = nodes_df,
+    x = ~x,
+    y = ~y,
+    size = ~size,
+    color = ~tipo,
+    colors = c("#003f5c", "#ffa600"),
+    symbol = ~tipo,
+    symbols = c("triangle-up", "circle"),
+    text = ~paste("Tipo:", tipo,
+                 "<br>Field:", field,
+                 "<br>Tamaño:", round(size, 2)),
+    hoverinfo = "text",
+    showlegend = TRUE
+  ) %>%
+  # Configurar el layout
+  layout(
+    title = "",
+    showlegend = TRUE,
+    legend = list(orientation = "h", x = 0, y = -0.1),
+    xaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+    yaxis = list(showgrid = FALSE, zeroline = FALSE, showticklabels = FALSE),
+    hovermode = "closest",
+    dragmode = "pan"
+  )
+
+p
 ```
 
 
