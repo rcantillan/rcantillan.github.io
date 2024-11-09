@@ -1,0 +1,18 @@
+{
+  "hash": "f5a5c6a5417bcc9a66340452e0c1878a",
+  "result": {
+    "markdown": "---\ndate: \"2023-11-25\"\ntitle: \"Movilidad ocupacional intrageneracional\"\nsubtitle: \"Mecanismos relacionales de segregación de género en Chile 2009 - 2020\"\nauthor: Roberto Cantillan | Mauricio Bucca\nimage: featured.jpg\nbibliography: bibliography.bib\nbibliographystyle: apa\ncategories:\n  - R\n  - Slides\n  - Social mobility\n  - Networks\n  - ERGM\n  - Segregation\n  - Networks mobility\ntitle-block-banner: featured.jpg\ntitle-block-banner-color: \"rgba(0,38,66,0.75)\"\ntitle-block-style: default\nlinks:\n- icon: github\n  icon_pack: fab\n  name: code\n  url: https://github.com/rcantillan/slides/tree/main/LM2C2\n- icon: door-open\n  icon_pack: fas\n  name: Slides\n  url: https://rcantillan.github.io/slides/LM2C2/intro/\nlocation: LM2C2, Con-cón, Chile. \n---\n\n\n### Introducción\n\nLa investigación aborda la persistente segregación ocupacional por género en Chile entre 2009-2020, enfocándose en cómo la movilidad ocupacional intrageneracional contribuye a mantener esta segregación. A pesar de los avances en igualdad de género, la mayoría de mujeres y hombres continúan trabajando en ocupaciones típicas para su sexo, lo que contribuye significativamente a la brecha salarial de género.\n\nLas explicaciones tradicionales de este fenómeno se han centrado en tres aspectos principales:\n\n1. Segregación vertical: discriminación hacia las mujeres en el acceso a trabajos de mayor estatus\n2. Segregación horizontal: diferencias asumidas en habilidades y preferencias por tipo de ocupación\n3. División del trabajo: limitaciones en el empleo femenino debido a responsabilidades domésticas\n\nSin embargo, el estudio evalua la importancia de un mecanismo adicional [@blockUnderstandingSelforganizationOccupational2023]: la tendencia de los hombres a evitar y abandonar ocupaciones que se están feminizando. La investigación utiliza datos de la Encuesta de Protección Social (EPS) de Chile, analizando una muestra de 15,452 individuos ocupados en 59 ocupaciones diferentes.\n\nMetodológicamente, el estudio emplea un innovador modelo de familia exponencial que permite analizar redes de movilidad ocupacional [@blockStatisticalModelAnalysis2022], incorporando predictores basados en características individuales y ocupacionales. Este enfoque permite examinar la interdependencia entre la movilidad de diferentes grupos sin necesidad de datos longitudinales extensos.\n\nLos resultados preliminares indican varios patrones significativos:\n\n- Existe una fuerte tendencia general a permanecer en la misma ocupación\n- Los hombres muestran una mayor tendencia que las mujeres a permanecer en sus ocupaciones actuales\n- Se observa una leve tendencia de los hombres a abandonar ocupaciones cuando aumenta la proporción de mujeres\n- Las mujeres tienden ligeramente a moverse hacia ocupaciones más pequeñas en comparación con los hombres\n\n\n&nbsp;\n&nbsp;\n\n### Slides\n\n::: {.cell}\n::: {.cell-output-display}\n```{=html}\n<div class=\"shareagain\" style=\"min-width:300px;margin:1em auto;\" data-exeternal=\"1\">\n<iframe src=\"https://rcantillan.github.io/slides/gender_segregation/intro/\" width=\"1600\" height=\"900\" style=\"border:2px solid currentColor;\" loading=\"lazy\" allowfullscreen></iframe>\n<script>fitvids('.shareagain', {players: 'iframe'});</script>\n</div>\n```\n:::\n:::\n\n\n&nbsp;\n&nbsp;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<script src=\"../../../site_libs/fitvids-2.1.1/fitvids.min.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

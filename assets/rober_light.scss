@@ -416,5 +416,57 @@ p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
 }
 
 
+// Estilos para el grid de charlas
+.quarto-grid-item {
+  .card-title {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    
+    a:first-child {
+      text-decoration: none;
+      color: $spc-primary;
+      
+      &:hover {
+        color: $spc-secondary;
+      }
+    }
+    
+    .github-link {
+      margin-left: 0.5rem;
+      color: $spc-secondary;
+      
+      &:hover {
+        color: $spc-secondary-light;
+        transform: translateY(-2px);
+        transition: transform 0.2s ease;
+      }
+    }
+  }
+}
 
+.quarto-grid-item .listing-categories .listing-category {
+  border: 1.5px solid $spc-secondary !important;
+  border-radius: 15px !important;
+  padding: 0.35rem 1rem !important;
+  margin: 0.2rem;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: $spc-secondary !important;
+    transform: translateY(-1px);
+  }
+}
+
+.quarto-grid-item .listing-location {
+  font-size: 0.9rem;
+  color: $spc-primary-light;
+  margin-top: 0.5rem;
+  
+  i {
+    color: $spc-secondary;
+    margin-right: 0.5rem;
+  }
+}
 

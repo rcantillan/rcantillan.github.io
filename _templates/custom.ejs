@@ -1,0 +1,41 @@
+<div class="quarto-listing-container quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<% for (const item of items) { %>
+  <div class="g-col-1">
+    <div class="quarto-grid-item card h-100">
+      <% if (item.image) { %>
+        <img src="<%- item.image %>" class="card-img-top" alt="<%- item.title %>">
+      <% } %>
+      <div class="card-body">
+        <h5 class="card-title listing-title">
+          <a href="<%- item.path %>"><%- item.title %></a>
+          <% if (item.links && item.links.some(l => l.icon === 'github')) { %>
+            <a href="<%- item.links.find(l => l.icon === 'github').url %>" 
+               class="github-link"
+               target="_blank">
+              <i class="fa-brands fa-github"></i>
+            </a>
+          <% } %>
+        </h5>
+        
+        <div class="listing-categories">
+          <% for (const cat of item.categories || []) { %>
+            <span class="listing-category"><%- cat %></span>
+          <% } %>
+        </div>
+
+        <% if (item.description) { %>
+          <p class="card-text"><%- item.description %></p>
+        <% } %>
+
+        <% if (item.location) { %>
+          <div class="listing-location">
+            <i class="fa-solid fa-location-dot"></i> <%- item.location %>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
+<% } %>
+</div>
+</div>

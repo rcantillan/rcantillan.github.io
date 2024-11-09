@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rcantillan.github.io/publication/index.html</loc>
-    <lastmod>2024-11-06T22:04:13.297Z</lastmod>
+    <lastmod>2024-11-09T01:42:32.183Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/about/index.html</loc>
-    <lastmod>2024-11-08T17:41:34.634Z</lastmod>
+    <lastmod>2024-11-09T00:30:35.590Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/about.html</loc>
@@ -22,7 +22,7 @@
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/index.html</loc>
-    <lastmod>2024-11-08T22:50:50.011Z</lastmod>
+    <lastmod>2024-11-09T01:14:25.916Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/posts/01-multihomophily/index.html</loc>
@@ -34,7 +34,7 @@
   </url>
   <url>
     <loc>https://rcantillan.github.io/index.html</loc>
-    <lastmod>2024-11-08T21:32:41.143Z</lastmod>
+    <lastmod>2024-11-09T00:30:09.552Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/project/index.html</loc>
@@ -42,10 +42,30 @@
   </url>
   <url>
     <loc>https://rcantillan.github.io/talk/index.html</loc>
-    <lastmod>2024-11-06T22:04:12.971Z</lastmod>
+    <lastmod>2024-11-09T01:38:54.442Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/posts/06-ggplot/index.html</loc>
     <lastmod>2024-11-08T21:50:16.497Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/talk/posts/CSS/index.html</loc>
+    <lastmod>2024-11-09T01:38:38.870Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/talk/posts/laboral_gender_segregation/index.html</loc>
+    <lastmod>2024-11-09T00:44:52.052Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/talk/posts/multi-homphily/index.html</loc>
+    <lastmod>2024-11-09T00:40:51.127Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/talk/posts/mobility_classes/index.html</loc>
+    <lastmod>2024-11-09T00:37:00.880Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/talk/posts/laboral_gender_segregation_II/index.html</loc>
+    <lastmod>2024-11-09T01:11:23.301Z</lastmod>
   </url>
 </urlset>

@@ -19,6 +19,12 @@
   },
   {
     "listing": "/talk/index.html",
-    "items": []
+    "items": [
+      "/talk/posts/CSS/index.html",
+      "/talk/posts/laboral_gender_segregation_II/index.html",
+      "/talk/posts/laboral_gender_segregation/index.html",
+      "/talk/posts/mobility_classes/index.html",
+      "/talk/posts/multi-homphily/index.html"
+    ]
   }
 ]

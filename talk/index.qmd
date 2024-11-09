@@ -7,9 +7,11 @@ listing:
   categories: true
   sort-ui: true
   filter-ui: true
-  fields: [date, title, location, description, categories, image]
+  fields: [date, title, description, categories, image]
+  grid-columns: 3
 page-layout: full
-title-block-banner: true
+title-block-banner: rgba(138, 0, 0, 0.85)
 ---
 
 Aquí puedes encontrar mis presentaciones y charlas en conferencias, seminarios y otros eventos académicos.
+

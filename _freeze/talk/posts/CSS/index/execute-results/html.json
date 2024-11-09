@@ -1,0 +1,18 @@
+{
+  "hash": "1a90f754f0524fc2bc87590d1d77ed17",
+  "result": {
+    "markdown": "---\ndate: 2024-11-01\ntitle: \"Investigación social en la era digital\"\nsubtitle: \"\"\nauthor: Roberto Cantillan\nimage: featured.jpg\ncategories:\n  - R\n  - Slides\n  - Computational Social Sciences\ntitle-block-banner: featured.jpg\ntitle-block-banner-color: \"rgba(0,38,66,0.75)\"\ntitle-block-style: default\nlinks:\n- icon: github\n  icon_pack: fab\n  name: code\n  url: https://github.com/rcantillan/slides/tree/main/ciencias-sociales-computacionales\n- icon: door-open\n  icon_pack: fas\n  name: Slides\n  url: https://rcantillan.github.io/slides/ciencias-sociales-computacionales/intro/#1\nlocation: Universidad Católica del Maule (Online)\n---\n\n\n### Introducción\n\nEl transcurso de la era de la información y las transformaciones tecnológicas que la acompañan conllevan oportunidades y retos inéditos para el progreso de la investigación social. Nos encontramos en un momento en el cual podemos observar y analizar el comportamiento humano de formas radicalmente novedosas y prometedoras. El propósito de este ciclo breve de diálogos es acercar a los participantes a estas innovadoras modalidades de investigación y al potencial inherente a las denominadas \"ciencias sociales computacionales\". Las conversaciones estarán dirigidas hacia las novedosas estrategias de diseño de investigaciones sociales, considerando las nuevas fuentes de información disponibles y la influencia actual de la capacidad computacional. El contenido de la presentación esta basado en el libro \"Bit by Bit\" de Matthew Salganik.\n\n   \n\n### Slides\n\n\n::: {.cell}\n::: {.cell-output-display}\n```{=html}\n<div class=\"shareagain\" style=\"min-width:300px;margin:1em auto;\" data-exeternal=\"1\">\n<iframe src=\"https://rcantillan.github.io/slides/ciencias-sociales-computacionales/intro/\" width=\"1600\" height=\"900\" style=\"border:2px solid currentColor;\" loading=\"lazy\" allowfullscreen></iframe>\n<script>fitvids('.shareagain', {players: 'iframe'});</script>\n</div>\n```\n:::\n:::\n\n\n   \n\n### Recursos para profundización\n\n-   [R para Ciencia de Datos](https://es.r4ds.hadley.nz/) (versión en español) by Hadley Wickham and Garrett Grolemund\n-   [Introduction to Computational Social Science](https://bookdown.org/markhoff/css/) by Mark Hoffman  \n-   [Advanced R](https://adv-r.hadley.nz/) by Hadley Wickham  \n-   [Bit By Bit](https://www.bitbybitbook.com/) By Matthew Salganik  \n-   [Summer Institute for Computational Social Science](https://sicss.io/)\n\n   \n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<script src=\"../../../site_libs/fitvids-2.1.1/fitvids.min.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

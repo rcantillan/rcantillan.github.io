@@ -68,6 +68,9 @@ format:
         - cosmo
         - assets/rober_dark.scss
         - assets/rober_about.scss  # Añade esta línea
+    code-link: true
+    pagetitle: "{{< meta title >}}"
+    lightbox: true
     toc: true                    # Habilitar tabla de contenidos
     toc-location: right          # Ubicar en la derecha
     toc-title: "En esta página"  # Título en español

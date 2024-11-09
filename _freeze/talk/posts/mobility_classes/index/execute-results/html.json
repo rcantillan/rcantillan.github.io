@@ -1,0 +1,18 @@
+{
+  "hash": "db7fd9e9ad3aa311a98359fc0840bfe0",
+  "result": {
+    "markdown": "---\ndate: \"2023-08-16\"\ntitle: \"Clases de movilidad\"\nsubtitle: \"en Chile 2009 - 2020\"\nauthor: Roberto Cantillan\nimage: featured.jpg\ncategories:\n  - R\n  - Slides\n  - Social mobility\n  - Networks mobility \ntitle-block-banner: featured.jpg\ntitle-block-banner-color: \"rgba(0,38,66,0.75)\"\ntitle-block-style: default\nlinks:\n- icon: github\n  icon_pack: fab\n  name: code\n  url: https://github.com/rcantillan/slides/tree/main/mobility_class\n- icon: door-open\n  icon_pack: fas\n  name: Slides\n  url: https://rcantillan.github.io/slides/mobility_class/intro/\nlocation: DEMOSAL, Buenos Aires. \n---\n\n\n### Introducción \n\nEn este trabajo se concibe la estructura ocupacional como un sistema adaptativo de intercambio generalizado (Bearman, 1997). En esta interpretación, diversas ocupaciones con atributos dinámicos se entrelazan a través del movimiento de trabajadores, un fenómeno que responde tanto a influencias externas inesperadas como a procesos internos de la propia red.\n\nEsta visión nos permite visualizar el mercado ocupacional como una red direccional y valorada, donde las ocupaciones conforman los nodos y los flujos de trabajadores funcionan como los enlaces. A través de estos enlaces, se transmiten oportunidades y restricciones que configuran el panorama laboral (Cheng & Park, 2020).\n\nEl objetivo es ambicioso: describir la estructura emergente del mercado ocupacional de manera compleja y dinámica, focalizando en las conexiones entre ocupaciones, los desplazamientos de trabajadores y los procesos de contagio entre ocupaciones a lo largo del tiempo en un intervalo de diez años en el contexto chileno.\n\n&nbsp;\n\n### Slides\n\n\n::: {.cell}\n::: {.cell-output-display}\n```{=html}\n<div class=\"shareagain\" style=\"min-width:300px;margin:1em auto;\" data-exeternal=\"1\">\n<iframe src=\"https://rcantillan.github.io/slides/mobility_class/intro/\" width=\"1600\" height=\"900\" style=\"border:2px solid currentColor;\" loading=\"lazy\" allowfullscreen></iframe>\n<script>fitvids('.shareagain', {players: 'iframe'});</script>\n</div>\n```\n:::\n:::\n\n\n&nbsp;\n&nbsp;\n\n### Bibliográfia\n\n- Bearman, P. (1997). Generalized Exchange. American Journal of Sociology, 102(5), 1383–1415. https://doi.org/10.1086/231087\n\n- Cheng, S., & Park, B. (2020). Flows and Boundaries: A Network Approach to Studying Occupational Mobility in the Labor Market. American Journal of Sociology, 126(3), 577–631. https://doi.org/10.1086/712406\n\n- Lin, K.-H., & Hung, K. (2022). The Network Structure of Occupations: Fragmentation, Differentiation, and Contagion. American Journal of Sociology, 127(5), 1551–1601. https://doi.org/10.1086/719407\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {
+      "include-in-header": [
+        "<script src=\"../../../site_libs/fitvids-2.1.1/fitvids.min.js\"></script>\n"
+      ]
+    },
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
