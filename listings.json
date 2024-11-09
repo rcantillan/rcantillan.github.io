@@ -4,10 +4,6 @@
     "items": []
   },
   {
-    "listing": "/talk/index.html",
-    "items": []
-  },
-  {
     "listing": "/blog/index.html",
     "items": [
       "/blog/posts/01-multihomophily/index.html",
@@ -18,7 +14,13 @@
     ]
   },
   {
-    "listing": "/publication/index.html",
-    "items": []
+    "listing": "/talk/index.html",
+    "items": [
+      "/talk/posts/CSS/index.html",
+      "/talk/posts/laboral_gender_segregation_II/index.html",
+      "/talk/posts/laboral_gender_segregation/index.html",
+      "/talk/posts/mobility_classes/index.html",
+      "/talk/posts/multi-homphily/index.html"
+    ]
   }
 ]
