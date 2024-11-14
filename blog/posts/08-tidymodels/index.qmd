@@ -298,6 +298,8 @@ g_density <- elsoc_networks %>%
     panel.grid.minor = element_blank()
   )
 
+g_density
+
 # Convertir a plotly
 p_density <- ggplotly(g_density)
 
