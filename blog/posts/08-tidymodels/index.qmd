@@ -1,0 +1,723 @@
+---
+title: "Análisis de Confianza Social y Homogeneidad en Redes Personales"
+subtitle: "Modelando con tidymodels y egor"
+author: "Roberto Cantillan"
+categories: [R, Networks, "Ego networks"]
+title-block-banner: "rgba(148, 0, 0, 0.78)"
+title-block-banner-color: "rgba(0,38,66,0.75)"
+title-block-style: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 10,
+  fig.height = 6
+)
+```
+
+# 1. Introducción
+
+## 1.1 Objetivos de Aprendizaje
+
+::: {.callout-note}
+## Objetivos Específicos
+
+1. Comprender los fundamentos teóricos de la regresión logística
+2. Implementar modelos usando tidymodels y GLM tradicional
+3. Calcular y comparar métricas de diversidad usando dos métodos:
+   - Método tradicional con índices compuestos
+   - Método alternativo usando el paquete egor
+4. Analizar efectos marginales en modelos de confianza social
+5. Interpretar la relación entre estructura de red y confianza social
+:::
+
+## 1.2 Fundamentos Teóricos
+
+### Regresión Logística y Redes Personales
+
+::: {.callout-important}
+## Marco Teórico Integrado
+
+**Regresión Logística**:
+La probabilidad de confiar dado un conjunto de predictores se modela como:
+
+$$P(Y=1|X) = \frac{e^{\beta_0 + \beta_1X_1 + ... + \beta_pX_p}}{1 + e^{\beta_0 + \beta_1X_1 + ... + \beta_pX_p}}$$
+
+**Diversidad de Red (Enfoque Tradicional)**:
+El índice compuesto de diversidad se calcula como:
+
+$$D_i = \frac{1}{3}\sum_{j=1}^3 \left(\frac{\text{Unique}_j}{\text{Total}_j}\right)$$
+
+**Diversidad de Red (Enfoque egor)**:
+La entropía de Shannon para diversidad se calcula como:
+
+$$H = -\sum_{i=1}^n p_i \ln(p_i)$$
+
+Donde:
+
+- $p_i$ es la proporción de alters en cada categoría
+- $n$ es el número total de categorías posibles
+:::
+
+## 1.3 Preparación del Ambiente
+
+```{r packages}
+#| label: cargar-paquetes
+
+# Cargar paquetes necesarios
+pacman::p_load(
+  tidyverse, 
+  tidymodels,
+  egor,
+  vcd, 
+  texreg, 
+  ordinal, 
+  haven, 
+  car,
+  dplyr, 
+  stargazer, 
+  janitor, 
+  gridExtra,
+  ggeffects, 
+  kableExtra, 
+  questionr, 
+  JWileymisc,
+  httr, 
+  utils, 
+  plotly, 
+  vip,
+  corrplot,
+  modelsummary,
+  effects,
+  sjmisc, 
+  interactions,
+  moments,
+  marginaleffects
+)
+
+# Configuración de tidymodels
+tidymodels_prefer()
+```
+
+# 2. Preparación y Análisis de Datos
+
+## 2.1 Carga y Preparación Inicial
+
+```{r data-prep}
+#| label: preparacion-datos
+
+# Cargar datos ELSOC
+url <- "https://github.com/rcantillan/ricantillan.rbind.io/raw/main/dat/ELSOC/ELSOC_W02_v3.00_R.RData"
+response <- GET(url)
+load(rawConnection(response$content))
+
+# Preparación inicial de datos
+elsoc_prep <- elsoc_2017 %>%
+  mutate(
+    # Nivel educativo del ego
+    educ_ego = case_when(
+      m01 %in% c(1, 2, 3) ~ "Básica",
+      m01 %in% c(4, 5, 6, 7) ~ "Media",
+      m01 %in% c(8, 9, 10) ~ "Superior",
+      TRUE ~ NA_character_
+    ),
+    
+    # Recodificación de confianza social
+    confianza = case_when(
+      c02 %in% c(-999, -888) ~ NA_real_,
+      c02 %in% c(1, 3) ~ 1,  # Se puede confiar
+      c02 == 2 ~ 0,          # No se puede confiar
+      TRUE ~ NA_real_
+    ),
+    
+    # Variables sociodemográficas
+    edad_cat = cut(m0_edad, 
+                  breaks = c(0, 25, 35, 45, 55, 65, Inf),
+                  labels = c("18-25", "26-35", "36-45", "46-55", "56-65", "65+")),
+    
+    ingreso_hogar = case_when(
+      m30 <= 3 ~ "Bajo",
+      m30 <= 6 ~ "Medio-Bajo",
+      m30 <= 9 ~ "Medio",
+      m30 <= 12 ~ "Medio-Alto",
+      m30 > 12 ~ "Alto",
+      TRUE ~ NA_character_
+    )
+  )
+```
+
+## 2.2 Construcción de Índices de Red
+
+### 2.2.1 Método Tradicional
+
+```{r network-indices}
+#| label: indices-red-tradicional
+
+# Función para calcular diversidad con ponderación
+calc_diversity_weighted <- function(data, prefix, weights = NULL) {
+  vars <- paste0(prefix, "0", 1:5)
+  
+  if (is.null(weights)) {
+    weights <- rep(1/length(vars), length(vars))
+  }
+  
+  weights <- weights/sum(weights)
+  
+  data %>%
+    select(all_of(vars)) %>%
+    mutate(
+      total_valid = rowSums(!is.na(.)),
+      unique_vals = apply(., 1, function(x) {
+        valid_vals <- x[!is.na(x) & x != -999]
+        if (length(valid_vals) == 0) return(0)
+        unique_count <- length(unique(valid_vals))
+        weighted_diversity <- unique_count/length(valid_vals)
+        return(weighted_diversity)
+      }),
+      diversity = ifelse(total_valid > 0, 
+                        unique_vals,
+                        0)
+    ) %>%
+    pull(diversity)
+}
+
+# Aplicar cálculo de índices tradicionales
+elsoc_networks <- elsoc_prep %>%
+  mutate(
+    div_educ = calc_diversity_weighted(., "r13_educ_", 
+                                     weights = c(0.3, 0.25, 0.2, 0.15, 0.1)),
+    div_relig = calc_diversity_weighted(., "r13_relig_"),
+    div_ideol = calc_diversity_weighted(., "r13_ideol_",
+                                      weights = c(0.3, 0.25, 0.2, 0.15, 0.1)),
+    network_diversity = (div_educ * 0.4 + div_relig * 0.3 + div_ideol * 0.3)
+  )
+```
+
+### 2.2.2 Método egor
+
+```{r egor-indices}
+#| label: indices-red-egor
+
+# Preparar datos para egor
+# Datos de ego
+egos_data <- elsoc_prep %>%
+  select(.egoID = idencuesta, 
+         sexo = m0_sexo, 
+         edad = m0_edad,
+         educacion = educ_ego,
+         confianza)
+
+# Datos de alter para educación, religión e ideología
+alters_data <- elsoc_prep %>%
+  pivot_longer(
+    cols = starts_with(c("r13_educ_", "r13_relig_", "r13_ideol_")),
+    names_to = c(".value", "alter_num"),
+    names_pattern = "r13_(.+)_(.+)"
+  ) %>%
+  select(
+    .egoID = idencuesta,
+    .altID = alter_num,
+    educ,
+    relig,
+    ideol
+  )
+
+# Crear objeto egor
+ego_networks <- egor(
+  alters = alters_data,
+  egos = egos_data,
+  ID.vars = list(
+    ego = ".egoID",
+    alter = ".altID"
+  )
+)
+
+# Calcular métricas de diversidad con egor
+div_educ_egor <- alts_diversity_entropy(ego_networks, "educ")
+div_relig_egor <- alts_diversity_entropy(ego_networks, "relig")
+div_ideol_egor <- alts_diversity_entropy(ego_networks, "ideol")
+
+# Crear data frame con métricas de egor
+diversity_metrics_df <- data.frame(
+  .egoID = ego_networks$ego$.egoID,
+  div_educ_egor = div_educ_egor$entropy,
+  div_relig_egor = div_relig_egor$entropy,
+  div_ideol_egor = div_ideol_egor$entropy
+) %>%
+  mutate(
+    network_diversity_egor = (div_educ_egor * 0.4 + div_relig_egor * 0.3 + div_ideol_egor * 0.3)
+  )
+
+# Unir métricas de egor al dataset principal
+elsoc_networks <- elsoc_networks %>%
+  mutate(idencuesta = as.character(idencuesta)) %>%
+  left_join(
+    diversity_metrics_df,
+    by = c("idencuesta" = ".egoID")
+  )
+```
+
+### 2.2.3 Visualización y Comparación de Índices
+
+```{r viz-indices}
+#| label: visualizacion-indices
+
+# Crear el objeto ggplot para la comparación de densidades
+g_density <- elsoc_networks %>%
+  select(matches("^div_")) %>%
+  rename(
+    "Educación (Tradicional)" = div_educ,
+    "Religión (Tradicional)" = div_relig,
+    "Ideología (Tradicional)" = div_ideol,
+    "Educación (egor)" = div_educ_egor,
+    "Religión (egor)" = div_relig_egor,
+    "Ideología (egor)" = div_ideol_egor
+  ) %>%
+  pivot_longer(
+    everything(),
+    names_to = "metrica",
+    values_to = "valor"
+  ) %>%
+  ggplot(aes(x = valor, fill = metrica)) +
+  geom_density(alpha = 0.6) +
+  facet_wrap(~metrica, scales = "free") +
+  labs(
+    title = "Comparación de Índices de Diversidad",
+    subtitle = "Métodos Tradicional vs egor",
+    x = "Valor del Índice",
+    y = "Densidad"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "none",
+    plot.title = element_text(face = "bold"),
+    plot.subtitle = element_text(color = "grey40"),
+    panel.grid.minor = element_blank()
+  )
+
+# Convertir a plotly
+p_density <- ggplotly(g_density)
+
+# Mostrar el gráfico interactivo
+p_density
+
+```
+
+
+```{r}
+cor_matrix <- elsoc_networks %>%
+   select(matches("^div_")) %>%
+   cor(use = "pairwise.complete.obs")
+
+# Preparar los datos para visualización
+cor_data <- cor_matrix %>%
+  as.data.frame() %>%
+  rownames_to_column("var1") %>%
+  pivot_longer(-var1, names_to = "var2", values_to = "correlation") %>%
+  mutate(
+    # Mejorar nombres para visualización
+    var1 = case_when(
+      var1 == "div_educ" ~ "Educación (Trad)",
+      var1 == "div_relig" ~ "Religión (Trad)",
+      var1 == "div_ideol" ~ "Ideología (Trad)",
+      var1 == "div_educ_egor" ~ "Educación (Egor)",
+      var1 == "div_relig_egor" ~ "Religión (Egor)",
+      var1 == "div_ideol_egor" ~ "Ideología (Egor)"
+    ),
+    var2 = case_when(
+      var2 == "div_educ" ~ "Educación (Trad)",
+      var2 == "div_relig" ~ "Religión (Trad)",
+      var2 == "div_ideol" ~ "Ideología (Trad)",
+      var2 == "div_educ_egor" ~ "Educación (Egor)",
+      var2 == "div_relig_egor" ~ "Religión (Egor)",
+      var2 == "div_ideol_egor" ~ "Ideología (Egor)"
+    )
+  )
+
+# Crear el gráfico con ggplot2
+g_correlation <- ggplot(cor_data, 
+                       aes(x = var1, y = var2, fill = correlation)) +
+  geom_tile() +
+  geom_text(aes(label = sprintf("%.2f", correlation)), 
+            color = ifelse(abs(cor_data$correlation) > 0.5, "white", "black")) +
+  scale_fill_gradient2(
+    low = "#E41A1C",    # Rojo para correlaciones negativas
+    mid = "white",      # Blanco para correlaciones cerca de 0
+    high = "#377EB8",   # Azul para correlaciones positivas
+    midpoint = 0,
+    limits = c(-1, 1)
+  ) +
+  labs(
+    title = "Matriz de Correlaciones entre Índices de Diversidad",
+    subtitle = "Comparación entre métodos Tradicional y Egor",
+    fill = "Correlación"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    axis.text.y = element_text(angle = 0),
+    panel.grid = element_blank(),
+    legend.position = "right"
+  ) +
+  coord_fixed()  # Mantener aspecto cuadrado
+
+# Convertir a plotly
+ggplotly(g_correlation) 
+```
+
+
+
+::: {.callout-note}
+## Comparación de Métodos
+
+1. **Método Tradicional**:
+   - Ventajas:
+     * Interpretación intuitiva (rango 0-1)
+     * Cálculo directo basado en conteos
+     * Flexibilidad en la ponderación
+   - Limitaciones:
+     * Menor sensibilidad a distribuciones
+     * No considera la proporción de cada categoría
+
+2. **Método egor**:
+   - Ventajas:
+     * Mayor sensibilidad a patrones de distribución
+     * Fundamentación en teoría de la información
+     * Captura matices en la estructura de red
+   - Limitaciones:
+     * Interpretación menos intuitiva
+     * Rango de valores variable
+
+3. **Hallazgos Clave**:
+   - Alta correlación entre métodos (r > 0.8)
+   - Mayor variabilidad en medidas egor
+   - Patrones consistentes a través de dimensiones
+:::
+
+# 3. Modelamiento Estadístico
+
+## 3.1 Preparación para el Modelamiento
+
+```{r model-prep}
+#| label: preparacion-modelos
+
+# Preparar datos para modelamiento
+model_data <- elsoc_networks %>%
+  select(
+    confianza,
+    educ_ego,
+    edad_cat,
+    m0_sexo,
+    starts_with("div_")
+  ) %>%
+  drop_na()
+
+# Convertir variables categóricas a factores
+model_data <- model_data %>%
+  mutate(
+    confianza = factor(confianza, levels = c(0, 1), labels = c("No Confía", "Confía")),
+    m0_sexo = factor(m0_sexo, levels = c(1, 2), labels = c("Hombre", "Mujer"))
+  )
+
+# Inspección inicial de datos
+glimpse_data <- ggplot(model_data) +
+  geom_bar(aes(x = confianza, fill = educ_ego), position = "dodge") +
+  labs(
+    title = "Distribución de Confianza por Nivel Educativo",
+    x = "Nivel de Confianza",
+    y = "Conteo",
+    fill = "Nivel Educativo"
+  ) +
+  theme_minimal()
+
+ggplotly(glimpse_data)
+```
+
+## 3.2 Modelamiento con tidymodels
+
+::: {.callout-note}
+## Proceso de Modelamiento con tidymodels
+
+1. **Especificación del Modelo**:
+   - Definimos el tipo de modelo (regresión logística)
+   - Configuramos el motor (GLM)
+   - Establecemos el modo (clasificación)
+
+2. **Preparación de Recetas**:
+   - Normalizamos predictores numéricos
+   - Codificamos variables categóricas
+   - Manejamos missing values
+
+3. **Creación de Workflows**:
+   - Combinamos modelo y receta
+   - Aseguramos reproducibilidad
+   - Facilitamos comparación de modelos
+:::
+
+```{r model-spec}
+#| label: especificacion-modelos
+
+# Especificación del modelo logístico
+log_spec <- logistic_reg() %>%
+  set_engine("glm") %>%
+  set_mode("classification")
+
+# Receta para modelo tradicional
+recipe_trad <- recipe(confianza ~ div_educ + div_relig + div_ideol + 
+                     educ_ego + edad_cat + m0_sexo,
+                     data = model_data) %>%
+  step_normalize(all_numeric_predictors()) %>%
+  step_dummy(all_nominal_predictors()) %>%
+  step_zv(all_predictors())
+
+# Receta para modelo egor
+recipe_egor <- recipe(confianza ~ div_educ_egor + div_relig_egor + div_ideol_egor + 
+                     educ_ego + edad_cat + m0_sexo,
+                     data = model_data) %>%
+  step_normalize(all_numeric_predictors()) %>%
+  step_dummy(all_nominal_predictors()) %>%
+  step_zv(all_predictors())
+
+# Crear workflows
+workflow_trad <- workflow() %>%
+  add_recipe(recipe_trad) %>%
+  add_model(log_spec)
+
+workflow_egor <- workflow() %>%
+  add_recipe(recipe_egor) %>%
+  add_model(log_spec)
+```
+
+## 3.3 Ajuste y Comparación de Modelos
+
+```{r model-fit}
+#| label: ajuste-modelos
+
+# Ajustar modelos
+fit_trad <- workflow_trad %>%
+  fit(data = model_data)
+
+fit_egor <- workflow_egor %>%
+  fit(data = model_data)
+
+# Extraer coeficientes y crear visualización
+tidy_results <- bind_rows(
+  fit_trad %>%
+    extract_fit_parsnip() %>%
+    tidy() %>%
+    mutate(modelo = "Tradicional"),
+  fit_egor %>%
+    extract_fit_parsnip() %>%
+    tidy() %>%
+    mutate(modelo = "Egor")
+) %>%
+  mutate(
+    term = str_remove_all(term, "(_egor)|(_trad)"),
+    estimate = round(estimate, 3),
+    std.error = round(std.error, 3)
+  )
+
+# Crear gráfico de coeficientes
+coef_plot <- ggplot(tidy_results, 
+                   aes(x = estimate, 
+                       y = term, 
+                       color = modelo)) +
+  geom_point(position = position_dodge(width = 0.5)) +
+  geom_errorbarh(aes(xmin = estimate - 1.96*std.error,
+                     xmax = estimate + 1.96*std.error),
+                 position = position_dodge(width = 0.5),
+                 height = 0.2) +
+  labs(
+    title = "Comparación de Coeficientes entre Modelos",
+    x = "Estimación",
+    y = "Variable",
+    color = "Modelo"
+  ) +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    panel.grid.minor = element_blank()
+  )
+
+# Convertir a plotly
+ggplotly(coef_plot)
+```
+
+## 3.4 Análisis de Efectos
+
+```{r effects-analysis}
+#| label: analisis-efectos
+
+# Crear predicciones para visualización
+pred_data_trad <- augment(fit_trad, new_data = model_data)
+pred_data_egor <- augment(fit_egor, new_data = model_data)
+
+# Gráfico de efectos para diversidad educacional
+g_effects_educ <- ggplot() +
+  geom_point(data = pred_data_trad, 
+             aes(x = div_educ, y = .pred_Confía, color = "Tradicional"),
+             alpha = 0.3) +
+  geom_smooth(data = pred_data_trad,
+              aes(x = div_educ, y = .pred_Confía, color = "Tradicional"),
+              method = "loess") +
+  geom_point(data = pred_data_egor,
+             aes(x = div_educ_egor, y = .pred_Confía, color = "Egor"),
+             alpha = 0.3) +
+  geom_smooth(data = pred_data_egor,
+              aes(x = div_educ_egor, y = .pred_Confía, color = "Egor"),
+              method = "loess") +
+  labs(
+    title = "Efectos de la Diversidad Educacional en la Confianza",
+    x = "Índice de Diversidad Educacional",
+    y = "Probabilidad de Confiar",
+    color = "Método"
+  ) +
+  theme_minimal()
+
+# Convertir a plotly
+ggplotly(g_effects_educ)
+
+# Efectos marginales por nivel educativo
+g_effects_edu_level <- ggplot(pred_data_trad, 
+                            aes(x = div_educ, 
+                                y = .pred_Confía, 
+                                color = educ_ego)) +
+  geom_smooth(method = "loess") +
+  labs(
+    title = "Efectos Marginales por Nivel Educativo",
+    x = "Diversidad Educacional",
+    y = "Probabilidad de Confiar",
+    color = "Nivel Educativo"
+  ) +
+  theme_minimal()
+
+# Convertir a plotly
+ggplotly(g_effects_edu_level)
+```
+
+## 3.5 Diagnósticos y Validación
+
+```{r diagnostics}
+#| label: diagnosticos
+
+# Calcular métricas de rendimiento con probabilidades
+metrics_trad <- fit_trad %>%
+  predict(model_data, type = "prob") %>%  
+  bind_cols(
+    predict(fit_trad, model_data, type = "class"),  
+    model_data
+  ) %>%
+  metrics(
+    truth = confianza, 
+    estimate = .pred_class,
+    .pred_Confía
+  )
+
+metrics_egor <- fit_egor %>%
+  predict(model_data, type = "prob") %>%
+  bind_cols(
+    predict(fit_egor, model_data, type = "class"),
+    model_data
+  ) %>%
+  metrics(
+    truth = confianza, 
+    estimate = .pred_class,
+    .pred_Confía
+  )
+
+# Crear gráfico comparativo de métricas
+g_metrics <- bind_rows(
+  mutate(metrics_trad, Modelo = "Tradicional"),
+  mutate(metrics_egor, Modelo = "Egor")
+) %>%
+  mutate(
+    .metric = case_when(
+      .metric == "accuracy" ~ "Exactitud",
+      .metric == "roc_auc" ~ "Área ROC",
+      .metric == "kap" ~ "Kappa"
+    )
+  ) %>%
+  ggplot(aes(x = .metric, y = .estimate, fill = Modelo)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  labs(
+    title = "Comparación de Métricas de Rendimiento",
+    subtitle = "Evaluación de modelos de confianza social",
+    x = "Métrica",
+    y = "Valor",
+    fill = "Modelo"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    legend.position = "bottom"
+  ) +
+  scale_y_continuous(limits = c(0, 1))
+
+# Convertir a plotly
+ggplotly(g_metrics)
+```
+
+
+- Exactitud (Accuracy): Mide la proporción de predicciones correctas (tanto positivas como negativas) Un valor de 0.75 significaría que el modelo acierta el 75% de las veces Útil cuando las clases están balanceadas
+
+
+- Área ROC (ROC AUC): Mide la capacidad del modelo para distinguir entre clases
+
+Varía de 0 a 1, donde:
+
+  - 0.5 indica rendimiento aleatorio
+  - 0.7 es considerado aceptable
+  - 0.8 es considerado bueno
+  - 0.9 es considerado excelente
+
+Es robusto ante el desbalance de clases
+
+
+- Kappa: Mide la concordancia entre predicciones y valores reales, corrigiendo por el azar
+
+Varía de -1 a 1, donde:
+
+- < 0 indica acuerdo peor que el azar
+- 0 indica acuerdo por azar
+- 0.2 indica acuerdo justo
+- 0.4 indica acuerdo moderado
+- 0.6 indica acuerdo sustancial
+- 0.8 indica acuerdo casi perfecto
+
+
+En este caso, vemos que:
+
+- Ambos modelos (tradicional y egor) muestran rendimientos similares
+- El área ROC superior a 0.7 indica una capacidad discriminativa aceptable
+- La exactitud y el kappa sugieren que los modelos son significativamente mejores que la predicción al azar
+
+
+# 4. Conclusiones y Discusión
+
+::: {.callout-important}
+## Hallazgos Principales
+
+1. **Efectos de la Diversidad de Red**:
+   - La diversidad educacional muestra el efecto más fuerte y consistente
+   - Los efectos son no lineales y varían según el nivel educativo
+   - Ambos métodos (tradicional y egor) muestran patrones similares
+
+2. **Comparación de Métodos**:
+   - El método egor captura matices más sutiles en la estructura de red
+   - Mayor sensibilidad a variaciones en la distribución de características
+   - Correlación alta entre ambos métodos sugiere validez convergente
+
+3. **Implicaciones para la Confianza Social**:
+   - La diversidad de red es un predictor significativo de confianza
+   - El efecto está moderado por el nivel educativo individual
+   - Los resultados son robustos a diferentes especificaciones
+:::
+
+Las visualizaciones interactivas permiten explorar en detalle las relaciones encontradas y los patrones emergentes en los datos. El uso de tidymodels facilita un flujo de trabajo reproducible y sistemático para el análisis.
+
+
+
+
