@@ -1,7 +1,11 @@
 ---
 title: "Poder, Coaliciones y Vínculos Múltiples en la Movilización Urbana"
 subtitle: "El Conflicto por el Plan Regulador de Peñalolén 2011"
-author: "Roberto Cantillan"
+author: 
+  - name: "Roberto Cantillan"
+    affiliations: 
+        - name: "Department of Sociology, PUC"
+          address: "Santiago, Chile"
 date: 2024-11-13
 #bibliography: references.bib
 bibliographystyle: apa
@@ -11,483 +15,921 @@ categories:
   - ERGM
   - Social Movements
   - Contentious polítics 
-title-block-banner: "rgba(0,38,66,0.75)"
+title-block-banner: "rgba(148, 0, 0, 0.78)"
 title-block-banner-color: "rgba(0,38,66,0.75)"
 title-block-style: default
+draft: false
 ---
 
+# Introduction
 
-# Antecedentes
+Urban social movements represent complex networks of relationships between heterogeneous actors who coordinate collective action through multiple types of ties (Diani, 2015). The conflict over Peñalolén's Master Plan in 2011 provides an exemplary case to analyze how these multiplex networks facilitate the emergence and diffusion of contentious political identities, enabling broad coalition formation among diverse urban actors.
 
-Los procesos de neoliberalización desplegados a partir de la década de los ochenta en Latinoamérica han devenido en una alta concentración de la riqueza y el poder (Banco Mundial, 2013). En este marco, el aumento de las desigualdades y de la conflictividad suele tener como correlato político la activación de procesos de desdemocratización (Tilly, 2000; 2010) y, por lo tanto, de aumento de las constricciones a la influencia popular sobre la política pública.
+## Theoretical Framework
 
-En Chile, la hegemonía neoliberal articula estructuras relacionales y normativas (Scott, 2011) en configuraciones sociopolíticas que tienden a desarrollar integración social a través del despliegue de mecanismos de mercado (Garretón, 2001). En términos urbanos, desde los años ochenta, la explotación y la licitación competitiva de los recursos presentes en la ciudad (Harvey, 2007) han contribuido a la homogeneización de los espacios urbanos a través de procesos de segregación y gentrificación de las categorías sociales populares (Skewes, 2001).
+### Networks and Contentious Politics
 
-El régimen chileno ha desarrollado una notable capacidad de integrar el conflicto social: se focaliza en demandas individuales y se reducen las probabilidades de alteración de los programas de asignación de recursos públicos. Uno de los impactos más relevantes de la lógica del Estado neoliberal ha sido la fragmentación horizontal y vertical de campo asociativo, lo cual ha tenido graves consecuencias para el movimiento popular (Espinoza, 1999a; 2013).
+Our analysis integrates two complementary theoretical perspectives: social movement networks and contentious politics. From a network perspective, movements emerge from dense webs of multiplex relationships that facilitate resource mobilization and sustain collective identities (Diani, 2003; Mische, 2003). These networks serve both instrumental and symbolic functions - channeling resources while also cultivating shared interpretive frames (Passy & Giugni, 2001).
 
-# Problema de Investigación 
+The contentious politics approach emphasizes how political opportunities and threats trigger episodes of contention through mechanisms like boundary activation and polarization (McAdam et al., 2001; Tilly & Tarrow, 2015). These mechanisms operate through relational processes of brokerage and scale shift that connect previously disparate actors into broader coalitions (Tarrow, 2005).
 
-Los estudios sobre acción colectiva en episodios de conflicto urbano en Chile durante la última década se han concentrado principalmente en analizar los mecanismos cognitivos de subjetivación política que emergen en la praxis de los movimientos sociales. De manera complementaria, este artículo se enfoca en los procesos de emergencia de identidades políticas, analizando las dinámicas de influencia y coordinación entre organizaciones voluntarias involucradas en un conflicto particular.
+### Multiplex Ties and Movement Integration 
 
-La pregunta central que guía este análisis es: ¿Cómo se configura la red de movilización de organizaciones de la sociedad civil de Peñalolén y, en específico, qué actores fueron los más centrales en el conflicto y cómo afectaron sus posiciones al entramado mayor?
+Following Gould's (1991) seminal work, we conceptualize tie multiplexity not merely as a descriptive network feature but as a fundamental mechanism that:
 
-## Sobre el Caso
+1. Generates structural resistance to demobilization
+2. Facilitates coordination between diverse actors  
+3. Produces mutual reinforcement between different types of relationships
 
-Bajo estas condiciones ambientales, la Municipalidad de Peñalolén presentó un plan de renovación de la estructura normativa que regula el uso del suelo comunal, el Plan Regulador Comunal (PRC), que contemplaba radicales transformaciones en algunos sectores de la comuna. Las modificaciones consideraban el cambio de uso de suelo en algunas zonas altamente valoradas por los vecinos de barrios populares. Al respecto, tres propuestas de modificaciones parecieron especialmente conflictivas:
+This multiplexity operates at both micro and macro levels. At the micro level, multiple ties between specific organizations reinforce commitments and reduce uncertainty in interactions (Baldassarri & Diani, 2007). At the macro level, multiplexity increases overall network robustness and enables the integration of different organizational clusters while sustaining broader collective identities (Diani, 2015).
 
-1. La construcción de edificios de doce pisos en la franja Américo Vespucio
-2. La expropiación de terrenos ubicados en la quebrada de Vitor
-3. La falta de terrenos para la construcción de viviendas sociales
+### Boundary Mechanisms and Network Evolution
 
-Un aspecto clave necesario de considerar es la presencia protagónica de una organización paraguas de la FENAPO, el Movimiento de Pobladores en Lucha (MPL). Esta organización había logrado posicionar dentro de la Municipalidad a un personaje de suma relevancia, Lautaro Guanca, dirigente de la organización y concejal municipal, lo cual permitió transacciones importantes para el movimiento.
+Drawing on Tilly (2004), we analyze how boundary change mechanisms shape movement dynamics through:
 
-# Marco Teórico
+1. Inscription-Erasure: The creation/dissolution of social boundaries
+2. Activation-Deactivation: Changes in the salience of existing boundaries
+3. Site Transfer: Relocation of actors relative to boundaries
+4. Relocation: Shifts in boundary-organizing relations
 
-## Sociedad Civil y Movimiento Social 
+These mechanisms interact with network structures to shape patterns of diffusion and coalition formation (Tilly & Tarrow, 2015).
 
-En el amplio campo de la política pública (Tilly, 2010) convergen dos subcampos: La sociedad civil, que contiene a todas las organizaciones voluntarias involucradas en la promoción de la acción colectiva y la producción de bienes colectivos (Crossley, 2010; Diani, 2015), y el campo de organización burocrático. Para estudiar estos campos de acción, debemos poner especial atención en la configuración de los vínculos que conectan a los miembros de los campos, y en los patrones de interacción entre campos y subcampos (Diani, 2015).
+### Complex Diffusion in Movement Networks
 
-Los movimientos sociales son mejor comprendidos como "modos de coordinación" de acción colectiva (Diani, 2015) particulares, que se despliegan dentro de procesos sociales más amplios. Por 'modos de coordinación' nos referimos aquí a los procesos relacionales a través de los cuales se asignan recursos y definen límites identitarios dentro de una cierta colectividad de organizaciones formales e informales.
+Recent work on complex contagion demonstrates that the spread of contentious behaviors through networks depends on:
 
-## Multiplicidad de Vínculos y Procesos de Integración
+1. Multiple exposures through redundant ties (Centola & Macy, 2007)
+2. Local clustering that provides social reinforcement (Centola, 2018) 
+3. Strong ties that sustain costly forms of activism (McAdam & Paulsen, 1993)
 
-Siguiendo a Gould (1991), entendemos que la multiplicidad de vínculos entre organizaciones no es simplemente una característica descriptiva de las redes, sino un mecanismo fundamental que:
+This suggests that multiplex ties may be particularly important for the diffusion of contentious identities and practices.
 
-1. Genera mayor resistencia estructural a la desmovilización
-2. Facilita la coordinación entre actores diversos
-3. Produce refuerzos mutuos entre diferentes tipos de relaciones
+## Hypotheses
 
-La multiplicidad de vínculos opera en dos niveles:
+Building on this theoretical framework, we propose four hypotheses:
 
-1. **Nivel Micro**: 
-   - Refuerza compromisos entre organizaciones específicas
-   - Reduce la incertidumbre en las interacciones
-   - Facilita el desarrollo de confianza
+H1: Structural Effects
+- Network formation will exhibit significant transitivity (GWESP)
+- Degree distributions will be relatively homogeneous (GWDegree)
 
-2. **Nivel Macro**:
-   - Incrementa la robustez de la red completa
-   - Permite la integración de clusters diferentes
-   - Sostiene identidades colectivas amplias
+H2: Conditional Homophily  
+- Organizational type homophily will be stronger for trust/values ties than instrumental ties
+- Structural block homophily will moderate organizational type homophily
 
-## Mecanismos de Integración en Redes Organizativas
+H3: Strategic Multiplexity
+- Multiple ties increase the probability of new tie formation
+- This effect is stronger between organizations of different types/blocks
 
-La literatura reciente sobre redes organizativas (Diani 2015; Crossley 2010) sugiere que la integración efectiva de movimientos sociales depende de la interacción entre:
+H4: Complex Diffusion
+- Adoption of contentious positions requires multiple exposures
+- Local clustering positively moderates adoption probability
+- Triadic structures are more effective than dyadic ones
 
-1. **Transacciones**: 
-   - Intercambios instrumentales de recursos
-   - Flujos de información
-   - Cooperación táctica
+# Data and Methods
 
-2. **Lazos sociales**:
-   - Identidades compartidas
-   - Solidaridades duraderas
-   - Membresías múltiples
+## Research Design
 
-La combinación de estos vínculos genera lo que Gould (1991) llama "estructuras multiplexadas" que:
-- Son más resistentes a presiones externas
-- Facilitan la coordinación compleja
-- Sostienen identidades colectivas
+We employ a mixed-methods design (Domínguez & Hollstein, 2014) combining social network analysis with qualitative contextual data. Our approach conceptualizes relational structure as a multidimensional space of social positions in which population members are non-randomly distributed (Scott, 2011).
 
-## Mecanismos de Boundaries
+## Data Collection
 
-Siguiendo a Tilly (2004), analizamos los mecanismos que constituyen el cambio de fronteras sociales como procesos fundamentales en la dinámica de los movimientos sociales:
+Data was collected during 2017-2018 through:
 
-1. **Inscripción-Borrado**: 
-   - Diferenciación de relaciones sociales
-   - Representaciones compartidas
-   - Zonas de transición
+1. Network Surveys (N=31)
+   - Name generator limited to 5 nominations
+   - Multiple tie types 
+   - Organizational attributes
 
-2. **Activación-Desactivación**:
-   - Aumento/disminución de relevancia de fronteras
-   - Organización de actividad colectiva
-   - Definición de límites identitarios
+2. In-depth Interviews (N=12)
+   - Key informants
+   - Conflict history
+   - Coordination dynamics
 
-3. **Site Transfer y Relocation**:
-   - Reubicación de actores respecto a fronteras
-   - Cambio en fronteras organizadoras
-   - Nuevas configuraciones relacionales
+3. Documentary Sources
+   - Local press coverage
+   - Organizational documents
+   - Meeting minutes
 
-## Hipótesis
+The sampling strategy combined:
 
-Basándonos en esta literatura y considerando las capacidades del análisis ERGM para modelar procesos de formación de redes, proponemos las siguientes hipótesis:
+- Initial identification of organization types
+- Snowball sampling until saturation (40% name repetition)
+- Secondary source validation
 
-H1: **Clausura Diferencial**
-La probabilidad de formación de vínculos sociales entre organizaciones será mayor dentro de clusters del mismo tipo que entre clusters diferentes, controlando por otros factores estructurales.
+## Networks and Attributes
 
-H2: **Complementariedad de Vínculos**
-La presencia de vínculos transaccionales entre organizaciones incrementará significativamente la probabilidad de formación de vínculos sociales entre ellas, especialmente entre organizaciones de diferentes tipos.
+We analyze five types of ties between 70 organizations:
 
-H3: **Multiplicidad Estratégica**
-Las organizaciones que combinan altos niveles de vínculos tanto transaccionales como sociales tendrán una probabilidad significativamente mayor de ocupar posiciones de intermediación en la red.
+1. Cooperation (joint activities)
+2. Trust (historical bonds)
+3. Resources (material support)
+4. Values (interpretive frames) 
+5. Kinship (family ties)
 
-H4: **Homofilia Condicional**
-El efecto de la homofilia será más fuerte para lazos sociales que para transacciones, controlando por efectos estructurales como transitividad y popularidad.
+## Limitations
 
-H5: **Integración Multinivel**
-La probabilidad de formación de tríadas transitivas será significativamente mayor cuando involucren tanto vínculos sociales como transaccionales, comparada con tríadas que involucran un solo tipo de vínculo.
+Important methodological limitations include:
 
-# Datos y Métodos
-
-## Estrategia Metodológica
-
-Esta investigación utiliza un diseño mixto (Domínguez & Hollstein, 2014) que combina análisis de redes sociales con datos cualitativos contextuales. La metodología adoptada supone que una estructura relacional es un espacio multidimensional de posiciones sociales entre los cuales los miembros de una población están distribuidos de manera desigual no aleatoria (Scott, 2011).
-
-## Recolección de Datos y Muestreo
-
-Los datos fueron recolectados entre 2017-2018 mediante:
-
-1. **Cuestionarios** (N=31)
-   - Generador de nombres limitado a 5 menciones
-   - Tipos de vínculos
-   - Atributos organizacionales
-
-2. **Entrevistas en profundidad** (N=12)
-   - Informantes clave
-   - Historia del conflicto
-   - Dinámicas de coordinación
-
-3. **Fuentes documentales**
-   - Prensa local
-   - Documentos organizacionales
-   - Actas de reuniones
-
-La estrategia de muestreo combinó:
-
-1. Identificación inicial de tipos de organizaciones
-2. Muestreo de bola de nieve hasta saturación (40% nombres repetidos)
-3. Complementación con fuentes secundarias
-
-### Limitaciones
-
-Es importante reconocer algunas limitaciones metodológicas:
-
-1. Sesgo temporal al recolectar datos retrospectivamente
-2. Posible subrepresentación de actores periféricos
-3. Límite artificial en el número de menciones (5)
-4. Dificultad para capturar la intensidad de vínculos
-
-## Matrices de Análisis
-
-Se construyeron cuatro matrices relacionales 70x70:
-
-1. **Cooperación**
-   - Colaboración en acciones
-   - Proyectos conjuntos
-   - Campañas compartidas
-
-2. **Confianza**
-   - Vínculos históricos
-   - Valores compartidos
-   - Membresías múltiples
-
-3. **Recursos**
-   - Préstamo de espacios
-   - Compartir información
-   - Apoyo logístico
-
-4. **Valores**
-   - Marcos interpretativos
-   - Objetivos políticos
-   - Repertorios de acción
+1. Temporal bias from retrospective data collection
+2. Potential underrepresentation of peripheral actors
+3. Artificial cap on nominations (5)
+4. Difficulty capturing tie intensity
 
 ## Estrategia Analítica
 
-El análisis se desarrolla en tres etapas:
-
-1. **Análisis Descriptivo**
+1. **Análisis Descriptivo:**
    - Medidas de centralidad
    - Detección de bloques
    - Análisis de multiplexidad
 
-2. **Modelación ERGM**
+2. **Modelación ERGM:**
    - Efectos estructurales
-   - Atributos organizacionales
-   - Interacción entre tipos de vínculos
+   - Homofilia condicional 
+   - Interacción entre vínculos
 
-3. **Integración Cualitativa**
-   - Contexto histórico
-   - Procesos de formación de alianzas
-   - Mecanismos de coordinación
+3. **Modelo de Difusión:**
+   - Contagio complejo
+   - Umbrales heterogéneos
+   - Efectos de estructura local
+
+# Resultados
 
 ```{r setup}
-#| label: load-packages
 #| message: false
+library(tidyverse)
+library(igraph)
+library(tidygraph)
+library(statnet)
+library(ergm)
+library(ggplot2)
+library(network)
+library(kableExtra)
+library(plotly)
+library(gridExtra)
+library(viridis)
+library(sna)
+library(concorR)
+library(ggraph)
+library(Matrix)
+library(patchwork)
+```
+
+
+## Descriptivos
+### Red
+```{r datos}
+#| message: false
+#| warning: false
+
+
+# Leer y preparar las matrices
+coop_matrix <-       as.matrix(read.csv("datos/CoopNet.csv", header=FALSE))
+trust_matrix <-      as.matrix(read.csv("datos/ConfianzaNet.csv", header=FALSE))
+resources_matrix <-  as.matrix(read.csv("datos/RecursosNet.csv", header=FALSE))
+values_matrix <-     as.matrix(read.csv("datos/ValoresNet.csv", header=FALSE))
+parentesco_matrix <- as.matrix(read.csv("datos/ParentescoNet.csv", header=FALSE))
+
+# Leer atributos
+attributes <- read.csv("datos/Atributos _org2011.csv", header=TRUE)
+
+# Verificar si las redes son dirigidas
+is_directed <- list(
+  Cooperacion = !isSymmetric(coop_matrix),
+  Confianza = !isSymmetric(trust_matrix),
+  Recursos = !isSymmetric(resources_matrix),
+  Valores = !isSymmetric(values_matrix),
+  Parentesco = !isSymmetric(parentesco_matrix)
+)
+
+print("Verificación de direccionalidad de las redes:")
+print(unlist(is_directed))
+
+# Lista de todas las matrices para análisis
+matrices_list <- list(
+  Cooperacion = coop_matrix,
+  Confianza = trust_matrix,
+  Recursos = resources_matrix,
+  Valores = values_matrix,
+  Parentesco = parentesco_matrix
+)
+
+map_lgl(matrices_list, is.matrix)
+map_lgl(matrices_list, function(x) nrow(x) == ncol(x))
+
+
+print("\nEstadísticas descriptivas de las redes:")
+map_dfr(matrices_list, function(x) {
+  g <- graph_from_adjacency_matrix(x, mode="directed")
+  tibble(
+    Densidad = edge_density(g),
+    N_lazos = sum(x),
+    N_nodos_activos = sum(rowSums(x) > 0),
+    Reciprocidad = reciprocity(g),
+    Transitivity = transitivity(g),
+    Componentes = count_components(g),
+    Diametro = diameter(g, directed=TRUE, weights=NA)
+  )
+}, .id = "Red") %>% 
+  kbl() %>%
+  kable_paper("hover", full_width = T)
+```
+
+
+### Actores 
+```{r actores}
+#| message: false
+#| warning: false
+
+
+# Crear objeto network con atributos
+net_coop <- network(coop_matrix, directed=TRUE)
+
+# Agregar atributos a la red
+net_coop %v% "tipo" <- attributes$Tipo_de_organización
+net_coop %v% "ubicacion" <- attributes$Ubicación
+net_coop %v% "orientacion" <- attributes$Orientación
+
+# Calcular medidas de centralidad
+cent_df <- data.frame(
+  Organizacion = attributes$Nombre,
+  Tipo = attributes$Tipo_de_organización,
+  Orientacion = attributes$Orientación,
+  # Centralidades
+  Degree = sna::degree(net_coop, gmode="digraph"),
+  Indegree = sna::degree(net_coop, gmode="digraph", cmode="indegree"),
+  Outdegree = sna::degree(net_coop, gmode="digraph", cmode="outdegree"),
+  Betweenness = sna::betweenness(net_coop),
+  Eigenvector = sna::evcent(net_coop)
+)
+
+# Top 10 actores más centrales según diferentes medidas
+print("Top 10 actores según Indegree:")
+
+cent_df %>%
+  arrange(desc(Indegree)) %>%
+  select(Organizacion, Tipo, Indegree) %>%
+  head(10) %>%
+  kbl() %>%
+  kable_paper("hover", full_width = T)
+
+print("\nTop 10 actores según Betweenness:")
+cent_df %>%
+  arrange(desc(Betweenness)) %>%
+  select(Organizacion, Tipo, Betweenness) %>%
+  head(10) %>%
+  kbl() %>%
+  kable_paper("hover", full_width = T)
+
+# Análisis de centralidad por tipo de organización
+cent_by_type <- cent_df %>%
+  group_by(Tipo) %>%
+  summarise(
+    Mean_Indegree = mean(Indegree),
+    Mean_Betweenness = mean(Betweenness),
+    N = n()
+  )
+
+print("\nCentralidad promedio por tipo de organización:")
+cent_by_type %>%
+  kbl() %>%
+  kable_paper("hover", full_width = T)
+```
+
+### Equivalencia estructural
+```{r bloques}
+#| message: false
+#| warning: false
+
+
+# Leer datos
+coop_matrix <- as.matrix(read.csv("datos/CoopNet.csv", header=FALSE))
+attributes <- read.csv("datos/Atributos _org2011.csv", header=TRUE)
+
+# Realizar CONCOR
+bloques <- concor(list(coop_matrix), cutoff=0.8, nsplit=2)
+
+# Ver composición de los bloques
+for(i in 1:4) {
+    cat(paste("\n\nBLOQUE", i, "\n"))
+    cat("---------------\n")
+    organizaciones <- attributes[bloques == i, ]
+    print(table(organizaciones$Tipo))
+    cat("\nOrganizaciones específicas:\n")
+    print(organizaciones$Nombre)
+}
+
+# Calcular densidades entre bloques
+block_density <- matrix(0, 4, 4)
+for(i in 1:4) {
+    for(j in 1:4) {
+        nodes_i <- which(bloques == i)
+        nodes_j <- which(bloques == j)
+        if(length(nodes_i) > 0 && length(nodes_j) > 0) {
+            block_density[i,j] <- sum(coop_matrix[nodes_i, nodes_j]) / 
+                                 (length(nodes_i) * length(nodes_j))
+        }
+    }
+}
+
+# Mostrar densidades
+cat("\n\nDensidad entre bloques:\n")
+print(round(block_density, 3))
+
+# Calcular cohesión de bloques
+for(i in 1:4) {
+    cat(paste("\n\nCohesión Bloque", i, "\n"))
+    internal <- block_density[i,i]
+    external <- mean(block_density[i,-i])
+    ei_index <- (external - internal)/(external + internal)
+    cat(paste("Densidad interna:", round(internal, 3), "\n"))
+    cat(paste("Densidad externa media:", round(external, 3), "\n"))
+    cat(paste("Índice E-I:", round(ei_index, 3), "\n"))
+}
+```
+
+
+
+```{r bloques2}
+#| message: false
+#| warning: false
+
+
+# 1. Preparar datos para el heatmap de densidades entre bloques
+density_df <- expand.grid(
+  from = factor(1:4, labels = paste("Bloque", 1:4)),
+  to = factor(1:4, labels = paste("Bloque", 1:4))
+) %>%
+  mutate(density = as.vector(block_density))
+
+
+
+# 2. Preparar datos para la composición de bloques
+composicion_bloques <- data.frame(
+  Bloque = rep(1:4, c(18, 13, 14, 15)),
+  Tipo = c(
+    rep(c("Comite Vivienda","Org. Cultural","Club Deportivo","Gob. Municipal"), c(9,4,4,1)), # Bloque 1
+    rep(c("Org. Política Base","Org. Cultural","Otros"), c(1,8,4)), # Bloque 2
+    rep(c("Org. Vecinal","Org. Política Pobladores","Org. Política Base"), c(3,6,5)), # Bloque 3
+    rep("Org. vecinal", 15) # Bloque 4
+  )
+)
+
+# 3. Preparar datos para métricas de cohesión
+cohesion_df <- data.frame(
+  Bloque = factor(1:4, labels = paste("Bloque", 1:4)),
+  Densidad_interna = diag(block_density),
+  Densidad_externa = sapply(1:4, function(i) mean(block_density[i,-i])),
+  EI_index = sapply(1:4, function(i) {
+    internal <- block_density[i,i]
+    external <- mean(block_density[i,-i])
+    (external - internal)/(external + internal)
+  })
+) %>%
+  pivot_longer(cols = -Bloque, 
+               names_to = "Metrica", 
+               values_to = "Valor")
+
+# Crear las visualizaciones
+
+# 1. Heatmap de densidades
+p1 <- ggplot(density_df, aes(x = from, y = to, fill = density)) +
+  geom_tile() +
+  scale_fill_viridis() +
+  labs(title = "Densidad entre Bloques",
+       x = "Bloque Origen",
+       y = "Bloque Destino",
+       fill = "Densidad") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# 2. Composición de bloques
+p2 <- ggplot(composicion_bloques, aes(x = factor(Bloque), fill = Tipo)) +
+  geom_bar(position = "fill") +
+  scale_fill_viridis_d() +
+  labs(title = "Composición de Bloques",
+       x = "Bloque",
+       y = "Proporción",
+       fill = "Tipo de Organización") +
+  theme_minimal()
+
+# 3. Métricas de cohesión
+p3 <- ggplot(cohesion_df, aes(x = Bloque, y = Valor, fill = Metrica)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_fill_viridis_d() +
+  labs(title = "Métricas de Cohesión por Bloque",
+       x = "Bloque",
+       y = "Valor",
+       fill = "Métrica") +
+  theme_minimal()
+
+# Convertir a plotly
+p1_plotly <- ggplotly(p1)
+p2_plotly <- ggplotly(p2)
+p3_plotly <- ggplotly(p3)
+
+# Mostrar los plots
+p1_plotly
+p2_plotly
+p3_plotly
+```
+
+
+```{r}
+# Create multiplex network
+multiplex_matrix <- coop_matrix * 0.3 + 
+                   trust_matrix * 0.3 + 
+                   resources_matrix * 0.2 + 
+                   values_matrix * 0.2
+
+# Create graph
+g <- graph_from_adjacency_matrix(multiplex_matrix, mode="directed", weighted=TRUE)
+
+# Add vertex attributes using existing data
+V(g)$degree <- igraph::degree(g)
+V(g)$betweenness <- igraph::betweenness(g)
+V(g)$eigenvector <- eigen_centrality(g)$vector
+V(g)$block <- attributes$X1PosciónCONCOR
+V(g)$type <- attributes$Tipo_de_organización
+V(g)$orientation <- attributes$Orientación
+V(g)$nombre <- attributes$Nombre
+
+
+# Add edge attributes
+edge_list <- as_edgelist(g)
+E(g)$block_tie <- ifelse(
+  V(g)$block[edge_list[,1]] == V(g)$block[edge_list[,2]], 
+  paste0("Block", V(g)$block[edge_list[,1]]), 
+  "between"
+)
+
+# Network plot with ggraph
+p1 <- ggraph(g, layout = "fr") +
+  geom_edge_link(aes(alpha = ifelse(V(g)$block[from] == V(g)$block[to], 0.6, 0.2)),
+                 color = "black",
+                 arrow = arrow(length = unit(2, 'mm'))) +
+  geom_node_point(aes(size = betweenness,
+                     color = as.factor(block)),
+                 alpha = 0.7) +
+  geom_node_label(aes(label = ifelse(betweenness > quantile(betweenness, 0.92),
+                                    nombre, "")),
+                 repel = TRUE,
+                 size = 3) +
+  scale_color_viridis_d(option = "D",
+                       name = "Bloque",
+                       labels = c("Político", "JJ.VV", "Base", "Cultural")) +
+  scale_size_continuous(name = "Intermediación",
+                       range = c(2, 8),
+                       breaks = c(0, 0.025, 0.05, 0.075, 0.1, 0.125),
+                       labels = c("0.000", "0.025", "0.050", "0.075", "0.100", "0.125")) +
+  guides(color = guide_legend(override.aes = list(size = 5)),
+         size = guide_legend(override.aes = list(alpha = 1)),
+         edge_alpha = guide_legend(title = "Vinculo")) +  # Eliminamos el título de la leyenda edge_alpha
+  labs(title = "") +
+  theme_graph() +
+  theme(legend.position = "right",
+        plot.title = element_text(hjust = 0.5, size = 14),
+        legend.text = element_text(size = 10),
+        legend.title = element_text(size = 12)) 
+
+print(p1)
+
+```
+
+
+## ERGM
+```{r ergm}
+#| echo: true 
+#| message: false
+#| warning: false
+
+
+# Verificar distribución de grados
+out_degrees <- sna::degree(net_coop)
+table(out_degrees)
+max(out_degrees)
+
+# Agregar constraints para manejar el límite de nominaciones
+model2 <- ergm(net_coop ~ 
+               edges + 
+               gwesp(0.25, fixed = TRUE) + 
+               gwidegree(0.25, fixed=TRUE) + 
+               #gwdegree(0.25, fixed = TRUE) +
+               edgecov(trust_matrix) + 
+               edgecov(resources_matrix) +
+               edgecov(parentesco_matrix) +
+               #nodefactor("tipo") +
+               #nodefactor("orientacion") +
+               #nodefactor("ubicacion") +
+               nodematch("tipo") + 
+               nodematch("orientacion", diff=TRUE) +
+               nodematch("ubicacion"),
+                constraints = ~bd(maxout=max(out_degrees)), 
+               control = control.ergm(seed = 123,
+                                    MCMLE.maxit = 25, # Aumentar iteraciones 
+                                    MCMC.burnin = 5000, # Aumentar burn-in
+                                    MCMC.interval = 100, # Aumentar intervalo
+                                    MCMC.samplesize = 5000, # Aumentar tamaño de muestra
+                                    parallel = 2,
+                                    parallel.type = "PSOCK"))
+
+# Print summary
+summary(model2)
+```
+
+
+```{r}
+#| message: false
+
+# Assess goodness-of-fit  
+gof <- gof(model2)
+print(gof)
+plot(gof)
+```
+
+
+```{r}
+#| message: false
+#| 
+# Plot diagnostics  
+mcmc.diagnostics(model2)
+```
+
+## Difusión
+
+```{r diffusion}
+#| message: false
+#| warning: false
+
+
+# Funciones auxiliares
+#source("R/helper_functions.R")
+
+# Cargar datos
+conf_net <- as.matrix(read.csv("datos/ConfianzaNet.csv", header=FALSE))
+coop_net <- as.matrix(read.csv("datos/CoopNet.csv", header=FALSE))
+rec_net <- as.matrix(read.csv("datos/RecursosNet.csv", header=FALSE)) 
+val_net <- as.matrix(read.csv("datos/ValoresNet.csv", header=FALSE))
+par_net <- as.matrix(read.csv("datos/ParentescoNet.csv", header=FALSE))
+
+# Cargar atributos
+attr <- read.csv("datos/Atributos _org2011.csv") %>%
+  mutate(
+    bloque_concor = X1PosciónCONCOR,
+    tipo = Tipo_de_organización,
+    orientacion = Orientación,
+    ubicacion = Ubicación,
+    conflictivo = trimws(Orientación) == "Conflictiva"
+  )
+```
+
+## 1. Análisis de Multiplexidad y Roles Estructurales
+
+```{r multiplex}
+#| message: false 
+
+# Función para calcular multiplexidad por nodo
+calc_multiplexity <- function(node, networks) {
+  # Crear matriz indicadora de vínculos por cada red
+  ties_matrix <- sapply(networks, function(x) x[node,] > 0)
+  
+  # Calcular número de vínculos múltiples
+  tie_counts <- rowSums(ties_matrix)
+  
+  # Retornar métricas
+  return(c(
+    total = sum(tie_counts > 1),
+    mean = mean(tie_counts[tie_counts > 0]),
+    max = max(tie_counts)
+  ))
+}
+
+# Crear lista de redes y calcular multiplexidad
+networks <- list(conf_net, coop_net, rec_net, val_net, par_net)
+n_nodes <- nrow(conf_net)
+
+# Calcular multiplexidad para todos los nodos
+multiplexity_scores <- t(sapply(1:n_nodes, calc_multiplexity, networks = networks))
+colnames(multiplexity_scores) <- c("total_mult", "mean_mult", "max_mult")
+
+# Crear red compuesta y calcular medidas de centralidad
+g_composite <- graph_from_adjacency_matrix(
+  Reduce("+", networks)/length(networks),
+  weighted = TRUE,
+  mode = "directed"
+)
+
+# Identificar roles estructurales clave
+key_roles <- tibble(
+  node = 1:n_nodes,
+  betweenness = igraph::betweenness(g_composite, normalized = TRUE),
+  eigenvector = igraph::eigen_centrality(g_composite)$vector,
+  indegree = igraph::degree(g_composite, mode = "in"),
+  outdegree = igraph::degree(g_composite, mode = "out"),
+  multiplexity = multiplexity_scores[,"mean_mult"]
+) %>%
+  mutate(
+    broker_score = scale(betweenness) + scale(multiplexity),
+    core_score = scale(eigenvector) + scale(indegree + outdegree),
+    tipo = attr$tipo
+  ) %>%
+  arrange(desc(broker_score))
+```
+
+## 2. Modelo de Difusión Compleja
+
+```{r diffusion-model}
+#| message: false
+
+# Identificar semillas iniciales
+selected_seeds <- which(attr$tipo == " Organización política de pobladores ")
+print(paste("Seeds identificadas:", length(selected_seeds)))
+print("Tipos de organizaciones presentes:")
+print(table(attr$tipo))
+
+
 
 library(tidyverse)
-library(tidygraph)
-library(ergm)
-library(sbm)
-library(concorR)
-library(network)
-library(sna)
-library(texreg)
 library(igraph)
-library(corrplot)
-library(blockmodeling)
-library(RColorBrewer)
-```
+library(Matrix)
+
+# 1. Primero verificamos las redes
+print("Dimensiones de las redes:")
+print(dim(conf_net))
 
 
-
-```{r load-data}
-# Función para cargar datos usando tidyverse
-load_network_data <- function(file_path) {
-  read_csv(file_path, col_names = FALSE) %>%
-    as.matrix() %>%
-    `colnames<-`(paste0("V", 1:ncol(.))) %>%
-    `rownames<-`(paste0("V", 1:nrow(.)))
-}
-
-# Cargar matrices
-coop_matrix <- load_network_data("datos/CoopNet.csv")
-trust_matrix <- load_network_data("datos/ConfianzaNet.csv") 
-resources_matrix <- load_network_data("datos/RecursosNet.csv")
-values_matrix <- load_network_data("datos/ValoresNet.csv")
-
-# Cargar y preparar los atributos 
-attributes <- read_csv("datos/Atributos _org2011.csv") %>%
-  janitor::clean_names() %>%
-  # Crear columna de ID que coincida con los nombres de nodos
-  mutate(
-    node_id = paste0("V", row_number())
-  )
-
-# Crear el grafo con tidygraph asegurando la correspondencia de IDs
-graph_coop <- tbl_graph(
-  edges = as_edgelist(graph_from_adjacency_matrix(coop_matrix)) %>%
-    as_tibble() %>%
-    rename(from = V1, to = V2),
-  nodes = attributes %>%
-    select(
-      name = node_id,
-      tipo = tipo_de_organizacion,
-      posicion = x1poscion_concor,
-      ubicacion,
-      orientacion,
-      repertorios
-    )
-)
-
-# Para el objeto network
-net_coop <- network(coop_matrix, directed = FALSE)
-
-# Agregar atributos al objeto network asegurando correspondencia
-network::set.vertex.attribute(net_coop, "tipo", attributes$tipo_de_organizacion)
-network::set.vertex.attribute(net_coop, "posicion", attributes$x1poscion_concor)
-network::set.vertex.attribute(net_coop, "ubicacion", attributes$ubicacion)
-network::set.vertex.attribute(net_coop, "orientacion", attributes$orientacion)
-network::set.vertex.attribute(net_coop, "repertorios", attributes$repertorios)
-
-# Verificar estructura de los datos
-dim(coop_matrix)
-dim(trust_matrix)
-network::list.vertex.attributes(net_coop)
-
-# Resumen básico de la red
-summary(net_coop)
-```
-
-
-
-
-# Análisis Descriptivo
-
-## Propiedades Globales de la Red
-
-```{r global-metrics}
-#| label: global-metrics
-#| warning: false
-#| message: false
-
-# Calcular métricas
-global_metrics_sna <- tibble(
-  Metrica = c("Densidad", "Transitividad", 
-              "Distancia Media", "Componentes"),
-  Valor = c(
-    network.density(net_coop),
-    sna::gtrans(net_coop),
-    #sna::diameter(net_coop),
-    mean(sna::geodist(net_coop)$gdist, na.rm = TRUE),
-    sna::components(net_coop)
-  )
-)
-
-# Visualizar métricas
-global_metrics_sna %>%
-  mutate(
-    Valor = case_when(
-      Metrica %in% c("Densidad", "Transitividad") ~ round(Valor, 3),
-      TRUE ~ round(Valor, 2)
-    )
-  ) %>%
-  knitr::kable(caption = "Métricas Globales de la Red de Cooperación")
-```
-
-
-```{r}
-#| label: centrality-dist
-
-# 1. Análisis de centralidad
-# Calcular medidas de centralidad usando igraph
-centrality_df <- graph_coop %>%
-  activate(nodes) %>%
-  mutate(
-    degree = centrality_degree(mode = "all"), # Grado total
-    betweenness = centrality_betweenness(), 
-    eigenvector = eigen_centrality(graph_coop)$vector,
-    tipo = tipo # Asegurarnos que tenemos el atributo tipo
-  ) %>%
-  as_tibble()
-
-# Visualizar distribución de centralidades por tipo
-ggplot(centrality_df, 
-       aes(x = degree, y = betweenness, color = tipo)) +
-  geom_point(alpha = 0.7) +
-  scale_color_brewer(palette = "Set2") +
-  theme_minimal() +
-  labs(title = "Distribución de Centralidades por Tipo de Organización",
-       x = "Grado",
-       y = "Intermediación",
-       color = "Tipo de Organización")
-```
-
-
-
-
-```{r}
-# 1. Primero asegurémonos que las matrices están bien formadas
-dim(coop_matrix) # Verificar dimensiones
-dim(trust_matrix)
-dim(resources_matrix)
-dim(values_matrix)
-
-# 2. Crear matriz combinada correctamente
-combined_matrix <- matrix(0, nrow = nrow(coop_matrix), ncol = ncol(coop_matrix))
-combined_matrix <- coop_matrix + trust_matrix + resources_matrix + values_matrix
-combined_matrix[combined_matrix > 0] <- 1 # Binarizar
-
-# Asignar nombres a las filas y columnas
-rownames(combined_matrix) <- paste0("Org", 1:nrow(combined_matrix))
-colnames(combined_matrix) <- paste0("Org", 1:ncol(combined_matrix))
-
-# 3. Realizar CONCOR con la matriz bien formada
-library(blockmodeling)
-concor_res <- concor(list(combined_matrix), nsplit = 2)
-
-# 4. Función para calcular densidad entre bloques
-calc_block_density <- function(mat, block_membership) {
-  n_blocks <- length(unique(block_membership))
-  density_matrix <- matrix(0, n_blocks, n_blocks)
-  rownames(density_matrix) <- paste("Bloque", 1:n_blocks)
-  colnames(density_matrix) <- paste("Bloque", 1:n_blocks)
+# Ahora corregimos la función ajustando los thresholds
+improved_diffusion_v6 <- function(networks, attributes, seeds,
+                                max_iterations = 200,
+                                convergence_threshold = 0.001,
+                                thresholds = list(
+                                  base = 0.1,
+                                  by_type = c(
+                                    # Ajustamos los tipos según los datos
+                                    " Club deportivo " = 0.2,
+                                    " Comité de vivienda " = 0.08,
+                                    " Organización cultural " = 0.12,
+                                    " Organización política de base " = 0.08,
+                                    " Organización política de pobladores " = 0.05,
+                                    " Organización vecinal " = 0.15,
+                                    "Otros" = 0.15
+                                  ))) {
   
-  for(i in 1:n_blocks) {
-    for(j in 1:n_blocks) {
-      block_i <- which(block_membership == i)
-      block_j <- which(block_membership == j)
-      if(length(block_i) > 0 && length(block_j) > 0) {
-        submat <- mat[block_i, block_j]
-        density_matrix[i,j] <- mean(submat, na.rm = TRUE)
+  # Pesos teóricamente informados (Diani)
+  weights <- c(0.3, 0.3, 0.2, 0.2) # confianza, valores, cooperación, recursos
+  
+  n_nodes <- nrow(networks[[1]])
+  
+  # Crear red compuesta ponderada
+  composite_net <- Reduce("+", Map("*", networks, weights))
+  
+  # Crear grafo para medidas de centralidad
+  g <- graph_from_adjacency_matrix(composite_net, weighted=TRUE, mode="directed")
+  
+  # Calcular medidas de centralidad más sofisticadas
+  centrality_measures <- list(
+    between = igraph::betweenness(g, normalized=TRUE),
+    flow_bet = edge_betweenness(g),
+    degree = igraph::degree(g, mode="all", normalized=TRUE),
+    eigen = eigen_centrality(g)$vector,
+    closeness = igraph::closeness(g, normalized=TRUE),
+    authority = authority_score(g)$vector
+  )
+  
+  # Score compuesto de influencia organizativa
+  org_influence <- scale(centrality_measures$between) + 
+                  scale(centrality_measures$degree) + 
+                  scale(centrality_measures$eigen) + 
+                  scale(centrality_measures$authority)
+  
+  # Identificar roles clave con criterios más específicos
+  key_roles <- list(
+    brokers = which(centrality_measures$between > quantile(centrality_measures$between, 0.8)),
+    cores = which(centrality_measures$degree > quantile(centrality_measures$degree, 0.8) &
+                 centrality_measures$eigen > quantile(centrality_measures$eigen, 0.8)),
+    bridges = which(centrality_measures$between > quantile(centrality_measures$between, 0.8) & 
+                   centrality_measures$degree < median(centrality_measures$degree))
+  )
+  
+  # Calcular multiplexidad
+  calc_multiplexity <- function(node) {
+    ties <- sapply(networks, function(x) which(x[node,] > 0))
+    multiplex_ties <- Reduce(intersect, ties)
+    return(length(multiplex_ties))
+  }
+  multiplexity <- sapply(1:n_nodes, calc_multiplexity)
+  
+  # Estados iniciales con más detalle
+  states <- rep(0, n_nodes)
+  states[seeds] <- 1
+  states[which(attributes$conflictivo)] <- 1
+  
+  # Historia del proceso
+  history <- matrix(0, nrow=max_iterations, ncol=n_nodes)
+  history[1,] <- states
+  
+  # Variables para convergencia
+  recent_changes <- numeric(10) # Ventana más amplia
+  
+  # Proceso de difusión
+  for(iter in 2:max_iterations) {
+    old_states <- states
+    
+    # Para cada nodo no activado
+    for(i in which(states == 0)) {
+      influence <- 0
+      total_weight <- 0
+      
+      # Influencia por tipo de red
+      for(n in seq_along(networks)) {
+        neighbors <- which(networks[[n]][i,] > 0)
+        if(length(neighbors) > 0) {
+          net_influence <- sum(states[neighbors]) / length(neighbors)
+          
+          # Bonus específicos por tipo de vínculo
+          if(n == 1) net_influence <- net_influence * 1.2  # Confianza
+          if(n == 2) net_influence <- net_influence * 1.3  # Valores
+          
+          influence <- influence + net_influence * weights[n]
+          total_weight <- total_weight + weights[n]
+        }
+      }
+      
+      if(total_weight > 0) {
+        influence <- influence / total_weight
+        
+        # Efectos de rol estructural más detallados
+        if(i %in% key_roles$brokers) influence <- influence * 1.3
+        if(i %in% key_roles$cores) influence <- influence * 1.2
+        if(i %in% key_roles$bridges) influence <- influence * 1.1
+        
+        # Efecto de multiplexidad mejorado
+        multiplex_bonus <- 0.1 * (multiplexity[i] / max(multiplexity))
+        influence <- influence + multiplex_bonus
+        
+        # Threshold dinámico basado en tipo y posición estructural
+        base_threshold <- thresholds$base
+        type_threshold <- thresholds$by_type[attributes$tipo[i]]
+        threshold <- base_threshold * type_threshold
+        
+        # Ajuste por conectividad local
+        local_density <- mean(sapply(networks, function(x) sum(x[i,] > 0)))
+        threshold <- threshold * (1 - 0.2 * (local_density / max(local_density)))
+        
+        if(influence >= threshold) states[i] <- 1
       }
     }
+    
+    # Guardar historia
+    history[iter,] <- states
+    
+    # Verificar convergencia más robusta
+    if(iter > 10) {
+      recent_changes <- c(recent_changes[-1], mean(states) - mean(old_states))
+      if(abs(mean(recent_changes)) < convergence_threshold && 
+         sd(recent_changes) < convergence_threshold) break
+    }
+    
+    if(all(old_states == states)) break
   }
-  return(density_matrix)
+  
+  return(list(
+    final_states = states,
+    history = history[1:iter,],
+    n_iterations = iter,
+    key_roles = key_roles,
+    centrality_measures = centrality_measures,
+    composite_net = composite_net,
+    influence_scores = org_influence,
+    multiplexity = multiplexity,
+    converged = iter < max_iterations,
+    convergence_rate = mean(recent_changes)
+  ))
 }
 
-# 5. Calcular densidades para cada tipo de relación
-block_assignment <- concor_res[[1]]
-density_coop <- calc_block_density(coop_matrix, block_assignment)
-density_trust <- calc_block_density(trust_matrix, block_assignment)
-
-# 6. Visualizar densidades entre bloques
-par(mfrow=c(1,2))
-corrplot::corrplot(density_coop, 
-                  method = "color",
-                  type = "upper",
-                  title = "Densidad de Cooperación entre Bloques",
-                  is.corr = FALSE)
-
-corrplot::corrplot(density_trust,
-                  method = "color", 
-                  type = "upper",
-                  title = "Densidad de Confianza entre Bloques",
-                  is.corr = FALSE)
-
-# 7. Crear resumen de bloques
-block_summary <- data.frame(
-  bloque = factor(block_assignment),
-  tipo = attributes$tipo_de_organizacion
-) %>%
-  group_by(bloque) %>%
-  summarise(
-    n = n(),
-    tipos_presentes = list(unique(tipo)),
-    tamaño_relativo = n()/nrow(combined_matrix)
+plot_diffusion_results <- function(results, attributes) {
+  # Preparar datos
+  history <- results$history
+  n_iter <- nrow(history)
+  
+  # Calcular proporciones por tipo
+  prop_by_type <- t(apply(history, 1, function(x) {
+    tapply(x, attributes$tipo, mean, na.rm=TRUE)
+  }))
+  
+  # Crear dataframe para ggplot
+  df_total <- data.frame(
+    iteration = 1:n_iter,
+    proportion = rowMeans(history)
   )
+  
+  df_by_type <- as.data.frame(prop_by_type) %>%
+    mutate(iteration = 1:n_iter) %>%
+    pivot_longer(-iteration, 
+                names_to = "type",
+                values_to = "proportion")
+  
+  # Crear visualizaciones
+  p1 <- ggplot(df_total, aes(x=iteration, y=proportion)) +
+    geom_line(size=1, color="#2C3E50") +
+    geom_point(size=2, color="#E74C3C") +
+    theme_minimal() +
+    labs(title="Difusión Global",
+         x="Iteración",
+         y="Proporción Activada") +
+    scale_y_continuous(labels=scales::percent_format()) +
+    theme(plot.title = element_text(face="bold")) +
+    geom_hline(yintercept=max(df_total$proportion), 
+               linetype="dashed", 
+               color="grey50")
 
-# Mostrar resumen
-print(block_summary)
+  p2 <- ggplot(df_by_type, aes(x=iteration, y=proportion, color=type)) +
+    geom_line(size=1) +
+    theme_minimal() +
+    labs(title="Difusión por Tipo de Organización",
+         x="Iteración",
+         y="Proporción Activada",
+         color="Tipo") +
+    scale_y_continuous(labels=scales::percent_format()) +
+    scale_color_brewer(palette="Set2") +
+    theme(legend.position="bottom",
+          plot.title = element_text(face="bold"))
+
+  # Combinar plots
+  gridExtra::grid.arrange(p1, p2, ncol=2)
+}
 ```
-
 
 
 ```{r}
-#| label: ergm-specification
-
-# Modelo 1: Efectos estructurales básicos
-model1 <- ergm(
-  net_coop ~ edges + 
-    gwesp(0.25, fixed=TRUE) +
-    gwdegree(0.25, fixed=TRUE),
-   control = control.ergm(
-     seed = 123, MCMLE.maxit = 14, MCMC.burnin = 1000, 
-    MCMC.interval = 50, MCMC.samplesize = 2000, parallel = 2, 
-    parallel.type = "PSOCK", MCMLE.termination = "Hummel")
+# Ejecutar simulación
+results <- improved_diffusion_v6(
+  networks = list(conf_net, val_net, coop_net, rec_net),
+  attributes = attr,
+  seeds = selected_seeds
 )
 
-# Modelo 2: Efectos de homofilia y atributos
-model2 <- ergm(
-  net_coop ~ edges + 
-    gwesp(0.25, fixed=TRUE) +
-    gwdegree(0.25, fixed=TRUE) +
-    nodematch("tipo") +
-    nodematch("ubicacion"),
-   control = control.ergm(
-     seed = 123, MCMLE.maxit = 14, MCMC.burnin = 1000, 
-    MCMC.interval = 50, MCMC.samplesize = 2000, parallel = 2, 
-    parallel.type = "PSOCK", MCMLE.termination = "Hummel")
-)
-
-# Modelo 3: Multiplicidad y efectos cruzados
-model3 <- ergm(
-  net_coop ~ edges +
-    gwesp(0.25, fixed=TRUE) +
-    gwdegree(0.25, fixed=TRUE) +
-    nodematch("tipo") +
-    edgecov(trust_matrix) +
-    edgecov(resources_matrix),
-   control = control.ergm(
-     seed = 123, MCMLE.maxit = 14, MCMC.burnin = 1000, 
-    MCMC.interval = 50, MCMC.samplesize = 2000, parallel = 2, 
-    parallel.type = "PSOCK", MCMLE.termination = "Hummel")
-)
-```
-
-```{r}
-#| results = 'asis'
-htmlreg(list(model1, model2, model3),
-        stars=c(0.01,0.05,0.1), 
-        digits=3, 
-        star.symbol='&#42;',
-        custom.note = paste("%stars."),
-         align.center=TRUE,
-        single.row = T, 
-        bold = 0.05)
+# Visualizar resultados
+plot_diffusion_results(results, attr)
 ```
 
 
 
+## 3. Visualización y Análisis de Resultados
+
+## 4. Discusión
+
+Este modelo incorpora varios elementos teóricos clave:
+
+1. **Multiplexidad de vínculos**: Considera cinco tipos de relaciones con diferentes pesos según su importancia teórica para la difusión de identidades políticas.
+
+2. **Roles estructurales**: Identifica brokers y organizaciones núcleo usando una combinación de medidas de centralidad y multiplexidad.
+
+3. **Umbrales heterogéneos**: Aplica diferentes umbrales de adopción según el tipo de organización, reflejando su propensión a adoptar posturas contenciosas.
+
+4. **Mecanismos de influencia**: 
+   - Efecto directo de vínculos múltiples
+   - Bonus por tipo de vínculo (confianza y valores)
+   - Efectos de rol estructural (brokers y cores)
+   
+5. **Complex contagion**: Requiere exposición múltiple y considera la estructura local de la red.
+
+Los resultados sugieren que:
+
+1. Las organizaciones políticas de pobladores actúan como núcleo efectivo del proceso de difusión.
+2. La multiplexidad de vínculos acelera la adopción.
+3. Existen umbrales críticos que varían por tipo organizativo.
+4. Los brokers juegan un rol clave en conectar diferentes dominios organizativos.
 
 
+# References
 
+Baldassarri, D., & Diani, M. (2007). The integrative power of civic networks. American Journal of Sociology, 113(3), 735-780.
+
+Centola, D. (2018). How behavior spreads: The science of complex contagions. Princeton University Press.
+
+Centola, D., & Macy, M. (2007). Complex contagions and the weakness of long ties. American Journal of Sociology, 113(3), 702-734.
+
+Diani, M. (2003). Networks and social movements: A research programme. In M. Diani & D. McAdam (Eds.), Social movements and networks: Relational approaches to collective action (pp. 299-319). Oxford University Press.
+
+Diani, M. (2015). The cement of civil society. Cambridge University Press.
+
+Domínguez, S., & Hollstein, B. (2014). Mixed methods social networks research: Design and applications. Cambridge University Press.
+
+Gould, R. V. (1991). Multiple networks and mobilization in the Paris Commune, 1871. American Sociological Review, 56(6), 716-729.
+
+McAdam, D., & Paulsen, R. (1993). Specifying the relationship between social ties and activism. American Journal of Sociology, 99(3), 640-667.
+
+McAdam, D., Tarrow, S., & Tilly, C. (2001). Dynamics of contention. Cambridge University Press.
+
+Mische, A. (2003). Cross-talk in movements: Reconceiving the culture-network link. In M. Diani & D. McAdam (Eds.), Social movements and networks: Relational approaches to collective action (pp. 258-280). Oxford University Press.
+
+Passy, F., & Giugni, M. (2001). Social networks and individual perceptions: Explaining differential participation in social movements. Sociological Forum, 16(1), 123-153.
+
+Scott, J. (2011). Social network analysis: Developments, advances, and prospects. Social Network Analysis and Mining, 1(1), 21-26.
+
+Tarrow, S. (2005). The new transnational activism. Cambridge University Press.
+
+Tilly, C. (2004). Social boundary mechanisms. Philosophy of the Social Sciences, 34(2), 211-236.
+
+Tilly, C., & Tarrow, S. (2015). Contentious politics (2nd ed.). Oxford University Press.
 

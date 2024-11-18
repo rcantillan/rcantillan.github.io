@@ -13,8 +13,9 @@ categories:
   - Scientific networks
 summary: |
     En este análisis examinamos la estructura de colaboración científica en Latinoamérica mediante un ERGM bipartito sobre una red de 45,724 conexiones autor-artículo. Los resultados revelan una baja densidad base compensada por una fuerte tendencia a formar equipos de tamaño medio. Destaca especialmente cómo la disrupción científica se asocia positivamente con la formación de vínculos, Los resultados sugieren que mientras las ciencias sociales y humanidades (SHAPE) tienden a colaborar dentro de su campo, las ciencias STEM muestran patrones más abiertos de colaboración interdisciplinaria. Esto podría reflejar diferencias en las prácticas de investigación: SHAPE con tradiciones más especializadas vs. STEM con mayor apertura a cruces disciplinares.
+image: "featured.jpg"
 title-block-banner: featured.jpg
-title-block-banner-color: "rgba(0,38,66,0.75)"
+#title-block-banner-color: "rgba(0,38,66,0.75)"
 title-block-style: default
 ---
 
@@ -450,7 +451,7 @@ scaled_degrees <- scales::rescale(node_degrees, to = c(2, 15))
 # Asignamos los grados como atributo de vértice
 net_bipartite %v% "node_size" <- scaled_degrees
 
-ggraph(net_bipartite, layout = "graphopt") + 
+pn <- ggraph(net_bipartite, layout = "graphopt") + 
   # Edges
   geom_edge_link0(edge_colour = "black", 
                   edge_width = 0.4,
@@ -488,6 +489,8 @@ ggraph(net_bipartite, layout = "graphopt") +
        shape = "Tipo de Entidad", 
        title = "",
        subtitle = "")
+
+#pn
 ```
 
 

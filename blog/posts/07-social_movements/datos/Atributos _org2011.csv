@@ -1,8 +1,8 @@
 Id,Nombre,Tipo,1PosciónCONCOR,Tipo_de_organización,Ubicación ,Orientación  ,Repertorios,NumRep,NumOrient,NrmInDeg,Normalized Beta Cent,nFlowBet,nBetweenness
-1,CD_AvanceDeCarvallo,6,1, Club deportivo , La Faena ,No_conflictiva ,Contenidos,0,0,1.44927537441254,0.000146736667375,0,0
-2,CD_CristoJovén,6,1, Club deportivo , Lo Hermida ,No_conflictiva ,Contenidos,0,0,1.44927537441254,0.065951906144619,0,0
-3,CD_RealHéroes,6,3, Club deportivo , Lo Hermida ,No_conflictiva ,Contenidos,0,0,1.44927537441254,0.000890494557098,0,0
-4,CD_SanLuisDelElqui,6,2, Club deportivo , San Luis ,No_conflictiva ,Contenidos,0,0,0,0,0,0
+1,CD_AvanceDeCarvallo,6,1, Club deportivo , La Faena ,No_conflictiva,Contenidos,0,0,1.44927537441254,0.000146736667375,0,0
+2,CD_CristoJovén,6,1, Club deportivo , Lo Hermida ,No_conflictiva,Contenidos,0,0,1.44927537441254,0.065951906144619,0,0
+3,CD_RealHéroes,6,3, Club deportivo , Lo Hermida ,No_conflictiva,Contenidos,0,0,1.44927537441254,0.000890494557098,0,0
+4,CD_SanLuisDelElqui,6,2, Club deportivo , San Luis ,No_conflictiva,Contenidos,0,0,0,0,0,0
 5,CV_BrillaElSol,2,1, Comité de vivienda , Esperanza Andina ,Conflictiva,Transgresivos,1,1,8.69565200805664,0.469955593347549,6.98070383071899,3.65135192871094
 6,CV_CaminoALaVictoria,2,2, Comité de vivienda , Peñalolén Alto ,No_conflictiva,Transgresivos,1,0,1.44927537441254,0.0048379865475,0,0
 7,CV_CasaDigna,2,2, Comité de vivienda , Peñalolén Alto ,No_conflictiva,Contenidos,0,0,1.44927537441254,0.0048379865475,0,0

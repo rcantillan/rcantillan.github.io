@@ -6,6 +6,7 @@ categories: [R, Networks, "Ego networks"]
 title-block-banner: "rgba(148, 0, 0, 0.78)"
 title-block-banner-color: "rgba(0,38,66,0.75)"
 title-block-style: default
+draft: true
 ---
 
 ```{r setup, include=FALSE}
