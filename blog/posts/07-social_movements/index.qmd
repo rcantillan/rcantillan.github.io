@@ -173,6 +173,7 @@ library(concorR)
 library(ggraph)
 library(Matrix)
 library(patchwork)
+library(texreg)
 ```
 
 
@@ -533,9 +534,21 @@ model2 <- ergm(net_coop ~
                                     parallel = 2,
                                     parallel.type = "PSOCK"))
 
-# Print summary
-summary(model2)
 ```
+
+
+```{r, results='asis'}
+# Print summary
+htmlreg(model2,
+        stars=c(0.01,0.05,0.1), 
+        digits=3, 
+        star.symbol='&#42;',
+        custom.note = paste("%stars."),
+         align.center=TRUE,
+        single.row = T, 
+        bold = 0.05)
+```
+
 
 
 ```{r}
@@ -557,186 +570,207 @@ mcmc.diagnostics(model2)
 
 ## Difusión
 
-```{r diffusion}
-#| message: false
-#| warning: false
+Detalle de la función de difusión creada...
 
+### Cargamos datos 
+```{r}
+# 1. Cargar datos
+coop_matrix      <- as.matrix(read.csv("datos/CoopNet.csv", header=FALSE))
+trust_matrix     <- as.matrix(read.csv("datos/ConfianzaNet.csv", header=FALSE))
+resources_matrix <- as.matrix(read.csv("datos/RecursosNet.csv", header=FALSE))
+values_matrix    <- as.matrix(read.csv("datos/ValoresNet.csv", header=FALSE))
 
-# Funciones auxiliares
-#source("R/helper_functions.R")
-
-# Cargar datos
-conf_net <- as.matrix(read.csv("datos/ConfianzaNet.csv", header=FALSE))
-coop_net <- as.matrix(read.csv("datos/CoopNet.csv", header=FALSE))
-rec_net <- as.matrix(read.csv("datos/RecursosNet.csv", header=FALSE)) 
-val_net <- as.matrix(read.csv("datos/ValoresNet.csv", header=FALSE))
-par_net <- as.matrix(read.csv("datos/ParentescoNet.csv", header=FALSE))
-
-# Cargar atributos
-attr <- read.csv("datos/Atributos _org2011.csv") %>%
+# 2. Cargar atributos (cambiamos el nombre de la variable)
+org_attributes <- read.csv("datos/Atributos _org2011.csv", header=TRUE) %>%
   mutate(
-    bloque_concor = X1PosciónCONCOR,
+    conflictivo = trimws(Orientación) == "Conflictiva",  # Crear variable conflictivo
     tipo = Tipo_de_organización,
-    orientacion = Orientación,
     ubicacion = Ubicación,
-    conflictivo = trimws(Orientación) == "Conflictiva"
+    orientacion = Orientación
   )
-```
 
-## 1. Análisis de Multiplexidad y Roles Estructurales
 
-```{r multiplex}
-#| message: false 
+# 3. Verificar la creación correcta de la variable
+print("Verificar variable conflictivo:")
+table(org_attributes$conflictivo, org_attributes$Orientación, useNA = "always")
 
-# Función para calcular multiplexidad por nodo
-calc_multiplexity <- function(node, networks) {
-  # Crear matriz indicadora de vínculos por cada red
-  ties_matrix <- sapply(networks, function(x) x[node,] > 0)
-  
-  # Calcular número de vínculos múltiples
-  tie_counts <- rowSums(ties_matrix)
-  
-  # Retornar métricas
-  return(c(
-    total = sum(tie_counts > 1),
-    mean = mean(tie_counts[tie_counts > 0]),
-    max = max(tie_counts)
-  ))
-}
-
-# Crear lista de redes y calcular multiplexidad
-networks <- list(conf_net, coop_net, rec_net, val_net, par_net)
-n_nodes <- nrow(conf_net)
-
-# Calcular multiplexidad para todos los nodos
-multiplexity_scores <- t(sapply(1:n_nodes, calc_multiplexity, networks = networks))
-colnames(multiplexity_scores) <- c("total_mult", "mean_mult", "max_mult")
-
-# Crear red compuesta y calcular medidas de centralidad
-g_composite <- graph_from_adjacency_matrix(
-  Reduce("+", networks)/length(networks),
-  weighted = TRUE,
-  mode = "directed"
+# 4. Preparar lista de redes
+networks <- list(
+  trust_matrix,    # Red de confianza (peso 0.3)
+  values_matrix,   # Red de valores (peso 0.3)
+  coop_matrix,     # Red de cooperación (peso 0.2)
+  resources_matrix # Red de recursos (peso 0.2)
 )
-
-# Identificar roles estructurales clave
-key_roles <- tibble(
-  node = 1:n_nodes,
-  betweenness = igraph::betweenness(g_composite, normalized = TRUE),
-  eigenvector = igraph::eigen_centrality(g_composite)$vector,
-  indegree = igraph::degree(g_composite, mode = "in"),
-  outdegree = igraph::degree(g_composite, mode = "out"),
-  multiplexity = multiplexity_scores[,"mean_mult"]
-) %>%
-  mutate(
-    broker_score = scale(betweenness) + scale(multiplexity),
-    core_score = scale(eigenvector) + scale(indegree + outdegree),
-    tipo = attr$tipo
-  ) %>%
-  arrange(desc(broker_score))
 ```
 
-## 2. Modelo de Difusión Compleja
 
-```{r diffusion-model}
-#| message: false
+### Función para proceso de difusión 
 
-# Identificar semillas iniciales
-selected_seeds <- which(attr$tipo == " Organización política de pobladores ")
-print(paste("Seeds identificadas:", length(selected_seeds)))
-print("Tipos de organizaciones presentes:")
-print(table(attr$tipo))
+```{r}
+#| code-fold: show
 
+org_attributes$block <- as.factor(org_attributes$`X1PosciónCONCOR`)
 
-
-library(tidyverse)
-library(igraph)
-library(Matrix)
-
-# 1. Primero verificamos las redes
-print("Dimensiones de las redes:")
-print(dim(conf_net))
-
-
-# Ahora corregimos la función ajustando los thresholds
-improved_diffusion_v6 <- function(networks, attributes, seeds,
-                                max_iterations = 200,
-                                convergence_threshold = 0.001,
-                                thresholds = list(
-                                  base = 0.1,
-                                  by_type = c(
-                                    # Ajustamos los tipos según los datos
-                                    " Club deportivo " = 0.2,
-                                    " Comité de vivienda " = 0.08,
-                                    " Organización cultural " = 0.12,
-                                    " Organización política de base " = 0.08,
-                                    " Organización política de pobladores " = 0.05,
-                                    " Organización vecinal " = 0.15,
-                                    "Otros" = 0.15
-                                  ))) {
+improved_diffusion_v9 <- function(networks, attributes, seeds, 
+                                  max_iterations = 1000,
+                                  convergence_threshold = 0.001,
+                                  memory_window = 5,
+                                  use_heterogeneous_thresholds = TRUE) {
   
-  # Pesos teóricamente informados (Diani)
-  weights <- c(0.3, 0.3, 0.2, 0.2) # confianza, valores, cooperación, recursos
+  # 1. Umbrales realistas para comportamiento conflictivo
+  thresholds <- list(
+    base = 0.05, # Umbral base alto para comportamiento conflictivo
+    by_type = c(
+      " Club deportivo " = 0.15,
+      " Comité de vivienda " = 0.06,
+      " Organización cultural " = 0.10,
+      " Organización política de base " = 0.07,
+      " Organización política de pobladores " = 0.05,
+      " Organización vecinal " = 0.10,
+      "Otros" = 0.15
+    ))
   
+  # 2. Validación de entrada y preprocesamiento
+  networks <- lapply(networks, function(x) {
+    if(!is.matrix(x)) stop("Todas las redes deben ser matrices")
+    return(as.matrix(x))
+  })
+  
+  if(!all(sapply(networks, function(x) all(dim(x) == dim(networks[[1]])))))
+    stop("Todas las redes deben tener las mismas dimensiones")
+  
+  # 3. Inicialización
   n_nodes <- nrow(networks[[1]])
+  weights <- c(0.35, 0.35, 0.15, 0.15) # Más peso a confianza y valores
   
-  # Crear red compuesta ponderada
+  # 4. Crear red compuesta
   composite_net <- Reduce("+", Map("*", networks, weights))
   
-  # Crear grafo para medidas de centralidad
-  g <- graph_from_adjacency_matrix(composite_net, weighted=TRUE, mode="directed")
+  # 5. Calcular medidas estructurales
+  g <- igraph::graph_from_adjacency_matrix(composite_net, 
+                                           weighted = TRUE, 
+                                           mode = "directed")
   
-  # Calcular medidas de centralidad más sofisticadas
+  # 6. Medidas de centralidad
   centrality_measures <- list(
-    between = igraph::betweenness(g, normalized=TRUE),
-    flow_bet = edge_betweenness(g),
-    degree = igraph::degree(g, mode="all", normalized=TRUE),
-    eigen = eigen_centrality(g)$vector,
-    closeness = igraph::closeness(g, normalized=TRUE),
-    authority = authority_score(g)$vector
+    between = igraph::betweenness(g, normalized = TRUE),
+    degree = igraph::degree(g, mode = "all", normalized = TRUE),
+    eigen = igraph::eigen_centrality(g)$vector,
+    authority = igraph::authority_score(g)$vector
   )
   
-  # Score compuesto de influencia organizativa
-  org_influence <- scale(centrality_measures$between) + 
-                  scale(centrality_measures$degree) + 
-                  scale(centrality_measures$eigen) + 
-                  scale(centrality_measures$authority)
-  
-  # Identificar roles clave con criterios más específicos
-  key_roles <- list(
-    brokers = which(centrality_measures$between > quantile(centrality_measures$between, 0.8)),
-    cores = which(centrality_measures$degree > quantile(centrality_measures$degree, 0.8) &
-                 centrality_measures$eigen > quantile(centrality_measures$eigen, 0.8)),
-    bridges = which(centrality_measures$between > quantile(centrality_measures$between, 0.8) & 
-                   centrality_measures$degree < median(centrality_measures$degree))
+  # 7. Identificación de roles estructurales
+  role_scores <- data.frame(
+    node = 1:n_nodes,
+    between_score = scale(centrality_measures$between),
+    degree_score = scale(centrality_measures$degree),
+    eigen_score = scale(centrality_measures$eigen),
+    authority_score = scale(centrality_measures$authority)
   )
   
-  # Calcular multiplexidad
-  calc_multiplexity <- function(node) {
-    ties <- sapply(networks, function(x) which(x[node,] > 0))
-    multiplex_ties <- Reduce(intersect, ties)
-    return(length(multiplex_ties))
+  # Calcular scores compuestos
+  role_scores$broker_score <- role_scores$between_score + role_scores$degree_score
+  role_scores$core_score <- role_scores$eigen_score + role_scores$authority_score
+  
+  # Asignar roles con umbrales más estrictos
+  role_scores$role <- with(role_scores, {
+    ifelse(broker_score > quantile(broker_score, 0.85), "broker",
+           ifelse(core_score > quantile(core_score, 0.85), "core",
+                  ifelse(authority_score > quantile(authority_score, 0.85), "authority",
+                         "peripheral")))
+  })
+  
+  # 8. Funciones auxiliares mejoradas
+  calc_local_clustering <- function(node, networks) {
+    cluster_scores <- sapply(networks, function(x) {
+      neighbors <- which(x[node,] > 0)
+      if(length(neighbors) < 2) return(0)
+      submat <- x[neighbors, neighbors]
+      sum(submat) / (length(neighbors) * (length(neighbors)-1))
+    })
+    weighted.mean(cluster_scores, weights)
   }
-  multiplexity <- sapply(1:n_nodes, calc_multiplexity)
   
-  # Estados iniciales con más detalle
+  calc_exposure_time <- function(node, history, window = memory_window) {
+    # Si no hay historia, retornar 0
+    if(is.null(history) || is.null(dim(history)) || nrow(history) == 0) return(0)
+    
+    # Si no hay vecinos, retornar 0
+    if(length(node_neighbors[[node]]) == 0) return(0)
+    
+    # Ajustar ventana si es necesario
+    current_window <- min(window, nrow(history))
+    
+    # Obtener historia reciente
+    if(current_window == 1) {
+      recent_history <- matrix(history, nrow=1)
+    } else {
+      recent_history <- tail(history, current_window)
+    }
+    
+    # Calcular exposición de vecinos
+    exposed_neighbors <- rowSums(recent_history[, node_neighbors[[node]], drop=FALSE])
+    
+    # Calcular pesos
+    weights <- exp(-(current_window:1)/3)
+    
+    # Retornar media ponderada
+    return(weighted.mean(exposed_neighbors, weights))
+  }
+  
+  identity_alignment <- function(node, attributes) {
+    # Mide similitud en atributos organizacionales
+    same_type <- attributes$tipo == attributes$tipo[node]
+    same_orientation <- attributes$Orientación == attributes$Orientación[node]
+    return(mean(same_type & same_orientation))
+  }
+  
+  collective_action_cost <- function(node, role_scores) {
+    # Costo base por visibilidad estructural
+    base_cost <- 1 + abs(role_scores$degree_score[node])
+    
+    # Modificador por rol
+    role_modifier <- switch(role_scores$role[node],
+                            "broker" = 1.3,
+                            "core" = 1.2,
+                            "authority" = 1.1,
+                            1.0)
+    
+    return(base_cost * role_modifier)
+  }
+  
+  # 9. Inicialización de estados y memorias
   states <- rep(0, n_nodes)
   states[seeds] <- 1
-  states[which(attributes$conflictivo)] <- 1
   
-  # Historia del proceso
-  history <- matrix(0, nrow=max_iterations, ncol=n_nodes)
+  # Crear lista de vecinos
+  node_neighbors <- lapply(1:n_nodes, function(i) {
+    unique(unlist(lapply(networks, function(x) which(x[i,] > 0))))
+  })
+  
+  # 10. Inicialización de matrices de historia
+  history <- matrix(0, nrow = max_iterations, ncol = n_nodes)
   history[1,] <- states
+  exposure_memory <- matrix(0, nrow = max_iterations, ncol = n_nodes)
+  exposure_memory[1,] <- sapply(1:n_nodes, function(i) {
+    if(length(node_neighbors[[i]]) > 0) {
+      mean(states[node_neighbors[[i]]])
+    } else {
+      0
+    }
+  })
+  clustering_memory <- matrix(0, nrow = max_iterations, ncol = n_nodes)
+  clustering_memory[1,] <- sapply(1:n_nodes, function(i) calc_local_clustering(i, networks))
   
-  # Variables para convergencia
-  recent_changes <- numeric(10) # Ventana más amplia
-  
-  # Proceso de difusión
+  # 11. Proceso de difusión mejorado
   for(iter in 2:max_iterations) {
     old_states <- states
     
-    # Para cada nodo no activado
-    for(i in which(states == 0)) {
+    # Procesar nodos inactivos
+    inactive_nodes <- which(states == 0)
+    
+    for(i in inactive_nodes) {
+      # Calcular influencia base
       influence <- 0
       total_weight <- 0
       
@@ -744,140 +778,418 @@ improved_diffusion_v6 <- function(networks, attributes, seeds,
       for(n in seq_along(networks)) {
         neighbors <- which(networks[[n]][i,] > 0)
         if(length(neighbors) > 0) {
+          # Influencia ponderada por tipo de vínculo y tiempo
           net_influence <- sum(states[neighbors]) / length(neighbors)
           
-          # Bonus específicos por tipo de vínculo
-          if(n == 1) net_influence <- net_influence * 1.2  # Confianza
-          if(n == 2) net_influence <- net_influence * 1.3  # Valores
+          # Factor temporal de exposición
+          exposure_time <- calc_exposure_time(i, history[1:(iter-1), , drop=FALSE])
           
-          influence <- influence + net_influence * weights[n]
+          temporal_factor <- 1 - exp(-0.05 * exposure_time)
+          
+          # Efecto de clustering local
+          cluster_effect <- calc_local_clustering(i, networks)
+          cluster_multiplier <- 1 + (cluster_effect * 2)
+          
+          # Efecto de identidad
+          identity_effect <- identity_alignment(i, attributes)
+          
+          # Costo de acción colectiva
+          action_cost <- collective_action_cost(i, role_scores)
+          
+          # Combinar efectos
+          combined_influence <- net_influence * weights[n] * 
+            temporal_factor * cluster_multiplier * 
+            (1 + identity_effect) / action_cost
+          
+          influence <- influence + combined_influence
           total_weight <- total_weight + weights[n]
         }
       }
       
       if(total_weight > 0) {
+        # Normalizar influencia
         influence <- influence / total_weight
         
-        # Efectos de rol estructural más detallados
-        if(i %in% key_roles$brokers) influence <- influence * 1.3
-        if(i %in% key_roles$cores) influence <- influence * 1.2
-        if(i %in% key_roles$bridges) influence <- influence * 1.1
+        if(use_heterogeneous_thresholds) {
+          # Threshold dinámico con heterogeneidad
+          base_threshold <- thresholds$base
+          type_threshold <- thresholds$by_type[attributes$tipo[i]]
+        } else {
+          # Threshold dinámico sin heterogeneidad
+          base_threshold <- thresholds$base
+          type_threshold <- 1
+        }
         
-        # Efecto de multiplexidad mejorado
-        multiplex_bonus <- 0.1 * (multiplexity[i] / max(multiplexity))
-        influence <- influence + multiplex_bonus
+        # Ajustar threshold por exposición temporal y clustering
+        exposure_effect <- mean(exposure_memory[1:max(1,iter-1), i], na.rm=TRUE)
+        cluster_effect <- mean(clustering_memory[1:max(1,iter-1), i], na.rm=TRUE)
         
-        # Threshold dinámico basado en tipo y posición estructural
-        base_threshold <- thresholds$base
-        type_threshold <- thresholds$by_type[attributes$tipo[i]]
-        threshold <- base_threshold * type_threshold
+        final_threshold <- (base_threshold * type_threshold) * 
+          exp(-0.05 * exposure_effect) *
+          (1 - 0.2 * cluster_effect)
         
-        # Ajuste por conectividad local
-        local_density <- mean(sapply(networks, function(x) sum(x[i,] > 0)))
-        threshold <- threshold * (1 - 0.2 * (local_density / max(local_density)))
-        
-        if(influence >= threshold) states[i] <- 1
+        # Probabilidad de adopción
+        if(influence >= final_threshold) {
+          # Fricción en adopción
+          adoption_prob <- 0.3 * (1 + exposure_effect)
+          states[i] <- rbinom(1, 1, min(1, adoption_prob))
+        }
       }
+      
+      # Actualizar memorias
+      exposure_memory[iter, i] <- ifelse(length(node_neighbors[[i]]) > 0,
+                                         sum(states[node_neighbors[[i]]]) / length(node_neighbors[[i]]),
+                                         0)
+      clustering_memory[iter, i] <- calc_local_clustering(i, networks)
     }
     
     # Guardar historia
     history[iter,] <- states
     
-    # Verificar convergencia más robusta
-    if(iter > 10) {
-      recent_changes <- c(recent_changes[-1], mean(states) - mean(old_states))
-      if(abs(mean(recent_changes)) < convergence_threshold && 
-         sd(recent_changes) < convergence_threshold) break
+    # Verificar convergencia
+    if(iter > 20) {
+      recent_window <- (iter-19):iter
+      change_rate <- mean(diff(colMeans(history[recent_window,])))
+      if(abs(change_rate) < convergence_threshold) break
     }
     
-    if(all(old_states == states)) break
+    if(all(old_states == states) && iter > 10) break
   }
   
+  # 12. Calcular métricas finales
+  final_metrics <- list(
+    adoption_rate = mean(states),
+    clustering_effect = sapply(1:n_nodes, function(i) calc_local_clustering(i, networks)),
+    temporal_exposure = colMeans(exposure_memory[1:iter,], na.rm=TRUE),
+    convergence_iteration = iter,
+    change_trajectory = rowMeans(history[1:iter,]),
+    adoption_by_type = tapply(states, attributes$tipo, mean),
+    adoption_by_role = tapply(states, role_scores$role, mean),
+    final_thresholds = sapply(1:n_nodes, function(i) {
+      base_threshold <- if(use_heterogeneous_thresholds) {
+        thresholds$by_type[attributes$tipo[i]]
+      } else {
+        thresholds$base
+      }
+      exposure_effect <- mean(exposure_memory[1:iter, i], na.rm=TRUE)
+      cluster_effect <- mean(clustering_memory[1:iter, i], na.rm=TRUE)
+      base_threshold * exp(-0.05 * exposure_effect) *
+        (1 - 0.2 * cluster_effect)
+    }),
+    network_effects = list(
+      clustering = mean(sapply(1:n_nodes, function(i) calc_local_clustering(i, networks))),
+      exposure = mean(colMeans(exposure_memory[1:iter,], na.rm=TRUE)),
+      identity = mean(sapply(1:n_nodes, function(i) identity_alignment(i, attributes))),
+      costs = mean(sapply(1:n_nodes, function(i) collective_action_cost(i, role_scores)))
+    )
+  )
+  
+  # 13. Retornar resultados
   return(list(
     final_states = states,
     history = history[1:iter,],
     n_iterations = iter,
-    key_roles = key_roles,
+    role_scores = role_scores,
     centrality_measures = centrality_measures,
     composite_net = composite_net,
-    influence_scores = org_influence,
-    multiplexity = multiplexity,
+    exposure_memory = exposure_memory[1:iter,],
+    clustering_memory = clustering_memory[1:iter,],
+    final_metrics = final_metrics,
     converged = iter < max_iterations,
-    convergence_rate = mean(recent_changes)
+    parameters = list(
+      thresholds = thresholds,
+      weights = weights,
+      memory_window = memory_window,
+      convergence_threshold = convergence_threshold,
+      use_heterogeneous_thresholds = use_heterogeneous_thresholds
+    )
   ))
-}
-
-plot_diffusion_results <- function(results, attributes) {
-  # Preparar datos
-  history <- results$history
-  n_iter <- nrow(history)
-  
-  # Calcular proporciones por tipo
-  prop_by_type <- t(apply(history, 1, function(x) {
-    tapply(x, attributes$tipo, mean, na.rm=TRUE)
-  }))
-  
-  # Crear dataframe para ggplot
-  df_total <- data.frame(
-    iteration = 1:n_iter,
-    proportion = rowMeans(history)
-  )
-  
-  df_by_type <- as.data.frame(prop_by_type) %>%
-    mutate(iteration = 1:n_iter) %>%
-    pivot_longer(-iteration, 
-                names_to = "type",
-                values_to = "proportion")
-  
-  # Crear visualizaciones
-  p1 <- ggplot(df_total, aes(x=iteration, y=proportion)) +
-    geom_line(size=1, color="#2C3E50") +
-    geom_point(size=2, color="#E74C3C") +
-    theme_minimal() +
-    labs(title="Difusión Global",
-         x="Iteración",
-         y="Proporción Activada") +
-    scale_y_continuous(labels=scales::percent_format()) +
-    theme(plot.title = element_text(face="bold")) +
-    geom_hline(yintercept=max(df_total$proportion), 
-               linetype="dashed", 
-               color="grey50")
-
-  p2 <- ggplot(df_by_type, aes(x=iteration, y=proportion, color=type)) +
-    geom_line(size=1) +
-    theme_minimal() +
-    labs(title="Difusión por Tipo de Organización",
-         x="Iteración",
-         y="Proporción Activada",
-         color="Tipo") +
-    scale_y_continuous(labels=scales::percent_format()) +
-    scale_color_brewer(palette="Set2") +
-    theme(legend.position="bottom",
-          plot.title = element_text(face="bold"))
-
-  # Combinar plots
-  gridExtra::grid.arrange(p1, p2, ncol=2)
 }
 ```
 
 
+### Función para plotear 
 ```{r}
-# Ejecutar simulación
-results <- improved_diffusion_v6(
-  networks = list(conf_net, val_net, coop_net, rec_net),
-  attributes = attr,
-  seeds = selected_seeds
+#| code-fold: show
+
+plot_diffusion_results_v2 <- function(results, org_attributes) {
+  library(ggplot2)
+  library(dplyr)
+  library(tidyr)
+  library(patchwork)
+  library(viridis)
+  
+  # 1. Datos para difusión total
+  df_total <- data.frame(
+    iteration = 1:nrow(results$history),
+    proportion = rowMeans(results$history),
+    exposure = rowMeans(results$exposure_memory)  # Cambio aquí: rowMeans en lugar de colMeans
+  )
+  
+  # 2. Datos por tipo de organización
+  df_by_type <- data.frame(results$history) %>%
+    mutate(iteration = row_number()) %>%
+    pivot_longer(-iteration, names_to = "node", values_to = "state") %>%
+    mutate(node = as.numeric(gsub("[^0-9]", "", node))) %>%
+    left_join(
+      data.frame(
+        node = 1:nrow(org_attributes),
+        tipo = org_attributes$Tipo_de_organización
+      ),
+      by = "node"
+    ) %>%
+    group_by(iteration, tipo) %>%
+    summarise(
+      proportion = mean(state),
+      n_adopted = sum(state),
+      n_total = n(),
+      .groups = 'drop'
+    )
+  
+  # 3. Análisis de roles y adopción
+  role_adoption <- data.frame(
+    role = factor(results$role_scores$role),
+    adopted = factor(results$final_states)
+  ) %>%
+    group_by(role) %>%
+    summarise(
+      n = n(),
+      adopted = sum(as.numeric(as.character(adopted))),
+      proportion = adopted/n
+    )
+  
+  # 4. Análisis de bloques estructurales
+  node_cohesion <- data.frame(
+    node = 1:length(results$final_metrics$clustering_effect),
+    cohesion = results$final_metrics$clustering_effect
+  )
+  
+  block_adoption <- data.frame(
+    node = 1:length(results$final_states),
+    block = ifelse(1:length(results$final_states) <= nrow(org_attributes),
+                   as.character(org_attributes$block), "Unknown"),
+    adopted = results$final_states
+  ) %>%
+    left_join(node_cohesion, by = "node") %>%
+    group_by(block) %>%
+    summarise(
+      adoption_rate = mean(adopted),
+      cohesion = mean(cohesion, na.rm = TRUE)
+    )
+  
+  # 5. Visualizaciones
+  p1 <- ggplot(df_total, aes(x = iteration, y = proportion)) +
+    geom_line(size = 1.2, color = "#2C3E50") +
+    geom_point(size = 3, color = "#E74C3C") +
+    geom_line(aes(y = exposure), linetype = "dashed", color = "#8E44AD") +
+    theme_minimal() +
+    labs(
+      title = "Difusión Global y Exposición",
+      subtitle = sprintf("Adopción final: %.1f%%", 
+                         results$final_metrics$adoption_rate * 100),
+      x = "Iteración",
+      y = "Proporción"
+    ) +
+    scale_y_continuous(
+      labels = scales::percent_format(),
+      limits = c(0, 1)
+    )
+  
+  p2 <- ggplot(df_by_type, aes(x = iteration, y = proportion, color = tipo)) +
+    geom_line(size = 1.2) +
+    geom_point(size = 2) +
+    theme_minimal() +
+    labs(
+      title = "Difusión por Tipo de Organización",
+      x = "Iteración",
+      y = "Proporción Adoptante",
+      color = "Tipo de Organización"
+    ) +
+    scale_y_continuous(
+      labels = scales::percent_format(),
+      limits = c(0, 1)
+    ) +
+    scale_color_viridis_d() + 
+    theme(legend.position = "none")
+  
+  p3 <- ggplot(role_adoption, 
+               aes(x = reorder(role, proportion), y = proportion)) +
+    geom_bar(stat = "identity", fill = "#2C3E50", alpha = 0.8) +
+    geom_text(aes(label = scales::percent(proportion)), 
+              position = position_stack(vjust = 0.5),
+              color = "white") +
+    theme_minimal() +
+    labs(
+      title = "Adopción Final por Rol Estructural",
+      x = "Rol",
+      y = "Proporción Adoptante"
+    ) +
+    scale_y_continuous(labels = scales::percent_format()) +
+    theme(
+      plot.title = element_text(face = "bold", size = 14),
+      axis.title = element_text(size = 11),
+      axis.text.x = element_text(angle = 45, hjust = 1)
+    )
+  
+  p4 <- ggplot(block_adoption, aes(x = cohesion, y = adoption_rate)) +
+    geom_point(size = 3, color = "#E74C3C") +
+    geom_smooth(method = "lm", se = FALSE, color = "#2C3E50") +
+    theme_minimal() +
+    labs(
+      title = "Adopción vs Cohesión por Bloque Estructural",
+      x = "Cohesión Estructural del Bloque",
+      y = "Tasa de Adopción del Bloque"
+    )
+  
+  # 6. Combinar visualizaciones
+  layout <- "
+  AB
+  CD
+  "
+  
+  combined_plot <- p1 + p2 + p3 + p4 +
+    plot_layout(design = layout) +
+    plot_annotation(
+      title = "Análisis de Difusión de Comportamiento Conflictivo",
+      subtitle = sprintf("Iteraciones: %d | Convergencia en: %.1f%% de adopción", 
+                         results$n_iterations,
+                         results$final_metrics$adoption_rate * 100),
+      theme = theme(
+        plot.title = element_text(size = 16, face = "bold"),
+        plot.subtitle = element_text(size = 12)
+      )
+    )
+  
+  return(combined_plot)
+}
+```
+
+### Ejecutar funciones  
+
+#### Resultados heterogeneous thresholds = FALSE
+```{r}
+# Ejecutar una simulación
+results <- improved_diffusion_v9(
+  networks = networks,
+  attributes = org_attributes,
+  seeds = which(org_attributes$tipo == " Organización política de pobladores "),
+  use_heterogeneous_thresholds = FALSE
 )
 
 # Visualizar resultados
-plot_diffusion_results(results, attr)
+plot_diffusion_results_v2(results, org_attributes)
+```
+
+#### Resultados heterogeneous thresholds = TRUE
+```{r}
+# Ejecutar una simulación
+results <- improved_diffusion_v9(
+  networks = networks,
+  attributes = org_attributes,
+  seeds = which(org_attributes$tipo == " Organización política de pobladores "),
+  use_heterogeneous_thresholds = TRUE
+)
+
+# Visualizar resultados
+plot_diffusion_results_v2(results, org_attributes)
+```
+
+### Simulaciones heterogeneous thresholds = TRUE
+```{r}
+# Función para ejecutar múltiples simulaciones
+run_multiple_simulations <- function(networks, attributes, seeds, n_sims = 100) {
+  results_list <- list()
+  for(i in 1:n_sims) {
+    results_list[[i]] <- improved_diffusion_v9(
+      networks = networks,
+      attributes = attributes,
+      seeds = seeds
+    )
+  }
+  
+  # Calcular estadísticas agregadas
+  adoption_rates <- sapply(results_list, function(x) x$final_metrics$adoption_rate)
+  iterations <- sapply(results_list, function(x) x$n_iterations)
+  
+  return(list(
+    mean_adoption = mean(adoption_rates),
+    sd_adoption = sd(adoption_rates),
+    mean_iterations = mean(iterations),
+    sd_iterations = sd(iterations),
+    results = results_list
+  ))
+}
+
+
+# O ejecutar múltiples simulaciones
+multiple_results <- run_multiple_simulations(
+  networks = networks,
+  attributes = org_attributes,
+  seeds = which(org_attributes$tipo == " Organización política de pobladores "),
+  n_sims = 100
+)
+
+# Análisis de la infomracióm simulada
+mean_adoption_rate <- multiple_results$mean_adoption
+sd_adoption_rate <- multiple_results$sd_adoption
+
+cat("La tasa de adopción final promedio es:", round(mean_adoption_rate * 100, 2), "%\n")
+cat("La desviación estándar de la tasa de adopción final es:", round(sd_adoption_rate * 100, 2), "%\n")
+
+## Trayectorias simuladas
+diffusion_trajectories <- lapply(seq_along(multiple_results$results), function(i) {
+  data.frame(
+    iteration = seq_along(multiple_results$results[[i]]$final_metrics$change_trajectory),
+    adoption_rate = multiple_results$results[[i]]$final_metrics$change_trajectory,
+    simulation = paste("Simulación", i)
+  )
+})
+
+diffusion_trajectories <- do.call(rbind, diffusion_trajectories)
+
+ggplot(diffusion_trajectories, aes(x = iteration, y = adoption_rate, color = simulation)) +
+  geom_line() +
+  labs(x = "Iteración", y = "Tasa de Adopción") +
+  ggtitle("Trayectorias de Difusión") +
+  theme_minimal() +
+  theme(legend.position = "none")
+
+
+## Adopción por tipo y rol
+adoption_by_type <- lapply(multiple_results$results, function(x) x$final_metrics$adoption_by_type)
+adoption_by_role <- lapply(multiple_results$results, function(x) x$final_metrics$adoption_by_role)
+
+mean_adoption_by_type <- Reduce("+", adoption_by_type) / length(adoption_by_type)
+mean_adoption_by_role <- Reduce("+", adoption_by_role) / length(adoption_by_role)
+
+print("Adopción promedio por tipo de organización:")
+print(mean_adoption_by_type)
+
+print("Adopción promedio por rol estructural:")
+print(mean_adoption_by_role)
+
+## Adopción y centralidad 
+centrality_measures <- lapply(multiple_results$results, function(x) x$centrality_measures)
+clustering_effects <- lapply(multiple_results$results, function(x) x$final_metrics$clustering_effect)
+
+# Ejemplo: Correlación promedio entre centralidad de grado y adopción final
+cor_degree_adoption <- sapply(seq_along(centrality_measures), function(i) {
+  degree_centrality <- centrality_measures[[i]]$degree
+  adoption_status <- multiple_results$results[[i]]$final_states
+  cor(degree_centrality, adoption_status)
+})
+
+mean_cor_degree_adoption <- mean(cor_degree_adoption)
+cat("Correlación promedio entre centralidad de grado y adopción final:", round(mean_cor_degree_adoption, 2), "\n")
+
+
+# Asumiendo que ejecutaste múltiples simulaciones con diferentes parámetros y los resultados están en `multiple_results`
+mean_adoption_rates <- sapply(multiple_results$results, function(x) x$final_metrics$adoption_rate)
+plot(mean_adoption_rates, xlab = "Simulación", ylab = "Tasa de Adopción Final", main = "Análisis de Sensibilidad")
 ```
 
 
-
-## 3. Visualización y Análisis de Resultados
-
-## 4. Discusión
+## Discusión
 
 Este modelo incorpora varios elementos teóricos clave:
 
