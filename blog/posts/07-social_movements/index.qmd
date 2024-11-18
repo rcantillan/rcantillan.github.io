@@ -15,7 +15,8 @@ categories:
   - ERGM
   - Social Movements
   - Contentious polítics 
-title-block-banner: "rgba(148, 0, 0, 0.78)"
+image: "featured.jpg"
+title-block-banner: featured.jpg
 title-block-banner-color: "rgba(0,38,66,0.75)"
 title-block-style: default
 draft: false
