@@ -525,7 +525,7 @@ model2 <- ergm(net_coop ~
                nodematch("tipo") + 
                nodematch("orientacion", diff=TRUE) +
                nodematch("ubicacion"),
-                constraints = ~bd(maxout=max(out_degrees)), 
+               constraints = ~bd(maxout=max(out_degrees)), 
                control = control.ergm(seed = 123,
                                     MCMLE.maxit = 25, # Aumentar iteraciones 
                                     MCMC.burnin = 5000, # Aumentar burn-in
