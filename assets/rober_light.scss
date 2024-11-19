@@ -470,3 +470,22 @@ p code:not(.sourceCode), li code:not(.sourceCode), td code:not(.sourceCode) {
   }
 }
 
+
+.citation-section {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: #f8f9fa;
+  border-left: 4px solid #6c757d;
+
+  h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .citation-content {
+    font-family: monospace;
+    padding: 1rem;
+    background: white;
+    border: 1px solid #dee2e6;
+  }
+}

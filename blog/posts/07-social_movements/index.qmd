@@ -7,6 +7,7 @@ author:
         - name: "Department of Sociology, PUC"
           address: "Santiago, Chile"
 date: 2024-11-13
+website-url: "https://rcantillan.github.io/blog/posts/07-social_movements/"
 #bibliography: references.bib
 bibliographystyle: apa
 categories:
@@ -681,6 +682,195 @@ networks <- list(
 
 
 ### Función para proceso de difusión 
+
+La función `improved_diffusion_v9` implementa un modelo de difusión de comportamientos conflictivos basado en la teoría de movimientos sociales y contienda política. El modelo integra conceptos clave de:
+
+- **Teoría de Redes en Movimientos Sociales** (Diani): Multiplicidad de vínculos, roles estructurales
+- **Dinámica de la Contienda** (McAdam, Tilly, Tarrow): Mecanismos relacionales, repertorios de acción
+- **Costos de Acción Colectiva** (Olson): Incentivos selectivos, problemas de coordinación
+- **Identidad Colectiva** (Melucci): Alineamiento identitario, solidaridad
+
+#### Componentes Estructurales
+
+#####  Umbrales Heterogéneos
+```{r}
+#| eval: false 
+  
+thresholds <- list(
+    base = 0.05,
+    by_type = c(
+      " Club deportivo " = 0.15,
+      " Comité de vivienda " = 0.06,
+      " Organización política de pobladores " = 0.05))
+```
+
+La heterogeneidad en umbrales refleja la teoría de Tarrow sobre "madrugadores" (early risers) en ciclos de protesta:
+
+- **Organizaciones de pobladores** (0.05): Menor umbral por su tradición histórica de movilización
+- **Comités de vivienda** (0.06): Umbral bajo por demandas materiales concretas
+- **Organizaciones culturales/deportivas** (0.15): Mayor umbral por orientación no confrontacional
+
+#### Multiplicidad de Vínculos
+```{r}
+#| eval: false
+
+weights <- c(0.35, 0.35, 0.15, 0.15) # Confianza, valores, parentesco, recursos
+```
+
+Siguiendo a Diani, se pondera diferencialmente distintos tipos de vínculos:
+
+- **Vínculos fuertes** (confianza/valores): Mayor peso (0.35) por su rol en motivar participación riesgosa
+- **Vínculos instrumentales** (recursos): Menor peso (0.15) por su naturaleza transaccional
+- **Vínculos primordiales** (parentesco): Peso reducido (0.15) por ser menos relevantes para acción colectiva
+
+#### Mecanismos Relacionales
+
+##### Clustering Local
+```{r}
+#| eval: false
+
+calc_local_clustering <- function(node, networks) {
+    cluster_scores <- sapply(networks, function(x) {
+      neighbors <- which(x[node,] > 0)
+      submat <- x[neighbors, neighbors]
+      sum(submat) / (length(neighbors) * (length(neighbors)-1))
+    })
+}
+```
+
+Operacionaliza el concepto de "estructuras de movilización" (McAdam):
+
+- Mide cohesión en entorno inmediato
+- Mayor clustering facilita coordinación
+- Reduce costos de acción colectiva
+
+#### Exposición Temporal
+```{r}
+#| eval: false
+
+calc_exposure_time <- function(node, history, window = memory_window) {
+    weights <- exp(-(current_window:1)/3)
+    return(weighted.mean(exposed_neighbors, weights))
+}
+```
+
+Implementa "memoria colectiva" en movilización:
+
+- Exposición acumulada reduce percepción de riesgo
+- Decay exponencial modela olvido social
+- Ventana móvil captura ciclos de protesta
+
+#### Alineamiento Identitario
+```{r}
+#| eval: false
+
+identity_alignment <- function(node, attributes) {
+    same_type <- attributes$tipo == attributes$tipo[node]
+    same_orientation <- attributes$Orientación == attributes$Orientación[node]
+    return(mean(same_type & same_orientation))
+}
+```
+
+Basado en teoría de identidad colectiva:
+
+- Similitud organizacional fortalece solidaridad
+- Orientación política común facilita difusión
+- Alineamiento reduce barreras a adopción
+
+#### Roles Estructurales
+
+```{r}
+#| eval: false
+
+role_scores$broker_score <- role_scores$between_score + role_scores$degree_score
+role_scores$core_score <- role_scores$eigen_score + role_scores$authority_score
+```
+
+Operacionaliza roles clave en difusión (Tarrow):
+
+- **Brokers**: Conectan comunidades distintas
+- **Core**: Liderazgo y legitimidad en red
+- **Authority**: Influencia sobre adopción
+- **Peripheral**: Seguidores potenciales
+
+#### Proceso de Difusión
+
+##### Cálculo de Influencia
+```{r}
+#| eval: false
+
+combined_influence <- net_influence * weights[n] * 
+    temporal_factor * cluster_multiplier * 
+    (1 + identity_effect) / action_cost
+```
+
+Integra múltiples mecanismos:
+
+1. **Influencia base**: Proporción de vecinos adoptantes
+2. **Factor temporal**: Exposición acumulada
+3. **Multiplicador estructural**: Efecto de clustering
+4. **Efecto identitario**: Alineamiento organizacional
+5. **Costo de acción**: Fricción estructural
+
+##### Umbrales Dinámicos
+```{r}
+#| eval: false
+
+final_threshold <- (base_threshold * type_threshold) * 
+    exp(-0.05 * exposure_effect) *
+    (1 - 0.2 * cluster_effect)
+```
+
+Modela adaptación de umbrales por:
+
+- Tipo organizacional (heterogeneidad)
+- Exposición temporal (aprendizaje)
+- Clustering local (solidaridad)
+
+#### Métricas de Evaluación
+
+El modelo produce métricas que permiten evaluar:
+
+1. **Patrones de Difusión**
+   - Tasa global de adopción
+   - Variación por tipo organizacional
+   - Trayectorias temporales
+
+2. **Efectos Estructurales**
+   - Impacto de clustering
+   - Rol de brokers
+   - Influencia de core
+
+3. **Mecanismos Relacionales**
+   - Exposición acumulada
+   - Alineamiento identitario
+   - Costos de acción
+
+#### En síntesis
+
+El modelo implementa computacionalmente teorías centrales de movimientos sociales:
+
+1. **Dinámica relacional** (McAdam, Tilly, Tarrow)
+   - Mecanismos de difusión
+   - Roles estructurales
+   - Ciclos de protesta
+
+2. **Identidad y solidaridad** (Melucci, Diani)
+   - Alineamiento organizacional
+   - Vínculos múltiples
+   - Cohesión local
+
+3. **Acción colectiva** (Olson)
+   - Costos diferenciados
+   - Incentivos estructurales
+   - Problemas de coordinación
+
+La implementación permite estudiar empíricamente:
+
+- Patrones de difusión de repertorios
+- Roles estructurales en movilización
+- Mecanismos relacionales de protesta
+
 
 ```{r}
 #| code-fold: show
