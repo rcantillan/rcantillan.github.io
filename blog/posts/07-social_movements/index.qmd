@@ -614,9 +614,10 @@ htmlreg(model2,
 [Quote opportunity: Leader discussing how long-term trust relationships facilitated political alignment]
 
 **Resource Network Amplification**: The strong positive effect of resource ties (5.513***) indicates that material interdependencies reinforced identity diffusion, consistent with Diani's (2015) findings about movement infrastructure. In Peñalolén, resource sharing created durable channels for identity transmission.
-Kinship Network Constraint: The negative effect of kinship ties (-3.082***) suggests these relationships actually inhibited contention diffusion, contrasting with some social movement literature but aligning with Gould's (1991) findings about the primacy of political over personal ties in contentious episodes.
 
-**Triadic Closure*:** Significant GWESP effect (1.899***) indicates importance of local clustering in network formation. The significant GWESP effect combined with trust-resource complementarity suggests a new theoretical mechanism: "networked capacity building", where:
+**Kinship Network Constraint**: The negative effect of kinship ties (-3.082) suggests these relationships actually inhibited contention diffusion, contrasting with some social movement literature but aligning with Gould's (1991) findings about the primacy of political over personal ties in contentious episodes.
+
+**Triadic Closure**: Significant GWESP effect (1.899) indicates importance of local clustering in network formation. The significant GWESP effect combined with trust-resource complementarity suggests a new theoretical mechanism: "networked capacity building", where:
 
 - Local clustering provides social validation
 - Multiple ties build organizational capacity
@@ -1414,10 +1415,6 @@ ggplot(data.frame(
 The structural composition of the network shows a polarized pattern, with most organizations either having no multiple ties (10 organizations) or the maximum number of ties (52 organizations), suggesting a core-periphery structure in the movement network.
 
 [*Quote opportunity: Leader discussing how different types of relationships combined in practice*]
-
-
-
-
 
 
 
