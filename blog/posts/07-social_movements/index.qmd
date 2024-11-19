@@ -613,7 +613,7 @@ htmlreg(model2,
 
 [Quote opportunity: Leader discussing how long-term trust relationships facilitated political alignment]
 
-**Resource Network Amplification**: The strong positive effect of resource ties (5.513***) indicates that material interdependencies reinforced identity diffusion, consistent with Diani's (2015) findings about movement infrastructure. In Peñalolén, resource sharing created durable channels for identity transmission.
+**Resource Network Amplification**: The strong positive effect of resource ties (5.513) indicates that material interdependencies reinforced identity diffusion, consistent with Diani's (2015) findings about movement infrastructure. In Peñalolén, resource sharing created durable channels for identity transmission.
 
 **Kinship Network Constraint**: The negative effect of kinship ties (-3.082) suggests these relationships actually inhibited contention diffusion, contrasting with some social movement literature but aligning with Gould's (1991) findings about the primacy of political over personal ties in contentious episodes.
 
