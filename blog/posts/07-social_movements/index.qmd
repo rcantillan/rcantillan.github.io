@@ -646,41 +646,6 @@ mcmc.diagnostics(model2)
 
 
 ## Difusión
-
-Detalle de la función de difusión creada...
-
-### Cargamos datos 
-```{r}
-# 1. Cargar datos
-coop_matrix      <- as.matrix(read.csv("datos/CoopNet.csv", header=FALSE))
-trust_matrix     <- as.matrix(read.csv("datos/ConfianzaNet.csv", header=FALSE))
-resources_matrix <- as.matrix(read.csv("datos/RecursosNet.csv", header=FALSE))
-values_matrix    <- as.matrix(read.csv("datos/ValoresNet.csv", header=FALSE))
-
-# 2. Cargar atributos (cambiamos el nombre de la variable)
-org_attributes <- read.csv("datos/Atributos _org2011.csv", header=TRUE) %>%
-  mutate(
-    conflictivo = trimws(Orientación) == "Conflictiva",  # Crear variable conflictivo
-    tipo = Tipo_de_organización,
-    ubicacion = Ubicación,
-    orientacion = Orientación
-  )
-
-
-# 3. Verificar la creación correcta de la variable
-print("Verificar variable conflictivo:")
-table(org_attributes$conflictivo, org_attributes$Orientación, useNA = "always")
-
-# 4. Preparar lista de redes
-networks <- list(
-  trust_matrix,    # Red de confianza (peso 0.3)
-  values_matrix,   # Red de valores (peso 0.3)
-  coop_matrix,     # Red de cooperación (peso 0.2)
-  resources_matrix # Red de recursos (peso 0.2)
-)
-```
-
-
 ### Función para proceso de difusión 
 
 La función `improved_diffusion_v9` implementa un modelo de difusión de comportamientos conflictivos basado en la teoría de movimientos sociales y contienda política. El modelo integra conceptos clave de:
@@ -870,6 +835,39 @@ La implementación permite estudiar empíricamente:
 - Patrones de difusión de repertorios
 - Roles estructurales en movilización
 - Mecanismos relacionales de protesta
+
+
+### Cargamos datos 
+```{r}
+# 1. Cargar datos
+coop_matrix      <- as.matrix(read.csv("datos/CoopNet.csv", header=FALSE))
+trust_matrix     <- as.matrix(read.csv("datos/ConfianzaNet.csv", header=FALSE))
+resources_matrix <- as.matrix(read.csv("datos/RecursosNet.csv", header=FALSE))
+values_matrix    <- as.matrix(read.csv("datos/ValoresNet.csv", header=FALSE))
+
+# 2. Cargar atributos (cambiamos el nombre de la variable)
+org_attributes <- read.csv("datos/Atributos _org2011.csv", header=TRUE) %>%
+  mutate(
+    conflictivo = trimws(Orientación) == "Conflictiva",  # Crear variable conflictivo
+    tipo = Tipo_de_organización,
+    ubicacion = Ubicación,
+    orientacion = Orientación
+  )
+
+
+# 3. Verificar la creación correcta de la variable
+print("Verificar variable conflictivo:")
+table(org_attributes$conflictivo, org_attributes$Orientación, useNA = "always")
+
+# 4. Preparar lista de redes
+networks <- list(
+  trust_matrix,    # Red de confianza (peso 0.3)
+  values_matrix,   # Red de valores (peso 0.3)
+  coop_matrix,     # Red de cooperación (peso 0.2)
+  resources_matrix # Red de recursos (peso 0.2)
+)
+```
+
 
 
 ```{r}
