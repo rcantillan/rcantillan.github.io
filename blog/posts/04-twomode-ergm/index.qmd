@@ -63,9 +63,6 @@ Esta dinámica se resuelve a través de lo que denominamos "mecanismos de difere
 - Facilita el cuestionamiento de supuestos establecidos
 - Opera principalmente a través de equipos pequeños con mayor libertad para innovar
 
-Estos mecanismos producen propiedades emergentes que caracterizan el campo como totalidad:
-
-**H1**: La estructura reticular autor-artículo mostrará patrones de cohesión estructural (medida a través de bicomponentes) que coexisten con y facilitan la emergencia de innovación disruptiva desde posiciones periféricas. Esta hipótesis sugiere que, contrario a visiones que ven la fragmentación o la centralización como estados finales inevitables, los campos científicos desarrollan estructuras que permiten simultáneamente la integración y la innovación.
 
 ### La Diferenciación como Proceso Relacional
 
@@ -76,10 +73,6 @@ La diferenciación entre campos STEM y SHAPE emerge no tanto de divisiones epist
 - Formas legítimas de construcción teórica
 - Patrones típicos de colaboración
 - Mecanismos de acreditación y reconocimiento
-
-Esto nos lleva a:
-
-**H2**: Los campos mostrarán diferentes patrones de cohesión estructural que reflejan sus regímenes específicos de validación, manteniendo sin embargo suficiente integración para permitir la innovación interdisciplinaria. Esta hipótesis se basa en la observación de Moody [-@moodyStructureSocialScience2004] de que la cohesión estructural permite la especialización sin fragmentación, pero reconoce que los mecanismos específicos de cohesión varían sistemáticamente entre campos.
 
 
 ### Temporalidad y Evolución en Campos Científicos Emergentes
@@ -136,19 +129,6 @@ La ciencia de la sustentabilidad representa un caso particularmente relevante de
   - Los actores centrales tienden a desarrollar líneas establecidas
   - La innovación disruptiva emerge frecuentemente desde posiciones periféricas
 
-Esto nos lleva a proponer:
-
-**H3a**: La relación entre posición estructural y capacidad disruptiva evolucionará de manera diferenciada según la fase de desarrollo del campo, mostrando:
-
-- Centralización inicial para establecer legitimidad
-- Posterior diversificación de fuentes de innovación
-- Eventual equilibrio dinámico entre desarrollo y disrupción
-
-**H3b**: En el campo específico de la ciencia de la sustentabilidad, la urgencia transformadora modificará esta evolución típica, produciendo:
-
-- Mayor tolerancia temprana a innovaciones disruptivas
-- Estructuras más distribuidas de producción de conocimiento
-- Mecanismos acelerados de validación y difusión
 
 ### Implicaciones para la Estructura de Colaboración
 Esta conceptualización temporal tiene importantes implicaciones para entender cómo evolucionan las estructuras de colaboración:
@@ -172,6 +152,44 @@ Esta conceptualización temporal tiene importantes implicaciones para entender c
 - merge una división del trabajo entre desarrollo y disrupción
 
 Esta perspectiva temporal enriquece nuestra comprensión de cómo los mecanismos generativos identificados anteriormente operan y evolucionan a lo largo del tiempo, sugiriendo que la capacidad de un campo para mantener su vitalidad depende de su habilidad para institucionalizar tensiones productivas entre diferentes modos de producción de conocimiento.
+
+
+
+## Hipótesis  
+
+### H1: Estructura Base y Centralización
+
+**"La red mostrará una baja densidad base pero con patrones de centralización asimétricos entre papers y autores."**
+
+Justificación: Gondal [-@gondalLocalGlobalStructure2011] argumenta que los campos emergentes muestran inicialmente baja densidad debido a la incertidumbre estructural, pero desarrollan patrones de centralización que reflejan la necesidad de establecer legitimidad. Moody [-@moodyStructureSocialScience2004] complementa esta visión señalando que diferentes tipos de actores (en nuestro caso, papers y autores) desarrollan roles estructurales distintos en el proceso de legitimación del campo.
+
+### H2: Asimetría Disciplinar
+
+**"Los patrones de colaboración entre campos mostrarán asimetrías direccionales, con diferentes probabilidades de conexión según el campo de origen del paper y el campo del autor."**
+
+Justificación: Friedkin [-@friedkinStructuralTheorySocial1998] sugiere que la integración del conocimiento ocurre a través de "consensos superpuestos" que permiten la comunicación entre tradiciones especializadas. Esta integración, según Moody [-@moodyStructureSocialScience2004], no es simétrica sino que refleja diferentes regímenes de validación del conocimiento entre campos.
+
+### H3: Dinámica Centro-Periferia y Disrupción
+
+**"La capacidad disruptiva mostrará una relación inversa con la centralidad estructural, moderada por el campo disciplinar."**
+
+Justificación: Li et al. [-@liProductiveScientistsAre2024a] identifican una relación inversa entre productividad y disrupción, donde los actores centrales tienden a desarrollar líneas establecidas mientras que la innovación disruptiva emerge desde posiciones periféricas. Wu et al. [-@wuLargeTeamsDevelop2019a] complementan esta visión mostrando cómo los equipos pequeños, típicamente más periféricos, son más propensos a la disrupción.
+
+### H4: Evolución Temporal y Campos Emergentes
+
+**"La relación entre posición estructural y capacidad disruptiva evolucionará de manera diferenciada según la fase de desarrollo del campo, con patrones distintos entre STEM y SHAPE."**
+
+Justificación: Gondal [-@gondalLocalGlobalStructure2011] describe cómo los campos emergentes evolucionan a través de fases de legitimación inicial, consolidación y diferenciación. En campos como la ciencia de la sustentabilidad, esta evolución se ve modificada por la urgencia transformadora, produciendo:
+
+  - Mayor tolerancia temprana a innovaciones disruptivas
+  - Estructuras más distribuidas de producción de conocimiento
+  - Mecanismos acelerados de validación y difusión
+
+### H5: Integración Disciplinar Asimétrica
+
+**"Los campos mostrarán diferentes capacidades de integración, con STEM actuando como puente entre tradiciones disciplinares."**
+
+Justificación: La sociología del conocimiento científico [e.g., @mannheimIdeologyUtopia1936; @kuhnStructureScientificRevolutions1970] sugiere que diferentes campos desarrollan distintas capacidades de integración basadas en sus tradiciones epistemológicas. Bourdieu [-@bourdieuSpecificityScientificField1975] complementa esta visión señalando cómo algunos campos acumulan capital científico que les permite actuar como integradores.
 
 
 ## Metodología 
@@ -747,6 +765,7 @@ kable(as_tibble(bipartite_metrics), caption = "Resumen centralidad por entidad")
 
 ## Análisis ERGM: Modelando Mecanismos Generativos
 
+
 Siguiendo a Gondal (2011), el modelamiento ERGM nos permite examinar los mecanismos micro que generan las estructuras macro observadas. Desarrollamos una estrategia de modelamiento en cuatro etapas, cada una capturando diferentes aspectos teóricos:
 
   1. **Modelo Base**: Examina la tendencia base a formar vínculos y el efecto de los campos disciplinares
@@ -754,13 +773,15 @@ Siguiendo a Gondal (2011), el modelamiento ERGM nos permite examinar los mecanis
   3. **Modelo con Covariables**: Agrega atributos nodales como disrupción y productividad
   4. **Modelo Final**: Integra efectos de interacción y homofilia disciplinar
 
-```{r ergm-models}
-#| code-fold: show
-#| warning: false
-#| message: false
 
-# 10. Modelos ERGM
-## 1. Modelo simple 
+```{r}
+# Usar el 75% de los núcleos disponibles
+num_cores <- parallel::detectCores() - 1
+
+# Si quieres ver cuántos núcleos se usarán
+cat("Usando", num_cores, "de", parallel::detectCores(), "núcleos disponibles\n")
+
+# 1. Modelo simple (mantenemos igual como base)
 model_simple <- ergm(
   net_bipartite ~ edges + b1factor("field_broad"),
   control = control.ergm(
@@ -770,7 +791,7 @@ model_simple <- ergm(
   )
 )
 
-## 2. Modelo con términos de grado
+# 2. Modelo con términos de grado (mantenemos igual)
 model_degrees <- ergm(
   net_bipartite ~ 
     edges +
@@ -785,7 +806,7 @@ model_degrees <- ergm(
   )
 )
 
-## 3. Modelo con covariables
+# 3. Modelo con covariables (mantenemos igual)
 model_covars <- ergm(
   net_bipartite ~ 
     edges +
@@ -802,7 +823,7 @@ model_covars <- ergm(
   )
 )
 
-## 4. Modelo final optimizado
+# 4. Modelo final con nodemix (en vez de nodematch)
 model_final <- ergm(
   net_bipartite ~ 
     edges +
@@ -810,22 +831,26 @@ model_final <- ergm(
     gwb2degree(decay = 0.25, fixed = T) +
     b1cov("disruption") +
     b2cov("productivity") +
-    b1factor("field_broad") +
-    b1nodematch("field_broad", diff=T) +
+    nodemix("field_broad") +           # Cambiado de b1factor a b1mix
     b1cov("disruption"):b2cov("productivity"),
   control = control.ergm(
     init = c(coef(model_covars), rep(0, 3)),
-    seed = 123,
-    MCMLE.maxit = 14,
-    MCMC.burnin = 1000,      
-    MCMC.interval = 50,      
-    MCMC.samplesize = 2000,  
-    parallel = 2,
+    MCMLE.maxit = 30,
+    MCMC.burnin = 75000,
+    MCMC.interval = 1500,
+    MCMC.samplesize = 12500,
+    MCMLE.density.guard = 40,
+    MCMLE.sequential = TRUE,
+    MCMLE.steplength = 1,
+    MCMLE.steplength.margin = 0.5,
+    MCMLE.termination = "Hummel",
+    parallel = num_cores,
     parallel.type = "PSOCK",
-    MCMLE.termination = "Hummel"
+    seed = 123
   )
 )
 ```
+
 
 ```{r}
 summary(model_final)
