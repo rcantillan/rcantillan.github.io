@@ -237,6 +237,19 @@ map_dfr(matrices_list, function(x) {
 ```
 
 
+#### Network Structure and Organizational Field
+
+Our analysis of network structure reveals a clear organizational field configuration characterized by differential density patterns across network types. These patterns suggest a hierarchical integration of the field, where:
+
+#### Political Organizations Dominance:
+
+- MPL (Movimiento de Pobladores en Lucha) shows highest indegree (13)
+- OCAP (Organización política de base) follows with high centrality (7)
+- Housing committees (CV_BrillaElSol) maintain significant positions (6)
+
+[Quote opportunity: MPL leader discussing their role in coordinating different organizations]
+
+
 ### Actores 
 ```{r actores}
 #| message: false
@@ -297,7 +310,41 @@ cent_by_type %>%
   kable_paper("hover", full_width = T)
 ```
 
+
+#### Structural Differentiation: Core political organizations average higher betweenness centrality (119.85 for political base organizations, 126.24 for pobladores organizations) compared to neighborhood organizations (22.11).
+
+
+
 ### Equivalencia estructural
+
+The CONCOR analysis identified four distinct blocks:
+
+#### Political-Strategic Block (18 organizations):
+
+- 9 Housing Committees
+- 4 Cultural Organizations
+- 4 Sports Clubs
+- 1 Municipal Actor
+
+#### Cultural-Tactical Block (13 organizations):
+
+- 8 Cultural Organizations
+- 1 Political Base Organization
+- 4 Others
+
+#### Base Organization Block (14 organizations):
+
+- 6 Pobladores Organizations
+- 5 Base Political Organizations
+- 3 Neighborhood Organizations
+
+#### Neighborhood Block (15 organizations):
+
+- Exclusively neighborhood organizations
+
+
+[Quote opportunity: Description of different organizational roles in the movement]
+
 ```{r bloques}
 #| message: false
 #| warning: false
@@ -498,6 +545,19 @@ print(p1)
 ```
 
 
+
+This suggests:
+
+- Integration occurs through nested hierarchies
+- Cultural organizations serve as brokers
+- Political organizations maintain core-periphery structure
+
+This extends Diani's (2015) movement integration theory by specifying:
+
+- The role of organizational heterogeneity
+- The importance of cultural brokers
+- The hierarchical nature of integration
+
 ## ERGM
 ```{r ergm}
 #| echo: true 
@@ -549,6 +609,19 @@ htmlreg(model2,
         bold = 0.05)
 ```
 
+**Trust-Based Diffusion**: The strongest positive effect (6.423***) comes from trust networks, supporting Passy & Monsch's (2014) argument that identity transformation occurs primarily through trust relationships. Your case shows how historical relationships between pobladores organizations provided the foundation for contentious identity spread.
+
+[Quote opportunity: Leader discussing how long-term trust relationships facilitated political alignment]
+
+**Resource Network Amplification**: The strong positive effect of resource ties (5.513***) indicates that material interdependencies reinforced identity diffusion, consistent with Diani's (2015) findings about movement infrastructure. In Peñalolén, resource sharing created durable channels for identity transmission.
+Kinship Network Constraint: The negative effect of kinship ties (-3.082***) suggests these relationships actually inhibited contention diffusion, contrasting with some social movement literature but aligning with Gould's (1991) findings about the primacy of political over personal ties in contentious episodes.
+
+**Triadic Closure*:** Significant GWESP effect (1.899***) indicates importance of local clustering in network formation. The significant GWESP effect combined with trust-resource complementarity suggests a new theoretical mechanism: "networked capacity building", where:
+
+- Local clustering provides social validation
+- Multiple ties build organizational capacity
+- Different tie types serve distinct but complementary functions
+
 
 
 ```{r}
@@ -567,6 +640,8 @@ plot(gof)
 # Plot diagnostics  
 mcmc.diagnostics(model2)
 ```
+
+
 
 ## Difusión
 
@@ -1094,6 +1169,14 @@ results <- improved_diffusion_v9(
 plot_diffusion_results_v2(results, org_attributes)
 ```
 
+
+This suggests:
+
+- Complex contagion varies by organizational type
+- Structural position moderates adoption thresholds
+- Identity transformation requires both exposure and capacity
+
+
 ### Simulaciones heterogeneous thresholds = TRUE
 ```{r}
 # Función para ejecutar múltiples simulaciones
@@ -1187,6 +1270,155 @@ cat("Correlación promedio entre centralidad de grado y adopción final:", round
 mean_adoption_rates <- sapply(multiple_results$results, function(x) x$final_metrics$adoption_rate)
 plot(mean_adoption_rates, xlab = "Simulación", ylab = "Tasa de Adopción Final", main = "Análisis de Sensibilidad")
 ```
+
+
+
+## Relaciones múltiples 
+
+```{r}
+# Análisis de tipos de vínculos por organización
+analyze_tie_types <- function(networks, org_id) {
+  # Contar en cuántas redes diferentes tiene vínculos la organización
+  tie_count <- sum(sapply(networks, function(net) any(net[org_id,] > 0 | net[,org_id] > 0)))
+  return(tie_count)
+}
+
+# Aplicar a todas las organizaciones
+tie_types <- sapply(1:nrow(networks[[1]]), function(i) analyze_tie_types(networks, i))
+
+# Cruzar con resultados de adopción
+adoption_by_tie_types <- tapply(results$final_states, tie_types, mean)
+adoption_by_tie_types
+```
+
+
+Esto significa que:
+
+- Organizaciones con 0 tipos de vínculos: 0% de adopción
+- Organizaciones con 2 tipos de vínculos: 0% de adopción
+- Organizaciones con 3 tipos de vínculos: 25% de adopción
+- Organizaciones con 4 tipos de vínculos: 46.15% de adopción
+
+Este es un hallazgo importante que muestra:
+
+- Efecto escalonado de la multiplexidad: Hay un claro patrón donde más tipos de vínculos llevan a mayor probabilidad de adopción.
+- Umbral crítico: Parece haber un umbral importante en 3 vínculos, donde comienza a verse adopción.
+- Máximo efecto: Las organizaciones con 4 tipos de vínculos tienen casi el doble de probabilidad de adopción que las que tienen 3 tipos.
+- This supports Centola & Macy's (2007) complex contagion theory while adding crucial nuance about tie multiplexity.
+- These findings extend Baldassarri & Diani's (2007) network integration theory by showing how different types of ties interact to produce qualitatively different outcomes.
+
+
+
+```{r}
+# 1. Número de organizaciones por categoría de vínculos
+table(tie_types)
+
+# 2. Para cada categoría, analizar qué tipos de vínculos tienen
+analyze_link_types <- function(networks, org_id) {
+  # Ver qué tipos de redes tienen vínculos
+  types <- sapply(1:length(networks), function(n) {
+    any(networks[[n]][org_id,] > 0 | networks[[n]][,org_id] > 0)
+  })
+  return(types)
+}
+
+# Aplicar para todas las organizaciones
+org_link_patterns <- t(sapply(1:nrow(networks[[1]]), function(i) 
+  analyze_link_types(networks, i)))
+
+# Agrupar por número de vínculos y ver patrones comunes
+link_patterns_by_count <- split(
+  data.frame(org_link_patterns), 
+  tie_types
+)
+
+# Ver también los tipos de organizaciones en cada categoría
+org_types_by_links <- split(
+  org_attributes$tipo,
+  tie_types
+)
+
+#org_types_by_links
+```
+
+```{r}
+# 1. Distribución de multiplexidad por tipo de organización
+ggplot(data.frame(
+  tipo = unlist(org_types_by_links),
+  vinculos = rep(c(0,2,3,4), sapply(org_types_by_links, length))
+)) +
+  geom_bar(aes(x = tipo, fill = factor(vinculos)), position = "fill") +
+  scale_fill_viridis_d(name = "Número de\nvínculos") +
+  theme_minimal() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  labs(title = "Distribución de Multiplexidad por Tipo Organizacional",
+       x = "Tipo de Organización",
+       y = "Proporción")
+
+```
+
+
+The distribution of multiplex ties reveals clear organizational patterns. Political organizations and housing committees show consistently high levels of multiplexity, while neighborhood organizations display a bimodal pattern.
+
+
+#### Polarized Distribution:
+
+- Most organizations either have maximum connectivity (4 ties) or minimal connectivity (0 ties)
+- Political organizations consistently maintain multiple ties
+- Neighborhood organizations show bimodal distribution
+
+
+#### Organizational Capacity:
+
+- 100% of political base organizations have 4 ties
+- 100% of housing committees have 4 ties
+- Cultural organizations show mixed patterns
+
+[Quote opportunity: Discussing organizational differences in maintaining relationships]
+
+```{r}
+# 2. Tasa de adopción por nivel de multiplexidad
+ggplot(data.frame(
+  vinculos = factor(c(0,2,3,4)),
+  adopcion = c(0, 0, 0.25, 0.4615385)
+)) +
+  geom_bar(aes(x = vinculos, y = adopcion, fill = adopcion), 
+           stat = "identity") +
+  scale_fill_viridis_c() +
+  theme_minimal() +
+  labs(title = "Tasa de Adopción por Nivel de Multiplexidad",
+       x = "Número de Vínculos",
+       y = "Tasa de Adopción")
+```
+
+
+
+The relationship between multiple ties and adoption shows a clear threshold effect. Organizations with fewer than three types of ties show no adoption, while those with four types of ties show the highest adoption rates (46.15%).
+
+
+```{r}
+# 3. Composición de grupos por multiplexidad
+ggplot(data.frame(
+  vinculos = rep(c(0,2,3,4), sapply(org_types_by_links, length)),
+  count = 1
+)) +
+  geom_bar(aes(x = factor(vinculos), fill = factor(vinculos))) +
+  scale_fill_viridis_d() +
+  theme_minimal() +
+  labs(title = "Número de Organizaciones por Nivel de Multiplexidad",
+       x = "Número de Vínculos",
+       y = "Cantidad de Organizaciones")
+```
+
+
+The structural composition of the network shows a polarized pattern, with most organizations either having no multiple ties (10 organizations) or the maximum number of ties (52 organizations), suggesting a core-periphery structure in the movement network.
+
+[*Quote opportunity: Leader discussing how different types of relationships combined in practice*]
+
+
+
+
+
 
 
 ## Discusión
