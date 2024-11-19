@@ -877,56 +877,67 @@ mcmc.diagnostics(model_final)
 
 ## Interpretación de Resultados del ERGM
 
-El modelo final revela patrones significativos que nos permiten entender la estructura del campo científico estudiado:
+Los resultados del modelo permiten evaluar nuestras hipótesis sobre la estructura del campo científico:
 
-### 1. Tendencia Base y Estructura General
-- El coeficiente negativo y significativo de `edges` (β = -9.79, p < 0.001) indica una baja densidad base en la red, consistente con la naturaleza selectiva de las colaboraciones científicas.
-- La geometría ponderada de grados muestra patrones asimétricos entre papers y autores:
-  * `gwb1deg` (papers) no es significativo (β = 0.56, p = 0.634)
-  * `gwb2deg` (autores) es positivo y significativo (β = 9.02, p < 0.001)
-  Esto sugiere una fuerte tendencia a la centralización en torno a autores productivos, pero no en torno a papers específicos.
+- **H1: Estructura Base y Centralización**
 
-### 2. Diferenciación Disciplinar
-- Los campos STEM muestran una mayor probabilidad base de vínculos (β = 0.92, p < 0.001)
-- La homofilia disciplinar es asimétrica:
-  * SHAPE muestra fuerte homofilia (β = 1.49, p < 0.001)
-  * STEM no muestra homofilia significativa (β = 0.48, p = 0.457)
-Esto sugiere que mientras las ciencias sociales y humanidades (SHAPE) tienden a colaborar dentro de su campo, las ciencias STEM muestran patrones más abiertos de colaboración interdisciplinaria.
+Los resultados confirman parcialmente esta hipótesis. El coeficiente negativo y significativo de edges (β = -9.76, p < 0.001) indica una baja densidad base en la red, consistente con la predicción de Gondal [-@gondalLocalGlobalStructure2011] sobre la incertidumbre estructural en campos emergentes. Sin embargo, la centralización muestra un patrón más complejo que el esperado:
 
-### 3. Disrupción y Productividad
-- La disrupción tiene un efecto positivo y significativo (β = 0.23, p < 0.001) en la formación de vínculos
-- La productividad muestra un efecto negativo (β = -0.12, p < 0.001)
-- Sorprendentemente, la interacción entre disrupción y productividad no es significativa (β = 0.002, p = 0.971)
+Tanto papers (gwb1deg: β = 3.15, p < 0.001) como autores (gwb2deg: β = 8.36, p < 0.001) muestran tendencias significativas a la centralización. La magnitud es notablemente mayor para autores, sugiriendo un rol más prominente en la estructuración del campo. 
+
+- **H2: Asimetría Disciplinar**
+
+La hipótesis sobre asimetría disciplinar se confirma con matices importantes. Los resultados muestran patrones direccionales claros:
+
+- Papers STEM -> autores SHAPE (β = 1.11, p < 0.001)
+- Papers STEM -> autores STEM (β = 1.24, p < 0.01)
+- Papers SHAPE -> autores STEM (β = 0.32, p = 0.433, no significativo)
+
+Esto refina la tesis de Friedkin [-@friedkinStructuralTheorySocial1998] sobre "consensos superpuestos", sugiriendo que la integración del conocimiento es direccional, con STEM jugando un rol más activo en tender puentes interdisciplinares.
+
+- **H3: Dinámica Centro-Periferia y Disrupción**
+
+Contrario a lo predicho por Li et al. [-@liProductiveScientistsAre2024a], no encontramos evidencia de una relación significativa entre:
+
+- Disrupción y formación de vínculos (β = 0.04, p = 0.607)
+- Productividad y formación de vínculos (β = -0.18, p = 0.336)
+- Su interacción (β = -0.04, p = 0.459)
+
+Esto sugiere que la relación entre posición estructural y capacidad disruptiva puede ser más compleja que lo inicialmente teorizado.
+
+- **H4: Evolución Temporal y Campos Emergentes**
+
+La evidencia sobre la evolución temporal es mixta. La significativa centralización en ambos modos (gwb1deg y gwb2deg) sugiere que el campo ha establecido mecanismos de legitimación, pero los patrones de interacción disciplinar indican una estructura más compleja que la simple centralización-periferia propuesta por Gondal [-@gondalLocalGlobalStructure2011].
+H5: Integración Disciplinar Asimétrica
+
+Esta hipótesis recibe el apoyo más fuerte. Los campos STEM muestran una clara capacidad de integración:
+
+- Mantienen cohesión interna significativa (STEM-STEM: β = 1.24, p < 0.01)
+- Generan vínculos significativos con SHAPE (STEM-SHAPE: β = 1.11, p < 0.001)
+- Esta capacidad es asimétrica, ya que SHAPE->STEM no es significativo
 
 ## Implicaciones Teóricas
 
-Los resultados refinan tanto la teoría de Gondal (2011) sobre campos emergentes como los hallazgos de Li et al. (2024) sobre la relación entre productividad y disrupción:
+### Refinamiento de la Teoría de Campos Emergentes:
 
-### Centralización Asimétrica 
+Los resultados sugieren que la teoría de Gondal [-@gondalLocalGlobalStructure2011] necesita ser refinada para incorporar:
 
-El coeficiente significativo de gwb2degree (β = 9.02) junto con el gwb1degree no significativo indica que la centralización opera de manera asimétrica. La tendencia a la centralización que Gondal predice para campos emergentes se manifiesta principalmente en los patrones de colaboración de los autores, más que en la concentración de citaciones en papers específicos. Esto sugiere que en etapas tempranas, la estructura del campo está más determinada por redes de colaboración que por papers seminales.
+- Centralización multi-modal
+- Asimetrías direccionales en la integración disciplinar
+- Roles estructurales diferenciados por campo
 
-### Diferenciación Disciplinar Heterogénea
+### Reconsideración de la Relación Disrupción-Estructura:
 
-La fuerte homofilia en SHAPE (β = 1.49) contrastada con la ausencia de homofilia significativa en STEM refina la tesis de Gondal sobre diferenciación disciplinar. En lugar de un proceso uniforme de diferenciación, observamos que:
-  - Los campos SHAPE muestran límites más rígidos, con mayor tendencia a colaboraciones intradisciplinares
-  - Los campos STEM exhiben fronteras más permeables, facilitando colaboraciones interdisciplinares
-Esta heterogeneidad en patrones de diferenciación no está contemplada en el marco original de Gondal.
+La ausencia de efectos significativos para disrupción y productividad sugiere que el marco de Li et al. [-@liProductiveScientistsAre2024a] necesita ser reconsiderado en el contexto de redes modo-2, donde la relación entre posición estructural e innovación puede operar de manera diferente.
 
-### Complejidad de la Innovación y Productividad
+### Estructuras Híbridas y Tensiones Productivas:
 
-Nuestros resultados extienden los hallazgos de Li et al. (2024) al contexto de redes de colaboración:
-  - El efecto negativo de la productividad en la formación de vínculos (β = -0.12) es consistente con la tesis de Li et al. sobre que los científicos más productivos tienden a producir menos investigación disruptiva
-  - Sin embargo, el efecto positivo de la disrupción en la formación de vínculos (β = 0.23) sugiere que las ideas disruptivas, aunque menos frecuentes en autores productivos, son atractivas para la colaboración
-  - La ausencia de una interacción significativa entre disrupción y productividad (β = 0.002, p = 0.971) sugiere que estos procesos operan de manera independiente, refinando nuestra comprensión del trade-off identificado por Li et al.
+El patrón observado sugiere que los campos emergentes desarrollan estructuras híbridas caracterizadas por:
 
-### Estructuras Híbridas y Tensiones Productivas
+- Centralización significativa en ambos modos
+- Integración disciplinar asimétrica
+- Patrones de colaboración direccionales
 
-La integración de nuestros hallazgos con Li et al. (2024) y Gondal (2011) sugiere que los campos emergentes se caracterizan por tensiones productivas entre:
-  - Centralización colaborativa (evidenciada por gwb2degree positivo)
-  - Innovación disruptiva (efecto positivo de disrupción)
-  - Productividad establecida (efecto negativo de productividad)
-Estas tensiones podrían ser funcionales para el desarrollo del campo, permitiendo simultáneamente la acumulación de conocimiento (vía autores productivos centrales) y la innovación disruptiva (vía colaboraciones con autores menos establecidos).
 
 ## Limitaciones y Trabajo Futuro
 
