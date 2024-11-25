@@ -305,6 +305,8 @@ theme_set(theme_minimal())
 
 # 2. datos 
 load("/media/rober/4612-9FBE/recup_22112024/Documents/rcantillan.github.io/blog/posts/04-twomode-ergm/data/b3_fromlatam_1990_2000.RData")
+#glimpse(b3_fromlatam_1990_2000)
+
 
 # 3. Filtrar datos de Latam
 #b3_fromlatam <- b3_joined %>%
@@ -333,6 +335,17 @@ La siguiente preparación de datos organiza estas dimensiones:
 ```{r data-prep}
 #| code-fold: show
 
+# Team_Size: Número de autores por paper
+team_size_df <- b3_fromlatam_1990_2000 %>%
+  group_by(PaperID) %>%
+  summarise(
+    Team_Size = n_distinct(AuthorID)
+  )
+
+# Combinar con el dataset original
+b3_fromlatam_1990_2000 <- b3_fromlatam_1990_2000 %>%
+  left_join(team_size_df, by = "PaperID") 
+
 # 5. Preparación y limpieza
 clean_data <- b3_fromlatam_1990_2000 %>%
   filter(!is.na(Disruption),
@@ -343,6 +356,7 @@ clean_data <- b3_fromlatam_1990_2000 %>%
          !is.na(Affiliation_Name),
          !is.na(is_latam),
          !is.na(Institution_Count),
+         !is.na(Team_Size),
          !is.na(Field_Name),
          !is.na(Field_Type),
          !is.na(name)) %>%
@@ -385,13 +399,14 @@ Esta estructura nos permite examinar cómo las propiedades de cada modo contribu
 ```{r network-construction}
 #| code-fold: show
 
+
 # 7. Atributos por modo siguiendo la dualidad estructural
 paper_attributes <- clean_data %>%
   group_by(PaperID) %>%
   slice(1) %>%
   ungroup() %>%
   select(PaperID, disruption_std, citations_std, 
-         Institution_Count, Field_Name, field_broad)
+         Team_Size, Institution_Count, Field_Name, field_broad)
 
 author_attributes <- clean_data %>%
   group_by(AuthorID) %>%
@@ -430,6 +445,8 @@ net_bipartite <- network(
 net_bipartite %v% "disruption" <- paper_attributes$disruption_std
 net_bipartite %v% "citations" <- paper_attributes$citations_std
 net_bipartite %v% "inst_count" <- paper_attributes$Institution_Count
+net_bipartite %v% "team_size" <- paper_attributes$Team_Size
+net_bipartite %v% "small_team" <- ifelse(net_bipartite %v% "team_size" <= 3, 1, 0)
 net_bipartite %v% "field" <- paper_attributes$Field_Name
 net_bipartite %v% "field_broad" <- paper_attributes$field_broad
 
@@ -692,7 +709,6 @@ Gondal sugiere que en campos emergentes, la distribución de grados debería mos
   - Un pequeño grupo de autores altamente conectados
   - Patrones diferentes entre papers y autores
 
-
 ```{r}
 degreedist(net_bipartite)
 ```
@@ -868,7 +884,6 @@ model_final <- ergm(
 ```{r}
 summary(model_final)
 ```
-
 
 ### Diagnósticos del Modelo
 
