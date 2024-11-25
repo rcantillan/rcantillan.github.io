@@ -293,7 +293,7 @@ library(kableExtra)
 library(igraph)
 library(sna)
 library(plotly)
-
+library(plotrix)
 
 # Configurar tema para visualizaciones
 theme_set(theme_minimal())
@@ -304,7 +304,7 @@ theme_set(theme_minimal())
 #| message: false
 
 # 2. datos 
-load("/home/rober/Documents/rcantillan.github.io/blog/posts/04-twomode-ergm/data/b3_fromlatam_1990_2000.RData")
+load("/media/rober/4612-9FBE/recup_22112024/Documents/rcantillan.github.io/blog/posts/04-twomode-ergm/data/b3_fromlatam_1990_2000.RData")
 
 # 3. Filtrar datos de Latam
 #b3_fromlatam <- b3_joined %>%
@@ -344,7 +344,8 @@ clean_data <- b3_fromlatam_1990_2000 %>%
          !is.na(is_latam),
          !is.na(Institution_Count),
          !is.na(Field_Name),
-         !is.na(Field_Type)) %>%
+         !is.na(Field_Type),
+         !is.na(name)) %>%
   filter(Field_Type == "Top")
 
 # 6. Estandarización de variables para comparabilidad entre campos
@@ -437,6 +438,7 @@ net_bipartite %v% "h_index" <- author_attributes$h_index_std
 net_bipartite %v% "avg_c10" <- author_attributes$avg_c10_std
 net_bipartite %v% "affiliation" <- author_attributes$Affiliation_Name
 net_bipartite %v% "is_latam" <- author_attributes$is_latam
+net_bipartite %v% "country" <- author_attributes$name
 net_bipartite %v% "productivity" <- author_attributes$productivity_std
 ```
 
@@ -774,7 +776,9 @@ Siguiendo a Gondal (2011), el modelamiento ERGM nos permite examinar los mecanis
   4. **Modelo Final**: Integra efectos de interacción y homofilia disciplinar
 
 
-```{r}
+```{r ergm-models}
+#| message: false
+
 # Usar el 75% de los núcleos disponibles
 num_cores <- parallel::detectCores() - 1
 
@@ -800,7 +804,7 @@ model_degrees <- ergm(
     b1factor("field_broad"),
   control = control.ergm(
     init = c(coef(model_simple), rep(0, 2)),
-    MCMLE.maxit = 10,
+    MCMLE.maxit = 15,
     MCMC.samplesize = 2000,
     MCMLE.termination = "Hummel"
   )
@@ -817,13 +821,21 @@ model_covars <- ergm(
     b2cov("productivity"),
   control = control.ergm(
     init = c(coef(model_degrees), rep(0, 2)),
-    MCMLE.maxit = 15,
+    MCMLE.maxit = 20,
     MCMC.samplesize = 3000,
     MCMLE.termination = "Hummel"
   )
 )
 
-# 4. Modelo final con nodemix (en vez de nodematch)
+num_params_simple <- length(coef(model_simple))
+num_params_degrees <- length(coef(model_degrees))
+num_params_covars <- length(coef(model_covars))
+
+# Calculamos el número de parámetros adicionales para el modelo final
+num_fields <- length(unique(net_bipartite %v% "field_broad"))
+additional_params <- num_fields + 1  # Para nodematch con diff=TRUE y country
+
+# Ajustamos el modelo final
 model_final <- ergm(
   net_bipartite ~ 
     edges +
@@ -831,10 +843,11 @@ model_final <- ergm(
     gwb2degree(decay = 0.25, fixed = T) +
     b1cov("disruption") +
     b2cov("productivity") +
-    nodemix("field_broad") +           # Cambiado de b1factor a b1mix
+    nodematch("field_broad", diff = TRUE) +           
+    nodematch("country") +
     b1cov("disruption"):b2cov("productivity"),
   control = control.ergm(
-    init = c(coef(model_covars), rep(0, 3)),
+    init = c(coef(model_covars), rep(0, additional_params)),
     MCMLE.maxit = 30,
     MCMC.burnin = 75000,
     MCMC.interval = 1500,
@@ -849,8 +862,8 @@ model_final <- ergm(
     seed = 123
   )
 )
-```
 
+```
 
 ```{r}
 summary(model_final)
@@ -870,10 +883,12 @@ plot(gof_model)
 
 
 ```{r}
+#| fig-width: 10
+#| fig-height: 8
+
 # MCMC diagnósticos
 mcmc.diagnostics(model_final)
 ```
-
 
 ## Interpretación de Resultados del ERGM
 
@@ -881,68 +896,52 @@ Los resultados del modelo permiten evaluar nuestras hipótesis sobre la estructu
 
 - **H1: Estructura Base y Centralización**
 
-Los resultados confirman parcialmente esta hipótesis. El coeficiente negativo y significativo de edges (β = -9.76, p < 0.001) indica una baja densidad base en la red, consistente con la predicción de Gondal [-@gondalLocalGlobalStructure2011] sobre la incertidumbre estructural en campos emergentes. Sin embargo, la centralización muestra un patrón más complejo que el esperado:
-
-Tanto papers (gwb1deg: β = 3.15, p < 0.001) como autores (gwb2deg: β = 8.36, p < 0.001) muestran tendencias significativas a la centralización. La magnitud es notablemente mayor para autores, sugiriendo un rol más prominente en la estructuración del campo. 
+Los resultados confirman parcialmente esta hipótesis. El coeficiente negativo y significativo de edges (β = -9.11, p < 0.001) indica una baja densidad base en la red, consistente con la predicción de Gondal [-@gondalLocalGlobalStructure2011] sobre la incertidumbre estructural en campos emergentes. Sin embargo, la centralización muestra un patrón más complejo que el esperado: Tanto papers (gwb1deg: β = 3.04, p < 0.001) como autores (gwb2deg: β = 8.44, p < 0.001) muestran tendencias significativas a la centralización. La magnitud es notablemente mayor para autores, sugiriendo un rol más prominente en la estructuración del campo.
 
 - **H2: Asimetría Disciplinar**
 
 La hipótesis sobre asimetría disciplinar se confirma con matices importantes. Los resultados muestran patrones direccionales claros:
 
-- Papers STEM -> autores SHAPE (β = 1.11, p < 0.001)
-- Papers STEM -> autores STEM (β = 1.24, p < 0.01)
-- Papers SHAPE -> autores STEM (β = 0.32, p = 0.433, no significativo)
+- STEM muestra homofilia positiva significativa (β = 0.89, p < 0.001)
+- SHAPE exhibe homofilia negativa significativa (β = -0.82, p < 0.001)
 
-Esto refina la tesis de Friedkin [-@friedkinStructuralTheorySocial1998] sobre "consensos superpuestos", sugiriendo que la integración del conocimiento es direccional, con STEM jugando un rol más activo en tender puentes interdisciplinares.
+Esto refina la tesis de Friedkin [-@friedkinStructuralTheorySocial1998] sobre "consensos superpuestos", sugiriendo que la integración del conocimiento es direccional, con STEM mostrando cohesión interna mientras SHAPE tiende a vínculos interdisciplinares.
 
 - **H3: Dinámica Centro-Periferia y Disrupción**
 
 Contrario a lo predicho por Li et al. [-@liProductiveScientistsAre2024a], no encontramos evidencia de una relación significativa entre:
 
-- Disrupción y formación de vínculos (β = 0.04, p = 0.607)
-- Productividad y formación de vínculos (β = -0.18, p = 0.336)
-- Su interacción (β = -0.04, p = 0.459)
+- Disrupción y formación de vínculos (β = 0.047, p = 0.508)
+- Productividad y formación de vínculos (β = -0.095, p = 0.616)
+- Su interacción (β = -0.001, p = 0.981)
 
 Esto sugiere que la relación entre posición estructural y capacidad disruptiva puede ser más compleja que lo inicialmente teorizado.
 
 - **H4: Evolución Temporal y Campos Emergentes**
 
 La evidencia sobre la evolución temporal es mixta. La significativa centralización en ambos modos (gwb1deg y gwb2deg) sugiere que el campo ha establecido mecanismos de legitimación, pero los patrones de interacción disciplinar indican una estructura más compleja que la simple centralización-periferia propuesta por Gondal [-@gondalLocalGlobalStructure2011].
-H5: Integración Disciplinar Asimétrica
 
-Esta hipótesis recibe el apoyo más fuerte. Los campos STEM muestran una clara capacidad de integración:
+- **H5: Integración Disciplinar Asimétrica**
 
-- Mantienen cohesión interna significativa (STEM-STEM: β = 1.24, p < 0.01)
-- Generan vínculos significativos con SHAPE (STEM-SHAPE: β = 1.11, p < 0.001)
-- Esta capacidad es asimétrica, ya que SHAPE->STEM no es significativo
+Esta hipótesis recibe el apoyo más fuerte. Los patrones de homofilia muestran una clara diferenciación:
+
+- STEM muestra fuerte cohesión interna (β = 0.89, p < 0.001)
+- SHAPE muestra tendencia a vínculos externos (β = -0.82, p < 0.001)
+- La homofilia geográfica no es significativa (β = -0.08, p = 0.613)
 
 ## Implicaciones Teóricas
+- Refinamiento de la Teoría de Campos Emergentes: Los resultados sugieren que la teoría de Gondal [-@gondalLocalGlobalStructure2011] necesita ser refinada para incorporar:
 
-### Refinamiento de la Teoría de Campos Emergentes:
+  - Centralización multi-modal con efectos asimétricos entre autores y papers
+  - Patrones disciplinares diferenciados en la formación de vínculos
+  - Roles estructurales específicos por campo científico
 
-Los resultados sugieren que la teoría de Gondal [-@gondalLocalGlobalStructure2011] necesita ser refinada para incorporar:
+- Reconsideración de la Relación Disrupción-Estructura: La ausencia de efectos significativos para disrupción y productividad sugiere que el marco de Li et al. [-@liProductiveScientistsAre2024a] y Wu et al. [-@wuLargeTeamsDevelop2019a] necesita ser reconsiderado en el contexto de redes modo-2, donde la relación entre posición estructural e innovación puede operar de manera diferente.
 
-- Centralización multi-modal
-- Asimetrías direccionales en la integración disciplinar
-- Roles estructurales diferenciados por campo
+- Estructuras Híbridas y Tensiones Productivas: El patrón observado sugiere que los campos emergentes desarrollan estructuras híbridas caracterizadas por:
 
-### Reconsideración de la Relación Disrupción-Estructura:
-
-La ausencia de efectos significativos para disrupción y productividad sugiere que el marco de Li et al. [-@liProductiveScientistsAre2024a] necesita ser reconsiderado en el contexto de redes modo-2, donde la relación entre posición estructural e innovación puede operar de manera diferente.
-
-### Estructuras Híbridas y Tensiones Productivas:
-
-El patrón observado sugiere que los campos emergentes desarrollan estructuras híbridas caracterizadas por:
-
-- Centralización significativa en ambos modos
-- Integración disciplinar asimétrica
-- Patrones de colaboración direccionales
-
-
-## Limitaciones y Trabajo Futuro
-
-  - Extensión temporal del análisis
-  - Incorporación de medidas alternativas de disrupción
-  - Análisis de sensibilidad con diferentes especificaciones de modelo
-
+  - Centralización significativa pero asimétrica entre modos
+  - Integración disciplinar diferenciada (STEM cohesivo, SHAPE puente)
+  - Patrones de colaboración independientes de la geografía
+  
 
