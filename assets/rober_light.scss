@@ -176,13 +176,23 @@ $footer-fg: $primary;
 
 // Title block
 .quarto-title-block {
+  // Estilo base para el banner de título
   .quarto-title-banner {
-    min-height: 200px;
-    padding: 2rem 0;
     background-size: cover !important;
     background-position: center !important;
     position: relative;
     margin-bottom: 0;
+    padding: 2rem 0;
+    
+    // Para páginas principales (About, Blog, Talks, Publications, Projects)
+    &.page-banner {
+      min-height: 100px; // Altura más pequeña para páginas principales
+    }
+    
+    // Para posts individuales
+    &.post-banner {
+      min-height: 200px; // Mantiene la altura original para posts
+    }
     
     &::before {
       content: '';
@@ -230,12 +240,10 @@ $footer-fg: $primary;
   z-index: 10;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0,0,0,0.1);
-
   @media screen and (max-width: 991.98px) {
     margin-top: -1rem;
     padding: 1.5rem;
   }
-
   p {
     margin-bottom: 1.2rem;
     line-height: 1.6;
@@ -451,5 +459,4 @@ td code:not(.sourceCode) {
     text-align: center;
   }
 }
-
 

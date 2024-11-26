@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Blog"
 subtitle: ""
 listing:
   contents: posts
@@ -12,13 +12,13 @@ listing:
   sort-ui: true
   filter-ui: true
 page-layout: full
-title-block-banner: true
+title-block-banner: rgba(255, 15, 15, 0.53)
+banner-class: page-banner
 ---
 
 
 ::: {.blog-page}
 ::: {.blog-header}
-# Blog
 ::: {.blog-description}
 This space brings together social network analysis and R programming to explore important social issues. By analyzing data from various social networks, we delve into topics like social capital, inequality, and the dynamics of social structures. Our goal is to provide tools and knowledge to help researchers better understand these topics and foster collaboration within the field.
 :::

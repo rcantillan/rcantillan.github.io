@@ -9,7 +9,8 @@ title: "Publicaciones"
 #  filter-ui: true
 #  fields: [date, title, author, journal, description, categories]
 page-layout: full
-title-block-banner: rgba(138, 0, 0, 0.85)
+title-block-banner: rgba(255, 15, 15, 0.53)
+banner-class: page-banner
 ---
 
 
