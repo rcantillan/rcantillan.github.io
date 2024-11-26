@@ -1640,36 +1640,3 @@ Los resultados sugieren que:
 3. Existen umbrales críticos que varían por tipo organizativo.
 4. Los brokers juegan un rol clave en conectar diferentes dominios organizativos.
 
-
-# References
-
-Baldassarri, D., & Diani, M. (2007). The integrative power of civic networks. American Journal of Sociology, 113(3), 735-780.
-
-Centola, D. (2018). How behavior spreads: The science of complex contagions. Princeton University Press.
-
-Centola, D., & Macy, M. (2007). Complex contagions and the weakness of long ties. American Journal of Sociology, 113(3), 702-734.
-
-Diani, M. (2003). Networks and social movements: A research programme. In M. Diani & D. McAdam (Eds.), Social movements and networks: Relational approaches to collective action (pp. 299-319). Oxford University Press.
-
-Diani, M. (2015). The cement of civil society. Cambridge University Press.
-
-Domínguez, S., & Hollstein, B. (2014). Mixed methods social networks research: Design and applications. Cambridge University Press.
-
-Gould, R. V. (1991). Multiple networks and mobilization in the Paris Commune, 1871. American Sociological Review, 56(6), 716-729.
-
-McAdam, D., & Paulsen, R. (1993). Specifying the relationship between social ties and activism. American Journal of Sociology, 99(3), 640-667.
-
-McAdam, D., Tarrow, S., & Tilly, C. (2001). Dynamics of contention. Cambridge University Press.
-
-Mische, A. (2003). Cross-talk in movements: Reconceiving the culture-network link. In M. Diani & D. McAdam (Eds.), Social movements and networks: Relational approaches to collective action (pp. 258-280). Oxford University Press.
-
-Passy, F., & Giugni, M. (2001). Social networks and individual perceptions: Explaining differential participation in social movements. Sociological Forum, 16(1), 123-153.
-
-Scott, J. (2011). Social network analysis: Developments, advances, and prospects. Social Network Analysis and Mining, 1(1), 21-26.
-
-Tarrow, S. (2005). The new transnational activism. Cambridge University Press.
-
-Tilly, C. (2004). Social boundary mechanisms. Philosophy of the Social Sciences, 34(2), 211-236.
-
-Tilly, C., & Tarrow, S. (2015). Contentious politics (2nd ed.). Oxford University Press.
-
