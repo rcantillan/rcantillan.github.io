@@ -8,7 +8,7 @@ author:
           address: "Santiago, Chile"
 date: 2024-11-13
 website-url: "https://rcantillan.github.io/blog/posts/07-social_movements/"
-#bibliography: references.bib
+bibliography: paper_movsoc.bib
 bibliographystyle: apa
 categories:
   - R
@@ -23,75 +23,85 @@ title-block-style: default
 draft: false
 ---
 
-# Introduction
+# Introduction.
 
-Urban social movements represent complex networks of relationships between heterogeneous actors who coordinate collective action through multiple types of ties (Diani, 2015). The conflict over Peñalolén's Master Plan in 2011 provides an exemplary case to analyze how these multiplex networks facilitate the emergence and diffusion of contentious political identities, enabling broad coalition formation among diverse urban actors.
+Urban social movements represent complex networks of relationships between heterogeneous actors who coordinate collective action through multiple types of ties (Diani, 2015). However, not all movement activity carries the same risks and costs for participants. The conflict over Peñalolén's Master Plan in 2011 provides an exemplary case to analyze how multiplex networks facilitate high-risk activism and enable broad coalition formation among diverse urban actors despite significant personal and organizational costs.
 
-## Theoretical Framework
+# Theoretical Framework
+## Networks and High-Risk Activism
 
-### Networks and Contentious Politics
+Our analysis integrates three complementary theoretical perspectives: social movement networks, contentious politics, and high-risk activism. From a network perspective, movements emerge from dense webs of multiplex relationships that facilitate resource mobilization and sustain collective identities [@diani_social_2003; @diani_crosstalk_2003]. These networks serve both instrumental and symbolic functions - channeling resources while also cultivating shared interpretive frames [@passy_social_2001].
 
-Our analysis integrates two complementary theoretical perspectives: social movement networks and contentious politics. From a network perspective, movements emerge from dense webs of multiplex relationships that facilitate resource mobilization and sustain collective identities (Diani, 2003; Mische, 2003). These networks serve both instrumental and symbolic functions - channeling resources while also cultivating shared interpretive frames (Passy & Giugni, 2001).
+The contentious politics approach emphasizes how political opportunities and threats trigger episodes of contention through mechanisms like boundary activation and polarization [@mcadam_dynamics_2001; @tilly_contentious_2015]. These mechanisms operate through relational processes of brokerage and scale shift that connect previously disparate actors into broader coalitions [@tarrow_new_2005].
 
-The contentious politics approach emphasizes how political opportunities and threats trigger episodes of contention through mechanisms like boundary activation and polarization (McAdam et al., 2001; Tilly & Tarrow, 2015). These mechanisms operate through relational processes of brokerage and scale shift that connect previously disparate actors into broader coalitions (Tarrow, 2005).
+However, McAdam [-@mcadam_recruitment_1986] demonstrates that participation in high-risk activism - defined by significant personal costs, potential for repression, and sustained commitment - follows distinct pathways requiring both strong ideological identification and integration into activist networks. In Peñalolén, opposing the Master Plan represented high-risk activism because organizations faced potential repression, required significant resource commitments, and depended on maintaining costly coalitions.
 
-### Multiplex Ties and Movement Integration 
+## Biographical Availability and Network Integration
 
-Following Gould's (1991) seminal work, we conceptualize tie multiplexity not merely as a descriptive network feature but as a fundamental mechanism that:
+Following McAdam [-@mcadam_recruitment_1986], we argue that "biographical availability" - the absence of constraints that increase participation costs - shapes involvement at both individual and organizational levels. This interacts with Gould's [-@gould_multiple_1991] conception of tie multiplexity as a fundamental mechanism that:
 
-1. Generates structural resistance to demobilization
-2. Facilitates coordination between diverse actors  
-3. Produces mutual reinforcement between different types of relationships
+- Generates structural resistance to demobilization
+- Facilitates coordination between diverse actors
+- Produces mutual reinforcement between different types of relationships
 
-This multiplexity operates at both micro and macro levels. At the micro level, multiple ties between specific organizations reinforce commitments and reduce uncertainty in interactions (Baldassarri & Diani, 2007). At the macro level, multiplexity increases overall network robustness and enables the integration of different organizational clusters while sustaining broader collective identities (Diani, 2015).
+At the micro level, multiple ties between specific organizations reinforce commitments and reduce uncertainty in interactions (Baldassarri & Diani, 2007). At the macro level, multiplexity increases overall network robustness and enables the integration of different organizational clusters while sustaining broader collective identities [@diani_cement_2015].
 
-### Boundary Mechanisms and Network Evolution
+## Boundary Mechanisms and Movement Evolution
 
-Drawing on Tilly (2004), we analyze how boundary change mechanisms shape movement dynamics through:
+Drawing on Tilly [-@tilly_social_2004], we analyze how boundary change mechanisms shape movement dynamics through:
 
-1. Inscription-Erasure: The creation/dissolution of social boundaries
-2. Activation-Deactivation: Changes in the salience of existing boundaries
-3. Site Transfer: Relocation of actors relative to boundaries
-4. Relocation: Shifts in boundary-organizing relations
+- Inscription-Erasure: The creation/dissolution of social boundaries
+- Activation-Deactivation: Changes in the salience of existing boundaries
+- Site Transfer: Relocation of actors relative to boundaries
+- Relocation: Shifts in boundary-organizing relations
 
-These mechanisms interact with network structures to shape patterns of diffusion and coalition formation (Tilly & Tarrow, 2015).
+These mechanisms interact with network structures and biographical availability to shape patterns of diffusion and coalition formation [@tilly_contentious_2015].
 
-### Complex Diffusion in Movement Networks
+## Complex Diffusion and Strong Ties
 
 Recent work on complex contagion demonstrates that the spread of contentious behaviors through networks depends on:
 
-1. Multiple exposures through redundant ties (Centola & Macy, 2007)
-2. Local clustering that provides social reinforcement (Centola, 2018) 
-3. Strong ties that sustain costly forms of activism (McAdam & Paulsen, 1993)
+- Multiple exposures through redundant ties [@centola_complex_2007]
+- Local clustering that provides social reinforcement [@centola_how_2018]
+- Strong ties that sustain costly forms of activism [@mcadam_specifying_1993] 
 
-This suggests that multiplex ties may be particularly important for the diffusion of contentious identities and practices.
+However, McAdam [-@mcadam_recruitment_1986] suggests that strong ties matter more than multiple weak ties for high-risk activism, and that integration into activist networks reduces uncertainty about participation costs.
 
-## Hypotheses
+# Hypotheses
 
-Building on this theoretical framework, we propose four hypotheses:
+Building on this integrated framework, we propose four hypotheses:
 
-H1: Structural Effects
-- Network formation will exhibit significant transitivity (GWESP)
-- Degree distributions will be relatively homogeneous (GWDegree)
+- H1: Network Structure and Biographical Availability
 
-H2: Conditional Homophily  
-- Organizational type homophily will be stronger for trust/values ties than instrumental ties
-- Structural block homophily will moderate organizational type homophily
+  - Network formation will exhibit significant transitivity (GWESP)
+  - Organizations with fewer constraints will show higher degree centrality
+  - Prior activism history will moderate structural position effects
 
-H3: Strategic Multiplexity
-- Multiple ties increase the probability of new tie formation
-- This effect is stronger between organizations of different types/blocks
+- H2: Differentiated Tie Effects
 
-H4: Complex Diffusion
-- Adoption of contentious positions requires multiple exposures
-- Local clustering positively moderates adoption probability
-- Triadic structures are more effective than dyadic ones
+  - Strong ties will have greater impact than multiple weak ties
+  - Trust/values ties will show stronger effects than instrumental ties
+  - Biographical availability will moderate tie multiplexity effects
+
+- H3: Strategic Integration
+
+  - Multiple ties increase adoption probability more for constrained organizations
+  - Integration into activist networks reduces the effect of organizational constraints
+  - Core-periphery structures emerge from differential biographical availability
+
+- H4: Complex Diffusion
+
+  - Adoption requires exposure through multiple strong ties
+  - Local clustering amplifies the effect of strong ties
+  - Prior activism creates different adoption thresholds
+  - Temporal dynamics show punctuated rather than gradual adoption
+
 
 # Data and Methods
 
 ## Research Design
 
-We employ a mixed-methods design (Domínguez & Hollstein, 2014) combining social network analysis with qualitative contextual data. Our approach conceptualizes relational structure as a multidimensional space of social positions in which population members are non-randomly distributed (Scott, 2011).
+We employ a mixed-methods design [@dominguez_mixed_2014] combining social network analysis with qualitative contextual data. Our approach conceptualizes relational structure as a multidimensional space of social positions in which population members are non-randomly distributed [@scott_social_2011].
 
 ## Data Collection
 
@@ -562,7 +572,7 @@ This extends Diani's (2015) movement integration theory by specifying:
 ## ERGM
 ```{r ergm}
 #| echo: true 
-#| message: false
+#| message: true
 #| warning: false
 
 
@@ -591,10 +601,10 @@ model2 <- ergm(net_coop ~
                                     MCMLE.maxit = 25, # Aumentar iteraciones 
                                     MCMC.burnin = 5000, # Aumentar burn-in
                                     MCMC.interval = 100, # Aumentar intervalo
-                                    MCMC.samplesize = 5000, # Aumentar tamaño de muestra
-                                    parallel = 2,
+                                    MCMC.samplesize = 10000, # Aumentar tamaño de muestra
+                                    parallel = 8,
                                     parallel.type = "PSOCK"))
-
+summary(model2)
 ```
 
 

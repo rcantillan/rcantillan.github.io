@@ -294,6 +294,7 @@ library(igraph)
 library(sna)
 library(plotly)
 library(plotrix)
+library(texreg)
 
 # Configurar tema para visualizaciones
 theme_set(theme_minimal())
