@@ -82,19 +82,54 @@ $footer-fg: $primary;
   -webkit-backdrop-filter: blur(10px);
   border-bottom: none !important;
   box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-  padding: 0.5rem 1rem;
+  padding: 0.3rem 1rem; // Reducido de 0.5rem a 0.3rem
   transition: all 0.3s ease;
+  min-height: 50px; // Añadido para mantener una altura consistente
   
   @media screen and (max-width: 991.98px) {
-    padding: 0.5rem;
+    padding: 0.3rem 0.5rem;
   }
 }
 
 // Navbar brand/title
 .navbar-brand {
-  color: $primary-dark !important;
-  font-family: $headings-font-family;
-  font-weight: 500;
+  font-size: 0 !important; // Hace que el texto sea invisible
+  display: flex;
+  align-items: center;
+  
+  img {
+    width: 30px;
+    height: auto;
+    margin: 0 !important;
+  }
+  
+  // Este selector específico oculta el texto pero mantiene el favicon
+  &.navbar-brand-logo {
+    font-size: 0 !important;
+    
+    &::after {
+      display: none !important;
+    }
+  }
+  
+  // Oculta cualquier texto dentro del navbar-brand
+  * {
+    font-size: 0 !important;
+  }
+  
+  // Mantiene visible solo la imagen
+  > *:not(img) {
+    display: none !important;
+  }
+}
+
+// Para asegurar que cualquier texto en el brand está oculto
+.navbar > .container > .navbar-brand {
+  font-size: 0 !important;
+  
+  span:not(:first-child) {
+    display: none !important;
+  }
 }
 
 // Navbar links
@@ -209,26 +244,37 @@ $footer-fg: $primary;
 
 // Code styling
 div.sourceCode {
-  background-color: $code-block-bg;
+  background-color: #f8f6f4 !important;  
   border: 1px solid $code-block-border;
+  border-radius: 4px;
+  margin: 1rem 0;
 }
 
+pre {
+  code {
+    background-color: #f5f5f5 !important;
+  }
+}
+
+// Inline code
 p code:not(.sourceCode), 
 li code:not(.sourceCode), 
 td code:not(.sourceCode) {
+  background-color: #f5f5f5 !important;
   border: 1px solid $accent;
+  padding: 2px 4px;
+  border-radius: 4px;
 }
 
 // Code with filename
 .code-with-filename {
   .code-with-filename-file {
-    color: $code-color;
-    background-color: $code-bg;
+    background-color: #f5f5f5 !important;
     border: 1px solid $code-block-border;
     border-bottom: none;
     
     pre {
-      background-color: $code-bg;
+      background-color: #f5f5f5 !important;
     }
   }
 }
@@ -405,3 +451,5 @@ td code:not(.sourceCode) {
     text-align: center;
   }
 }
+
+
