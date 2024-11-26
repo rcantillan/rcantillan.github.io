@@ -1,7 +1,13 @@
 [
   {
-    "listing": "/publication/index.html",
-    "items": []
+    "listing": "/talk/index.html",
+    "items": [
+      "/talk/posts/CSS/index.html",
+      "/talk/posts/laboral_gender_segregation/index.html",
+      "/talk/posts/laboral_gender_segregation_II/index.html",
+      "/talk/posts/mobility_classes/index.html",
+      "/talk/posts/multi-homphily/index.html"
+    ]
   },
   {
     "listing": "/blog/index.html",
@@ -17,15 +23,5 @@
   {
     "listing": "/project/index.html",
     "items": []
-  },
-  {
-    "listing": "/talk/index.html",
-    "items": [
-      "/talk/posts/CSS/index.html",
-      "/talk/posts/laboral_gender_segregation/index.html",
-      "/talk/posts/laboral_gender_segregation_II/index.html",
-      "/talk/posts/mobility_classes/index.html",
-      "/talk/posts/multi-homphily/index.html"
-    ]
   }
 ]

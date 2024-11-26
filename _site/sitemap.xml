@@ -1,56 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://rcantillan.github.io/publication/index.html</loc>
+    <loc>https://rcantillan.github.io/index.html</loc>
     <lastmod>2024-11-25T03:48:30.332Z</lastmod>
   </url>
   <url>
-    <loc>https://rcantillan.github.io/about/index.html</loc>
-    <lastmod>2024-11-25T03:48:30.116Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/about.html</loc>
-    <lastmod>2024-11-25T03:48:30.110Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/blog/posts/04-twomode-ergm/index.html</loc>
-    <lastmod>2024-11-25T16:34:29.667Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/blog/posts/05_multihomophily/index.html</loc>
-    <lastmod>2024-11-25T03:48:30.187Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/blog/index.html</loc>
-    <lastmod>2024-11-25T03:48:30.116Z</lastmod>
+    <loc>https://rcantillan.github.io/publication/index.html</loc>
+    <lastmod>2024-11-25T03:48:30.332Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/posts/01-multihomophily/index.html</loc>
     <lastmod>2024-11-25T03:48:30.154Z</lastmod>
   </url>
   <url>
-    <loc>https://rcantillan.github.io/blog/posts/03-egodescriptives/index.html</loc>
-    <lastmod>2024-11-25T03:48:30.169Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/index.html</loc>
-    <lastmod>2024-11-25T03:48:30.332Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/project/index.html</loc>
-    <lastmod>2024-11-25T03:48:30.332Z</lastmod>
-  </url>
-  <url>
-    <loc>https://rcantillan.github.io/talk/index.html</loc>
-    <lastmod>2024-11-25T03:48:30.345Z</lastmod>
+    <loc>https://rcantillan.github.io/blog/posts/04-twomode-ergm/index.html</loc>
+    <lastmod>2024-11-25T16:34:29.667Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/posts/06-ggplot/index.html</loc>
     <lastmod>2024-11-25T03:48:30.188Z</lastmod>
   </url>
   <url>
-    <loc>https://rcantillan.github.io/talk/posts/CSS/index.html</loc>
-    <lastmod>2024-11-25T03:48:30.346Z</lastmod>
+    <loc>https://rcantillan.github.io/about/index.html</loc>
+    <lastmod>2024-11-25T03:48:30.116Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/talk/posts/laboral_gender_segregation/index.html</loc>
@@ -61,19 +33,43 @@
     <lastmod>2024-11-25T03:48:30.355Z</lastmod>
   </url>
   <url>
+    <loc>https://rcantillan.github.io/talk/index.html</loc>
+    <lastmod>2024-11-25T03:48:30.345Z</lastmod>
+  </url>
+  <url>
     <loc>https://rcantillan.github.io/talk/posts/mobility_classes/index.html</loc>
     <lastmod>2024-11-25T03:48:30.354Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/talk/posts/CSS/index.html</loc>
+    <lastmod>2024-11-25T03:48:30.346Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/talk/posts/laboral_gender_segregation_II/index.html</loc>
     <lastmod>2024-11-25T03:48:30.354Z</lastmod>
   </url>
   <url>
-    <loc>https://rcantillan.github.io/blog/posts/08-glm_validation.html</loc>
-    <lastmod>2024-11-14T17:19:31.533Z</lastmod>
+    <loc>https://rcantillan.github.io/blog/index.html</loc>
+    <lastmod>2024-11-25T03:48:30.116Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/blog/posts/05_multihomophily/index.html</loc>
+    <lastmod>2024-11-25T03:48:30.187Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/posts/07-social_movements/index.html</loc>
     <lastmod>2024-11-25T03:48:30.193Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/blog/posts/03-egodescriptives/index.html</loc>
+    <lastmod>2024-11-25T03:48:30.169Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/about.html</loc>
+    <lastmod>2024-11-25T03:48:30.110Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/project/index.html</loc>
+    <lastmod>2024-11-25T03:48:30.332Z</lastmod>
   </url>
 </urlset>
