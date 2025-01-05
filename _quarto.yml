@@ -30,6 +30,8 @@ website:
         href: publication/index.qmd
       - text: "Projects"
         href: project/index.qmd
+      - text: "Resources"
+        href: resources/index.qmd
       - icon: github
         href: https://github.com/rcantillan
   
@@ -65,16 +67,16 @@ format:
         - cosmo
         - assets/rober_light.scss
         - assets/rober_about.scss  # Añade esta línea
-      dark:
-        - cosmo
-        - assets/rober_dark.scss
-        - assets/rober_about.scss  # Añade esta línea
+     # dark:
+     #   - cosmo
+     #   - assets/rober_dark.scss
+     #   - assets/rober_about.scss  # Añade esta línea
     code-link: true
-    pagetitle: "{{< meta title >}}"
+    pagetitle: "{{< Roberto Cantillan Carrasco>}}"
     lightbox: true
     toc: true                    # Habilitar tabla de contenidos
     toc-location: right          # Ubicar en la derecha
-    toc-title: "En esta página"  # Título en español
+    toc-title: "in this page"  # Título en español
     page-layout: article         # Usar layout de artículo en lugar de full
     grid:
       sidebar-width: 250px       # Ancho del sidebar

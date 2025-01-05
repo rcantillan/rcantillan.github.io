@@ -474,5 +474,68 @@
     "title": "Proyectos",
     "section": "",
     "text": "Aquí puedes encontrar información sobre mis proyectos de investigación actuales y pasados.\n\n\n\n\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "workshop/index.html",
+    "href": "workshop/index.html",
+    "title": "Workshops & Resources",
+    "section": "",
+    "text": "Repositorio: \nDescripción: Workshop introductorio a la modelación basada en agentes (ABM) utilizando R. Este taller proporciona una base sólida para comprender y desarrollar modelos de simulación social, con énfasis en la segregación residencial y la formación de vínculos sociales.\nContenidos:\n\nFundamentos de ABM y simulación social\nImplementación de modelos en R\nAnálisis de resultados\nCasos prácticos:\n\nModelo de Schelling\nFormación de vínculos sociales\nContagio\n\n\nRequisitos previos: - Conocimientos de programación usando R"
+  },
+  {
+    "objectID": "workshop/index.html#workshops-tutorials",
+    "href": "workshop/index.html#workshops-tutorials",
+    "title": "Workshops & Resources",
+    "section": "",
+    "text": "Repositorio: \nDescripción: Workshop introductorio a la modelación basada en agentes (ABM) utilizando R. Este taller proporciona una base sólida para comprender y desarrollar modelos de simulación social, con énfasis en la segregación residencial y la formación de vínculos sociales.\nContenidos:\n\nFundamentos de ABM y simulación social\nImplementación de modelos en R\nAnálisis de resultados\nCasos prácticos:\n\nModelo de Schelling\nFormación de vínculos sociales\nContagio\n\n\nRequisitos previos: - Conocimientos de programación usando R"
+  },
+  {
+    "objectID": "workshop/index.html#recursos-adicionales",
+    "href": "workshop/index.html#recursos-adicionales",
+    "title": "Workshops & Resources",
+    "section": "Recursos Adicionales",
+    "text": "Recursos Adicionales\n\nTemplates y Scripts\n\n📊 Template Análisis de Redes - Template para análisis de redes sociales\n📈 Scripts Visualización - Colección de scripts para visualización\n🔍 Funciones Útiles - Funciones personalizadas para análisis\n\n\n\nDatasets\n\n📁 Dataset Redes Chile - Datos de redes sociales en Chile\n📁 Dataset Homofilia - Datos para análisis de homofilia"
+  },
+  {
+    "objectID": "workshop/index.html#cómo-usar",
+    "href": "workshop/index.html#cómo-usar",
+    "title": "Workshops & Resources",
+    "section": "Cómo Usar",
+    "text": "Cómo Usar\n\nClona el repositorio deseado:\n\ngit clone https://github.com/username/repo-name"
+  },
+  {
+    "objectID": "resources/index.html",
+    "href": "resources/index.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Repositorio \nDescripción: Workshop introductorio a la modelación basada en agentes (ABM) utilizando R. Este taller proporciona una base sólida para comprender y desarrollar modelos de simulación social, con énfasis en la segregación residencial y la formación de vínculos sociales.\nContenidos:\n\nFundamentos de ABM y simulación social\nImplementación de modelos en R\nAnálisis de resultados\nCasos prácticos:\n\nModelo de Schelling\nFormación de vínculos sociales\nContagio\n\n\nRequisitos previos:\n\nConocimientos de programación usando R"
+  },
+  {
+    "objectID": "resources/index.html#workshops-tutorials",
+    "href": "resources/index.html#workshops-tutorials",
+    "title": "Resources",
+    "section": "",
+    "text": "Repositorio \nDescripción: Workshop introductorio a la modelación basada en agentes (ABM) utilizando R. Este taller proporciona una base sólida para comprender y desarrollar modelos de simulación social, con énfasis en la segregación residencial y la formación de vínculos sociales.\nContenidos:\n\nFundamentos de ABM y simulación social\nImplementación de modelos en R\nAnálisis de resultados\nCasos prácticos:\n\nModelo de Schelling\nFormación de vínculos sociales\nContagio\n\n\nRequisitos previos:\n\nConocimientos de programación usando R"
+  },
+  {
+    "objectID": "resources/index.html#recursos-adicionales",
+    "href": "resources/index.html#recursos-adicionales",
+    "title": "Resources",
+    "section": "Recursos Adicionales",
+    "text": "Recursos Adicionales\n\nDatasets\n\n📁 Dataset Redes Chile - Datos de redes sociales en Chile\n📁 Dataset Homofilia - Datos para análisis de homofilia"
+  },
+  {
+    "objectID": "resources/index.html#cómo-usar",
+    "href": "resources/index.html#cómo-usar",
+    "title": "Resources",
+    "section": "Cómo Usar",
+    "text": "Cómo Usar\n\nClona el repositorio deseado:\n\ngit clone https://github.com/username/repo-name"
+  },
+  {
+    "objectID": "resources/index.html#teaching",
+    "href": "resources/index.html#teaching",
+    "title": "Resources",
+    "section": "Teaching",
+    "text": "Teaching"
   }
 ]

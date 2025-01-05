@@ -24,5 +24,13 @@
   {
     "listing": "/project/index.html",
     "items": []
+  },
+  {
+    "listing": "/workshop/index.html",
+    "items": []
+  },
+  {
+    "listing": "/resources/index.html",
+    "items": []
   }
 ]

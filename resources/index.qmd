@@ -1,0 +1,51 @@
+---
+title: "Resources"
+listing:
+  contents: workshops
+  sort: "date desc"
+  type: grid
+  categories: true
+  sort-ui: true
+  filter-ui: true
+  fields: [workshop, ABM]
+page-layout: full
+title-block-banner: rgba(255, 15, 15, 0.53)
+banner-class: page-banner
+---
+
+## Workshops & Tutorials
+
+### Agent-Based Modeling con R 
+
+![](segregacion_schelling.gif)
+
+[Repositorio {{< fa brands github >}}](https://github.com/rcantillan/ABM_workshop)
+
+**Descripción:** Workshop introductorio a la modelación basada en agentes (ABM) utilizando R. Este taller proporciona una base sólida para comprender y desarrollar modelos de simulación social, con énfasis en la segregación residencial y la formación de vínculos sociales.
+
+**Contenidos:**
+
+- Fundamentos de ABM y simulación social
+- Implementación de modelos en R
+- Análisis de resultados
+- Casos prácticos:
+  - Modelo de Schelling
+  - Formación de vínculos sociales
+  - Contagio
+
+**Requisitos previos:**
+
+- Conocimientos de programación usando R
+
+## Teaching
+
+## Recursos Adicionales
+
+### Datasets
+- 📁 [Dataset Redes Chile](link) - Datos de redes sociales en Chile
+- 📁 [Dataset Homofilia](link) - Datos para análisis de homofilia
+
+
+
+
+

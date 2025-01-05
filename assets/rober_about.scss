@@ -1,11 +1,27 @@
 /*-- scss:defaults --*/
+
+// Importar fuente Raleway
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap');
+
+// Define first our base colors
+$spc-primary: #524B44;    // Color marrón grisáceo (título)
+$spc-primary-light: #6666;    // Gris claro
+$spc-secondary: #006400;    // Verde oscuro (antes rojo)
+$spc-secondary-light: #008000;  // Verde claro (antes rojo claro)
+$spc-accent: #3333;    // Gris oscuro
+$spc-accent-light: #F5F5F5;    // Gris muy claro
+$spc-accent-dark: #1A1A1A;    // Negro
+$spc-bg-0: #FFFF;    // Blanco
+$spc-bg-1: #FAFAFA;    // Blanco roto
+$spc-bg-00: rgba(0, 0, 0, 0.05); // Sombras
+
 // Variables principales
 $primary: #2C3E50;
-$secondary: #dc3545;
+$secondary: #006400;    // Verde oscuro
 $background: #ffffff;
 $text: #2d3748;
-$burgundy: #98444C;
-$burgundy-light: rgba(152, 68, 76, 0.2);
+$accent-color: #006400;    // Verde oscuro
+$accent-light: rgba(0, 100, 0, 0.2);  // Verde con transparencia
 
 /*-- scss:rules --*/
 
@@ -18,7 +34,7 @@ $burgundy-light: rgba(152, 68, 76, 0.2);
     padding: 2rem 1rem;
   }
 
-  // Enlaces sociales alineados a la izquierda
+  // Enlaces sociales
   .about-links {
     display: flex !important;
     align-items: center !important;
@@ -29,7 +45,7 @@ $burgundy-light: rgba(152, 68, 76, 0.2);
       display: flex !important;
       align-items: center !important;
       justify-content: center !important;
-      color: $burgundy !important;
+      color: $secondary !important;
       font-size: 1.5rem !important;
       text-decoration: none !important;
       border: none !important;
@@ -42,16 +58,16 @@ $burgundy-light: rgba(152, 68, 76, 0.2);
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
-        color: $burgundy !important;
-        fill: $burgundy !important;
+        color: $secondary !important;
+        fill: $secondary !important;
       }
       
       &:hover {
-        color: $burgundy-light !important;
+        color: $secondary-light !important;
         
         i, svg {
-          color: $burgundy-light !important;
-          fill: $burgundy-light !important;
+          color: $secondary-light !important;
+          fill: $secondary-light !important;
           transform: translateY(-2px);
           transition: transform 0.2s ease;
         }
@@ -89,16 +105,16 @@ $burgundy-light: rgba(152, 68, 76, 0.2);
     border-radius: 12px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     transition: all 0.3s ease;
-    border: 2px solid $burgundy;
+    border: 2px solid $secondary;
     text-align: left;
     
     &:hover {
       transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(152, 68, 76, 0.2);
+      box-shadow: 0 8px 25px rgba(0, 100, 0, 0.2);
     }
 
     h2 {
-      color: $burgundy;
+      color: $secondary;
       font-size: 1.4rem;
       margin-bottom: 1.5rem;
       padding-bottom: 0.8rem;
@@ -112,7 +128,7 @@ $burgundy-light: rgba(152, 68, 76, 0.2);
         left: 0;
         width: 60px;
         height: 3px;
-        background: $burgundy;
+        background: $secondary;
       }
     }
 
@@ -125,7 +141,7 @@ $burgundy-light: rgba(152, 68, 76, 0.2);
       li {
         position: relative;
         padding: 0.8rem 0 0.8rem 1.5rem;
-        border-bottom: 1px solid $burgundy-light;
+        border-bottom: 1px solid $accent-light;
         
         &:last-child {
           border-bottom: none;
@@ -135,7 +151,7 @@ $burgundy-light: rgba(152, 68, 76, 0.2);
           content: "▸";
           position: absolute;
           left: 0;
-          color: $burgundy;
+          color: $secondary;
         }
       }
     }
@@ -159,7 +175,7 @@ $burgundy-light: rgba(152, 68, 76, 0.2);
         left: 0;
         width: 80px;
         height: 3px;
-        background: $burgundy;
+        background: $secondary;
       }
     }
   }
@@ -172,7 +188,7 @@ $burgundy-light: rgba(152, 68, 76, 0.2);
     max-width: 800px;
     margin: 2rem auto;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    border: 2px solid $burgundy;
+    border: 2px solid $secondary;
     text-align: left;
     
     ul {
@@ -187,14 +203,39 @@ $burgundy-light: rgba(152, 68, 76, 0.2);
           content: "•";
           position: absolute;
           left: 0;
-          color: $burgundy;
+          color: $secondary;
         }
       }
     }
   }
+}
 
-  /* Responsive */
-  @media screen and (max-width: 991.98px) {
+// Estilos específicos para los iconos
+.about-links svg, 
+.fa-github, 
+.fa-envelope, 
+.fa-file-alt, 
+.fa-file {
+  color: $secondary !important;
+  fill: $secondary !important;
+  
+  path {
+    fill: $secondary !important;
+  }
+  
+  &:hover {
+    color: $secondary-light !important;
+    fill: $secondary-light !important;
+    
+    path {
+      fill: $secondary-light !important;
+    }
+  }
+}
+
+// Responsive styles
+@media screen and (max-width: 991.98px) {
+  .about-page {
     .research-grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -203,8 +244,10 @@ $burgundy-light: rgba(152, 68, 76, 0.2);
       padding: 1rem;
     }
   }
+}
 
-  @media screen and (max-width: 768px) {
+@media screen and (max-width: 768px) {
+  .about-page {
     .research-grid {
       grid-template-columns: 1fr;
     }
@@ -223,67 +266,27 @@ $burgundy-light: rgba(152, 68, 76, 0.2);
   }
 }
 
-// Estilos específicos para los iconos bajo Research Overview
+// Quarto title banner
+.quarto-title-banner {
+  background: $secondary !important;
+}
 
-h1:first-of-type + .about-links {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: flex-start !important;
-  gap: 1rem !important;
-  margin: 1rem 0 2rem 0 !important;
+// Links generales
+a {
+  color: $secondary;
   
-  a, i, svg {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    width: 1.5rem !important;
-    height: 1.5rem !important;
-    color: $burgundy !important;
-    fill: currentColor !important;
-    stroke: currentColor !important;
+  &:hover {
+    color: $secondary-light;
   }
 }
 
-// Estilo específico para los iconos SVG en Research Overview
-.about-links svg {
-  color: $burgundy !important;
-  fill: $burgundy !important;
-  stroke: $burgundy !important;
-  
-  path {
-    color: $burgundy !important;
-    fill: $burgundy !important;
-    stroke: $burgundy !important;
-  }
-  
-  &:hover {
-    color: $burgundy-light !important;
-    fill: $burgundy-light !important;
-    stroke: $burgundy-light !important;
+// Navbar links
+.navbar {
+  .nav-link {
+    color: $secondary !important;
     
-    path {
-      color: $burgundy-light !important;
-      fill: $burgundy-light !important;
-      stroke: $burgundy-light !important;
-    }
-  }
-}
-
-// Forzar color para iconos específicos
-.fa-github, .fa-envelope, .fa-file-alt, .fa-file {
-  color: $burgundy !important;
-  fill: $burgundy !important;
-  
-  path {
-    fill: $burgundy !important;
-  }
-  
-  &:hover {
-    color: $burgundy-light !important;
-    fill: $burgundy-light !important;
-    
-    path {
-      fill: $burgundy-light !important;
+    &:hover {
+      color: $secondary-light !important;
     }
   }
 }
