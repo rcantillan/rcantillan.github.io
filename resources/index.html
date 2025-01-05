@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>quarto-input3b7720140c03dffc – Roberto Cantillan</title>
+<title>quarto-inputd90dc54209d87d85 – Roberto Cantillan</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -47,6 +47,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -84,9 +87,9 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-workshop','listing-ABM',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+      searchColumns: ["listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -168,7 +171,7 @@ window.Quarto = {
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
+    <a class="nav-link" href="../blog/index.html"> 
 <span class="menu-text">Blog</span></a>
   </li>  
   <li class="nav-item">
@@ -184,7 +187,7 @@ window.Quarto = {
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../resources/index.html"> 
+    <a class="nav-link active" href="../resources/index.html" aria-current="page"> 
 <span class="menu-text">Resources</span></a>
   </li>  
   <li class="nav-item compact">
@@ -202,13 +205,13 @@ window.Quarto = {
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Blog</h1>
+    <div class="quarto-title column-page-left">
+      <h1 class="title">Resources</h1>
                       </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page">
+  <div class="quarto-title-meta column-page-left">
 
       
     
@@ -219,203 +222,81 @@ window.Quarto = {
   </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">in this page</h2>
+   
+  <ul>
+  <li><a href="#workshops-tutorials" id="toc-workshops-tutorials" class="nav-link active" data-scroll-target="#workshops-tutorials">Workshops &amp; Tutorials</a>
+  <ul class="collapse">
+  <li><a href="#agent-based-modeling-con-r" id="toc-agent-based-modeling-con-r" class="nav-link" data-scroll-target="#agent-based-modeling-con-r">Agent-Based Modeling con R</a></li>
+  </ul></li>
+  <li><a href="#teaching" id="toc-teaching" class="nav-link" data-scroll-target="#teaching">Teaching</a></li>
+  <li><a href="#recursos-adicionales" id="toc-recursos-adicionales" class="nav-link" data-scroll-target="#recursos-adicionales">Recursos Adicionales</a>
+  <ul class="collapse">
+  <li><a href="#datasets" id="toc-datasets" class="nav-link" data-scroll-target="#datasets">Datasets</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(0)</span></div></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
 
 
 
 
 
-<div class="blog-page">
-<div class="blog-header">
-<div class="blog-description">
-<p>This space brings together social network analysis and R programming to explore important social issues. By analyzing data from various social networks, we delve into topics like social capital, inequality, and the dynamics of social structures. Our goal is to provide tools and knowledge to help researchers better understand these topics and foster collaboration within the field.</p>
-</div>
-</div>
-<div id="listing-content">
+<section id="workshops-tutorials" class="level2">
+<h2 class="anchored" data-anchor-id="workshops-tutorials">Workshops &amp; Tutorials</h2>
+<section id="agent-based-modeling-con-r" class="level3">
+<h3 class="anchored" data-anchor-id="agent-based-modeling-con-r">Agent-Based Modeling con R</h3>
+<p><a href="segregacion_schelling.gif" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="segregacion_schelling.gif" class="img-fluid"></a></p>
+<p><a href="https://github.com/rcantillan/ABM_workshop">Repositorio <i class="fa-brands fa-github" aria-label="github"></i></a></p>
+<p><strong>Descripción:</strong> Workshop introductorio a la modelación basada en agentes (ABM) utilizando R. Este taller proporciona una base sólida para comprender y desarrollar modelos de simulación social, con énfasis en la segregación residencial y la formación de vínculos sociales.</p>
+<p><strong>Contenidos:</strong></p>
+<ul>
+<li>Fundamentos de ABM y simulación social</li>
+<li>Implementación de modelos en R</li>
+<li>Análisis de resultados</li>
+<li>Casos prácticos:
+<ul>
+<li>Modelo de Schelling</li>
+<li>Formación de vínculos sociales</li>
+<li>Contagio</li>
+</ul></li>
+</ul>
+<p><strong>Requisitos previos:</strong></p>
+<ul>
+<li>Conocimientos de programación usando R</li>
+</ul>
+</section>
+</section>
+<section id="teaching" class="level2">
+<h2 class="anchored" data-anchor-id="teaching">Teaching</h2>
+</section>
+<section id="recursos-adicionales" class="level2">
+<h2 class="anchored" data-anchor-id="recursos-adicionales">Recursos Adicionales</h2>
+<section id="datasets" class="level3">
+<h3 class="anchored" data-anchor-id="datasets">Datasets</h3>
+<ul>
+<li>📁 <a href="link">Dataset Redes Chile</a> - Datos de redes sociales en Chile</li>
+<li>📁 <a href="link">Dataset Homofilia</a> - Datos para análisis de homofilia</li>
+</ul>
 
-</div>
-</div>
 
 
-
+</section>
+</section>
 
 <div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
 <div class="listing-actions-group">
-   <div class="input-group input-group-sm quarto-listing-sort">
-     <span class="input-group-text"><i class="bi bi-sort-down"></i></span>
-     <select id="listing-listing-sort" class="form-select" aria-label="Order By" onchange="window['quarto-listings']['listing-listing'].sort(this.options[this.selectedIndex].value, { order: this.options[this.selectedIndex].getAttribute('data-direction')})">
-       <option value="" disabled="" selected="" hidden="">Order By</option>
-       <option value="index" data-direction="asc">Default</option>
-         <option value="listing-title" data-direction="asc">
-          Title
-        </option>
-         <option value="listing-date-sort" data-direction="asc">
-          Date - Oldest
-        </option>
-         <option value="listing-date-sort" data-direction="desc">
-          Date - Newest
-        </option>
-         <option value="listing-author" data-direction="asc">
-          Author
-        </option>
-     </select>
-  </div>
     <div class="input-group input-group-sm quarto-listing-filter">
       <span class="input-group-text"><i class="bi bi-search"></i></span>
       <input type="text" class="search form-control" placeholder="Filter">
     </div>
 </div>
-<div class="list grid quarto-listing-cols-2">
-<div class="g-col-1" data-index="0" data-categories="UiUyQ05ldHdvcmtzJTJDRVJHTSUyQ1NvY2lhbCUyME1vdmVtZW50cyUyQ0NvbnRlbnRpb3VzJTIwcG9sJUMzJUFEdGljcw==" data-listing-date-sort="1731456000000" data-listing-file-modified-sort="1736116190667" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="47" data-listing-word-count-sort="9231">
-<a href="../blog/posts/07-social_movements/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../blog/posts/07-social_movements/featured.jpg" class="thumbnail-image card-img" style="height: 250px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Poder, Coaliciones y Vínculos Múltiples en la Movilización Urbana
-</h5>
-<div class="card-text listing-description">
-Urban social movements represent complex networks of relationships between heterogeneous actors who coordinate collective action through multiple types of ties (Diani…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Roberto Cantillan
-</div>
-<div class="listing-date">
-Nov 13, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="UiUyQ05ldHdvcmtzJTJDRWdvJTIwbmV0d29ya3MlMkNIb21vcGhpbHk=" data-listing-date-sort="1730764800000" data-listing-file-modified-sort="1736116190626" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22" data-listing-word-count-sort="4213">
-<a href="../blog/posts/01-multihomophily/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../blog/posts/01-multihomophily/featured.jpg" class="thumbnail-image card-img" style="height: 250px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-EI Index
-</h5>
-<div class="card-text listing-description">
-Homophily
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Roberto Cantillan
-</div>
-<div class="listing-date">
-Nov 5, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="UiUyQ05ldHdvcmtzJTJDVHdvJTIwbW9kZSUyQ0VSR00lMkNTY2llbnRpZmljJTIwbmV0d29ya3M=" data-listing-date-sort="1730419200000" data-listing-file-modified-sort="1736116190653" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="29" data-listing-word-count-sort="5684">
-<a href="../blog/posts/04-twomode-ergm/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../blog/posts/04-twomode-ergm/featured.jpg" class="thumbnail-image card-img" style="height: 250px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Disrupción y Estructura en redes de producción cietífica
-</h5>
-<div class="card-text listing-description">
-La ciencia de la sustentabilidad requiere urgentemente de innovación transformadora para abordar desafíos socio-ambientales complejos. Comprender cómo emerge la…<span class="citation" data-cites="liProductiveScientistsAre2024a"></span>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Roberto Cantillan
-</div>
-<div class="listing-date">
-Nov 1, 2024
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="UiUyQ05ldHdvcmtzJTJDRWdvJTIwbmV0d29ya3MlMkNIb21vcGhpbHk=" data-listing-date-sort="1691539200000" data-listing-file-modified-sort="1736116190643" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3104">
-<a href="../blog/posts/03-egodescriptives/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../blog/posts/03-egodescriptives/featured.jpg" class="thumbnail-image card-img" style="height: 250px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Análisis de Redes Ego-céntricas
-</h5>
-<div class="card-text listing-description">
-Este documento analiza en detalle las redes ego-céntricas utilizando datos de ELSOC 2017 (w2) y 2019 (w4). Construiremos una base de datos que integra información de egos…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Roberto Cantillan
-</div>
-<div class="listing-date">
-Aug 9, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="UiUyQ2dncGxvdCUyQ2NhdGVnb3JpY2FsJTIwZGF0YQ==" data-listing-date-sort="1691539200000" data-listing-file-modified-sort="1736116190662" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="41" data-listing-word-count-sort="8085">
-<a href="../blog/posts/06-ggplot/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts/06-ggplot/index_files/figure-html/barras-avanzado-1.png" alt="Gráfico de barras avanzado con agrupación y etiquetas" style="height: 250px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Visualización Avanzada de Datos Categóricos
-</h5>
-<div class="card-text listing-description">
-Esta guía está diseñada para ayudarte a comprender y crear visualizaciones efectivas de datos categóricos usando R. Aprenderemos desde gráficos básicos hasta visualizaciones…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Roberto Cantillan
-</div>
-<div class="listing-date">
-Aug 9, 2023
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="5" data-categories="UiUyQ05ldHdvcmtzJTJDRWdvJTIwbmV0d29ya3MlMkNFUkdNJTIwZWdvJTJDSG9tb3BoaWx5" data-listing-date-sort="1666742400000" data-listing-file-modified-sort="1736116190662" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2034">
-<a href="../blog/posts/05_multihomophily/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="posts/05_multihomophily/index_files/figure-html/unnamed-chunk-11-1.png" style="height: 250px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Homophily
-</h5>
-<div class="card-text listing-description">
-Creamos subset con data de cada uno de los alteris mencionados, manteniendo el ID de cada ego en el cual están anidados. Las columnas de cada uno de los subset deben tener…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Roberto Cantillan
-</div>
-<div class="listing-date">
-Oct 26, 2022
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
+<div class="list grid quarto-listing-cols-3">
+
 </div>
 <div class="listing-no-matching d-none">
 No matching items
@@ -874,6 +755,38 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

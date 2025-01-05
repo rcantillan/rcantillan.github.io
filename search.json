@@ -294,6 +294,34 @@
     "text": "Scientific collaboration networks\nKnowledge diffusion processes\nStructural analysis of complex social systems"
   },
   {
+    "objectID": "resources/index.html",
+    "href": "resources/index.html",
+    "title": "Resources",
+    "section": "",
+    "text": "Repositorio \nDescripción: Workshop introductorio a la modelación basada en agentes (ABM) utilizando R. Este taller proporciona una base sólida para comprender y desarrollar modelos de simulación social, con énfasis en la segregación residencial y la formación de vínculos sociales.\nContenidos:\n\nFundamentos de ABM y simulación social\nImplementación de modelos en R\nAnálisis de resultados\nCasos prácticos:\n\nModelo de Schelling\nFormación de vínculos sociales\nContagio\n\n\nRequisitos previos:\n\nConocimientos de programación usando R"
+  },
+  {
+    "objectID": "resources/index.html#workshops-tutorials",
+    "href": "resources/index.html#workshops-tutorials",
+    "title": "Resources",
+    "section": "",
+    "text": "Repositorio \nDescripción: Workshop introductorio a la modelación basada en agentes (ABM) utilizando R. Este taller proporciona una base sólida para comprender y desarrollar modelos de simulación social, con énfasis en la segregación residencial y la formación de vínculos sociales.\nContenidos:\n\nFundamentos de ABM y simulación social\nImplementación de modelos en R\nAnálisis de resultados\nCasos prácticos:\n\nModelo de Schelling\nFormación de vínculos sociales\nContagio\n\n\nRequisitos previos:\n\nConocimientos de programación usando R"
+  },
+  {
+    "objectID": "resources/index.html#teaching",
+    "href": "resources/index.html#teaching",
+    "title": "Resources",
+    "section": "Teaching",
+    "text": "Teaching"
+  },
+  {
+    "objectID": "resources/index.html#recursos-adicionales",
+    "href": "resources/index.html#recursos-adicionales",
+    "title": "Resources",
+    "section": "Recursos Adicionales",
+    "text": "Recursos Adicionales\n\nDatasets\n\n📁 Dataset Redes Chile - Datos de redes sociales en Chile\n📁 Dataset Homofilia - Datos para análisis de homofilia"
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",

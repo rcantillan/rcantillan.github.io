@@ -4,6 +4,10 @@
     "items": []
   },
   {
+    "listing": "/resources/index.html",
+    "items": []
+  },
+  {
     "listing": "/talk/index.html",
     "items": [
       "/talk/posts/CSS/index.html",
