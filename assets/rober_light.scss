@@ -178,6 +178,7 @@ $footer-fg: $primary;
 .quarto-title-block {
   // Estilo base para el banner de título
   .quarto-title-banner {
+    background: #006400 !important; // Aquí cambiamos al verde oscuro
     background-size: cover !important;
     background-position: center !important;
     position: relative;
