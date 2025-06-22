@@ -1,13 +1,5 @@
 [
   {
-    "listing": "/project/index.html",
-    "items": []
-  },
-  {
-    "listing": "/resources/index.html",
-    "items": []
-  },
-  {
     "listing": "/talk/index.html",
     "items": [
       "/talk/posts/CSS/index.html",
@@ -16,6 +8,10 @@
       "/talk/posts/mobility_classes/index.html",
       "/talk/posts/multi-homphily/index.html"
     ]
+  },
+  {
+    "listing": "/resources/index.html",
+    "items": []
   },
   {
     "listing": "/blog/index.html",
@@ -27,5 +23,9 @@
       "/blog/posts/06-ggplot/index.html",
       "/blog/posts/05_multihomophily/index.html"
     ]
+  },
+  {
+    "listing": "/project/index.html",
+    "items": []
   }
 ]
