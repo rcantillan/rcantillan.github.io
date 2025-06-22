@@ -1,76 +1,194 @@
 
+/*-- scss:defaults --*/
 
-// Archivo: _typography.scss
+// PALETA DE COLORES REFINADA (inspirada en SFI)
+$sfi-primary: #1a1a1a;        // Negro suave para texto principal
+$sfi-secondary: #4a5568;      // Gris medio para texto secundario  
+$sfi-accent: #2d5a87;         // Azul académico (en lugar de verde)
+$sfi-accent-light: #3182ce;   // Azul más claro para hover
+$sfi-bg-primary: #ffffff;     // Blanco puro
+$sfi-bg-secondary: #f8fafc;   // Gris muy claro para fondos
+$sfi-border: #e2e8f0;         // Bordes sutiles
 
-// Importar fuente
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap');
+// TIPOGRAFÍA REFINADA
+$sfi-heading-font: 'Inter', 'Raleway', sans-serif; // Más moderna que Raleway sola
+$sfi-body-font: 'Inter', system-ui, -apple-system, sans-serif;
 
-// Variables tipográficas
-$heading-font: 'Raleway', sans-serif;
-$body-font: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-$primary-color: #2C3E50;
-$accent-color: rgb(155, 30, 30);
+/*-- scss:rules --*/
 
-// Estilos globales para títulos
-h1, h2, h3, h4, h5, h6,
-.title-style {
-  font-family: $heading-font;
-  font-weight: 300;
-  letter-spacing: 0.02em;
-  color: $primary-color;
-  line-height: 1.2;
-}
+// 1. IMPORTAR INTER (más moderna que Raleway)
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
-// Título principal de la página
+// 2. JERARQUÍA TIPOGRÁFICA CLARA
 .page-title,
 .quarto-title-block .title {
-  font-family: $heading-font;
-  font-size: 2.5rem;
-  font-weight: 300;
-  letter-spacing: 0.02em;
-  color: $primary-color;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-// Títulos de secciones (como "Blog", "Charlas & Presentaciones")
-.section-title {
-  font-family: $heading-font;
-  font-size: 2.8rem;
-  font-weight: 300;
-  color: $primary-color;
-  text-align: center;
-  margin: 2rem 0;
-}
-
-// Títulos de posts individuales
-.listing-title {
-  font-family: $heading-font;
-  font-size: 1.8rem;
-  font-weight: 400;
-  color: $primary-color;
-  transition: color 0.2s ease;
+  font-family: $sfi-heading-font;
+  font-size: 3.2rem;
+  font-weight: 600; // Más peso para impacto
+  letter-spacing: -0.03em; // Espaciado negativo para títulos grandes
+  color: $sfi-primary;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
   
-  &:hover {
-    color: $accent-color;
+  @media (max-width: 768px) {
+    font-size: 2.4rem;
   }
 }
 
-// Subtítulos descriptivos
 .subtitle {
-  font-family: $heading-font;
+  font-family: $sfi-body-font;
+  font-size: 1.25rem;
   font-weight: 400;
-  color: lighten($primary-color, 20%);
-  font-size: 1.2rem;
-  text-align: center;
-  max-width: 800px;
-  margin: 1rem auto 3rem;
+  color: $sfi-secondary;
   line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto 2rem;
 }
 
-// Header principal del sitio
-.navbar-title {
-  font-family: $heading-font;
-  font-weight: 300;
-  letter-spacing: 0.05em;
+// 3. TEXTO PRINCIPAL CON MEJOR LEGIBILIDAD
+body {
+  font-family: $sfi-body-font;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: $sfi-primary;
+  font-weight: 400;
+}
+
+p {
+  color: $sfi-primary;
+  margin-bottom: 1.5rem;
+  
+  // Párrafos de introducción más grandes
+  &.lead {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: $sfi-secondary;
+    line-height: 1.6;
+  }
+}
+
+// 4. ENLACES CON ESTILO SFI
+a {
+  color: $sfi-accent;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    color: $sfi-accent-light;
+    border-bottom-color: $sfi-accent-light;
+  }
+}
+
+// 5. TÍTULOS DE SECCIÓN
+h1, h2, h3, h4, h5, h6 {
+  font-family: $sfi-heading-font;
+  color: $sfi-primary;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 500;
+  color: $sfi-primary;
+  
+  // Línea sutil debajo de h2 (estilo SFI)
+  &::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 2px;
+    background: $sfi-accent;
+    margin-top: 0.5rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: $sfi-primary;
+}
+
+// 6. NAVBAR CON ESTILO SFI
+.navbar {
+  background: rgba(255, 255, 255, 0.95) !important;
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid $sfi-border;
+  
+  .navbar-nav .nav-link {
+    font-family: $sfi-body-font;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: $sfi-primary !important;
+    text-transform: none; // Quitar mayúsculas
+    letter-spacing: 0;
+    
+    &:hover {
+      color: $sfi-accent !important;
+      background: transparent;
+      border-bottom: 2px solid $sfi-accent;
+    }
+  }
+}
+
+// 7. BOTONES ESTILO SFI
+.btn-primary {
+  background: $sfi-accent;
+  border-color: $sfi-accent;
+  font-family: $sfi-body-font;
+  font-weight: 500;
+  padding: 0.75rem 2rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  
+  &:hover {
+    background: $sfi-accent-light;
+    border-color: $sfi-accent-light;
+    transform: translateY(-1px);
+  }
+}
+
+// 8. CARDS CON TIPOGRAFÍA MEJORADA
+.card {
+  .card-title {
+    font-family: $sfi-heading-font;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: $sfi-primary;
+    margin-bottom: 1rem;
+  }
+  
+  .card-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $sfi-secondary;
+  }
+}
+
+// 9. BANNER CON MEJOR CONTRASTE
+.quarto-title-banner {
+  background: linear-gradient(135deg, $sfi-accent 0%, darken($sfi-accent, 15%) 100%) !important;
+  
+  .title, .subtitle {
+    color: white !important;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  }
+}
+
+// 10. FOOTER REFINADO
+.nav-footer {
+  background: $sfi-bg-secondary;
+  border-top: 1px solid $sfi-border;
+  color: $sfi-secondary;
+  
+  a {
+    color: $sfi-accent;
+    
+    &:hover {
+      color: $sfi-accent-light;
+    }
+  }
 }
