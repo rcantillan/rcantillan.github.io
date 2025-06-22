@@ -1,0 +1,219 @@
+/* CSS adicional para componentes específicos - Estilo Santa Fe Institute */
+
+/* 1. CALLOUTS MEJORADOS (destacados) */
+.callout {
+  border-left: 4px solid #2d5a87;
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: transform 0.2s ease;
+}
+
+.callout:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.callout-note {
+  border-left-color: #2d5a87;
+  background: linear-gradient(135deg, #ebf8ff 0%, #bee3f8 20%, #ffffff 100%);
+}
+
+.callout-tip {
+  border-left-color: #38a169;
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 20%, #ffffff 100%);
+}
+
+/* 2. GRID MEJORADO PARA SECCIONES */
+.research-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.research-card {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 1px solid #e2e8f0;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.research-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #2d5a87 0%, #3182ce 100%);
+}
+
+.research-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+}
+
+/* 3. NAVEGACIÓN MEJORADA CON INDICADOR ACTIVO */
+.navbar-nav .nav-link.active {
+  position: relative;
+  color: #2d5a87 !important;
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: #2d5a87;
+  border-radius: 2px;
+}
+
+/* 4. HERO SECTION MEJORADO */
+#hero-heading {
+  padding: 4rem 2rem;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+#hero-heading .about-image {
+  box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  border: 4px solid rgba(45, 90, 135, 0.1);
+  transition: transform 0.3s ease;
+}
+
+#hero-heading .about-image:hover {
+  transform: scale(1.05);
+}
+
+/* 5. ENLACES SOCIALES MEJORADOS */
+.about-links .about-link {
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  color: #2d5a87 !important;
+}
+
+.about-links .about-link:hover {
+  background: #2d5a87;
+  border-color: #2d5a87;
+  color: white !important;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(45, 90, 135, 0.3);
+}
+
+/* 6. TIPOGRAFÍA DE PÁRRAFOS MEJORADA */
+.lead {
+  font-size: 1.35rem !important;
+  font-weight: 400;
+  color: #4a5568;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* 7. BOTONES ESTILO SFI */
+.btn-primary {
+  background: linear-gradient(135deg, #2d5a87 0%, #3182ce 100%);
+  border: none;
+  padding: 0.8rem 2.5rem;
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  text-transform: none;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, #2c5282 0%, #2b6cb0 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(45, 90, 135, 0.4);
+}
+
+/* 8. SECCIONES CON SEPARADORES SUTILES */
+.section-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, #e2e8f0 50%, transparent 100%);
+  margin: 4rem 0;
+}
+
+/* 9. TÍTULOS DE SECCIÓN CON MEJOR JERARQUÍA */
+h2.section-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  margin: 4rem 0 2rem;
+  position: relative;
+}
+
+h2.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #2d5a87 0%, #3182ce 100%);
+  border-radius: 2px;
+}
+
+/* 10. FOOTER MEJORADO */
+.nav-footer {
+  background: linear-gradient(135deg, #f8fafc 0%, #edf2f7 100%);
+  border-top: 1px solid #e2e8f0;
+  padding: 3rem 0 2rem;
+  margin-top: 5rem;
+}
+
+/* 11. ANIMACIONES SUTILES */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-block {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* 12. MEJORAS RESPONSIVE */
+@media (max-width: 768px) {
+  #hero-heading {
+    padding: 2rem 1rem;
+  }
+  
+  .research-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .research-card {
+    padding: 1.5rem;
+  }
+  
+  h2.section-title {
+    font-size: 2rem;
+  }
+}
