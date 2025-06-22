@@ -9,7 +9,7 @@ image-alt: ""
 
 about:
   template: solana
-  image-width: 20em  # Reducido de 24em para mejor proporción
+  image-width: 24em
   id: hero-heading
   links:
     - icon: github
@@ -18,16 +18,15 @@ about:
     - icon: linkedin
       aria-label: "LinkedIn"
       href: https://cl.linkedin.com/in/roberto-cantillan-carrasco-67620517b
+    - icon: mastodon
+      href: https://hachyderm.io/@
     - text: "{{< ai orcid >}}"
-      href: https://orcid.org/0000-0003-0494-0692
+      href: https://orcid.org/0000-0003-0494-0692;
     - text: "{{< ai google-scholar >}}"
       aria-label: "Google Scholar"
       href: https://scholar.google.com/citations?user=xZkAmvAAAAAJ&hl=es
-    - icon: envelope
-      aria-label: "Email"
-      href: mailto:ricantillan@uc.cl
-
 page-layout: full
+
 execute: 
   freeze: false
   echo: false
@@ -39,72 +38,14 @@ resources:
   - assets/index.css
 ---
 
-<br>
+<br><br>
+
 
 ::: {#hero-heading}
 
-::: {.lead}
-I am a doctoral candidate in Sociology at the Pontificia Universidad Católica de Chile and an assistant at the 'Millennium Nucleus for the Study of Labor Market Mismatch' (LM2C2).
-:::
+I am a doctoral candidate in Sociology at the Pontificia Universidad Católica de Chile and an assistant at the 'Millennium Nucleus for the Study of Labor Market Mismatch' (LM2C2). My doctoral research uses a structural and network perspective to analyze the patterns of mobility, diffusion, and segregation in labor markets from an intragenerational viewpoint.
 
-My doctoral research uses a structural and network perspective to analyze patterns of mobility, diffusion, and segregation in labor markets from an intragenerational viewpoint. I'm particularly interested in how social networks shape economic outcomes and labor market dynamics.
-
-[Learn more about my research &rarr;](/about){.btn .btn-primary .mt-3}
+[Learn more about me &rarr;](/about){.about-links .subtitle}
 
 :::
-
-<br><br>
-
-## Current Research Focus
-
-::: {.row .g-4}
-
-::: {.col-md-6}
-### Labor Market Networks
-Investigating how social networks influence job mobility and career trajectories, with a focus on understanding patterns of occupational segregation and mobility barriers.
-:::
-
-::: {.col-md-6}
-### Structural Analysis
-Applying structural methods to understand how institutional factors and social position affect individual labor market outcomes and organizational behavior.
-:::
-
-::: {.col-md-6}
-### Data Science Applications
-Using computational methods and large-scale data analysis to uncover patterns in labor markets, employment dynamics, and social mobility.
-:::
-
-::: {.col-md-6}
-### Social Inequality
-Examining how labor market structures contribute to social stratification and investigating mechanisms that perpetuate or reduce inequality.
-:::
-
-:::
-
-<br><br>
-
-## Recent Highlights
-
-::: {.callout-note icon=false}
-## 📊 New Publication
-**"Network Analysis of Labor Market Mobility"** - Published in *Journal of Social Networks* (2024)
-
-Examining intragenerational mobility patterns using longitudinal administrative data and network analysis methods.
-:::
-
-::: {.callout-tip icon=false}
-## 🎯 Research Grant
-**Millennium Nucleus LM2C2** - Supporting research on labor market mismatch and its social implications
-
-Contributing to a multidisciplinary team investigating labor market dynamics in Chile and Latin America.
-:::
-
-<br><br>
-
-## Get In Touch
-
-I'm always interested in discussing research collaborations, data science projects, or academic opportunities. Feel free to reach out through any of the channels above.
-
----
-
-*"Understanding how social structures shape individual opportunities is key to building more equitable societies."*
+<!-- hero-heading -->
