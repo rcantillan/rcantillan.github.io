@@ -66,24 +66,17 @@ format:
       light: 
         - cosmo
         - assets/rober_light.scss
-        - assets/rober_about.scss  # Añade esta línea
-     # dark:
-     #   - cosmo
-     #   - assets/rober_dark.scss
-     #   - assets/rober_about.scss  # Añade esta línea
+        - assets/rober_about.scss
     code-link: true
-    pagetitle: "{{< Roberto Cantillan Carrasco>}}"
     lightbox: true
-    toc: true                    # Habilitar tabla de contenidos
-    toc-location: right          # Ubicar en la derecha
-    toc-title: "in this page"  # Título en español
-    page-layout: article         # Usar layout de artículo en lugar de full
+    toc: true
+    toc-location: right
+    toc-title: "in this page"
+    page-layout: article
     grid:
-      sidebar-width: 250px       # Ancho del sidebar
-      body-width: 800px         # Ancho del contenido
-      margin-width: 250px       # Ancho del margen
+      sidebar-width: 250px
+      body-width: 800px
+      margin-width: 250px
     include-in-header: 
       text: |
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
-      
-      

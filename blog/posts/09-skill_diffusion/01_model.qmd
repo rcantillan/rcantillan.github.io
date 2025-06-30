@@ -9,10 +9,6 @@ author:
 
 format: 
   html:
-    theme:
-      - cosmo
-      - custom.scss
-    css: custom.scss
     toc: true
     toc-depth: 3
     number-sections: true
@@ -20,7 +16,7 @@ format:
     fig-width: 12
     fig-height: 8
     embed-resources: true
-
+website-url: "https://rcantillan.github.io/blog/posts/09-skill_diffusion/"
 date: today
 bibliography: paper_skills_diffusion.bib
 bibliographystyle: apa
@@ -28,11 +24,12 @@ categories:
   - R
   - Diffusion Theory
   - Labor markets
-  
+ 
 image: "featured.jpg"
 title-block-banner: featured.jpg
-title-block-banner-color: "rgba(0, 0, 0, 0.8)"
+title-block-banner-color: "rgba(0,38,66,0.75)"
 title-block-style: default
+draft: false
 ---
 
 ```{r setup, include=FALSE}
@@ -108,8 +105,10 @@ theme_set(theme_minimal() +
     legend.position = "bottom"
   ))
 
-output_dir <- paste0("Stratified_Diffusion_Analysis_", Sys.Date())
-if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
+# --- MODIFICACIÓN ---
+# Se comenta la creación de directorios, ya que no se guardará ningún resultado.
+# output_dir <- paste0("Stratified_Diffusion_Analysis_", Sys.Date())
+# if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
 
 comma <- function(x) format(x, big.mark = ",", scientific = FALSE)
 ```
@@ -117,49 +116,27 @@ comma <- function(x) format(x, big.mark = ",", scientific = FALSE)
 ## Data Preparation
 
 ```{r data-preparation}
-data_path <- "C:/Users/qramo/Downloads/all_events_final_enriched.RData"
+# --- MODIFICACIÓN ---
+# Se define la ruta completa y directa a tu archivo de datos local.
+# Asegúrate de que esta ruta sea correcta en tu sistema.
+data_path <- "/home/rober/Descargas/all_events_final_enriched.RData"
 
+# Se verifica si el archivo existe en la ruta especificada.
 if (file.exists(data_path)) {
+  # Si existe, se carga el archivo.
   load(data_path)
   
+  # Se asume que el objeto dentro del archivo .RData se llama 'all_events_final_enriched'.
+  # Si tiene otro nombre, debes cambiarlo en la línea de abajo.
   if (exists("all_events_final_enriched")) {
     data_for_models <- all_events_final_enriched
-  } else if (exists("data_for_models")) {
-    data_for_models <- data_for_models
   } else {
-    loaded_objects <- ls()
-    data_objects <- loaded_objects[sapply(loaded_objects, function(x) {
-      obj <- get(x)
-      (is.data.table(obj) || is.data.frame(obj)) && nrow(obj) > 1000
-    })]
-    
-    if (length(data_objects) > 0) {
-      data_for_models <- get(data_objects[1])
-    } else {
-      stop("No suitable data object found in loaded file")
-    }
+    # Si el archivo .RData no contiene el objeto esperado, se detiene con un error claro.
+    stop("ERROR: El archivo de datos se cargó, pero no contiene el objeto 'all_events_final_enriched'.")
   }
 } else {
-  if (exists("all_events_final_enriched", envir = .GlobalEnv)) {
-    data_for_models <- get("all_events_final_enriched", envir = .GlobalEnv)
-  } else if (exists("data_for_models", envir = .GlobalEnv)) {
-    data_for_models <- get("data_for_models", envir = .GlobalEnv)
-  } else {
-    env_objects <- ls(envir = .GlobalEnv)
-    suitable_objects <- env_objects[sapply(env_objects, function(x) {
-      obj <- get(x, envir = .GlobalEnv)
-      (is.data.table(obj) || is.data.frame(obj)) && 
-      "diffusion" %in% names(obj) && 
-      "structural_distance" %in% names(obj) &&
-      nrow(obj) > 1000
-    })]
-    
-    if (length(suitable_objects) > 0) {
-      data_for_models <- get(suitable_objects[1], envir = .GlobalEnv)
-    } else {
-      stop("No suitable data found. Please ensure data is loaded.")
-    }
-  }
+  # Si el archivo no se encuentra en la ruta, se detiene la ejecución con un error claro.
+  stop(paste("ERROR: No se pudo encontrar el archivo de datos en la ruta:", data_path))
 }
 ```
 
@@ -233,7 +210,7 @@ if ("LouvainC_1" %in% unique_skill_groups && "LouvainC_2" %in% unique_skill_grou
 } else {
   set.seed(42)
   generalized_data[, content_type := sample(c("status_enhancing", "status_constraining"), 
-                                           .N, replace = TRUE, prob = c(0.6, 0.4))]
+                                             .N, replace = TRUE, prob = c(0.6, 0.4))]
 }
 
 wage_cols <- c("wage_diff_abs", "wage_gap", "wage_difference", "wage_dist")
@@ -473,8 +450,10 @@ p_main <- ggplot(stratified_predictions, aes(x = status_gap, y = probability, co
 
 print(p_main)
 
-ggsave(file.path(output_dir, "asymmetric_trajectory_channeling.png"), 
-       p_main, width = 14, height = 10, dpi = 300, bg = "white")
+# --- MODIFICACIÓN ---
+# Se comenta la línea que guarda el gráfico para no crear archivos locales.
+# ggsave(file.path(output_dir, "asymmetric_trajectory_channeling.png"), 
+#        p_main, width = 14, height = 10, dpi = 300, bg = "white")
 ```
 
 **Figure 1: Asymmetric Trajectory Channeling in U.S. Labor Markets**
@@ -556,8 +535,10 @@ combined_plot <- p_penalty / p_content_specific +
 
 print(combined_plot)
 
-ggsave(file.path(output_dir, "decomposition_universal_vs_content_specific.png"), 
-       combined_plot, width = 12, height = 10, dpi = 300, bg = "white")
+# --- MODIFICACIÓN ---
+# Se comenta la línea que guarda el gráfico combinado.
+# ggsave(file.path(output_dir, "decomposition_universal_vs_content_specific.png"), 
+#        combined_plot, width = 12, height = 10, dpi = 300, bg = "white")
 ```
 
 # Discussion: The Stratification Engine
@@ -571,36 +552,39 @@ Our empirical results provide robust evidence that the process of **Asymmetric T
 This reframes stratification as an active, demand-side process. Inequality is not just a result of workers' attributes but is continuously reproduced by the filtering rules employers use when they imitate skill requirements. The destiny of a worker is thus tied not just to the skills they possess, but to the mobility regime those skills inhabit.
 
 ```{r save-results}
-stratified_diffusion_results <- list(
-  data = generalized_data,
-  models = list(
-    homogeneous = model_homogeneous,
-    stratified = model_stratified
-  ),
-  parameters = list(
-    homogeneous = params_homogeneous,
-    stratified = params_stratified
-  ),
-  predictions = stratified_predictions,
-  penalty_effects = penalty_data,
-  statistical_tests = list(
-    lr_test = lr_test,
-    aic_comparison = aic_comparison,
-    bic_comparison = bic_comparison
-  ),
-  interpretation = list(
-    gamma_cognitive = gamma_status_enhancing,
-    gamma_physical = gamma_status_constraining,
-    stratification_intensity = params_stratified$delta_hat,
-    effect_size = effect_size
-  ),
-  plots = list(
-    main_trajectory_channeling = p_main,
-    decomposition = combined_plot
-  )
-)
+# --- MODIFICACIÓN ---
+# Se comenta todo el bloque para no guardar el archivo .rds con los resultados.
 
-saveRDS(stratified_diffusion_results, file.path(output_dir, "stratified_diffusion_complete_results.rds"))
+# stratified_diffusion_results <- list(
+#   data = generalized_data,
+#   models = list(
+#     homogeneous = model_homogeneous,
+#     stratified = model_stratified
+#   ),
+#   parameters = list(
+#     homogeneous = params_homogeneous,
+#     stratified = params_stratified
+#   ),
+#   predictions = stratified_predictions,
+#   penalty_effects = penalty_data,
+#   statistical_tests = list(
+#     lr_test = lr_test,
+#     aic_comparison = aic_comparison,
+#     bic_comparison = bic_comparison
+#   ),
+#   interpretation = list(
+#     gamma_cognitive = gamma_status_enhancing,
+#     gamma_physical = gamma_status_constraining,
+#     stratification_intensity = params_stratified$delta_hat,
+#     effect_size = effect_size
+#   ),
+#   plots = list(
+#     main_trajectory_channeling = p_main,
+#     decomposition = combined_plot
+#   )
+# )
+# 
+# saveRDS(stratified_diffusion_results, file.path(output_dir, "stratified_diffusion_complete_results.rds"))
 ```
 
 # Conclusions and Future Directions
@@ -611,7 +595,6 @@ This demand-side perspective has significant policy implications, shifting the f
 
 Future research should examine the temporal dynamics of these diffusion patterns, test our framework in different institutional contexts, and further unpack the specific organizational routines and cognitive biases that underlie employers' imitative decisions. It would also be fruitful to explore how the stratification mechanisms we identify interact with other network processes, such as the "Trojan horse" mechanisms that have been shown to reduce segregation in other contexts [@arvidsson_trojan-horse_2021]. Our research demonstrates that labor market polarization is an actively maintained outcome of structured diffusion processes. Understanding and reshaping these pathways is a critical frontier for addressing contemporary economic inequality.
 
----
+
 
 **Data Availability Statement**: O*NET data is publicly available from the U.S. Department of Labor.
-
