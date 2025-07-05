@@ -1,35 +1,27 @@
 ---
 title: "Structurally Conditioned Diffusion: A Generalized Framework for Asymmetric Trajectory Channeling in Labor Markets"
-subtitle: "Integrating Diffusion Theory with Empirical Analysis of U.S. Skills Data (2015-2023)"
+subtitle: "Integrating Piecewise Diffusion Theory with Empirical Analysis of U.S. Skills Data (2015-2023)"
 author: 
   - name: "Roberto Cantillan & Mauricio Bucca"
     affiliations: 
         - name: "Department of Sociology, PUC"
           address: "Santiago, Chile"
 
-format: 
-  html:
-    toc: true
-    toc-depth: 3
-    number-sections: true
-    code-fold: false
-    fig-width: 12
-    fig-height: 8
-    embed-resources: true
-website-url: "https://rcantillan.github.io/blog/posts/09-skill_diffusion/"
 date: today
 bibliography: paper_skills_diffusion.bib
 bibliographystyle: apa
 categories:
   - R
   - Diffusion Theory
-  - Labor markets
+  - Polarization
+  - Stratification 
+  - Inequality
+  - Labor Markets
  
 image: "featured.jpg"
 title-block-banner: featured.jpg
-title-block-banner-color: "rgba(0,38,66,0.75)"
+title-block-banner-color: "rgba(0, 0, 0, 0.8)"
 title-block-style: default
-draft: false
 ---
 
 ```{r setup, include=FALSE}
@@ -45,41 +37,106 @@ knitr::opts_chunk$set(
 
 # Introduction: From Employer Decisions to Labor Market Structure
 
-The polarization of the U.S. labor market is not a static feature but an actively reproduced outcome. Its foundations lie in the everyday decisions of employers within firms who determine which skills to demand for the occupations they manage. Foundational studies have demonstrated that the landscape of skills is itself starkly polarized into two distinct domains—a socio-cognitive cluster associated with high wages and a sensory-physical one with low wages [@alabdulkareem_unpacking_2018]—and that this space has a nested, hierarchical architecture [@hosseinioun_skill_2025]. This structural view aligns with recent findings in intergenerational mobility research, which conceptualize occupations not as monolithic categories, but as complex bundles of gradational characteristics, where it is often the underlying traits, rather than the job title itself, that are transmitted across generations [@york_gradationalism_2025].
+The architecture of inequality in the U.S. labor market is not a static blueprint but an actively reproduced, dynamic process. Its foundations lie in the everyday decisions of **employers within organizations**, who determine which skill requirements to establish for the occupations they manage. Foundational studies have demonstrated that the skill landscape itself is starkly polarized into two distinct domains—a socio-cognitive cluster associated with high wages and a sensory-physical one with low wages [@alabdulkareem_unpacking_2018]—and that this space has a nested, hierarchical architecture [@hosseinioun_skill_2025]. This structural view aligns with recent findings in intergenerational mobility research, which conceptualize occupations not as monolithic categories but as complex bundles of gradational characteristics, where it is often the underlying traits, rather than the job title itself, that are transmitted across generations [@york_gradationalism_2025].
 
-Faced with uncertainty about which skills will maximize productivity or prestige, employers often look to the practices of other, similar occupations for guidance. They engage in a process of social learning and imitation. However, we argue this imitation is not random. It is governed by a powerful, yet poorly understood, mechanism of asymmetric filtering: the very nature of a skill—whether it is cognitive or physical—fundamentally alters the pathways it can travel across the occupational status hierarchy. The cumulative result of thousands of these guided, micro-level imitation decisions by employers is a macro-level process we term **Asymmetric Trajectory Channeling**. This process actively sorts skills into divergent mobility paths—an upward "escalator" for cognitive skills and a "containment field" for physical ones—thus deepening labor market stratification from the demand side.
+Faced with uncertainty about which skill requirements will maximize productivity or prestige, employers often look to the practices of **other organizations** for guidance. They engage in a process of social learning and imitation, observing how similar organizations define skill requirements for comparable occupations. However, we argue this imitation is not random. It is governed by a powerful, yet poorly understood, mechanism of asymmetric filtering based on the **cultural theorization** of the skill itself. The nature of a skill—how it is socially interpreted and valued—fundamentally alters the pathways it can travel across the occupational status hierarchy as organizations adopt and adapt these requirements.
 
-This study moves beyond describing the consequences of polarization for workers (the supply side) to model the causal mechanisms on the demand side that generate it. By focusing on the rules that guide employer imitation, we explain how structural inequality is not merely a state, but an emergent process reproduced from the ground up.
+The cumulative result of thousands of these guided, micro-level imitation decisions is a macro-level process we term **Asymmetric Trajectory Channeling**. This process actively sorts skills into divergent mobility paths—an upward "escalator" for cognitive skills and a "containment field" for physical ones—thus deepening labor market stratification from the demand side.
 
-# Theoretical Foundations: Modeling Employer Imitation
+This study moves beyond describing the consequences of polarization for workers (the supply side) to model the causal mechanisms on the demand side that generate it. By focusing on the rules that guide employer imitation **between organizations**, we explain how structural inequality is not merely a state, but an emergent process reproduced from the ground up through organizational decision-making.
 
-To formalize the decision-making process of an employer, we draw on and extend modern diffusion theory. While early studies of diffusion often focused on the spread of a single practice [@strang_diffusion_1998], contemporary approaches increasingly recognize that diffusion processes are fundamentally heterogeneous and structured. We build on this by proposing a model centered on the employer of a target occupation $j$ who considers adopting a skill $k$ by imitating a source occupation $i$.
+# Theoretical Foundations: From Mimicry to Meaning
 
-We propose that the employer's decision is guided by three core mechanisms:
+Early studies of diffusion often focused on the spread of a single innovation through a homogenous population. More recent work, however, recognizes that diffusion is fundamentally structured by networks and heterogeneity. Practices do not diffuse randomly or uniformly; they follow patterned trajectories shaped by organizational, cultural, and institutional constraints [@strang_diffusion_1998].
 
-**Proximity Constraint**: An employer is more likely to imitate occupations that are structurally close to their own. As Hedström [-@hedstrom_contagious_1994] argues in his analysis of trade union diffusion, social influence is not random but is channeled through pre-existing networks, for which spatial or structural proximity serves as a powerful proxy. The influence of distant or dissimilar occupations is weaker.
+## The Micro-Foundations of Imitation
 
-**Universal Status Penalty**: Imitating skills from occupations with a very different status level—either higher or lower—is generally met with institutional friction. This reflects general barriers, like credentialing or cultural norms, that create a symmetric resistance to mobility across steep hierarchical divides [@strang_spatial_1993].
+We extend this insight by arguing that **employers imitate skill requirements according to fundamentally different logics depending on the type of skill in question**. To understand why, we must first examine the micro-foundations of organizational imitation. The literature suggests three key mechanisms that drive one organization to adopt the practices of another:
 
-**Content-Specific Directional Bias**: This is our key theoretical innovation. We argue that the decision to imitate is filtered asymmetrically based on the skill's content. Under conditions of uncertainty, employers often turn to "success stories" as templates for action [@strang_search_2001]. However, we posit that the perceived value of these success stories is not uniform. Global diffusion studies show that imitation is often driven by prestige, creating strong directional biases [@bail_prestige_2019]. We extend this insight by arguing that this bias is content-specific. The type of skill being considered—whether it is cognitive or physical—determines its perceived appropriateness for upward or downward mobility. This aligns with recent findings that different types of cultural content follow distinct diffusion pathways [@wimmer_diffusion_2025].
+1.  **Uncertainty and Bounded Rationality:** Under conditions of uncertainty about the relationship between means and ends, organizations often imitate others as a decision-making shortcut. Rather than calculating an optimal solution from scratch, imitation offers a viable solution with reduced search costs [@cyert_behavioral_2006; @dimaggio_iron_1983].
 
-While we employ a binary classification (cognitive vs. physical) for analytical clarity, we conceptualize these skill types as capturing broader, multidimensional profiles of occupational characteristics. Research on intergenerational mobility shows that what is often transmitted between generations is not a specific job title but a bundle of underlying traits, values, and work styles [@york_gradationalism_2025]. Thus, when an employer imitates a "skill," they are effectively adopting a piece of a larger, desirable occupational profile.
+2.  **Prestige and Status-Seeking:** Imitation is not just a response to uncertainty, but also a strategy to gain legitimacy and status. Organizations do not imitate just anyone; they emulate those they perceive to be more successful or prestigious [@strang_search_2001; @bail_prestige_2019]. This process of "adaptive emulation" [@strang_search_2001], driven by "success stories," creates an inherent directional bias in diffusion, where practices flow from high-status to low-status actors.
 
-This leads to our **Generalized Stratified Diffusion Model**. The probability of an employer for occupation $j$ adopting skill $k$ from occupation $i$ is:
+3.  **Proximity and Network Structure:** Influence is not global but is channeled through social and structural networks. The likelihood that one organization imitates another is strongly conditioned by proximity, whether geographic, social, or cultural [@hedstrom_contagious_1994; @strang_spatial_1993]. Actors are more influenced by their peers, direct competitors, or those with whom they maintain dense relationships.
 
-$$P_{i \to j}^{(k)} = \alpha \cdot \exp(-\lambda d_{ij}) \cdot \exp\left(-\beta|s_j - s_i| - \gamma_k(s_j - s_i)\right)$$
+## A Dual-Process Theory of Skill Diffusion: The Role of Theorization
 
-The critical innovation lies in modeling the content-specific directional bias, $\gamma_k$, as:
+Our key theoretical innovation is that the **content** of a skill—how it is culturally **theorized** [@strang_institutional_1993]—determines which of these micro-foundations becomes dominant. We argue that organizations filter and evaluate potential practices through two qualitatively different diffusion logics:
 
-$$\gamma_k = \gamma_0 + \delta \cdot \tau_k$$
+* **Cognitive Skills as Portable Assets:** Cognitive skills (analytical, interpersonal, managerial) are theorized as **nested capabilities**: they are abstract, broadly applicable, and perceived as portable assets associated with growth, learning, and adaptability. Under uncertainty, employers look toward **prestigious exemplars** [@strang_learning_2010] that signal success and modernity. As a result, the diffusion of cognitive skills is driven primarily by **aspirational emulation**. They tend to diffuse **upward** through the occupational status hierarchy as organizations seek to imitate their high-status peers.
 
-Here, $\tau_k$ is the content-type index (e.g., -1 for cognitive, +1 for physical), and our key parameter, $\delta$, captures the **stratification intensity**. A significant $\delta$ would mean that employers systematically favor cognitive skills for upward mobility while containing physical skills, thus providing a direct test of our core mechanism.
+* **Physical Skills as Context-Dependent Competencies:** In contrast, physical skills (manual, motor) are theorized as **context-dependent competencies**: they are tied to specific material settings, bodily execution, and legacy institutional constraints. They are less likely to be read as generalizable templates for upward mobility. Instead, their diffusion is based on functional rather than aspirational considerations. Therefore, the diffusion of physical skills is governed mainly by **proximity and functional need**, showing less directional bias or even **containment effects** within their current status segments.
 
-The logit transformation yields our estimable model. To properly analyze the temporal dynamics of skill adoption and the interdependencies between events, we situate our model within an event history framework, a method well-suited for adding social structure to diffusion models [@strang_adding_1991]:
+This bifurcation in diffusion logics is what we call **Asymmetric Trajectory Channeling**. While our model, for analytical clarity, uses a binary distinction, we treat skills as **multidimensional bundles** of traits, values, and dispositions [@york_gradationalism_2025]. Employers imitate not just individual skills, but **pieces of occupational identity**.
 
-$$\text{logit } P_{ij}^{(k)} = \theta_0 - \lambda d_{ij} - \beta|s_j - s_i| - \gamma_0(s_j - s_i) - \delta \cdot \tau_k \cdot (s_j - s_i)$$
+## Piecewise Dual Process Diffusion Model
 
-The **stratification interaction term**, $\delta \cdot \tau_k \cdot (s_j - s_i)$, allows us to directly measure the micro-level mechanism of asymmetric filtering that we propose as the engine of macro-level inequality.
+To formalize these dynamics while avoiding multicollinearity issues, we model the **probability** ($P_{i \to j}^{(c)}$) that an employer, managing a target occupation $j$, adopts a skill of class $c$ by imitating a requirement from a source occupation $i$. This decision is embedded in the macro-level structure of the occupational space.
+
+### Mathematical Formulation
+
+We define two **non-overlapping** directional status variables that completely separate upward and downward mobility:
+
+$$
+\Delta^+_{ij} = \max(0, s_j - s_i) \quad \text{(upward status shift)}
+$$
+
+$$
+\Delta^-_{ij} = \max(0, s_i - s_j) \quad \text{(downward status shift)}
+$$
+
+The structural form of our **Piecewise Dual Process Model** expresses the diffusion likelihood as:
+
+$$
+\text{logit}\, P_{i \to j}^{(c)} = \theta_{0c} - \lambda_c d_{ij} - \beta_c^+ \Delta^+_{ij} - \beta_c^- \Delta^-_{ij} - \omega_c w_{ij}
+$$
+
+Where:
+- $\theta_{0c}$: baseline propensity to adopt skill class $c$
+- $\lambda_c$: structural distance penalty parameter
+- $\beta_c^+$: penalty (or bonus) per unit **upward** status move
+- $\beta_c^-$: penalty (or bonus) per unit **downward** status move
+- $\omega_c$: coefficient for wage gap control $w_{ij}$
+
+### Advantages of the Piecewise Specification
+
+1.  **Eliminates Multicollinearity**: Unlike models using both $(s_j - s_i)$ and $|s_j - s_i|$, our piecewise variables are mathematically orthogonal since $\Delta^+_{ij} \cdot \Delta^-_{ij} = 0$ always.
+2.  **Direct Asymmetry Testing**: The difference $(\beta_c^+ - \beta_c^-)$ directly measures directional asymmetry without requiring complex transformations.
+3.  **Clear Interpretation**: Each parameter has an unambiguous meaning tied to specific types of status moves.
+
+### Curved Piecewise Extension
+
+For situations where we expect **nonlinear sensitivity** to status differences, the model can be extended to include curvature terms. We estimate a **generalized linear model** with a **Bernoulli likelihood** and **logit link**. The outcome $y_{ij}^{(c)} \in \{0, 1\}$ indicates whether occupation $j$ adopts a skill of class $c$ from occupation $i$:
+
+$$
+y_{ij}^{(c)} \sim \text{Bernoulli}(p_{ij}^{(c)}), \quad \text{logit}(p_{ij}^{(c)}) = \eta_{ij}^{(c)}
+$$
+
+The predictor is a **second-order polynomial expansion** of upward and downward status gaps:
+
+$$
+\eta_{ij}^{(c)} =
+\theta_{0c}
+- \lambda_c d_{ij}
+- \beta_{1c}^+ \Delta^+_{ij}
+- \beta_{2c}^+ (\Delta^+_{ij})^2
+- \beta_{1c}^- \Delta^-_{ij}
+- \beta_{2c}^- (\Delta^-_{ij})^2
+$$
+
+### Prior Choices: Rationale
+
+| Parameter | Description | Prior | Justification |
+|---|---|---|---|
+| $\theta_{0c}$ (intercept) | Baseline adoption tendency | `normal(0, 5)` | Nearly uninformative; wide enough for coverage |
+| $\lambda_c$, $\beta_{1c}^{\pm}$ | Main distance and status slope terms | `normal(0, 1)` | Weakly informative; encourages shrinkage |
+| $\beta_{2c}^{\pm}$ | Curvature terms (quadratic effects) | `double_exponential(0, 0.5)`| **Lasso-type prior** to enable variable selection |
+
+The **double-exponential (or Laplace) prior** places more mass near 0 than the normal, encouraging sparsity in curvature terms (i.e., it can shrink them toward zero). This is helpful if you're unsure whether curvature is really needed.
+
+
+![](plot_intro.png)
+
 
 # Empirical Analysis
 
@@ -96,77 +153,114 @@ suppressPackageStartupMessages({
   library(lmtest)
   library(knitr)
   library(patchwork)
+  library(tidyr)
+  library(ggrepel)
+  library(viridis)
+  library(RColorBrewer)
+  library(ggtext)
+  library(brms)
 })
 
-theme_set(theme_minimal() + 
-  theme(
-    plot.title = element_text(size = rel(1.3), face = "bold", hjust = 0.5),
-    plot.subtitle = element_text(size = rel(1.1), hjust = 0.5),
-    legend.position = "bottom"
-  ))
+# Custom theme for a professional, academic look
+theme_paper <- function(base_size = 15, base_family = "sans") { 
+  theme_minimal(base_size = base_size, base_family = base_family) +
+    theme(
+      text = element_text(color = "grey20"),
+      plot.title = element_text(size = rel(1.6), face = "bold", hjust = 0.5, margin = margin(b = 15), family = base_family), 
+      plot.subtitle = element_markdown(size = rel(1.1), color = "grey40", hjust = 0.5, margin = margin(b = 15), lineheight = 1.2), 
+      plot.caption = element_text(size = rel(0.9), color = "grey50", hjust = 1, margin = margin(t = 12)), 
+      axis.title = element_text(size = rel(1.25), face = "bold", color = "grey30"), 
+      axis.text = element_text(size = rel(1.1), color = "grey40"), 
+      axis.line = element_line(color = "grey80", linewidth = 0.6),
+      panel.grid.major = element_line(color = "grey93", linewidth = 0.3),
+      panel.grid.minor = element_blank(),
+      panel.border = element_blank(),
+      panel.background = element_rect(fill = "white", color = NA),
+      plot.background = element_rect(fill = "white", color = NA),
+      legend.title = element_text(size = rel(1.15), face = "bold"), 
+      legend.text = element_text(size = rel(1.05)), 
+      legend.background = element_rect(fill = "white", color = "grey90"),
+      legend.key = element_rect(fill = "white", color = NA),
+      strip.text = element_text(size = rel(1.25), face = "bold", color = "grey20"), 
+      strip.background = element_rect(fill = "grey97", color = "grey80")
+    )
+}
+theme_set(theme_paper())
 
-# --- MODIFICACIÓN ---
-# Se comenta la creación de directorios, ya que no se guardará ningún resultado.
-# output_dir <- paste0("Stratified_Diffusion_Analysis_", Sys.Date())
-# if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
+# Define a consistent color palette
+color_palette <- c("Socio-cognitive" = "#0072B2", "Socio-technical" = "#D55E00")
+
+output_dir <- paste0("Stratified_Diffusion_Analysis_", Sys.Date())
+if (!dir.exists(output_dir)) dir.create(output_dir, recursive = TRUE)
 
 comma <- function(x) format(x, big.mark = ",", scientific = FALSE)
 ```
 
-## Data Preparation
+## Data Preparation 
 
 ```{r data-preparation}
-# --- MODIFICACIÓN ---
-# Se define la ruta completa y directa a tu archivo de datos local.
-# Asegúrate de que esta ruta sea correcta en tu sistema.
-data_path <- "/home/rober/Descargas/all_events_final_enriched.RData"
-
-# Se verifica si el archivo existe en la ruta especificada.
-if (file.exists(data_path)) {
-  # Si existe, se carga el archivo.
-  load(data_path)
-  
-  # Se asume que el objeto dentro del archivo .RData se llama 'all_events_final_enriched'.
-  # Si tiene otro nombre, debes cambiarlo en la línea de abajo.
-  if (exists("all_events_final_enriched")) {
-    data_for_models <- all_events_final_enriched
+# Robust data loading function
+load_and_prepare_data <- function() {
+  data_path <- "/home/rober/Descargas/all_events_final_enriched.RData"
+ 
+  if (file.exists(data_path)) {
+    load(data_path)
+    if (exists("all_events_final_enriched")) {
+      data_for_models <- all_events_final_enriched
+      message("Successfully loaded 'all_events_final_enriched'.")
+    } else {
+      message("Warning: 'all_events_final_enriched' not found. Searching for another suitable data object.")
+      all_objs <- ls()
+      suitable_objects <- all_objs[sapply(all_objs, function(x) {
+        obj <- get(x)
+        (is.data.frame(obj) || is.data.table(obj)) && nrow(obj) > 1000
+      })]
+      if (length(suitable_objects) > 0) {
+        data_for_models <- get(suitable_objects[1])
+        message(paste("Using fallback data object:", suitable_objects[1]))
+      } else {
+        stop("No suitable data object found.")
+      }
+    }
   } else {
-    # Si el archivo .RData no contiene el objeto esperado, se detiene con un error claro.
-    stop("ERROR: El archivo de datos se cargó, pero no contiene el objeto 'all_events_final_enriched'.")
+    stop(paste("Data file not found at path:", data_path))
   }
-} else {
-  # Si el archivo no se encuentra en la ruta, se detiene la ejecución con un error claro.
-  stop(paste("ERROR: No se pudo encontrar el archivo de datos en la ruta:", data_path))
+ 
+  return(data_for_models)
 }
+
+# Load data
+data_for_models <- load_and_prepare_data()
 ```
 
 ## Variable Construction
 
 ```{r variable-construction}
+# Robust variable mapping
 available_cols <- names(data_for_models)
 
 required_mapping <- list(
   diffusion = c("diffusion", "adopt", "adoption", "outcome"),
   structural_distance = c("structural_distance", "dist", "distance", "d_ij"),
-  education_diff_abs = c("education_diff_abs", "edu_diff", "status_gap", "educ_diff"),
-  skill_group = c("skill_group_for_model", "skill_group", "cluster", "group", "LouvainCluster_2015")
+  status_diff = c("status_gap_signed", "education_diff", "status_diff", "education_diff_abs", "edu_diff", "status_gap"),
+  wage_diff = c("wage_gap", "wage_diff", "wage_distance"),
+  skill_group = c("skill_group_for_model", "skill_group", "cluster", "group", "LeidenCluster_2015", "skill_cluster_type"),
+  source_education = c("source_education", "edu_i", "source_edu", "soc_source", "education_source"),
+  target_education = c("target_education", "edu_j", "target_edu", "soc_target", "education_target"),
+  source_wage = c("source_wage", "wage_i", "wage_source"),
+  target_wage = c("target_wage", "wage_j", "wage_target")
 )
 
-column_matches <- list()
-for (req_name in names(required_mapping)) {
-  possible_names <- required_mapping[[req_name]]
-  found_col <- possible_names[possible_names %in% available_cols]
-  
-  if (length(found_col) > 0) {
-    column_matches[[req_name]] <- found_col[1]
-  }
-}
+column_matches <- sapply(required_mapping, function(p_names) {
+  found <- intersect(p_names, available_cols)
+  if (length(found) > 0) found[1] else NA_character_
+})
 
-min_required <- c("diffusion", "structural_distance", "education_diff_abs", "skill_group")
-missing_critical <- min_required[!min_required %in% names(column_matches)]
-
-if (length(missing_critical) > 0) {
-  stop("Critical columns missing. Please ensure required columns are available.")
+# Check for essential columns
+essential_cols <- c("diffusion", "structural_distance", "status_diff", "skill_group")
+if (any(is.na(column_matches[essential_cols]))) {
+  missing_essentials <- names(column_matches[essential_cols][is.na(column_matches[essential_cols])])
+  stop(paste("Missing essential columns for model:", paste(missing_essentials, collapse=", ")))
 }
 
 if (!is.data.table(data_for_models)) {
@@ -175,426 +269,781 @@ if (!is.data.table(data_for_models)) {
 
 generalized_data <- copy(data_for_models)
 
-diffusion_col <- column_matches$diffusion
-distance_col <- column_matches$structural_distance  
-education_col <- column_matches$education_diff_abs
-skill_group_col <- column_matches$skill_group
-
+# Create variables for the model
 generalized_data[, `:=`(
-  diffusion = get(diffusion_col),
-  d_ij = get(distance_col),
-  education_diff_abs = get(education_col),
-  skill_group_for_model = get(skill_group_col),
-  status_gap_magnitude = abs(get(education_col)),
-  status_gap_signed = get(education_col)
+  diffusion = as.numeric(get(column_matches[["diffusion"]])),
+  d_ij = as.numeric(get(column_matches[["structural_distance"]])),
+  status_gap_signed = as.numeric(get(column_matches[["status_diff"]])),
+  skill_group_for_model = as.character(get(column_matches[["skill_group"]]))
 )]
 
-unique_skill_groups <- unique(generalized_data$skill_group_for_model)
+# Create piecewise variables
+generalized_data[, `:=`(
+  delta_up = pmax(0, status_gap_signed),      # Δ⁺: upward movements
+  delta_down = pmax(0, -status_gap_signed),  # Δ⁻: downward movements
+  status_gap_magnitude = abs(status_gap_signed)  # Keep for compatibility
+)]
 
-if ("LouvainC_1" %in% unique_skill_groups && "LouvainC_2" %in% unique_skill_groups) {
-  generalized_data[, content_type := case_when(
-    skill_group_for_model == "LouvainC_1" ~ "status_enhancing",
-    skill_group_for_model == "LouvainC_2" ~ "status_constraining", 
-    TRUE ~ "other"
-  )]
-} else if (length(unique_skill_groups) >= 2) {
-  groups_sorted <- sort(unique_skill_groups)
-  enhancing_groups <- groups_sorted[1:(length(groups_sorted) %/% 2)]
-  constraining_groups <- groups_sorted[(length(groups_sorted) %/% 2 + 1):length(groups_sorted)]
-  
-  generalized_data[, content_type := case_when(
-    skill_group_for_model %in% enhancing_groups ~ "status_enhancing",
-    skill_group_for_model %in% constraining_groups ~ "status_constraining",
-    TRUE ~ "other"
-  )]
+# Handle wage_gap column
+if ("wage_diff_abs" %in% names(generalized_data)) {
+  generalized_data[, wage_gap := as.numeric(wage_diff_abs)]
+  message("Using 'wage_diff_abs' for wage_gap.")
+} else if (!is.na(column_matches[["wage_diff"]])) {
+  generalized_data[, wage_gap := as.numeric(get(column_matches[["wage_diff"]]))]
 } else {
-  set.seed(42)
-  generalized_data[, content_type := sample(c("status_enhancing", "status_constraining"), 
-                                             .N, replace = TRUE, prob = c(0.6, 0.4))]
-}
-
-wage_cols <- c("wage_diff_abs", "wage_gap", "wage_difference", "wage_dist")
-wage_col_found <- wage_cols[wage_cols %in% names(generalized_data)]
-
-if (length(wage_col_found) > 0) {
-  generalized_data[, wage_gap := get(wage_col_found[1])]
-} else {
+  message("Warning: 'wage_diff' column not found. Creating a dummy 'wage_gap' column.")
   generalized_data[, wage_gap := 0]
 }
 
-generalized_data[, content_type_index := case_when(
-  content_type == "status_enhancing" ~ -1,
-  content_type == "status_constraining" ~ +1,
-  TRUE ~ 0
-)]
+# Add source/target variables
+if (all(c("source_Edu_Score_Weighted", "target_Edu_Score_Weighted") %in% names(generalized_data))) {
+  generalized_data[, source_edu := as.numeric(source_Edu_Score_Weighted)]
+  generalized_data[, target_edu := as.numeric(target_Edu_Score_Weighted)]
+  message("Using 'source_Edu_Score_Weighted' and 'target_Edu_Score_Weighted' for education variables.")
+}
 
-generalized_data[, stratification_interaction := content_type_index * status_gap_signed]
+if (all(c("source_Median_Wage_2015", "target_Median_Wage_2023") %in% names(generalized_data))) {
+  generalized_data[, source_wage := as.numeric(source_Median_Wage_2015)]
+  generalized_data[, target_wage := as.numeric(target_Median_Wage_2023)]
+  message("Using 'source_Median_Wage_2015' and 'target_Median_Wage_2023' for wage variables.")
+}
 
-generalized_data <- generalized_data[content_type %in% c("status_enhancing", "status_constraining")]
-generalized_data <- na.omit(generalized_data)
+# Assign content type based on skill group
+if ("LeidenCluster_2015" %in% names(generalized_data)) {
+    message("Applying specific corrections to 'LeidenCluster_2015' as per original script.")
+    generalized_data[, LeidenCluster_2015 := as.character(LeidenCluster_2015)]
+    generalized_data[LeidenCluster_2015 == "NoCluster_2015", LeidenCluster_2015 := "LeidenC_1"]
+    generalized_data <- generalized_data[LeidenCluster_2015 %in% c("LeidenC_1", "LeidenC_2")]
+    generalized_data[, content_type := fifelse(LeidenCluster_2015 == "LeidenC_1", "Socio-cognitive", "Socio-technical")]
+} else {
+    message("Warning: 'LeidenCluster_2015' not found. Using generic classification.")
+    unique_skill_groups <- unique(generalized_data$skill_group_for_model)
+    set.seed(42)
+    groups_sorted <- sort(unique_skill_groups)
+    enhancing_groups <- head(groups_sorted, length(groups_sorted) / 2)
+    generalized_data[, content_type := fifelse(skill_group_for_model %in% enhancing_groups, 
+                                                "Socio-cognitive", "Socio-technical")]
+}
+
+# Final data cleaning
+generalized_data <- generalized_data[!is.na(content_type)]
+generalized_data <- na.omit(generalized_data, 
+                                cols = c("diffusion", "d_ij", "delta_up", "delta_down", "wage_gap"))
+
+# Verify piecewise variables
+message(sprintf("Created piecewise variables: delta_up (mean=%.3f), delta_down (mean=%.3f)", 
+                mean(generalized_data$delta_up), mean(generalized_data$delta_down)))
+
+# Fragment data
+cognitive_data <- generalized_data[content_type == "Socio-cognitive"]
+physical_data <- generalized_data[content_type == "Socio-technical"]
 ```
 
 ## Descriptive Analysis
 
-```{r descriptive-stats}
+```{r descriptive-stats-table}
 desc_stats <- generalized_data[, .(
   N = comma(.N),
   Diffusion_Rate = sprintf("%.1f%%", mean(diffusion, na.rm = TRUE) * 100),
   Mean_Distance = sprintf("%.3f", mean(d_ij, na.rm = TRUE)),
-  Mean_Status_Gap = sprintf("%.3f", mean(abs(status_gap_signed), na.rm = TRUE)),
-  Upward_Diffusion = sprintf("%.1f%%", mean(diffusion[status_gap_signed > 0], na.rm = TRUE) * 100),
-  Downward_Diffusion = sprintf("%.1f%%", mean(diffusion[status_gap_signed < 0], na.rm = TRUE) * 100)
+  Mean_Upward_Shift = sprintf("%.3f", mean(delta_up, na.rm = TRUE)),
+  Mean_Downward_Shift = sprintf("%.3f", mean(delta_down, na.rm = TRUE)),
+  Upward_Diffusion_Rate = sprintf("%.1f%%", mean(diffusion[delta_up > 0], na.rm = TRUE) * 100),
+  Downward_Diffusion_Rate = sprintf("%.1f%%", mean(diffusion[delta_down > 0], na.rm = TRUE) * 100)
 ), by = content_type]
 
 kable(desc_stats, 
-      caption = "**Table 1: Descriptive Statistics by Content Type**",
+      caption = "**Table 1: Descriptive Statistics by Skill Content Type**",
       col.names = c("Content Type", "N", "Diffusion Rate", "Mean Distance", 
-                    "Mean Status Gap", "Upward Diffusion", "Downward Diffusion")) %>%
+                    "Mean Δ⁺", "Mean Δ⁻", "Upward Diffusion", "Downward Diffusion")) %>%
   kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE)
 ```
 
-*Status measured by educational attainment differences between occupations*
+**Table 1 Interpretation:** This table summarizes the key variables for the two skill types. We observe that socio-cognitive skills have a slightly higher overall diffusion rate. Notably, for both types, the diffusion rate is higher for upward status shifts (Δ⁺ > 0) than for downward shifts (Δ⁻ > 0), providing initial evidence of an aspirational bias in skill adoption.
+
+## Descriptive Visualizations
+
+```{r plot-functions}
+create_descriptive_coherent_style <- function(data) {
+  
+  # Trabajar con data.table
+  if (!is.data.table(data)) {
+    dt <- as.data.table(data)
+  } else {
+    dt <- copy(data)
+  }
+  
+  # Verificar columnas
+  required_cols <- c("status_gap_signed", "content_type", "diffusion")
+  missing_cols <- required_cols[!required_cols %in% names(dt)]
+  
+  if (length(missing_cols) > 0) {
+    stop("Missing required columns: ", paste(missing_cols, collapse = ", "))
+  }
+  
+  # Crear movement_type
+  dt[, movement_type := fcase(
+    status_gap_signed < -0.5, "Downward",
+    abs(status_gap_signed) <= 0.5, "Lateral",
+    status_gap_signed > 0.5, "Upward",
+    default = NA_character_
+  )]
+  
+  # Filtrar datos válidos
+  dt_clean <- dt[!is.na(movement_type) & !is.na(content_type)]
+  
+  # Calcular estadísticas
+  summary_stats <- dt_clean[, .(
+    diffusion_rate = mean(diffusion, na.rm = TRUE),
+    n = .N
+  ), by = .(movement_type, content_type)]
+  
+  # Calcular intervalos de confianza
+  summary_stats[, `:=`(
+    se = sqrt(diffusion_rate * (1 - diffusion_rate) / n),
+    ci_lower = pmax(0, diffusion_rate - 1.96 * sqrt(diffusion_rate * (1 - diffusion_rate) / n)),
+    ci_upper = pmin(1, diffusion_rate + 1.96 * sqrt(diffusion_rate * (1 - diffusion_rate) / n))
+  )]
+  
+  # Convertir a data.frame y ordenar
+  summary_df <- as.data.frame(summary_stats)
+  summary_df$movement_type <- factor(summary_df$movement_type, 
+    levels = c("Downward", "Lateral", "Upward"))
+  
+  # Mismos colores que el plot de líneas
+  coherent_colors <- c(
+    "Socio-cognitive" = "#1f77b4",  # Azul coherente
+    "Socio-technical" = "#ff7f0e"   # Naranja coherente
+  )
+  
+  # Crear el plot con el mismo estilo
+  p <- ggplot(summary_df, aes(x = movement_type, y = diffusion_rate, fill = content_type)) +
+    
+    # Área sombreada sutil para destacar el escalator effect
+    annotate("rect", xmin = 2.5, xmax = 3.5, ymin = -Inf, ymax = Inf, 
+             fill = "#E8F4FD", alpha = 0.3) +  # Azul muy claro
+    
+    # Barras principales
+    geom_col(position = position_dodge(0.8), 
+             width = 0.7,
+             color = "white", 
+             linewidth = 0.8,
+             alpha = 0.85) +
+    
+    # Barras de error elegantes
+    geom_errorbar(aes(ymin = ci_lower, ymax = ci_upper), 
+                  position = position_dodge(0.8), 
+                  width = 0.25, 
+                  linewidth = 1,
+                  color = "grey40") +
+    
+    # Etiquetas de porcentaje
+    geom_text(aes(label = paste0(round(diffusion_rate * 100, 1), "%")), 
+              position = position_dodge(0.8), 
+              vjust = -0.6, 
+              size = 5, 
+              fontface = "bold",
+              color = "grey20") +
+    
+    # Flecha sutil llamando atención al escalator effect
+    annotate("segment", 
+             x = 2.7, xend = 3.3, 
+             y = 0.42, yend = 0.42, 
+             arrow = arrow(length = unit(0.3, "cm"), type = "closed"), 
+             color = "#1f77b4", 
+             linewidth = 2,
+             alpha = 0.8) +
+    
+    # Texto explicativo sutil
+    annotate("text", 
+             x = 3, y = 0.45, 
+             label = "ESCALATOR\nEFFECT", 
+             color = "#1f77b4", 
+             fontface = "bold", 
+             size = 4, 
+             hjust = 0.5,
+             lineheight = 0.9) +
+    
+    # Escalas coherentes con el estilo
+    scale_fill_manual(values = coherent_colors, name = "Skill Type:") +
+    scale_y_continuous(
+      limits = c(0, 0.5),
+      breaks = seq(0, 0.5, 0.1),
+      expand = expansion(mult = c(0, 0.05)),
+      labels = function(x) paste0(x*100, "%")
+    ) +
+    scale_x_discrete(
+      labels = c("Downward\n(High → Low)", "Lateral\n(Similar Status)", "Upward\n(Low → High)")
+    ) +
+    
+    # Etiquetas coherentes
+    labs(
+      title = "Raw Data Reveals Asymmetric Trajectory Channeling",
+      subtitle = "Descriptive evidence for differential skill mobility patterns by content type",
+      x = "Status Movement Direction",
+      y = "Observed Skill Adoption Rate"
+    ) +
+    
+    # MISMO TEMA que el plot de líneas
+    theme_minimal(base_size = 15) +
+    theme(
+      # Mismo fondo gris
+      plot.background = element_rect(fill = "white", color = NA),
+      panel.background = element_rect(fill = "white", color = NA),
+      
+      # Grid sutil igual al original
+      panel.grid.major = element_line(color = "white", linewidth = 0.6),
+      panel.grid.minor = element_line(color = "white", linewidth = 0.3),
+      
+      # Sin bordes para mantener coherencia
+      panel.border = element_blank(),
+      axis.line = element_line(color = "grey40", linewidth = 0.5),
+      
+      # Títulos coherentes
+      plot.title = element_text(
+        size = 18, 
+        face = "bold", 
+        hjust = 0.5, 
+        color = "grey20",
+        margin = margin(b = 8)
+      ),
+      plot.subtitle = element_text(
+        size = 14, 
+        hjust = 0.5, 
+        color = "grey40",
+        margin = margin(b = 20)
+      ),
+      
+      # Ejes coherentes
+      axis.title.x = element_text(
+        size = 15, 
+        color = "grey30", 
+        margin = margin(t = 10)
+      ),
+      axis.title.y = element_text(
+        size = 15, 
+        color = "grey30", 
+        margin = margin(r = 10)
+      ),
+      axis.text = element_text(
+        size = 15, 
+        color = "grey40"
+      ),
+      axis.ticks = element_line(color = "grey50", linewidth = 0.4),
+      
+      # Leyenda coherente
+      legend.position = "bottom",
+      legend.background = element_rect(fill = "white", color = NA),
+      legend.text = element_text(size = 14, color = "black"),
+      legend.title = element_text(size = 12, face = "bold", color = "black"),
+      legend.key.size = unit(1, "cm"),
+      legend.margin = margin(t = 15),
+      
+      # Márgenes coherentes
+      plot.margin = margin(20, 20, 15, 20)
+    ) +
+    
+    # Guías de leyenda coherentes
+    guides(
+      fill = guide_legend(
+        title.position = "left",
+        nrow = 1,
+        keywidth = unit(1.2, "cm"),
+        keyheight = unit(0.8, "cm")
+      )
+    )
+  
+  return(p)
+}
+
+# Crear el gráfico con estilo coherente
+fig_coherent_bars <- create_descriptive_coherent_style(generalized_data)
+print(fig_coherent_bars)
+```
+
 
 # Model Specification and Estimation
 
-## Theoretical Models
+## Piecewise Dual Process Models
 
 ```{r model-specification}
-formula_homogeneous <- diffusion ~ d_ij + status_gap_magnitude + status_gap_signed + wage_gap
-formula_stratified <- diffusion ~ d_ij + status_gap_magnitude + status_gap_signed + 
-                                  stratification_interaction + wage_gap
+# Formula for the standard linear piecewise model
+formula_piecewise <- diffusion ~ d_ij + delta_up + delta_down + wage_gap
 ```
 
-## Model Estimation
+## Separate Model Estimation
 
 ```{r model-estimation}
-model_homogeneous <- glm(formula_homogeneous, data = generalized_data, family = binomial(link = "logit"))
-model_stratified <- glm(formula_stratified, data = generalized_data, family = binomial(link = "logit"))
-
-coefs_homogeneous <- coef(model_homogeneous)
-coefs_stratified <- coef(model_stratified)
+# Estimate separate models for each skill type
+model_cognitive_piecewise <- glm(formula_piecewise, data = cognitive_data, family = binomial(link = "logit"))
+model_physical_piecewise <- glm(formula_piecewise, data = physical_data, family = binomial(link = "logit"))
 ```
 
-## Parameter Extraction
+## Parameter Extraction and Comparison
 
 ```{r parameter-extraction}
-extract_generalized_parameters <- function(model, model_type) {
+# Function to extract parameters from GLM models
+extract_piecewise_parameters <- function(model, skill_type, data_subset) {
   coefs <- coef(model)
-  se_coefs <- summary(model)$coefficients[, "Std. Error"]
-  
-  if (model_type == "homogeneous") {
-    return(list(
-      alpha_hat = plogis(coefs["(Intercept)"]),
-      lambda_hat = -coefs["d_ij"],
-      beta_hat = -coefs["status_gap_magnitude"], 
-      gamma_0_hat = -coefs["status_gap_signed"],
-      delta_hat = 0,
-      model_type = "Homogeneous"
-    ))
-  } else if (model_type == "stratified") {
-    return(list(
-      alpha_hat = plogis(coefs["(Intercept)"]),
-      lambda_hat = -coefs["d_ij"],
-      beta_hat = -coefs["status_gap_magnitude"],
-      gamma_0_hat = -coefs["status_gap_signed"],
-      delta_hat = -coefs["stratification_interaction"],
-      delta_se = se_coefs["stratification_interaction"],
-      model_type = "Stratified"
-    ))
-  }
+ 
+  get_param <- function(name, default_val = 0) if (name %in% names(coefs)) coefs[name] else default_val
+
+  return(list(
+    skill_type = skill_type,
+    n_obs = nrow(data_subset),
+    lambda_hat = get_param("d_ij"),              
+    beta_up_hat = get_param("delta_up"),         
+    beta_down_hat = get_param("delta_down"),     
+    wage_hat = get_param("wage_gap"),            
+    asymmetry = get_param("delta_up") - get_param("delta_down"),  
+    aic = AIC(model),
+    mcfadden_r2 = 1 - (model$deviance / model$null.deviance)
+  ))
 }
 
-params_homogeneous <- extract_generalized_parameters(model_homogeneous, "homogeneous")
-params_stratified <- extract_generalized_parameters(model_stratified, "stratified")
+params_cognitive_pw <- extract_piecewise_parameters(model_cognitive_piecewise, "Socio-cognitive", cognitive_data)
+params_physical_pw <- extract_piecewise_parameters(model_physical_piecewise, "Socio-technical", physical_data)
 ```
 
 # Statistical Tests and Model Comparison
 
 ```{r statistical-tests}
-lr_test <- lrtest(model_homogeneous, model_stratified)
-lr_p_value <- lr_test$`Pr(>Chisq)`[2]
-
-aic_comparison <- c(
-  Homogeneous = AIC(model_homogeneous),
-  Stratified = AIC(model_stratified)
+# Create a comparison table for the piecewise models
+piecewise_comparison <- data.frame(
+  `Skill Type` = c("Socio-cognitive", "Socio-technical"),
+  N = c(comma(params_cognitive_pw$n_obs), comma(params_physical_pw$n_obs)),
+  `λ (Distance)` = c(params_cognitive_pw$lambda_hat, params_physical_pw$lambda_hat),
+  `β⁺ (Upward)` = c(params_cognitive_pw$beta_up_hat, params_physical_pw$beta_up_hat),
+  `β⁻ (Downward)` = c(params_cognitive_pw$beta_down_hat, params_physical_pw$beta_down_hat),
+  `Asymmetry (β⁺ - β⁻)` = c(params_cognitive_pw$asymmetry, params_physical_pw$asymmetry),
+  `McFadden's R²` = c(params_cognitive_pw$mcfadden_r2, params_physical_pw$mcfadden_r2),
+  AIC = c(params_cognitive_pw$aic, params_physical_pw$aic),
+  check.names = FALSE
 )
 
-bic_comparison <- c(
-  Homogeneous = BIC(model_homogeneous),
-  Stratified = BIC(model_stratified)
-)
-
-mcfadden_homogeneous <- 1 - (model_homogeneous$deviance / model_homogeneous$null.deviance)
-mcfadden_stratified <- 1 - (model_stratified$deviance / model_stratified$null.deviance)
-
-model_comparison <- data.frame(
-  Model = c("Homogeneous (δ = 0)", "Stratified (δ ≠ 0)"),
-  Parameters = c(length(coefs_homogeneous), length(coefs_stratified)),
-  McFadden_R2 = sprintf("%.4f", c(mcfadden_homogeneous, mcfadden_stratified)),
-  AIC = sprintf("%.1f", c(aic_comparison["Homogeneous"], aic_comparison["Stratified"])),
-  BIC = sprintf("%.1f", c(bic_comparison["Homogeneous"], bic_comparison["Stratified"])),
-  Delta_hat = c("0 (fixed)", sprintf("%.4f", params_stratified$delta_hat)),
-  stringsAsFactors = FALSE
-)
-
-kable(model_comparison,
-      caption = "**Table 2: Model Comparison - Homogeneous vs Stratified Diffusion**") %>%
-  kable_styling(bootstrap_options = c("striped", "hover"), full_width = FALSE) %>%
-  column_spec(6, bold = TRUE)
+kable(piecewise_comparison,
+      caption = "**Table 2: Frequentist Piecewise Model Results**",
+      digits = 4) %>%
+  kable_styling(bootstrap_options = c("striped", "hover"), full_width = TRUE) %>%
+  column_spec(6, bold = TRUE, background = "#F0F8FF")
 ```
 
-*Likelihood Ratio Test: p-value < 0.001*
+**Table 2 Interpretation:** The frequentist models confirm the descriptive findings. Both skill types are penalized by structural distance (negative λ). However, the key result is in the **Asymmetry** column. Socio-cognitive skills have a large, positive asymmetry coefficient (0.7022), indicating that upward status moves are strongly favored over downward moves. In contrast, socio-technical skills have a much smaller asymmetry value (0.1035), suggesting a more neutral response to the direction of status change.
 
-# Theoretical Interpretation
+## Model Predictions & Visualization
 
-```{r theoretical-interpretation}
-gamma_status_enhancing <- params_stratified$gamma_0_hat + params_stratified$delta_hat * (-1)
-gamma_status_constraining <- params_stratified$gamma_0_hat + params_stratified$delta_hat * (+1)
+```{r main-visualization, fig.width=12, fig.height=8}
 
-interpret_gamma <- function(gamma_value, content_type) {
-  if (gamma_value > 0.05) {
-    return(paste(content_type, "follows TRICKLE-DOWN pattern"))
-  } else if (gamma_value < -0.05) {
-    return(paste(content_type, "follows ASPIRATIONAL pattern"))
-  } else {
-    return(paste(content_type, "shows NEUTRAL pattern"))
-  }
-}
+generate_piecewise_predictions <- function(model_cog, model_phys, data_cog, data_phys, n_points = 150) {
+ 
+  baseline_distance_cog <- median(data_cog$d_ij, na.rm = TRUE)
+  baseline_wage_cog <- median(data_cog$wage_gap, na.rm = TRUE)
 
-effect_size <- exp(params_stratified$delta_hat * 2)
-```
-
-## Model Predictions
-
-```{r prediction-function}
-generate_stratified_predictions <- function(model, data, n_points = 150) {
-  baseline_distance <- median(data$d_ij, na.rm = TRUE)
-  baseline_status_magnitude <- median(data$status_gap_magnitude, na.rm = TRUE)
-  baseline_wage <- median(data$wage_gap, na.rm = TRUE)
-  
+  baseline_distance_phys <- median(data_phys$d_ij, na.rm = TRUE)
+  baseline_wage_phys <- median(data_phys$wage_gap, na.rm = TRUE)
+ 
+  # Create status range for predictions
   status_range <- seq(-4, 4, length.out = n_points)
-  
-  pred_data_enhancing <- data.frame(
-    d_ij = baseline_distance,
-    status_gap_magnitude = abs(status_range),
-    status_gap_signed = status_range,
-    stratification_interaction = -1 * status_range,
-    wage_gap = baseline_wage
+ 
+  # Convert to piecewise variables
+  delta_up_range <- pmax(0, status_range)
+  delta_down_range <- pmax(0, -status_range)
+ 
+  pred_data_cognitive <- data.frame(
+    delta_up = delta_up_range,
+    delta_down = delta_down_range,
+    d_ij = baseline_distance_cog,
+    wage_gap = baseline_wage_cog
   )
-  
-  pred_enhancing <- predict(model, newdata = pred_data_enhancing, type = "response")
-  
-  pred_data_constraining <- data.frame(
-    d_ij = baseline_distance,
-    status_gap_magnitude = abs(status_range),
-    status_gap_signed = status_range,
-    stratification_interaction = +1 * status_range,
-    wage_gap = baseline_wage
+  pred_cognitive <- predict(model_cog, newdata = pred_data_cognitive, type = "response")
+ 
+  pred_data_physical <- data.frame(
+    delta_up = delta_up_range,
+    delta_down = delta_down_range,
+    d_ij = baseline_distance_phys,
+    wage_gap = baseline_wage_phys
   )
-  
-  pred_constraining <- predict(model, newdata = pred_data_constraining, type = "response")
-  
+  pred_physical <- predict(model_phys, newdata = pred_data_physical, type = "response")
+ 
   predictions <- rbind(
-    data.frame(
-      status_gap = status_range,
-      probability = pred_enhancing,
-      content_type = "Status-Enhancing (Cognitive)",
-      tau_value = -1
-    ),
-    data.frame(
-      status_gap = status_range,
-      probability = pred_constraining,
-      content_type = "Status-Constraining (Physical)", 
-      tau_value = +1
-    )
+    data.frame(status_gap = status_range, probability = pred_cognitive, content_type = "Socio-cognitive"),
+    data.frame(status_gap = status_range, probability = pred_physical, content_type = "Socio-technical")
   )
-  
+ 
   return(predictions)
 }
 
-stratified_predictions <- generate_stratified_predictions(model_stratified, generalized_data)
-```
+# Generate predictions from the frequentist models
+piecewise_predictions <- generate_piecewise_predictions(model_cognitive_piecewise, model_physical_piecewise, cognitive_data, physical_data)
 
-## Core Visualization
+# Define the equation string for the plot subtitle
+equation_str <- "logit(P) = &theta;<sub>0</sub> - &lambda;d - &beta;<sup>+</sup>&Delta;<sup>+</sup> - &beta;<sup>-</sup>&Delta;<sup>-</sup>"
 
-```{r main-visualization}
-theory_colors <- c("Status-Enhancing (Cognitive)" = "#E69F00", "Status-Constraining (Physical)" = "#56B4E9")
-
-p_main <- ggplot(stratified_predictions, aes(x = status_gap, y = probability, color = content_type)) +
-  geom_line(size = 1.8, alpha = 0.9) +
+p_main_piecewise <- ggplot(piecewise_predictions, aes(x = status_gap, y = probability, color = content_type)) +
+  geom_line(linewidth = 1.8, alpha = 0.9) +
   geom_vline(xintercept = 0, linetype = "dashed", alpha = 0.7, color = "gray50") +
-  scale_color_manual(values = theory_colors, name = "Skill Type") +
-  scale_y_continuous(labels = percent_format(accuracy = 1)) +
-  annotate("text", x = -2.5, y = max(stratified_predictions$probability) * 0.85, 
-           label = "← TRICKLE-DOWN\n(High → Low Status)", 
-           hjust = 0.5, size = 4, color = "gray30", fontface = "bold") +
-  annotate("text", x = 2.5, y = max(stratified_predictions$probability) * 0.85, 
-           label = "ASPIRATIONAL →\n(Low → High Status)", 
-           hjust = 0.5, size = 4, color = "gray30", fontface = "bold") +
+  scale_color_manual(values = color_palette, name = "Skill Type:") +
+  scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+  annotate("text", x = 2.5, y = max(piecewise_predictions$probability) * 0.85, 
+           label = "ASPIRATIONAL PULL\n(Low-to-High Status)", 
+           hjust = 0.5, size = 4.5, color = "gray30", fontface = "bold") +
+  annotate("text", x = -2.5, y = max(piecewise_predictions$probability) * 0.85, 
+           label = "CONTAINMENT\n(High-to-Low Status)", 
+           hjust = 0.5, size = 4.5, color = "gray30", fontface = "bold") +
   labs(
-    title = "Asymmetric Trajectory Channeling in U.S. Labor Markets",
-    subtitle = sprintf("δ = %.4f: Stratification Intensity Parameter (p < 0.001)", params_stratified$delta_hat),
-    x = "Educational Status Gap (s_j - s_i)",
-    y = "Predicted Skill Diffusion Probability", 
-    caption = "Note: Status measured by educational attainment differences between occupations."
+    title = "Asymmetric Trajectory Channeling: Evidence from Piecewise Models",
+    subtitle = paste("Model:", equation_str),
+    x = "Educational Status Gap (Destination - Source)",
+    y = "Predicted Skill Diffusion Probability"
   ) +
-  theme_minimal() +
+  theme_paper() +
   theme(
-    plot.title = element_text(size = rel(1.4), face = "bold", hjust = 0.5),
-    plot.subtitle = element_text(size = rel(1.1), hjust = 0.5),
     legend.position = "bottom",
-    legend.title = element_text(face = "bold"),
-    axis.title = element_text(face = "bold"),
-    plot.caption = element_text(size = rel(0.8), color = "gray30")
+    plot.subtitle = element_markdown(size = rel(1.2))
   )
 
-print(p_main)
+print(p_main_piecewise)
 
-# --- MODIFICACIÓN ---
-# Se comenta la línea que guarda el gráfico para no crear archivos locales.
-# ggsave(file.path(output_dir, "asymmetric_trajectory_channeling.png"), 
-#        p_main, width = 14, height = 10, dpi = 300, bg = "white")
 ```
 
-**Figure 1: Asymmetric Trajectory Channeling in U.S. Labor Markets**
+**Figure 3 Interpretation:** This plot visualizes the core finding from the frequentist models. The steep upward slope for socio-cognitive skills (blue) for positive status gaps (x-axis > 0) illustrates a strong "aspirational pull." Conversely, the flatter curve for socio-technical skills (red) demonstrates their relative indifference to status-gaining imitation, highlighting the "Asymmetric Trajectory Channeling" effect.
 
-*Note: Status measured by educational attainment differences between occupations.*
+# Advanced Bayesian Analysis (with Curvature Selection)
 
-## Decomposition Analysis
+```{r bayesian-setup-advanced}
+cat("🚀 ADVANCED BAYESIAN SETUP - Non-Linear Model with Shrinkage Priors\n")
+cat("====================================================================\n")
+cat("OBJECTIVE: Estimate curvature effects using Laplace (Lasso) priors.\n")
+cat("METHOD: High-quality Hamiltonian Monte Carlo (HMC) on a large sample.\n\n")
 
-```{r decomposition-plots}
-generate_penalty_predictions <- function(model, data, n_points = 150) {
-  baseline_distance <- median(data$d_ij, na.rm = TRUE)
-  baseline_wage <- median(data$wage_gap, na.rm = TRUE)
-  
-  status_magnitude_range <- seq(0, 4, length.out = n_points)
-  
-  pred_data_penalty <- data.frame(
-    d_ij = baseline_distance,
-    status_gap_magnitude = status_magnitude_range,
-    status_gap_signed = 0,
-    stratification_interaction = 0,
-    wage_gap = baseline_wage
-  )
-  
-  penalty_predictions <- predict(model, newdata = pred_data_penalty, type = "response")
-  
-  penalty_effects <- data.frame(
-    status_gap = status_magnitude_range,
-    probability = penalty_predictions,
-    effect_type = "Universal Status Penalty (β)"
-  )
-  
-  return(penalty_effects)
+# 1. Subsample data for a balance of speed and robustness
+set.seed(123)
+sample_size <- 50000
+
+cognitive_data_sample <- if (nrow(cognitive_data) > sample_size) {
+  cognitive_data[sample(.N, sample_size)]
+} else {
+  cognitive_data
 }
 
-penalty_data <- generate_penalty_predictions(model_stratified, generalized_data)
+physical_data_sample <- if (nrow(physical_data) > sample_size) {
+  physical_data[sample(.N, sample_size)]
+} else {
+  physical_data
+}
 
-p_penalty <- ggplot(penalty_data, aes(x = status_gap, y = probability)) +
-  geom_line(color = "#2C3E50", size = 1.5, alpha = 0.9) +
-  scale_y_continuous(labels = percent_format(accuracy = 1)) +
-  labs(
-    title = "Universal Status Penalty (β parameter)",
-    subtitle = "Symmetric resistance to status boundary crossing",
-    x = "Status Gap Magnitude |s_j - s_i|",
-    y = "Predicted Diffusion Probability"
-  ) +
-  theme_minimal() +
-  theme(
-    plot.title = element_text(size = rel(1.2), face = "bold", hjust = 0.5),
-    plot.subtitle = element_text(size = rel(1.0), hjust = 0.5)
+message(sprintf("Subsampling for HMC. Using %s cognitive and %s physical observations.",
+                comma(nrow(cognitive_data_sample)),
+                comma(nrow(physical_data_sample))))
+
+# 2. Prepare polynomial terms
+cognitive_data_sample <- cognitive_data_sample %>%
+  mutate(
+    delta_up2   = delta_up^2,
+    delta_down2 = delta_down^2
   )
 
-p_content_specific <- ggplot(stratified_predictions, aes(x = status_gap, y = probability, color = content_type)) +
-  geom_line(size = 1.5, alpha = 0.9) +
-  geom_vline(xintercept = 0, linetype = "dashed", alpha = 0.7, color = "gray50") +
-  scale_color_manual(values = theory_colors, name = "Skill Type") +
-  scale_y_continuous(labels = percent_format(accuracy = 1)) +
-  labs(
-    title = "Content-Specific Directional Bias (γ_k parameter)",
-    subtitle = "Asymmetric filtering by skill type",
-    x = "Educational Status Gap (s_j - s_i)",
-    y = "Predicted Diffusion Probability"
-  ) +
-  theme_minimal() +
-  theme(
-    plot.title = element_text(size = rel(1.2), face = "bold", hjust = 0.5),
-    plot.subtitle = element_text(size = rel(1.0), hjust = 0.5),
-    legend.position = "bottom"
+physical_data_sample <- physical_data_sample %>%
+  mutate(
+    delta_up2   = delta_up^2,
+    delta_down2 = delta_down^2
   )
 
-combined_plot <- p_penalty / p_content_specific + 
-  plot_annotation(
-    title = "Decomposition: Universal vs Content-Specific Diffusion Effects",
-    subtitle = "Evidence for Dual Filtering Mechanisms in Skill Mobility",
-    theme = theme(
-      plot.title = element_text(size = rel(1.3), face = "bold", hjust = 0.5),
-      plot.subtitle = element_text(size = rel(1.1), hjust = 0.5)
+# 3. Non-linear model formula (no underscores in parameter names)
+formula_nonlinear <- bf(
+  diffusion ~ theta0 - lambda * d_ij - beta1up * delta_up - beta2up * delta_up2 - beta1down * delta_down - beta2down * delta_down2,
+  theta0 + lambda + beta1up + beta2up + beta1down + beta2down ~ 1,
+  nl = TRUE
+)
+
+# 4. Prior specification (using double_exponential)
+priors_lasso <- c(
+  prior(normal(0, 5), nlpar = "theta0"),
+  prior(normal(0, 1), nlpar = "lambda", lb = 0), 
+  prior(normal(0, 1), nlpar = "beta1up"),
+  prior(normal(0, 1), nlpar = "beta1down"),
+  prior(double_exponential(0, 0.5), nlpar = "beta2up"),
+  prior(double_exponential(0, 0.5), nlpar = "beta2down")
+)
+
+start_hmc_time <- Sys.time()
+```
+
+
+```{r bayesian-fitting-advanced}
+# =============================================================================
+# HIGH-QUALITY FITTING FUNCTION FOR ADVANCED MODEL USING HMC
+# =============================================================================
+
+fit_advanced_hmc_model <- function(formula, data, model_name, priors) {
+ 
+  cat(sprintf("\n🚀 ADVANCED FITTING (HMC): %s\n", toupper(model_name)))
+  cat("=" %>% rep(50) %>% paste(collapse = ""), "\n")
+  cat(sprintf("📊 Using %s observations from sample.\n", comma(nrow(data))))
+  cat("⚙️ Algorithm: Hamiltonian Monte Carlo (NUTS Sampler).\n")
+ 
+  start_time <- Sys.time()
+  model <- NULL
+ 
+  tryCatch({
+    model <- brm(
+      formula = formula,
+      data = data,
+      prior = priors,
+      family = bernoulli(),
+      chains = 2,
+      cores = 4,
+      iter = 1000,
+      warmup = 500,
+      seed = 42,
+      silent = 0,
+      control = list(adapt_delta = 0.9)
     )
+    cat("✅ Advanced HMC model fitted successfully.\n")
+  }, error = function(e) {
+    cat("❌ ERROR during advanced model fitting:\n")
+    cat(e$message, "\n")
+  })
+ 
+  end_time <- Sys.time()
+  time_elapsed <- difftime(end_time, start_time, units = "secs")
+  cat(sprintf("⏱️ Fitting time: %.1f seconds.\n", time_elapsed))
+ 
+  return(list(model = model, time = time_elapsed))
+}
+
+# =============================================================================
+# FIT MODELS WITH ADVANCED CONFIGURATION
+# =============================================================================
+
+# ADVANCED COGNITIVE MODEL
+results_cognitive_advanced <- fit_advanced_hmc_model(
+  formula = formula_nonlinear,
+  data = cognitive_data_sample,
+  model_name = "cognitive_advanced_hmc",
+  priors = priors_lasso
+)
+
+# ADVANCED PHYSICAL MODEL
+results_physical_advanced <- fit_advanced_hmc_model(
+  formula = formula_nonlinear,
+  data = physical_data_sample,
+  model_name = "physical_advanced_hmc",
+  priors = priors_lasso
+)
+
+end_hmc_time <- Sys.time()
+total_analysis_time <- difftime(end_hmc_time, start_hmc_time, units = "secs")
+
+cat("\n🏁 ADVANCED ANALYSIS COMPLETE\n")
+cat("=====================================\n")
+cat(sprintf("⏱️ Total analysis time: %.1f seconds\n", total_analysis_time))
+
+all_success_advanced <- !is.null(results_cognitive_advanced$model) && !is.null(results_physical_advanced$model)
+
+if(all_success_advanced) {
+  cat("✅ Both advanced models fitted successfully.\n")
+} else {
+  cat("❌ Error in fitting one or more advanced models.\n")
+}
+```
+
+```{r bayesian-parameter-extraction-advanced}
+# =============================================================================
+# PARAMETER EXTRACTION (ADVANCED MODEL)
+# =============================================================================
+
+if(all_success_advanced) {
+  cat("\n🔍 EXTRACTING PARAMETERS FROM ADVANCED MODEL...\n")
+  cat("=" %>% rep(55) %>% paste(collapse = ""), "\n")
+ 
+  # Extract posterior draws
+  posterior_cog_advanced <- as_draws_df(results_cognitive_advanced$model)
+  posterior_phys_advanced <- as_draws_df(results_physical_advanced$model)
+ 
+  # Correct parameter names based on brms output for non-linear models
+  required_cols <- c("b_beta1up_Intercept", "b_beta1down_Intercept")
+  
+  if (all(required_cols %in% names(posterior_cog_advanced)) && all(required_cols %in% names(posterior_phys_advanced))) {
+      # Asymmetry parameters (based on linear terms)
+      asymmetry_cog_advanced <- posterior_cog_advanced$b_beta1up_Intercept - posterior_cog_advanced$b_beta1down_Intercept
+      asymmetry_phys_advanced <- posterior_phys_advanced$b_beta1up_Intercept - posterior_phys_advanced$b_beta1down_Intercept
+      asymmetry_diff_advanced <- asymmetry_cog_advanced - asymmetry_phys_advanced
+     
+      # Statistics
+      prob_hypothesis_advanced <- mean(asymmetry_diff_advanced > 0, na.rm = TRUE)
+      effect_size_advanced <- median(asymmetry_diff_advanced, na.rm = TRUE)
+      ci_95_advanced <- quantile(asymmetry_diff_advanced, c(0.025, 0.975), na.rm = TRUE)
+      
+      cat("🎯 PRELIMINARY RESULTS (ADVANCED MODEL):\n")
+      cat("=" %>% rep(45) %>% paste(collapse = ""), "\n")
+      cat(sprintf("• P(asymmetry_cog > asymmetry_phys): %.2f%%\n", prob_hypothesis_advanced * 100))
+      cat(sprintf("• Median Asymmetry Difference: %.4f\n", effect_size_advanced))
+      cat(sprintf("• 95%% Credible Interval (approx.): [%.4f, %.4f]\n", ci_95_advanced[1], ci_95_advanced[2]))
+  } else {
+      # Set to NA if parameters were not found
+      prob_hypothesis_advanced <- NA
+      effect_size_advanced <- NA
+      ci_95_advanced <- c(NA, NA)
+      cat("⚠️ WARNING: Expected parameters not found in model output.\n")
+  }
+ 
+  cat("\n✅ ADVANCED PARAMETER EXTRACTION COMPLETE\n")
+ 
+} else {
+  cat("\n❌ CANNOT EXTRACT PARAMETERS DUE TO MODEL FAILURE\n")
+  # Assign NA so the next chunk doesn't fail
+  prob_hypothesis_advanced <- NA 
+}
+```
+
+
+```{r bayesian-predictions-advanced}
+# =============================================================================
+# BAYESIAN PREDICTIONS (ADVANCED MODEL)
+# =============================================================================
+
+if(exists("all_success_advanced") && all_success_advanced) {
+  cat("\n🔮 GENERATING BAYESIAN PREDICTIONS (ADVANCED MODEL)...\n")
+  cat("=" %>% rep(60) %>% paste(collapse = ""), "\n")
+ 
+  generate_advanced_bayesian_predictions <- function(model_cog, model_phys, n_points = 100) {
+   
+    status_range <- seq(-4, 4, length.out = n_points)
+    delta_up_range <- pmax(0, status_range)
+    delta_down_range <- pmax(0, -status_range)
+   
+    # Must include quadratic terms in prediction data
+    newdata_cog <- data.frame(
+      delta_up = delta_up_range,
+      delta_down = delta_down_range,
+      delta_up2 = delta_up_range^2,
+      delta_down2 = delta_down_range^2,
+      d_ij = median(cognitive_data_sample$d_ij, na.rm = TRUE)
+    )
+   
+    newdata_phys <- data.frame(
+      delta_up = delta_up_range,
+      delta_down = delta_down_range,
+      delta_up2 = delta_up_range^2,
+      delta_down2 = delta_down_range^2,
+      d_ij = median(physical_data_sample$d_ij, na.rm = TRUE)
+    )
+   
+    pred_cog <- fitted(model_cog, newdata = newdata_cog, summary = TRUE)
+    pred_phys <- fitted(model_phys, newdata = newdata_phys, summary = TRUE)
+   
+    predictions <- rbind(
+      data.frame(
+        status_gap = status_range,
+        probability = pred_cog[, "Estimate"],
+        lower_95 = pred_cog[, "Q2.5"],
+        upper_95 = pred_cog[, "Q97.5"],
+        content_type = "Socio-cognitive"
+      ),
+      data.frame(
+        status_gap = status_range,
+        probability = pred_phys[, "Estimate"],
+        lower_95 = pred_phys[, "Q2.5"],
+        upper_95 = pred_phys[, "Q97.5"],
+        content_type = "Socio-technical"
+      )
+    )
+   
+    return(predictions)
+  }
+ 
+  bayesian_advanced_predictions <- generate_advanced_bayesian_predictions(
+    results_cognitive_advanced$model, 
+    results_physical_advanced$model
   )
+ 
+  cat("✅ Advanced model predictions generated.\n")
+}
+```
 
-print(combined_plot)
+```{r bayesian-visualization-advanced}
+# =============================================================================
+# BAYESIAN VISUALIZATION (ADVANCED MODEL)
+# =============================================================================
 
-# --- MODIFICACIÓN ---
-# Se comenta la línea que guarda el gráfico combinado.
-# ggsave(file.path(output_dir, "decomposition_universal_vs_content_specific.png"), 
-#        combined_plot, width = 12, height = 10, dpi = 300, bg = "white")
+if(exists("all_success_advanced") && all_success_advanced && exists("bayesian_advanced_predictions")) {
+ 
+  # Safely handle NA values so the plot doesn't fail
+  if (is.na(prob_hypothesis_advanced)) {
+    evidence_label_advanced <- "INDETERMINATE"
+    caption_text <- "95% Credible Interval (HMC). Model results were indeterminate."
+  } else {
+    evidence_label_advanced <- if(prob_hypothesis_advanced > 0.99) "STRONG" 
+                               else if(prob_hypothesis_advanced > 0.95) "MODERATE"
+                               else "WEAK"
+    caption_text <- sprintf("95%% Credible Interval (HMC). Evidence for linear asymmetry: **%s** (P = %.1f%%)", 
+                            evidence_label_advanced, prob_hypothesis_advanced * 100)
+  }
+  
+  equation_str_adv <- "logit(P) = &theta;<sub>0</sub> - &lambda;d - &beta;<sub>1</sub><sup>+</sup>&Delta;<sup>+</sup> - &beta;<sub>2</sub><sup>+</sup>(&Delta;<sup>+</sup>)<sup>2</sup> - &beta;<sub>1</sub><sup>-</sup>&Delta;<sup>-</sup> - &beta;<sub>2</sub><sup>-</sup>(&Delta;<sup>-</sup>)<sup>2</sup>"
+
+
+  p_bayesian_advanced <- ggplot(bayesian_advanced_predictions, 
+                                aes(x = status_gap, color = content_type, fill = content_type)) +
+   
+    geom_ribbon(aes(ymin = lower_95, ymax = upper_95), alpha = 0.2, color = NA) +
+    geom_line(aes(y = probability), linewidth = 2, alpha = 0.9) +
+    geom_vline(xintercept = 0, linetype = "dashed", alpha = 0.8, color = "gray40", linewidth = 1) +
+    scale_color_manual(values = color_palette, name = "Skill Type:") +
+    scale_fill_manual(values = color_palette, name = "Skill Type:") +
+    scale_y_continuous(labels = scales::percent_format(accuracy = 1)) +
+    scale_x_continuous(breaks = seq(-4, 4, 2)) +
+   
+    labs(
+      title = "Advanced Bayesian Analysis: Curvature Effects",
+      subtitle = paste("Model:", equation_str_adv),
+      x = "Educational Status Gap (Destination - Source)",
+      y = "Predicted Skill Diffusion Probability",
+      caption = caption_text
+    ) +
+   
+    theme_paper(base_size = 16) +
+    theme(
+      plot.title = element_text(size = rel(1.4)),
+      plot.subtitle = element_markdown(size = rel(1.2)),
+      plot.caption = element_markdown(size = rel(0.9)),
+      legend.position = "bottom"
+    )
+ 
+  print(p_bayesian_advanced)
+ 
+  ggsave(file.path(output_dir, "bayesian_advanced_hmc_channeling.png"), 
+         p_bayesian_advanced, width = 12, height = 8, dpi = 300, bg = "white")
+ 
+  cat("\n✅ ADVANCED VISUALIZATION COMPLETE\n")
+ 
+} else {
+  cat("\n❌ COULD NOT GENERATE ADVANCED VISUALIZATION\n")
+  cat("Reason: Advanced Bayesian analysis did not complete successfully.\n")
+}
 ```
 
 # Discussion: The Stratification Engine
 
-Our empirical results provide robust evidence that the process of **Asymmetric Trajectory Channeling** emerges from the micro-level decisions of employers. The significant δ parameter confirms that content-specific directional bias is a powerful mechanism of labor market stratification. This mechanism generates distinct mobility regimes for different skill types:
+Our empirical results provide robust evidence that the process of **Asymmetric Trajectory Channeling** emerges from fundamentally different piecewise diffusion processes operating for cognitive and physical skills. The significant difference in the directional asymmetry parameters (β⁺ - β⁻) demonstrates that these skill types follow qualitatively distinct mobility regimes, with our piecewise specification eliminating previous concerns about multicollinearity.
 
-**Escalator Dynamics for Cognitive Skills**: The aspirational pattern for cognitive skills shows they are readily adopted upwards in the status hierarchy. This aligns with the view of occupations as multidimensional bundles of traits (York et al., 2024). Cognitive skills likely correspond to abstract, transferable characteristics like 'problem-solving', which are valuable across many high-status contexts, making them appear as "nested" capabilities that signal potential for further growth.
+**Escalator Dynamics for Cognitive Skills**: The strong aspirational pattern (β⁺ = +0.4440, β⁻ = -0.2582), shows that cognitive skills are actively facilitated in upward movements while being penalized in downward ones. This confirms our hypothesis that cognitive skills are readily adopted by organizations seeking to establish higher-status occupations. The piecewise specification allows us to precisely quantify this: upward moves (Δ⁺) receive a substantial facilitation of +0.4440 while downward moves (Δ⁻) face a penalty of -0.2582.
 
-**Containment Dynamics for Physical Skills**: The trickle-down pattern for physical skills shows they face a "glass ceiling." These skills map onto more context-specific occupational characteristics, limiting their perceived value and thus their diffusion pathways. Employers perceive them as "un-nested", constraining them to lower-status occupational clusters.
+**Neutral Dynamics for Physical Skills**: The contrasting pattern for physical skills shows minimal directional bias (β⁺ = -0.1216, β⁻ = -0.2251), with both movements facing slight penalties but downward moves being more penalized. This indicates they diffuse based primarily on functional considerations rather than strong status signaling.
 
-This reframes stratification as an active, demand-side process. Inequality is not just a result of workers' attributes but is continuously reproduced by the filtering rules employers use when they imitate skill requirements. The destiny of a worker is thus tied not just to the skills they possess, but to the mobility regime those skills inhabit.
+**Methodological Advancement**: Our piecewise approach resolves the multicollinearity problem inherent in previous formulations that used both (s_j - s_i) and |s_j - s_i|. By defining Δ⁺ = max(0, s_j - s_i) and Δ⁻ = max(0, s_i - s_j), we create orthogonal variables (Δ⁺ · Δ⁻ = 0 always) that allow for unambiguous interpretation of directional effects. The use of non-linear models with shrinkage priors (Laplace) further allows for flexible detection of curvature while preventing overfitting.
 
-```{r save-results}
-# --- MODIFICACIÓN ---
-# Se comenta todo el bloque para no guardar el archivo .rds con los resultados.
-
-# stratified_diffusion_results <- list(
-#   data = generalized_data,
-#   models = list(
-#     homogeneous = model_homogeneous,
-#     stratified = model_stratified
-#   ),
-#   parameters = list(
-#     homogeneous = params_homogeneous,
-#     stratified = params_stratified
-#   ),
-#   predictions = stratified_predictions,
-#   penalty_effects = penalty_data,
-#   statistical_tests = list(
-#     lr_test = lr_test,
-#     aic_comparison = aic_comparison,
-#     bic_comparison = bic_comparison
-#   ),
-#   interpretation = list(
-#     gamma_cognitive = gamma_status_enhancing,
-#     gamma_physical = gamma_status_constraining,
-#     stratification_intensity = params_stratified$delta_hat,
-#     effect_size = effect_size
-#   ),
-#   plots = list(
-#     main_trajectory_channeling = p_main,
-#     decomposition = combined_plot
-#   )
-# )
-# 
-# saveRDS(stratified_diffusion_results, file.path(output_dir, "stratified_diffusion_complete_results.rds"))
-```
+**Robust Statistical Evidence**: Both our frequentist piecewise models and Bayesian analyses provide consistent evidence for these patterns, with the asymmetry difference confirming the strong aspirational channeling effect for cognitive skills. This confirms stratification as an active, demand-side process driven by **organizational imitation patterns** where cognitive skills benefit from systematic upward facilitation while physical skills face more neutral or constrained mobility patterns.
 
 # Conclusions and Future Directions
 
-This study makes several key contributions. Theoretically, we specify a micro-founded model of employer imitation and introduce the **Generalized Stratified Diffusion Model** to test its core mechanism: content-specific filtering, captured by the δ parameter. Empirically, our analysis provides robust evidence for this mechanism and the resulting macro-level process of **Asymmetric Trajectory Channeling**.
+This study makes several key contributions. Theoretically, we specify a **piecewise dual process model** of **inter-organizational imitation** that eliminates multicollinearity concerns while demonstrating that cognitive and physical skills follow fundamentally distinct diffusion logics. Our **Piecewise Dual Process Diffusion Model**, especially its non-linear extension with shrinkage priors, provides direct evidence for content-specific directional filtering mechanisms.
 
-This demand-side perspective has significant policy implications, shifting the focus from simply training workers (supply-side) to transforming the institutional rules and biases that govern how employers value and adopt skills (demand-side).
+Empirically, our analysis provides robust evidence for distinct directional asymmetries and the resulting macro-level process of **Asymmetric Trajectory Channeling**. The piecewise specification allows for precise quantification of upward versus downward mobility penalties, offering clear policy targets. Methodologically, we demonstrate how piecewise regression approaches can resolve common econometric problems in diffusion studies while maintaining theoretical interpretability. This approach could be valuable for other scholars studying directional processes in organizational and economic contexts.
 
-Future research should examine the temporal dynamics of these diffusion patterns, test our framework in different institutional contexts, and further unpack the specific organizational routines and cognitive biases that underlie employers' imitative decisions. It would also be fruitful to explore how the stratification mechanisms we identify interact with other network processes, such as the "Trojan horse" mechanisms that have been shown to reduce segregation in other contexts [@arvidsson_trojan-horse_2021]. Our research demonstrates that labor market polarization is an actively maintained outcome of structured diffusion processes. Understanding and reshaping these pathways is a critical frontier for addressing contemporary economic inequality.
+Future research should examine the temporal dynamics of these piecewise diffusion patterns, test our framework in different institutional contexts, and run the full MCMC version of the advanced model presented here to obtain more precise posterior distributions for the final publication.
 
-
+---
 
 **Data Availability Statement**: O*NET data is publicly available from the U.S. Department of Labor.
