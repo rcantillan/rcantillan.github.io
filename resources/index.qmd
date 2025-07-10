@@ -43,7 +43,10 @@ banner-class: page-banner
 
 ## Recursos Adicionales
 
-Pronto ... 
+### Data
 
+- [FRED](https://fred.stlouisfed.org/)
+- [Skill UK](https://www.skillssurvey.co.uk/)
+- [ESJS](https://www.cedefop.europa.eu/en/projects/european-skills-and-jobs-survey-esjs)
 
 
