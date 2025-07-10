@@ -39,13 +39,11 @@ banner-class: page-banner
 
 ## Teaching
 
+- [Introducción a las Ciencias Sociales Computacionales](https://github.com/rcantillan/OPR-219-CIencias-Sociales-Computacionales?tab=readme-ov-file)
+
 ## Recursos Adicionales
 
-### Datasets
-- 📁 [Dataset Redes Chile](link) - Datos de redes sociales en Chile
-- 📁 [Dataset Homofilia](link) - Datos para análisis de homofilia
-
-
+Pronto ... 
 
 
 
