@@ -1,0 +1,59 @@
+---
+date: "2025-07-21"
+title: "Asymmetric Trajectory Channeling in Labor Markets"
+subtitle: "Macro-Level Evidence for Skills-Based Stratification Reproduction"
+author: "Roberto Cantillan & Mauricio Bucca"
+image: featured.jpg
+categories:
+  - R
+  - Slides
+  - Social Stratification
+  - Networks
+  - Skill Diffusion
+  - Value Displacement
+title-block-banner: featured.jpg
+title-block-banner-color: "rgba(0,38,66,0.75)"
+title-block-style: default
+links:
+- icon: github
+  icon_pack: fab
+  name: code
+  url: https://github.com/rcantillan/slides # Actualiza esta URL si es necesario
+- icon: door-open
+  icon_pack: fas
+  name: Slides
+  url: https://rcantillan.github.io/slides/IC2S2_2025/ # Actualiza esta URL cuando subas las diapositivas
+location: "IC2S2, Norrköping, Sweden."
+---
+
+### Introduction
+
+This research addresses the paradox of persistent labor market stratification amidst dynamic economic change. Moving beyond traditional supply-side explanations, this study focuses on demand-side processes, arguing that stratification is actively reproduced through systematically biased skill diffusion patterns between organizations.
+
+The core theoretical contribution is the concept of **Asymmetric Trajectory Channeling**. Drawing on organizational imitation theory, the research posits that cognitive skills are culturally theorized as "portable assets," leading to an aspirational, upward "escalator effect" across the occupational hierarchy. In contrast, physical skills are seen as "context-dependent," resulting in a more constrained, "lateral containment effect."
+
+Using a novel dyadic dataset of over 1.5 million skill diffusion events from O*NET (2015-2024), the study employs piecewise regression models to test for these asymmetric patterns. The results provide robust evidence for the theory: cognitive skills exhibit a strong upward channeling, while physical skills are largely contained within their status tiers.
+
+As a preliminary extension, the research explores the economic consequences of this channeling through a **Value Displacement Mechanism**. The evidence suggests that the economic returns to an innovative strategy (high-propensity adoption of cognitive skills) are conditional on an occupation's pre-existing status and functional need. Specifically, the strategy is economically penalized for low-status and low-need occupations, while this penalty disappears for high-status and high-need occupations.
+
+&nbsp;
+&nbsp;
+
+### Slides
+```{r echo=FALSE}
+options(htmltools.dir.version = TRUE)
+xaringanExtra::embed_xaringan("https://rcantillan.github.io/slides/IC2S2/ic2s2_slides.html", ratio = "16:9")
+```
+
+&nbsp;
+&nbsp;
+
+### Bibliography
+
+- Alabdulkareem, A., Frank, M. R., Sun, L., AlShebli, B., Hidalgo, C., & Rahwan, I. (2018). Unpacking the polarization of workplace skills. *Science Advances*, 4(7), eaao6030.
+- Autor, D. (2015). Why Are There Still So Many Jobs? The History and Future of Workplace Automation. *Journal of Economic Perspectives*, 29(3), 3-30.
+- Hedström, P. (1994). Contagious Collectivities: On the Spatial Diffusion of Swedish Trade Unions, 1890-1940. American Journal of Sociology, 99(5), 1157-1179. https://doi.org/10.1086/230408
+- Hosseinioun, M., Neffke, F., Zhang, L., & Youn, H. (2025). Skill dependencies uncover nested human capital. Nature Human Behaviour. https://doi.org/10.1038/s41562-024-02093-2
+- Kalleberg, A. L. (2011). *Good jobs, bad jobs: The rise of polarized and precarious employment systems in the United States, 1970s-2000s*. Russell Sage Foundation.
+- Strang, D., & Macy, M. W. (2001). In Search of Excellence: Fads, Success Stories, and Adaptive Emulation. *American Journal of Sociology*, 107(1), 147-182.
+- Tilly, C. (1998). *Durable inequality*. University of California Press.
