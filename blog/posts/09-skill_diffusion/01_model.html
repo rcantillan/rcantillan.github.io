@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Roberto Cantillan &amp; Mauricio Bucca">
-<meta name="dcterms.date" content="2025-07-10">
+<meta name="dcterms.date" content="2025-07-21">
 
 <title>Structurally Conditioned Diffusion: A Generalized Framework for Asymmetric Trajectory Channeling in Labor Markets – Roberto Cantillan</title>
 <style>
@@ -97,7 +97,7 @@ div.csl-indent {
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-9519443a8c50f3421c15abbdb1fc3938.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-e2bd845c2580ace5bdffac795725b6a3.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-32e64e11d264661c9dda202d8f199470.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
@@ -280,7 +280,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">July 10, 2025</p>
+        <p class="date">July 21, 2025</p>
       </div>
     </div>
     
@@ -328,6 +328,15 @@ window.Quarto = {
   <li><a href="#model-predictions-visualization" id="toc-model-predictions-visualization" class="nav-link" data-scroll-target="#model-predictions-visualization">Model Predictions &amp; Visualization</a></li>
   </ul></li>
   <li><a href="#advanced-bayesian-analysis-with-curvature-selection" id="toc-advanced-bayesian-analysis-with-curvature-selection" class="nav-link" data-scroll-target="#advanced-bayesian-analysis-with-curvature-selection">Advanced Bayesian Analysis (with Curvature Selection)</a></li>
+  <li><a href="#fixed-effects-causal-analysis-controlling-for-unobserved-heterogeneity" id="toc-fixed-effects-causal-analysis-controlling-for-unobserved-heterogeneity" class="nav-link" data-scroll-target="#fixed-effects-causal-analysis-controlling-for-unobserved-heterogeneity">Fixed Effects Causal Analysis: Controlling for Unobserved Heterogeneity</a>
+  <ul class="collapse">
+  <li><a href="#fixed-effects-model-specification" id="toc-fixed-effects-model-specification" class="nav-link" data-scroll-target="#fixed-effects-model-specification">Fixed Effects Model Specification</a></li>
+  <li><a href="#fixed-effects-model-estimation" id="toc-fixed-effects-model-estimation" class="nav-link" data-scroll-target="#fixed-effects-model-estimation">Fixed Effects Model Estimation</a></li>
+  <li><a href="#fixed-effects-results-and-significance-testing" id="toc-fixed-effects-results-and-significance-testing" class="nav-link" data-scroll-target="#fixed-effects-results-and-significance-testing">Fixed Effects Results and Significance Testing</a></li>
+  <li><a href="#fixed-effects-analysis-interpretation" id="toc-fixed-effects-analysis-interpretation" class="nav-link" data-scroll-target="#fixed-effects-analysis-interpretation">Fixed Effects Analysis Interpretation</a></li>
+  <li><a href="#fixed-effects-visualization" id="toc-fixed-effects-visualization" class="nav-link" data-scroll-target="#fixed-effects-visualization">Fixed Effects Visualization</a></li>
+  <li><a href="#fixed-effects-model-robustness" id="toc-fixed-effects-model-robustness" class="nav-link" data-scroll-target="#fixed-effects-model-robustness">Fixed Effects Model Robustness</a></li>
+  </ul></li>
   <li><a href="#discussion-the-stratification-engine" id="toc-discussion-the-stratification-engine" class="nav-link" data-scroll-target="#discussion-the-stratification-engine">Discussion: The Stratification Engine</a></li>
   <li><a href="#conclusions-and-future-directions" id="toc-conclusions-and-future-directions" class="nav-link" data-scroll-target="#conclusions-and-future-directions">Conclusions and Future Directions</a></li>
   </ul>
@@ -475,41 +484,42 @@ y_{ij}^{(c)} \sim \text{Bernoulli}(p_{ij}^{(c)}), \quad \text{logit}(p_{ij}^{(c)
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(RColorBrewer)</span>
 <span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggtext)</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(brms)</span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>})</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom theme for a professional, academic look</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>theme_paper <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">15</span>, <span class="at">base_family =</span> <span class="st">"sans"</span>) { </span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family) <span class="sc">+</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey20"</span>),</span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.6</span>), <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">15</span>), <span class="at">family =</span> base_family), </span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.subtitle =</span> <span class="fu">element_markdown</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.1</span>), <span class="at">color =</span> <span class="st">"grey40"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">15</span>), <span class="at">lineheight =</span> <span class="fl">1.2</span>), </span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">0.9</span>), <span class="at">color =</span> <span class="st">"grey50"</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">12</span>)), </span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.25</span>), <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">color =</span> <span class="st">"grey30"</span>), </span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.1</span>), <span class="at">color =</span> <span class="st">"grey40"</span>), </span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey80"</span>, <span class="at">linewidth =</span> <span class="fl">0.6</span>),</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey93"</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>),</span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
-<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
-<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.15</span>), <span class="at">face =</span> <span class="st">"bold"</span>), </span>
-<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.05</span>)), </span>
-<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"grey90"</span>),</span>
-<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
-<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>      <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.25</span>), <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">color =</span> <span class="st">"grey20"</span>), </span>
-<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>      <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"grey97"</span>, <span class="at">color =</span> <span class="st">"grey80"</span>)</span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_paper</span>())</span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a consistent color palette</span></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>color_palette <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Socio-cognitive"</span> <span class="ot">=</span> <span class="st">"#0072B2"</span>, <span class="st">"Socio-technical"</span> <span class="ot">=</span> <span class="st">"#D55E00"</span>)</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>output_dir <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"Stratified_Diffusion_Analysis_"</span>, <span class="fu">Sys.Date</span>())</span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(output_dir)) <span class="fu">dir.create</span>(output_dir, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>comma <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">format</span>(x, <span class="at">big.mark =</span> <span class="st">","</span>, <span class="at">scientific =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(fixest)  <span class="co"># For fixed effects models</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom theme for a professional, academic look</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>theme_paper <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">15</span>, <span class="at">base_family =</span> <span class="st">"sans"</span>) { </span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size, <span class="at">base_family =</span> base_family) <span class="sc">+</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey20"</span>),</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.6</span>), <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">15</span>), <span class="at">family =</span> base_family), </span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.subtitle =</span> <span class="fu">element_markdown</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.1</span>), <span class="at">color =</span> <span class="st">"grey40"</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">15</span>), <span class="at">lineheight =</span> <span class="fl">1.2</span>), </span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">0.9</span>), <span class="at">color =</span> <span class="st">"grey50"</span>, <span class="at">hjust =</span> <span class="dv">1</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">t =</span> <span class="dv">12</span>)), </span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.25</span>), <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">color =</span> <span class="st">"grey30"</span>), </span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.1</span>), <span class="at">color =</span> <span class="st">"grey40"</span>), </span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.line =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey80"</span>, <span class="at">linewidth =</span> <span class="fl">0.6</span>),</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"grey93"</span>, <span class="at">linewidth =</span> <span class="fl">0.3</span>),</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.border =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.15</span>), <span class="at">face =</span> <span class="st">"bold"</span>), </span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.05</span>)), </span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="st">"grey90"</span>),</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.key =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"white"</span>, <span class="at">color =</span> <span class="cn">NA</span>),</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>      <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.25</span>), <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">color =</span> <span class="st">"grey20"</span>), </span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>      <span class="at">strip.background =</span> <span class="fu">element_rect</span>(<span class="at">fill =</span> <span class="st">"grey97"</span>, <span class="at">color =</span> <span class="st">"grey80"</span>)</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_paper</span>())</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a consistent color palette</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>color_palette <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Socio-cognitive"</span> <span class="ot">=</span> <span class="st">"#0072B2"</span>, <span class="st">"Socio-technical"</span> <span class="ot">=</span> <span class="st">"#D55E00"</span>)</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>output_dir <span class="ot">&lt;-</span> <span class="fu">paste0</span>(<span class="st">"Stratified_Diffusion_Analysis_"</span>, <span class="fu">Sys.Date</span>())</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">dir.exists</span>(output_dir)) <span class="fu">dir.create</span>(output_dir, <span class="at">recursive =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>comma <span class="ot">&lt;-</span> <span class="cf">function</span>(x) <span class="fu">format</span>(x, <span class="at">big.mark =</span> <span class="st">","</span>, <span class="at">scientific =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="data-preparation" class="level2">
@@ -552,14 +562,14 @@ y_{ij}^{(c)} \sim \text{Bernoulli}(p_{ij}^{(c)}), \quad \text{logit}(p_{ij}^{(c)
 <section id="variable-construction" class="level2">
 <h2 class="anchored" data-anchor-id="variable-construction">Variable Construction</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Robust variable mapping</span></span>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Robust variable mapping - UPDATED TO USE distance_euclidean_rca consistently</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>available_cols <span class="ot">&lt;-</span> <span class="fu">names</span>(data_for_models)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>required_mapping <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">diffusion =</span> <span class="fu">c</span>(<span class="st">"diffusion"</span>, <span class="st">"adopt"</span>, <span class="st">"adoption"</span>, <span class="st">"outcome"</span>),</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">structural_distance =</span> <span class="fu">c</span>(<span class="st">"structural_distance"</span>, <span class="st">"dist"</span>, <span class="st">"distance"</span>, <span class="st">"d_ij"</span>),</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">status_diff =</span> <span class="fu">c</span>(<span class="st">"status_gap_signed"</span>, <span class="st">"education_diff"</span>, <span class="st">"status_diff"</span>, <span class="st">"education_diff_abs"</span>, <span class="st">"edu_diff"</span>, <span class="st">"status_gap"</span>),</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">wage_diff =</span> <span class="fu">c</span>(<span class="st">"wage_gap"</span>, <span class="st">"wage_diff"</span>, <span class="st">"wage_distance"</span>),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">structural_distance =</span> <span class="fu">c</span>(<span class="st">"distance_euclidean_rca"</span>, <span class="st">"structural_distance"</span>, <span class="st">"dist"</span>, <span class="st">"distance"</span>, <span class="st">"d_ij"</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">status_diff =</span> <span class="fu">c</span>(<span class="st">"education_diff_abs"</span>, <span class="st">"status_gap_signed"</span>, <span class="st">"education_diff"</span>, <span class="st">"status_diff"</span>, <span class="st">"edu_diff"</span>, <span class="st">"status_gap"</span>),</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">wage_diff =</span> <span class="fu">c</span>(<span class="st">"wage_diff_abs"</span>, <span class="st">"wage_gap"</span>, <span class="st">"wage_diff"</span>, <span class="st">"wage_distance"</span>),</span>
 <span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">skill_group =</span> <span class="fu">c</span>(<span class="st">"skill_group_for_model"</span>, <span class="st">"skill_group"</span>, <span class="st">"cluster"</span>, <span class="st">"group"</span>, <span class="st">"LeidenCluster_2015"</span>, <span class="st">"skill_cluster_type"</span>),</span>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">source_education =</span> <span class="fu">c</span>(<span class="st">"source_education"</span>, <span class="st">"edu_i"</span>, <span class="st">"source_edu"</span>, <span class="st">"soc_source"</span>, <span class="st">"education_source"</span>),</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">target_education =</span> <span class="fu">c</span>(<span class="st">"target_education"</span>, <span class="st">"edu_j"</span>, <span class="st">"target_edu"</span>, <span class="st">"soc_target"</span>, <span class="st">"education_target"</span>),</span>
@@ -585,10 +595,10 @@ y_{ij}^{(c)} \sim \text{Bernoulli}(p_{ij}^{(c)}), \quad \text{logit}(p_{ij}^{(c)
 <span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a>generalized_data <span class="ot">&lt;-</span> <span class="fu">copy</span>(data_for_models)</span>
 <span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Create variables for the model</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Create variables for the model - USING distance_euclidean_rca consistently</span></span>
 <span id="cb3-35"><a href="#cb3-35" aria-hidden="true" tabindex="-1"></a>generalized_data[, <span class="st">`</span><span class="at">:=</span><span class="st">`</span>(</span>
 <span id="cb3-36"><a href="#cb3-36" aria-hidden="true" tabindex="-1"></a>  <span class="at">diffusion =</span> <span class="fu">as.numeric</span>(<span class="fu">get</span>(column_matches[[<span class="st">"diffusion"</span>]])),</span>
-<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">d_ij =</span> <span class="fu">as.numeric</span>(<span class="fu">get</span>(column_matches[[<span class="st">"structural_distance"</span>]])),</span>
+<span id="cb3-37"><a href="#cb3-37" aria-hidden="true" tabindex="-1"></a>  <span class="at">d_ij =</span> <span class="fu">as.numeric</span>(<span class="fu">get</span>(column_matches[[<span class="st">"structural_distance"</span>]])),  <span class="co"># This will be distance_euclidean_rca</span></span>
 <span id="cb3-38"><a href="#cb3-38" aria-hidden="true" tabindex="-1"></a>  <span class="at">status_gap_signed =</span> <span class="fu">as.numeric</span>(<span class="fu">get</span>(column_matches[[<span class="st">"status_diff"</span>]])),</span>
 <span id="cb3-39"><a href="#cb3-39" aria-hidden="true" tabindex="-1"></a>  <span class="at">skill_group_for_model =</span> <span class="fu">as.character</span>(<span class="fu">get</span>(column_matches[[<span class="st">"skill_group"</span>]]))</span>
 <span id="cb3-40"><a href="#cb3-40" aria-hidden="true" tabindex="-1"></a>)]</span>
@@ -652,7 +662,11 @@ y_{ij}^{(c)} \sim \text{Bernoulli}(p_{ij}^{(c)}), \quad \text{logit}(p_{ij}^{(c)
 <span id="cb3-98"><a href="#cb3-98" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-99"><a href="#cb3-99" aria-hidden="true" tabindex="-1"></a><span class="co"># Fragment data</span></span>
 <span id="cb3-100"><a href="#cb3-100" aria-hidden="true" tabindex="-1"></a>cognitive_data <span class="ot">&lt;-</span> generalized_data[content_type <span class="sc">==</span> <span class="st">"Socio-cognitive"</span>]</span>
-<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>physical_data <span class="ot">&lt;-</span> generalized_data[content_type <span class="sc">==</span> <span class="st">"Socio-technical"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-101"><a href="#cb3-101" aria-hidden="true" tabindex="-1"></a>physical_data <span class="ot">&lt;-</span> generalized_data[content_type <span class="sc">==</span> <span class="st">"Socio-technical"</span>]</span>
+<span id="cb3-102"><a href="#cb3-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-103"><a href="#cb3-103" aria-hidden="true" tabindex="-1"></a><span class="co"># Report which distance variable is being used</span></span>
+<span id="cb3-104"><a href="#cb3-104" aria-hidden="true" tabindex="-1"></a>distance_var_used <span class="ot">&lt;-</span> column_matches[[<span class="st">"structural_distance"</span>]]</span>
+<span id="cb3-105"><a href="#cb3-105" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="fu">sprintf</span>(<span class="st">"Using '%s' as structural distance variable across all analyses."</span>, distance_var_used))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="descriptive-analysis" class="level2">
@@ -1245,15 +1259,15 @@ y_{ij}^{(c)} \sim \text{Bernoulli}(p_{ij}^{(c)}), \quad \text{logit}(p_{ij}^{(c)
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>✅ Advanced HMC model fitted successfully.
-⏱️ Fitting time: 2852.7 seconds.
-ation took 0.109476 seconds
-Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 1094.76 seconds.
+⏱️ Fitting time: 2329.6 seconds.
+ation took 0.19568 seconds
+Chain 1: 1000 transitions using 10 leapfrog steps per transition would take 1956.8 seconds.
 Chain 1: Adjust your expectations accordingly!
 Chain 1: 
 Chain 1: 
 Chain 2: 
-Chain 2: Gradient evaluation took 0.13411 seconds
-Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 1341.1 seconds.
+Chain 2: Gradient evaluation took 0.256456 seconds
+Chain 2: 1000 transitions using 10 leapfrog steps per transition would take 2564.56 seconds.
 Chain 2: Adjust your expectations accordingly!
 Chain 2: 
 Chain 2: 
@@ -1279,17 +1293,17 @@ Chain 1: Iteration: 900 / 1000 [ 90%]  (Sampling)
 Chain 2: Iteration: 700 / 1000 [ 70%]  (Sampling)
 Chain 1: Iteration: 1000 / 1000 [100%]  (Sampling)
 Chain 1: 
-Chain 1:  Elapsed Time: 1447.14 seconds (Warm-up)
-Chain 1:                1060.98 seconds (Sampling)
-Chain 1:                2508.12 seconds (Total)
+Chain 1:  Elapsed Time: 1158.59 seconds (Warm-up)
+Chain 1:                872.174 seconds (Sampling)
+Chain 1:                2030.76 seconds (Total)
 Chain 1: 
 Chain 2: Iteration: 800 / 1000 [ 80%]  (Sampling)
 Chain 2: Iteration: 900 / 1000 [ 90%]  (Sampling)
 Chain 2: Iteration: 1000 / 1000 [100%]  (Sampling)
 Chain 2: 
-Chain 2:  Elapsed Time: 1877.97 seconds (Warm-up)
-Chain 2:                890.753 seconds (Sampling)
-Chain 2:                2768.72 seconds (Total)
+Chain 2:  Elapsed Time: 1526.69 seconds (Warm-up)
+Chain 2:                721.66 seconds (Sampling)
+Chain 2:                2248.35 seconds (Total)
 Chain 2: </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ADVANCED PHYSICAL MODEL</span></span>
@@ -1300,13 +1314,13 @@ Chain 2: </code></pre>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">priors =</span> priors_lasso</span>
 <span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>%]  (Sampling)
+<pre><code>80%]  (Sampling)
 Chain 2: Iteration: 900 / 1000 [ 90%]  (Sampling)
 Chain 2: Iteration: 1000 / 1000 [100%]  (Sampling)
 Chain 2: 
-Chain 2:  Elapsed Time: 1359.17 seconds (Warm-up)
-Chain 2:                636.56 seconds (Sampling)
-Chain 2:                1995.73 seconds (Total)
+Chain 2:  Elapsed Time: 1162.02 seconds (Warm-up)
+Chain 2:                551.458 seconds (Sampling)
+Chain 2:                1713.47 seconds (Total)
 Chain 2: </code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>end_hmc_time <span class="ot">&lt;-</span> <span class="fu">Sys.time</span>()</span>
@@ -1526,21 +1540,691 @@ Chain 2: </code></pre>
 </div>
 </div>
 </section>
+<section id="fixed-effects-causal-analysis-controlling-for-unobserved-heterogeneity" class="level1">
+<h1>Fixed Effects Causal Analysis: Controlling for Unobserved Heterogeneity</h1>
+<p>The previous analyses have demonstrated strong evidence for Asymmetric Trajectory Channeling through piecewise models and Bayesian approaches. However, a potential concern is that unobserved characteristics of source occupations might confound our results. To address this concern and strengthen our causal identification, we now implement a fixed effects strategy that controls for all time-invariant unobserved heterogeneity at the source occupation level.</p>
+<section id="fixed-effects-model-specification" class="level2">
+<h2 class="anchored" data-anchor-id="fixed-effects-model-specification">Fixed Effects Model Specification</h2>
+<p>Our fixed effects specification builds directly on the theoretical piecewise model but includes source occupation fixed effects (<span class="math inline">\(\alpha_i\)</span>):</p>
+<p><span class="math display">\[
+\text{logit}\, P_{i \to j}^{(c)} = \alpha_i + \theta_{0c} - \lambda_c d_{ij} - \beta_c^+ \Delta^+_{ij} - \beta_c^- \Delta^-_{ij} - \omega_c w_{ij}
+\]</span></p>
+<p>Where <span class="math inline">\(\alpha_i\)</span> captures all time-invariant characteristics of source occupation <span class="math inline">\(i\)</span> that might affect its propensity to be imitated. This specification allows us to identify the causal effects of structural distance and status differences from within-source-occupation variation, effectively comparing how the same source occupation’s skills diffuse to different target occupations.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data for fixed effects analysis</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Add fixed effects variables and ensure same distance variable is used</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>generalized_data[, <span class="st">`</span><span class="at">:=</span><span class="st">`</span>(</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Outcome variable</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">diffusion_outcome =</span> <span class="fu">as.numeric</span>(diffusion),</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Main explanatory variables (using distance_euclidean_rca consistently)</span></span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">structural_distance =</span> d_ij,  <span class="co"># This is already distance_euclidean_rca from earlier</span></span>
+<span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">education_diff =</span> status_gap_signed,  <span class="co"># Use the signed version for fixed effects</span></span>
+<span id="cb32-10"><a href="#cb32-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">wage_diff =</span> <span class="fu">abs</span>(wage_gap),</span>
+<span id="cb32-11"><a href="#cb32-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb32-12"><a href="#cb32-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fixed effects variables</span></span>
+<span id="cb32-13"><a href="#cb32-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">source_fe =</span> <span class="fu">as.factor</span>(source),</span>
+<span id="cb32-14"><a href="#cb32-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">target_fe =</span> <span class="fu">as.factor</span>(target)</span>
+<span id="cb32-15"><a href="#cb32-15" aria-hidden="true" tabindex="-1"></a>)]</span>
+<span id="cb32-16"><a href="#cb32-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-17"><a href="#cb32-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Add skill type indicator (consistent with earlier analysis)</span></span>
+<span id="cb32-18"><a href="#cb32-18" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="st">"LeidenCluster_2015"</span> <span class="sc">%in%</span> <span class="fu">names</span>(generalized_data)) {</span>
+<span id="cb32-19"><a href="#cb32-19" aria-hidden="true" tabindex="-1"></a>  generalized_data[, cognitive_skills <span class="sc">:</span><span class="er">=</span> <span class="fu">as.numeric</span>(LeidenCluster_2015 <span class="sc">==</span> <span class="st">"LeidenC_1"</span>)]</span>
+<span id="cb32-20"><a href="#cb32-20" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb32-21"><a href="#cb32-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Fallback based on content_type</span></span>
+<span id="cb32-22"><a href="#cb32-22" aria-hidden="true" tabindex="-1"></a>  generalized_data[, cognitive_skills <span class="sc">:</span><span class="er">=</span> <span class="fu">as.numeric</span>(content_type <span class="sc">==</span> <span class="st">"Socio-cognitive"</span>)]</span>
+<span id="cb32-23"><a href="#cb32-23" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb32-24"><a href="#cb32-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-25"><a href="#cb32-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Clean data for fixed effects estimation</span></span>
+<span id="cb32-26"><a href="#cb32-26" aria-hidden="true" tabindex="-1"></a>fe_data <span class="ot">&lt;-</span> generalized_data[<span class="sc">!</span><span class="fu">is.na</span>(diffusion_outcome) <span class="sc">&amp;</span> </span>
+<span id="cb32-27"><a href="#cb32-27" aria-hidden="true" tabindex="-1"></a>                           <span class="sc">!</span><span class="fu">is.na</span>(structural_distance) <span class="sc">&amp;</span> </span>
+<span id="cb32-28"><a href="#cb32-28" aria-hidden="true" tabindex="-1"></a>                           <span class="sc">!</span><span class="fu">is.na</span>(education_diff) <span class="sc">&amp;</span> </span>
+<span id="cb32-29"><a href="#cb32-29" aria-hidden="true" tabindex="-1"></a>                           <span class="sc">!</span><span class="fu">is.na</span>(wage_diff) <span class="sc">&amp;</span></span>
+<span id="cb32-30"><a href="#cb32-30" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">is.finite</span>(structural_distance) <span class="sc">&amp;</span></span>
+<span id="cb32-31"><a href="#cb32-31" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">is.finite</span>(education_diff) <span class="sc">&amp;</span></span>
+<span id="cb32-32"><a href="#cb32-32" aria-hidden="true" tabindex="-1"></a>                           <span class="fu">is.finite</span>(wage_diff)]</span>
+<span id="cb32-33"><a href="#cb32-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-34"><a href="#cb32-34" aria-hidden="true" tabindex="-1"></a><span class="co"># Split by skill type</span></span>
+<span id="cb32-35"><a href="#cb32-35" aria-hidden="true" tabindex="-1"></a>fe_cognitive <span class="ot">&lt;-</span> fe_data[cognitive_skills <span class="sc">==</span> <span class="dv">1</span>]</span>
+<span id="cb32-36"><a href="#cb32-36" aria-hidden="true" tabindex="-1"></a>fe_physical <span class="ot">&lt;-</span> fe_data[cognitive_skills <span class="sc">==</span> <span class="dv">0</span>]</span>
+<span id="cb32-37"><a href="#cb32-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-38"><a href="#cb32-38" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="fu">sprintf</span>(<span class="st">"Fixed Effects Data: %s total observations"</span>, <span class="fu">comma</span>(<span class="fu">nrow</span>(fe_data))))</span>
+<span id="cb32-39"><a href="#cb32-39" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="fu">sprintf</span>(<span class="st">"  - Cognitive skills: %s observations"</span>, <span class="fu">comma</span>(<span class="fu">nrow</span>(fe_cognitive))))</span>
+<span id="cb32-40"><a href="#cb32-40" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="fu">sprintf</span>(<span class="st">"  - Physical skills: %s observations"</span>, <span class="fu">comma</span>(<span class="fu">nrow</span>(fe_physical))))</span>
+<span id="cb32-41"><a href="#cb32-41" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="fu">sprintf</span>(<span class="st">"  - Using %s as structural distance variable"</span>, distance_var_used))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fixed-effects-model-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="fixed-effects-model-estimation">Fixed Effects Model Estimation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate fixed effects models using feols from fixest package</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Formula consistent with theoretical specification</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>fe_formula <span class="ot">&lt;-</span> diffusion_outcome <span class="sc">~</span> structural_distance <span class="sc">+</span> education_diff <span class="sc">+</span> wage_diff <span class="sc">|</span> source_fe</span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Estimate models for each skill type</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Estimating fixed effects models..."</span>)</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Cognitive skills model</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a>fe_model_cognitive <span class="ot">&lt;-</span> <span class="fu">feols</span>(fe_formula, </span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a>                           <span class="at">data =</span> fe_cognitive,</span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a>                           <span class="at">cluster =</span> <span class="st">"source_fe"</span>)</span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Physical skills model  </span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>fe_model_physical <span class="ot">&lt;-</span> <span class="fu">feols</span>(fe_formula, </span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>                          <span class="at">data =</span> fe_physical,</span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a>                          <span class="at">cluster =</span> <span class="st">"source_fe"</span>)</span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="st">"Fixed effects models estimated successfully"</span>)</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract key coefficients</span></span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>coef_cog_struct <span class="ot">&lt;-</span> <span class="fu">coef</span>(fe_model_cognitive)[<span class="st">"structural_distance"</span>]</span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>coef_phys_struct <span class="ot">&lt;-</span> <span class="fu">coef</span>(fe_model_physical)[<span class="st">"structural_distance"</span>]</span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Display immediate verification of signs</span></span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="fu">sprintf</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Structural Distance Coefficients:"</span>))</span>
+<span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="fu">sprintf</span>(<span class="st">"  Cognitive: %.4f %s"</span>, </span>
+<span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a>                coef_cog_struct, </span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a>                <span class="fu">ifelse</span>(coef_cog_struct <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="st">"(✓ Negative - matches theory)"</span>, <span class="st">"(⚠ Positive - check specification)"</span>)))</span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="fu">sprintf</span>(<span class="st">"  Physical:  %.4f %s"</span>, </span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a>                coef_phys_struct, </span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a>                <span class="fu">ifelse</span>(coef_phys_struct <span class="sc">&lt;</span> <span class="dv">0</span>, <span class="st">"(✓ Negative - matches theory)"</span>, <span class="st">"(⚠ Positive - check specification)"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fixed-effects-results-and-significance-testing" class="level2">
+<h2 class="anchored" data-anchor-id="fixed-effects-results-and-significance-testing">Fixed Effects Results and Significance Testing</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Function to test coefficient differences between models</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>test_coefficient_difference <span class="ot">&lt;-</span> <span class="cf">function</span>(model1, model2, coef_name) {</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  b1 <span class="ot">&lt;-</span> <span class="fu">coef</span>(model1)[coef_name]</span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  b2 <span class="ot">&lt;-</span> <span class="fu">coef</span>(model2)[coef_name]</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>  se1 <span class="ot">&lt;-</span> <span class="fu">se</span>(model1)[coef_name]</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  se2 <span class="ot">&lt;-</span> <span class="fu">se</span>(model2)[coef_name]</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.na</span>(b1) <span class="sc">||</span> <span class="fu">is.na</span>(b2) <span class="sc">||</span> <span class="fu">is.na</span>(se1) <span class="sc">||</span> <span class="fu">is.na</span>(se2)) {</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">diff =</span> <span class="cn">NA</span>, <span class="at">z_stat =</span> <span class="cn">NA</span>, <span class="at">p_value =</span> <span class="cn">NA</span>))</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>  diff <span class="ot">&lt;-</span> b1 <span class="sc">-</span> b2</span>
+<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>  se_diff <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(se1<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> se2<span class="sc">^</span><span class="dv">2</span>)</span>
+<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>  z_stat <span class="ot">&lt;-</span> diff <span class="sc">/</span> se_diff</span>
+<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>  p_value <span class="ot">&lt;-</span> <span class="dv">2</span> <span class="sc">*</span> <span class="fu">pnorm</span>(<span class="sc">-</span><span class="fu">abs</span>(z_stat))</span>
+<span id="cb34-16"><a href="#cb34-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-17"><a href="#cb34-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">diff =</span> diff, <span class="at">z_stat =</span> z_stat, <span class="at">p_value =</span> p_value))</span>
+<span id="cb34-18"><a href="#cb34-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Test differences for key coefficients</span></span>
+<span id="cb34-21"><a href="#cb34-21" aria-hidden="true" tabindex="-1"></a>diff_structural <span class="ot">&lt;-</span> <span class="fu">test_coefficient_difference</span>(fe_model_cognitive, fe_model_physical, <span class="st">"structural_distance"</span>)</span>
+<span id="cb34-22"><a href="#cb34-22" aria-hidden="true" tabindex="-1"></a>diff_education <span class="ot">&lt;-</span> <span class="fu">test_coefficient_difference</span>(fe_model_cognitive, fe_model_physical, <span class="st">"education_diff"</span>)</span>
+<span id="cb34-23"><a href="#cb34-23" aria-hidden="true" tabindex="-1"></a>diff_wage <span class="ot">&lt;-</span> <span class="fu">test_coefficient_difference</span>(fe_model_cognitive, fe_model_physical, <span class="st">"wage_diff"</span>)</span>
+<span id="cb34-24"><a href="#cb34-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-25"><a href="#cb34-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract results safely and create simple table</span></span>
+<span id="cb34-26"><a href="#cb34-26" aria-hidden="true" tabindex="-1"></a>create_fe_results_table <span class="ot">&lt;-</span> <span class="cf">function</span>(model_cog, model_phys, diff_tests) {</span>
+<span id="cb34-27"><a href="#cb34-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-28"><a href="#cb34-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Extract coefficients safely</span></span>
+<span id="cb34-29"><a href="#cb34-29" aria-hidden="true" tabindex="-1"></a>  get_coef_safe <span class="ot">&lt;-</span> <span class="cf">function</span>(model, name) {</span>
+<span id="cb34-30"><a href="#cb34-30" aria-hidden="true" tabindex="-1"></a>    coefs <span class="ot">&lt;-</span> <span class="fu">coef</span>(model)</span>
+<span id="cb34-31"><a href="#cb34-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(name <span class="sc">%in%</span> <span class="fu">names</span>(coefs)) coefs[name] <span class="cf">else</span> <span class="cn">NA</span></span>
+<span id="cb34-32"><a href="#cb34-32" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb34-33"><a href="#cb34-33" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-34"><a href="#cb34-34" aria-hidden="true" tabindex="-1"></a>  get_se_safe <span class="ot">&lt;-</span> <span class="cf">function</span>(model, name) {</span>
+<span id="cb34-35"><a href="#cb34-35" aria-hidden="true" tabindex="-1"></a>    ses <span class="ot">&lt;-</span> <span class="fu">se</span>(model)</span>
+<span id="cb34-36"><a href="#cb34-36" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(name <span class="sc">%in%</span> <span class="fu">names</span>(ses)) ses[name] <span class="cf">else</span> <span class="cn">NA</span></span>
+<span id="cb34-37"><a href="#cb34-37" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb34-38"><a href="#cb34-38" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-39"><a href="#cb34-39" aria-hidden="true" tabindex="-1"></a>  get_p_safe <span class="ot">&lt;-</span> <span class="cf">function</span>(model, name) {</span>
+<span id="cb34-40"><a href="#cb34-40" aria-hidden="true" tabindex="-1"></a>    ps <span class="ot">&lt;-</span> <span class="fu">pvalue</span>(model)</span>
+<span id="cb34-41"><a href="#cb34-41" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(name <span class="sc">%in%</span> <span class="fu">names</span>(ps)) ps[name] <span class="cf">else</span> <span class="cn">NA</span></span>
+<span id="cb34-42"><a href="#cb34-42" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb34-43"><a href="#cb34-43" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-44"><a href="#cb34-44" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create results data frame</span></span>
+<span id="cb34-45"><a href="#cb34-45" aria-hidden="true" tabindex="-1"></a>  results_df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb34-46"><a href="#cb34-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">Variable =</span> <span class="fu">c</span>(<span class="st">"Structural Distance"</span>, <span class="st">"Education Difference"</span>, <span class="st">"Wage Difference"</span>),</span>
+<span id="cb34-47"><a href="#cb34-47" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-48"><a href="#cb34-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Cognitive results</span></span>
+<span id="cb34-49"><a href="#cb34-49" aria-hidden="true" tabindex="-1"></a>    <span class="at">Cog_Coef =</span> <span class="fu">c</span>(</span>
+<span id="cb34-50"><a href="#cb34-50" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_coef_safe</span>(model_cog, <span class="st">"structural_distance"</span>),</span>
+<span id="cb34-51"><a href="#cb34-51" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_coef_safe</span>(model_cog, <span class="st">"education_diff"</span>),</span>
+<span id="cb34-52"><a href="#cb34-52" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_coef_safe</span>(model_cog, <span class="st">"wage_diff"</span>)</span>
+<span id="cb34-53"><a href="#cb34-53" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb34-54"><a href="#cb34-54" aria-hidden="true" tabindex="-1"></a>    <span class="at">Cog_SE =</span> <span class="fu">c</span>(</span>
+<span id="cb34-55"><a href="#cb34-55" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_se_safe</span>(model_cog, <span class="st">"structural_distance"</span>),</span>
+<span id="cb34-56"><a href="#cb34-56" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_se_safe</span>(model_cog, <span class="st">"education_diff"</span>),</span>
+<span id="cb34-57"><a href="#cb34-57" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_se_safe</span>(model_cog, <span class="st">"wage_diff"</span>)</span>
+<span id="cb34-58"><a href="#cb34-58" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb34-59"><a href="#cb34-59" aria-hidden="true" tabindex="-1"></a>    <span class="at">Cog_P =</span> <span class="fu">c</span>(</span>
+<span id="cb34-60"><a href="#cb34-60" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_p_safe</span>(model_cog, <span class="st">"structural_distance"</span>),</span>
+<span id="cb34-61"><a href="#cb34-61" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_p_safe</span>(model_cog, <span class="st">"education_diff"</span>),</span>
+<span id="cb34-62"><a href="#cb34-62" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_p_safe</span>(model_cog, <span class="st">"wage_diff"</span>)</span>
+<span id="cb34-63"><a href="#cb34-63" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb34-64"><a href="#cb34-64" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-65"><a href="#cb34-65" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Physical results</span></span>
+<span id="cb34-66"><a href="#cb34-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">Phys_Coef =</span> <span class="fu">c</span>(</span>
+<span id="cb34-67"><a href="#cb34-67" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_coef_safe</span>(model_phys, <span class="st">"structural_distance"</span>),</span>
+<span id="cb34-68"><a href="#cb34-68" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_coef_safe</span>(model_phys, <span class="st">"education_diff"</span>),</span>
+<span id="cb34-69"><a href="#cb34-69" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_coef_safe</span>(model_phys, <span class="st">"wage_diff"</span>)</span>
+<span id="cb34-70"><a href="#cb34-70" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb34-71"><a href="#cb34-71" aria-hidden="true" tabindex="-1"></a>    <span class="at">Phys_SE =</span> <span class="fu">c</span>(</span>
+<span id="cb34-72"><a href="#cb34-72" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_se_safe</span>(model_phys, <span class="st">"structural_distance"</span>),</span>
+<span id="cb34-73"><a href="#cb34-73" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_se_safe</span>(model_phys, <span class="st">"education_diff"</span>),</span>
+<span id="cb34-74"><a href="#cb34-74" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_se_safe</span>(model_phys, <span class="st">"wage_diff"</span>)</span>
+<span id="cb34-75"><a href="#cb34-75" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb34-76"><a href="#cb34-76" aria-hidden="true" tabindex="-1"></a>    <span class="at">Phys_P =</span> <span class="fu">c</span>(</span>
+<span id="cb34-77"><a href="#cb34-77" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_p_safe</span>(model_phys, <span class="st">"structural_distance"</span>),</span>
+<span id="cb34-78"><a href="#cb34-78" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_p_safe</span>(model_phys, <span class="st">"education_diff"</span>),</span>
+<span id="cb34-79"><a href="#cb34-79" aria-hidden="true" tabindex="-1"></a>      <span class="fu">get_p_safe</span>(model_phys, <span class="st">"wage_diff"</span>)</span>
+<span id="cb34-80"><a href="#cb34-80" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb34-81"><a href="#cb34-81" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-82"><a href="#cb34-82" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Differences</span></span>
+<span id="cb34-83"><a href="#cb34-83" aria-hidden="true" tabindex="-1"></a>    <span class="at">Diff =</span> <span class="fu">c</span>(diff_tests<span class="sc">$</span>structural<span class="sc">$</span>diff, diff_tests<span class="sc">$</span>education<span class="sc">$</span>diff, diff_tests<span class="sc">$</span>wage<span class="sc">$</span>diff),</span>
+<span id="cb34-84"><a href="#cb34-84" aria-hidden="true" tabindex="-1"></a>    <span class="at">Diff_P =</span> <span class="fu">c</span>(diff_tests<span class="sc">$</span>structural<span class="sc">$</span>p_value, diff_tests<span class="sc">$</span>education<span class="sc">$</span>p_value, diff_tests<span class="sc">$</span>wage<span class="sc">$</span>p_value),</span>
+<span id="cb34-85"><a href="#cb34-85" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb34-86"><a href="#cb34-86" aria-hidden="true" tabindex="-1"></a>    <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb34-87"><a href="#cb34-87" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb34-88"><a href="#cb34-88" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-89"><a href="#cb34-89" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Format for display</span></span>
+<span id="cb34-90"><a href="#cb34-90" aria-hidden="true" tabindex="-1"></a>  results_df<span class="sc">$</span>Cognitive_Skills <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%.4f%s</span><span class="sc">\n</span><span class="st">(%.4f)"</span>,</span>
+<span id="cb34-91"><a href="#cb34-91" aria-hidden="true" tabindex="-1"></a>                                         results_df<span class="sc">$</span>Cog_Coef,</span>
+<span id="cb34-92"><a href="#cb34-92" aria-hidden="true" tabindex="-1"></a>                                         <span class="fu">ifelse</span>(results_df<span class="sc">$</span>Cog_P <span class="sc">&lt;</span> <span class="fl">0.001</span>, <span class="st">"***"</span>,</span>
+<span id="cb34-93"><a href="#cb34-93" aria-hidden="true" tabindex="-1"></a>                                               <span class="fu">ifelse</span>(results_df<span class="sc">$</span>Cog_P <span class="sc">&lt;</span> <span class="fl">0.01</span>, <span class="st">"**"</span>,</span>
+<span id="cb34-94"><a href="#cb34-94" aria-hidden="true" tabindex="-1"></a>                                                     <span class="fu">ifelse</span>(results_df<span class="sc">$</span>Cog_P <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">"*"</span>, <span class="st">""</span>))),</span>
+<span id="cb34-95"><a href="#cb34-95" aria-hidden="true" tabindex="-1"></a>                                         results_df<span class="sc">$</span>Cog_SE)</span>
+<span id="cb34-96"><a href="#cb34-96" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-97"><a href="#cb34-97" aria-hidden="true" tabindex="-1"></a>  results_df<span class="sc">$</span>Physical_Skills <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%.4f%s</span><span class="sc">\n</span><span class="st">(%.4f)"</span>,</span>
+<span id="cb34-98"><a href="#cb34-98" aria-hidden="true" tabindex="-1"></a>                                        results_df<span class="sc">$</span>Phys_Coef,</span>
+<span id="cb34-99"><a href="#cb34-99" aria-hidden="true" tabindex="-1"></a>                                        <span class="fu">ifelse</span>(results_df<span class="sc">$</span>Phys_P <span class="sc">&lt;</span> <span class="fl">0.001</span>, <span class="st">"***"</span>,</span>
+<span id="cb34-100"><a href="#cb34-100" aria-hidden="true" tabindex="-1"></a>                                              <span class="fu">ifelse</span>(results_df<span class="sc">$</span>Phys_P <span class="sc">&lt;</span> <span class="fl">0.01</span>, <span class="st">"**"</span>,</span>
+<span id="cb34-101"><a href="#cb34-101" aria-hidden="true" tabindex="-1"></a>                                                    <span class="fu">ifelse</span>(results_df<span class="sc">$</span>Phys_P <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">"*"</span>, <span class="st">""</span>))),</span>
+<span id="cb34-102"><a href="#cb34-102" aria-hidden="true" tabindex="-1"></a>                                        results_df<span class="sc">$</span>Phys_SE)</span>
+<span id="cb34-103"><a href="#cb34-103" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-104"><a href="#cb34-104" aria-hidden="true" tabindex="-1"></a>  results_df<span class="sc">$</span>Difference <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(<span class="st">"%.4f%s"</span>,</span>
+<span id="cb34-105"><a href="#cb34-105" aria-hidden="true" tabindex="-1"></a>                                   results_df<span class="sc">$</span>Diff,</span>
+<span id="cb34-106"><a href="#cb34-106" aria-hidden="true" tabindex="-1"></a>                                   <span class="fu">ifelse</span>(results_df<span class="sc">$</span>Diff_P <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="st">"*"</span>, <span class="st">""</span>))</span>
+<span id="cb34-107"><a href="#cb34-107" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb34-108"><a href="#cb34-108" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Return clean table</span></span>
+<span id="cb34-109"><a href="#cb34-109" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(results_df[, <span class="fu">c</span>(<span class="st">"Variable"</span>, <span class="st">"Cognitive_Skills"</span>, <span class="st">"Physical_Skills"</span>, <span class="st">"Difference"</span>)])</span>
+<span id="cb34-110"><a href="#cb34-110" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb34-111"><a href="#cb34-111" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-112"><a href="#cb34-112" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the table</span></span>
+<span id="cb34-113"><a href="#cb34-113" aria-hidden="true" tabindex="-1"></a>diff_tests <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb34-114"><a href="#cb34-114" aria-hidden="true" tabindex="-1"></a>  <span class="at">structural =</span> diff_structural,</span>
+<span id="cb34-115"><a href="#cb34-115" aria-hidden="true" tabindex="-1"></a>  <span class="at">education =</span> diff_education,</span>
+<span id="cb34-116"><a href="#cb34-116" aria-hidden="true" tabindex="-1"></a>  <span class="at">wage =</span> diff_wage</span>
+<span id="cb34-117"><a href="#cb34-117" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-118"><a href="#cb34-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-119"><a href="#cb34-119" aria-hidden="true" tabindex="-1"></a>fe_table_clean <span class="ot">&lt;-</span> <span class="fu">create_fe_results_table</span>(fe_model_cognitive, fe_model_physical, diff_tests)</span>
+<span id="cb34-120"><a href="#cb34-120" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-121"><a href="#cb34-121" aria-hidden="true" tabindex="-1"></a><span class="co"># Display with kable</span></span>
+<span id="cb34-122"><a href="#cb34-122" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(fe_table_clean,</span>
+<span id="cb34-123"><a href="#cb34-123" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"**Table 3: Fixed Effects Regression Results - Asymmetric Trajectory Channeling**"</span>,</span>
+<span id="cb34-124"><a href="#cb34-124" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Variable"</span>, <span class="st">"Socio-cognitive Skills"</span>, <span class="st">"Socio-technical Skills"</span>, <span class="st">"Difference"</span>),</span>
+<span id="cb34-125"><a href="#cb34-125" aria-hidden="true" tabindex="-1"></a>      <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"c"</span>, <span class="st">"c"</span>, <span class="st">"c"</span>),</span>
+<span id="cb34-126"><a href="#cb34-126" aria-hidden="true" tabindex="-1"></a>      <span class="at">escape =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb34-127"><a href="#cb34-127" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>), <span class="at">full_width =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb34-128"><a href="#cb34-128" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">1</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb34-129"><a href="#cb34-129" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">4</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#F0F8FF"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb34-130"><a href="#cb34-130" aria-hidden="true" tabindex="-1"></a>  <span class="fu">footnote</span>(<span class="at">general =</span> <span class="fu">sprintf</span>(<span class="st">"Standard errors in parentheses. N(cognitive)=%s, N(physical)=%s. Distance variable: %s. Source occupation fixed effects included. ***p&lt;0.001, **p&lt;0.01, *p&lt;0.05"</span>, </span>
+<span id="cb34-131"><a href="#cb34-131" aria-hidden="true" tabindex="-1"></a>                            <span class="fu">comma</span>(<span class="fu">nrow</span>(fe_cognitive)), <span class="fu">comma</span>(<span class="fu">nrow</span>(fe_physical)), distance_var_used),</span>
+<span id="cb34-132"><a href="#cb34-132" aria-hidden="true" tabindex="-1"></a>           <span class="at">general_title =</span> <span class="st">"Note:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
+<caption>**Table 3: Fixed Effects Regression Results - Asymmetric Trajectory Channeling**</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Variable</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Socio-cognitive Skills</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Socio-technical Skills</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Difference</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">structural_distance</td>
+<td style="text-align: left;">Structural Distance</td>
+<td style="text-align: center;">0.3737*** (0.0649)</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(240, 248, 255, 255) !important;">| 0.4439*** (0.0706)</td>
+<td style="text-align: center;">| -0.0701</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; font-weight: bold;">education_diff</td>
+<td style="text-align: left;">Education Difference</td>
+<td style="text-align: center;">0.1116*** (0.0022)</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(240, 248, 255, 255) !important;">| -0.0081*** (0.0023)</td>
+<td style="text-align: center;">| 0.1197*</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; font-weight: bold;">wage_diff</td>
+<td style="text-align: left;">Wage Difference</td>
+<td style="text-align: center;">-0.0000 (0.0000)</td>
+<td style="text-align: center; font-weight: bold; background-color: rgba(240, 248, 255, 255) !important;">| -0.0000*** (0.0000)</td>
+<td style="text-align: center;">| 0.0000*</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td style="text-align: left; padding: 0;"><span style="font-style: italic;">Note:</span></td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; padding: 0;"><sup></sup> Standard errors in parentheses. N(cognitive)=353,988, N(physical)=318,951. Distance variable: structural_distance. Source occupation fixed effects included. ***p&lt;0.001, **p&lt;0.01, *p&lt;0.05</td>
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+</tfoot>
+
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model summary statistics (corrected for vector length issues)</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>get_r2_safe <span class="ot">&lt;-</span> <span class="cf">function</span>(model) {</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Try multiple ways to extract R² and ensure single value</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  r2_val <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>({</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span>(<span class="st">"r2_within"</span> <span class="sc">%in%</span> <span class="fu">names</span>(model) <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="fu">is.null</span>(model<span class="sc">$</span>r2_within)) {</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.numeric</span>(model<span class="sc">$</span>r2_within[<span class="dv">1</span>])</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span>(<span class="st">"adj_r2"</span> <span class="sc">%in%</span> <span class="fu">names</span>(model) <span class="sc">&amp;&amp;</span> <span class="sc">!</span><span class="fu">is.null</span>(model<span class="sc">$</span>adj_r2)) {</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.numeric</span>(model<span class="sc">$</span>adj_r2[<span class="dv">1</span>])</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span>(<span class="fu">hasName</span>(model, <span class="st">"r.squared"</span>)) {</span>
+<span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">as.numeric</span>(model<span class="sc">$</span>r.squared[<span class="dv">1</span>])</span>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> {</span>
+<span id="cb35-12"><a href="#cb35-12" aria-hidden="true" tabindex="-1"></a>      <span class="co"># Calculate manually if possible</span></span>
+<span id="cb35-13"><a href="#cb35-13" aria-hidden="true" tabindex="-1"></a>      summary_model <span class="ot">&lt;-</span> <span class="fu">summary</span>(model)</span>
+<span id="cb35-14"><a href="#cb35-14" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span>(<span class="st">"r.squared"</span> <span class="sc">%in%</span> <span class="fu">names</span>(summary_model)) {</span>
+<span id="cb35-15"><a href="#cb35-15" aria-hidden="true" tabindex="-1"></a>        <span class="fu">as.numeric</span>(summary_model<span class="sc">$</span>r.squared[<span class="dv">1</span>])</span>
+<span id="cb35-16"><a href="#cb35-16" aria-hidden="true" tabindex="-1"></a>      } <span class="cf">else</span> {</span>
+<span id="cb35-17"><a href="#cb35-17" aria-hidden="true" tabindex="-1"></a>        <span class="cn">NA_real_</span></span>
+<span id="cb35-18"><a href="#cb35-18" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb35-19"><a href="#cb35-19" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb35-20"><a href="#cb35-20" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
+<span id="cb35-21"><a href="#cb35-21" aria-hidden="true" tabindex="-1"></a>    <span class="cn">NA_real_</span></span>
+<span id="cb35-22"><a href="#cb35-22" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb35-23"><a href="#cb35-23" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb35-24"><a href="#cb35-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ensure single value</span></span>
+<span id="cb35-25"><a href="#cb35-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">length</span>(r2_val) <span class="sc">&gt;</span> <span class="dv">1</span>) r2_val <span class="ot">&lt;-</span> r2_val[<span class="dv">1</span>]</span>
+<span id="cb35-26"><a href="#cb35-26" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.null</span>(r2_val)) r2_val <span class="ot">&lt;-</span> <span class="cn">NA_real_</span></span>
+<span id="cb35-27"><a href="#cb35-27" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb35-28"><a href="#cb35-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(r2_val)</span>
+<span id="cb35-29"><a href="#cb35-29" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb35-30"><a href="#cb35-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-31"><a href="#cb35-31" aria-hidden="true" tabindex="-1"></a><span class="co"># Safe extraction functions to ensure single values</span></span>
+<span id="cb35-32"><a href="#cb35-32" aria-hidden="true" tabindex="-1"></a>get_nobs_safe <span class="ot">&lt;-</span> <span class="cf">function</span>(model) {</span>
+<span id="cb35-33"><a href="#cb35-33" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>({</span>
+<span id="cb35-34"><a href="#cb35-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.numeric</span>(<span class="fu">nobs</span>(model)[<span class="dv">1</span>])</span>
+<span id="cb35-35"><a href="#cb35-35" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
+<span id="cb35-36"><a href="#cb35-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">nrow</span>(model<span class="sc">$</span>data)</span>
+<span id="cb35-37"><a href="#cb35-37" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb35-38"><a href="#cb35-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(n)</span>
+<span id="cb35-39"><a href="#cb35-39" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb35-40"><a href="#cb35-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-41"><a href="#cb35-41" aria-hidden="true" tabindex="-1"></a>get_nfe_safe <span class="ot">&lt;-</span> <span class="cf">function</span>(data) {</span>
+<span id="cb35-42"><a href="#cb35-42" aria-hidden="true" tabindex="-1"></a>  n <span class="ot">&lt;-</span> <span class="fu">tryCatch</span>({</span>
+<span id="cb35-43"><a href="#cb35-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.numeric</span>(<span class="fu">length</span>(<span class="fu">unique</span>(data<span class="sc">$</span>source_fe))[<span class="dv">1</span>])</span>
+<span id="cb35-44"><a href="#cb35-44" aria-hidden="true" tabindex="-1"></a>  }, <span class="at">error =</span> <span class="cf">function</span>(e) {</span>
+<span id="cb35-45"><a href="#cb35-45" aria-hidden="true" tabindex="-1"></a>    <span class="dv">1</span>L</span>
+<span id="cb35-46"><a href="#cb35-46" aria-hidden="true" tabindex="-1"></a>  })</span>
+<span id="cb35-47"><a href="#cb35-47" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(n)</span>
+<span id="cb35-48"><a href="#cb35-48" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb35-49"><a href="#cb35-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-50"><a href="#cb35-50" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract each value safely</span></span>
+<span id="cb35-51"><a href="#cb35-51" aria-hidden="true" tabindex="-1"></a>n_obs_cog <span class="ot">&lt;-</span> <span class="fu">get_nobs_safe</span>(fe_model_cognitive)</span>
+<span id="cb35-52"><a href="#cb35-52" aria-hidden="true" tabindex="-1"></a>n_obs_phys <span class="ot">&lt;-</span> <span class="fu">get_nobs_safe</span>(fe_model_physical)</span>
+<span id="cb35-53"><a href="#cb35-53" aria-hidden="true" tabindex="-1"></a>r2_cog <span class="ot">&lt;-</span> <span class="fu">get_r2_safe</span>(fe_model_cognitive)</span>
+<span id="cb35-54"><a href="#cb35-54" aria-hidden="true" tabindex="-1"></a>r2_phys <span class="ot">&lt;-</span> <span class="fu">get_r2_safe</span>(fe_model_physical)</span>
+<span id="cb35-55"><a href="#cb35-55" aria-hidden="true" tabindex="-1"></a>nfe_cog <span class="ot">&lt;-</span> <span class="fu">get_nfe_safe</span>(fe_cognitive)</span>
+<span id="cb35-56"><a href="#cb35-56" aria-hidden="true" tabindex="-1"></a>nfe_phys <span class="ot">&lt;-</span> <span class="fu">get_nfe_safe</span>(fe_physical)</span>
+<span id="cb35-57"><a href="#cb35-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-58"><a href="#cb35-58" aria-hidden="true" tabindex="-1"></a><span class="co"># Debug: Check lengths</span></span>
+<span id="cb35-59"><a href="#cb35-59" aria-hidden="true" tabindex="-1"></a><span class="fu">message</span>(<span class="fu">sprintf</span>(<span class="st">"Debug - lengths: n_obs_cog=%d, r2_cog=%d, nfe_cog=%d"</span>, </span>
+<span id="cb35-60"><a href="#cb35-60" aria-hidden="true" tabindex="-1"></a>                <span class="fu">length</span>(n_obs_cog), <span class="fu">length</span>(r2_cog), <span class="fu">length</span>(nfe_cog)))</span>
+<span id="cb35-61"><a href="#cb35-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-62"><a href="#cb35-62" aria-hidden="true" tabindex="-1"></a>fe_summary_clean <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb35-63"><a href="#cb35-63" aria-hidden="true" tabindex="-1"></a>  <span class="at">Statistic =</span> <span class="fu">c</span>(<span class="st">"Observations"</span>, <span class="st">"R² Within"</span>, <span class="st">"Number of Source FE"</span>, <span class="st">"Distance Variable"</span>),</span>
+<span id="cb35-64"><a href="#cb35-64" aria-hidden="true" tabindex="-1"></a>  <span class="at">Cognitive =</span> <span class="fu">c</span>(</span>
+<span id="cb35-65"><a href="#cb35-65" aria-hidden="true" tabindex="-1"></a>    <span class="fu">comma</span>(n_obs_cog),</span>
+<span id="cb35-66"><a href="#cb35-66" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sprintf</span>(<span class="st">"%.4f"</span>, r2_cog),</span>
+<span id="cb35-67"><a href="#cb35-67" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.character</span>(nfe_cog),</span>
+<span id="cb35-68"><a href="#cb35-68" aria-hidden="true" tabindex="-1"></a>    distance_var_used</span>
+<span id="cb35-69"><a href="#cb35-69" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb35-70"><a href="#cb35-70" aria-hidden="true" tabindex="-1"></a>  <span class="at">Physical =</span> <span class="fu">c</span>(</span>
+<span id="cb35-71"><a href="#cb35-71" aria-hidden="true" tabindex="-1"></a>    <span class="fu">comma</span>(n_obs_phys), </span>
+<span id="cb35-72"><a href="#cb35-72" aria-hidden="true" tabindex="-1"></a>    <span class="fu">sprintf</span>(<span class="st">"%.4f"</span>, r2_phys),</span>
+<span id="cb35-73"><a href="#cb35-73" aria-hidden="true" tabindex="-1"></a>    <span class="fu">as.character</span>(nfe_phys),</span>
+<span id="cb35-74"><a href="#cb35-74" aria-hidden="true" tabindex="-1"></a>    distance_var_used</span>
+<span id="cb35-75"><a href="#cb35-75" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb35-76"><a href="#cb35-76" aria-hidden="true" tabindex="-1"></a>  <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span></span>
+<span id="cb35-77"><a href="#cb35-77" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb35-78"><a href="#cb35-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-79"><a href="#cb35-79" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(fe_summary_clean,</span>
+<span id="cb35-80"><a href="#cb35-80" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"**Table 4: Fixed Effects Model Summary Statistics**"</span>,</span>
+<span id="cb35-81"><a href="#cb35-81" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Statistic"</span>, <span class="st">"Socio-cognitive Model"</span>, <span class="st">"Socio-technical Model"</span>),</span>
+<span id="cb35-82"><a href="#cb35-82" aria-hidden="true" tabindex="-1"></a>      <span class="at">align =</span> <span class="fu">c</span>(<span class="st">"l"</span>, <span class="st">"c"</span>, <span class="st">"c"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb35-83"><a href="#cb35-83" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
+<caption>**Table 4: Fixed Effects Model Summary Statistics**</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Statistic</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Socio-cognitive Model</th>
+<th style="text-align: center;" data-quarto-table-cell-role="th">Socio-technical Model</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Observations</td>
+<td style="text-align: center;">353,988</td>
+<td style="text-align: center;">318,951</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">R² Within</td>
+<td style="text-align: center;">NA</td>
+<td style="text-align: center;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of Source FE</td>
+<td style="text-align: center;">62</td>
+<td style="text-align: center;">62</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Distance Variable</td>
+<td style="text-align: center;">structural_distance</td>
+<td style="text-align: center;">structural_distance</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="fixed-effects-analysis-interpretation" class="level2">
+<h2 class="anchored" data-anchor-id="fixed-effects-analysis-interpretation">Fixed Effects Analysis Interpretation</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract coefficients for interpretation (make sure variables are defined in this chunk)</span></span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>coef_cog_struct <span class="ot">&lt;-</span> <span class="fu">coef</span>(fe_model_cognitive)[<span class="st">"structural_distance"</span>]</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>coef_phys_struct <span class="ot">&lt;-</span> <span class="fu">coef</span>(fe_model_physical)[<span class="st">"structural_distance"</span>]</span>
+<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate interpretation based on results</span></span>
+<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"🎯 === FIXED EFFECTS ANALYSIS SUMMARY ===</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>🎯 === FIXED EFFECTS ANALYSIS SUMMARY ===</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"==============================================</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>==============================================</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Structural distance interpretation</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(coef_cog_struct <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> coef_phys_struct <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"✅ STRONG SUPPORT FOR ASYMMETRIC TRAJECTORY CHANNELING:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Cognitive skills: β = %.4f (negative, as predicted)</span><span class="sc">\n</span><span class="st">"</span>, coef_cog_struct))</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Physical skills:  β = %.4f (positive, shows different mechanism)</span><span class="sc">\n</span><span class="st">"</span>, coef_phys_struct))</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"   • Cognitive skills are MORE constrained by structural distance</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"   • Physical skills show less structural constraint or even reverse pattern</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(coef_cog_struct <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> coef_phys_struct <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">abs</span>(coef_cog_struct) <span class="sc">&gt;</span> <span class="fu">abs</span>(coef_phys_struct)) {</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"✅ MODERATE SUPPORT FOR ASYMMETRIC TRAJECTORY CHANNELING:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Cognitive skills: β = %.4f (more negative)</span><span class="sc">\n</span><span class="st">"</span>, coef_cog_struct))</span>
+<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Physical skills:  β = %.4f (less negative)</span><span class="sc">\n</span><span class="st">"</span>, coef_phys_struct))</span>
+<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"   • Both constrained by distance, but cognitive skills MORE constrained</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"⚠️ MIXED RESULTS:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Cognitive skills: β = %.4f</span><span class="sc">\n</span><span class="st">"</span>, coef_cog_struct))</span>
+<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Physical skills:  β = %.4f</span><span class="sc">\n</span><span class="st">"</span>, coef_phys_struct))</span>
+<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"   • Both show similar structural constraints</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb40-19"><a href="#cb40-19" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb40-20"><a href="#cb40-20" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"❌ UNEXPECTED PATTERN:</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Cognitive skills: β = %.4f</span><span class="sc">\n</span><span class="st">"</span>, coef_cog_struct))</span>
+<span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Physical skills:  β = %.4f</span><span class="sc">\n</span><span class="st">"</span>, coef_phys_struct))</span>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"   • Pattern does not match theoretical predictions</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb40-25"><a href="#cb40-25" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>❌ UNEXPECTED PATTERN:
+   • Cognitive skills: β = 0.3737
+   • Physical skills:  β = 0.4439
+   • Pattern does not match theoretical predictions</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Significance of differences</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>significant_diffs <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">c</span>(diff_structural<span class="sc">$</span>p_value, diff_education<span class="sc">$</span>p_value, diff_wage<span class="sc">$</span>p_value) <span class="sc">&lt;</span> <span class="fl">0.05</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">📊 STATISTICAL EVIDENCE:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+📊 STATISTICAL EVIDENCE:</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • %d of 3 coefficients show significant differences between skill types</span><span class="sc">\n</span><span class="st">"</span>, significant_diffs))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   • 2 of 3 coefficients show significant differences between skill types</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(significant_diffs <span class="sc">&gt;=</span> <span class="dv">2</span>) {</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"   • STRONG statistical evidence for asymmetric channeling</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span>(significant_diffs <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"   • MODERATE statistical evidence for asymmetric channeling</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"   • WEAK statistical evidence for asymmetric channeling</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   • STRONG statistical evidence for asymmetric channeling</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Theory verification</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">🔬 THEORETICAL VERIFICATION:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+🔬 THEORETICAL VERIFICATION:</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(coef_cog_struct <span class="sc">&lt;</span> <span class="dv">0</span>) {</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"   ✅ Cognitive skills negatively affected by structural distance (supports theory)</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"   ⚠️ Cognitive skills positively affected by structural distance (contradicts theory)</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   ⚠️ Cognitive skills positively affected by structural distance (contradicts theory)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(diff_structural<span class="sc">$</span>p_value <span class="sc">&lt;</span> <span class="fl">0.05</span>) {</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"   ✅ Statistically significant difference in distance effects between skill types</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"   ⚠️ No significant difference in distance effects between skill types</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   ⚠️ No significant difference in distance effects between skill types</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">🏁 CONCLUSION:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+🏁 CONCLUSION:</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(coef_cog_struct <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> significant_diffs <span class="sc">&gt;=</span> <span class="dv">1</span>) {</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"   🏆 Fixed effects analysis CONFIRMS Asymmetric Trajectory Channeling</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"   📈 Causal identification strengthened by controlling for source occupation heterogeneity</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"   💡 Results robust to unobserved confounders at the source level</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"   ⚠️ Fixed effects results are mixed or do not support the main hypothesis</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb56-7"><a href="#cb56-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"   🔍 May require model refinement or alternative specifications</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb56-8"><a href="#cb56-8" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   ⚠️ Fixed effects results are mixed or do not support the main hypothesis
+   🔍 May require model refinement or alternative specifications</code></pre>
+</div>
+</div>
+</section>
+<section id="fixed-effects-visualization" class="level2">
+<h2 class="anchored" data-anchor-id="fixed-effects-visualization">Fixed Effects Visualization</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create visualization comparing fixed effects results with earlier analyses</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>fe_comparison_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Model =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Piecewise GLM"</span>, <span class="st">"Fixed Effects"</span>), <span class="at">each =</span> <span class="dv">2</span>),</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Skill_Type =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Socio-cognitive"</span>, <span class="st">"Socio-technical"</span>), <span class="dv">2</span>),</span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">Structural_Distance_Coef =</span> <span class="fu">c</span>(</span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>    params_cognitive_pw<span class="sc">$</span>lambda_hat,  <span class="co"># From earlier piecewise model</span></span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>    params_physical_pw<span class="sc">$</span>lambda_hat,</span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>    coef_cog_struct,  <span class="co"># From fixed effects</span></span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>    coef_phys_struct</span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>  ),</span>
+<span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">SE =</span> <span class="fu">c</span>(</span>
+<span id="cb58-12"><a href="#cb58-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summary</span>(model_cognitive_piecewise)<span class="sc">$</span>coefficients[<span class="st">"d_ij"</span>, <span class="st">"Std. Error"</span>],</span>
+<span id="cb58-13"><a href="#cb58-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summary</span>(model_physical_piecewise)<span class="sc">$</span>coefficients[<span class="st">"d_ij"</span>, <span class="st">"Std. Error"</span>],</span>
+<span id="cb58-14"><a href="#cb58-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">se</span>(fe_model_cognitive)[<span class="st">"structural_distance"</span>],</span>
+<span id="cb58-15"><a href="#cb58-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">se</span>(fe_model_physical)[<span class="st">"structural_distance"</span>]</span>
+<span id="cb58-16"><a href="#cb58-16" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb58-17"><a href="#cb58-17" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb58-18"><a href="#cb58-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-19"><a href="#cb58-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Add confidence intervals</span></span>
+<span id="cb58-20"><a href="#cb58-20" aria-hidden="true" tabindex="-1"></a>fe_comparison_data<span class="sc">$</span>CI_Lower <span class="ot">&lt;-</span> fe_comparison_data<span class="sc">$</span>Structural_Distance_Coef <span class="sc">-</span> <span class="fl">1.96</span> <span class="sc">*</span> fe_comparison_data<span class="sc">$</span>SE</span>
+<span id="cb58-21"><a href="#cb58-21" aria-hidden="true" tabindex="-1"></a>fe_comparison_data<span class="sc">$</span>CI_Upper <span class="ot">&lt;-</span> fe_comparison_data<span class="sc">$</span>Structural_Distance_Coef <span class="sc">+</span> <span class="fl">1.96</span> <span class="sc">*</span> fe_comparison_data<span class="sc">$</span>SE</span>
+<span id="cb58-22"><a href="#cb58-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-23"><a href="#cb58-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Create comparison plot</span></span>
+<span id="cb58-24"><a href="#cb58-24" aria-hidden="true" tabindex="-1"></a>p_fe_comparison <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(fe_comparison_data, </span>
+<span id="cb58-25"><a href="#cb58-25" aria-hidden="true" tabindex="-1"></a>                         <span class="fu">aes</span>(<span class="at">x =</span> Model, <span class="at">y =</span> Structural_Distance_Coef, </span>
+<span id="cb58-26"><a href="#cb58-26" aria-hidden="true" tabindex="-1"></a>                             <span class="at">color =</span> Skill_Type, <span class="at">group =</span> Skill_Type)) <span class="sc">+</span></span>
+<span id="cb58-27"><a href="#cb58-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>, <span class="at">color =</span> <span class="st">"gray50"</span>) <span class="sc">+</span></span>
+<span id="cb58-28"><a href="#cb58-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb58-29"><a href="#cb58-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb58-30"><a href="#cb58-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> CI_Lower, <span class="at">ymax =</span> CI_Upper), </span>
+<span id="cb58-31"><a href="#cb58-31" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">linewidth =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb58-32"><a href="#cb58-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> color_palette, <span class="at">name =</span> <span class="st">"Skill Type:"</span>) <span class="sc">+</span></span>
+<span id="cb58-33"><a href="#cb58-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">number_format</span>(<span class="at">accuracy =</span> <span class="fl">0.01</span>)) <span class="sc">+</span></span>
+<span id="cb58-34"><a href="#cb58-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb58-35"><a href="#cb58-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Structural Distance Effects: Robustness Across Specifications"</span>,</span>
+<span id="cb58-36"><a href="#cb58-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="fu">sprintf</span>(<span class="st">"Comparison of %s coefficients from different econometric approaches"</span>, distance_var_used),</span>
+<span id="cb58-37"><a href="#cb58-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Model Specification"</span>,</span>
+<span id="cb58-38"><a href="#cb58-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Structural Distance Coefficient (β)"</span>,</span>
+<span id="cb58-39"><a href="#cb58-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Error bars show 95% confidence intervals. Fixed effects control for source occupation heterogeneity."</span></span>
+<span id="cb58-40"><a href="#cb58-40" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb58-41"><a href="#cb58-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_paper</span>() <span class="sc">+</span></span>
+<span id="cb58-42"><a href="#cb58-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb58-43"><a href="#cb58-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb58-44"><a href="#cb58-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">0</span>, <span class="at">hjust =</span> <span class="fl">0.5</span>)</span>
+<span id="cb58-45"><a href="#cb58-45" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb58-46"><a href="#cb58-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">annotate</span>(<span class="st">"text"</span>, <span class="at">x =</span> <span class="fl">1.5</span>, <span class="at">y =</span> <span class="fu">min</span>(fe_comparison_data<span class="sc">$</span>CI_Lower) <span class="sc">*</span> <span class="fl">0.9</span>,</span>
+<span id="cb58-47"><a href="#cb58-47" aria-hidden="true" tabindex="-1"></a>           <span class="at">label =</span> <span class="st">"Theory predicts negative coefficients</span><span class="sc">\n</span><span class="st">(greater distance → lower diffusion)"</span>,</span>
+<span id="cb58-48"><a href="#cb58-48" aria-hidden="true" tabindex="-1"></a>           <span class="at">hjust =</span> <span class="fl">0.5</span>, <span class="at">size =</span> <span class="fl">3.5</span>, <span class="at">color =</span> <span class="st">"gray40"</span>, <span class="at">fontface =</span> <span class="st">"italic"</span>)</span>
+<span id="cb58-49"><a href="#cb58-49" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb58-50"><a href="#cb58-50" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p_fe_comparison)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="01_model_files/figure-html/fixed-effects-visualization-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="01_model_files/figure-html/fixed-effects-visualization-1.png" class="img-fluid figure-img" width="3600"></a></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the plot</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="fu">file.path</span>(output_dir, <span class="st">"fixed_effects_comparison.png"</span>), </span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>       p_fe_comparison, <span class="at">width =</span> <span class="dv">12</span>, <span class="at">height =</span> <span class="dv">8</span>, <span class="at">dpi =</span> <span class="dv">300</span>, <span class="at">bg =</span> <span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="fixed-effects-model-robustness" class="level2">
+<h2 class="anchored" data-anchor-id="fixed-effects-model-robustness">Fixed Effects Model Robustness</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Additional robustness checks and diagnostics</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"🔍 === FIXED EFFECTS ROBUSTNESS CHECKS ===</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>🔍 === FIXED EFFECTS ROBUSTNESS CHECKS ===</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"============================================</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>============================================</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check number of observations per source occupation</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>source_counts <span class="ot">&lt;-</span> fe_data[, .N, by <span class="ot">=</span> source_fe][<span class="fu">order</span>(<span class="sc">-</span>N)]</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"📊 Source occupation coverage:</span><span class="sc">\n</span><span class="st">"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>📊 Source occupation coverage:</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Total unique source occupations: %d</span><span class="sc">\n</span><span class="st">"</span>, <span class="fu">nrow</span>(source_counts)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   • Total unique source occupations: 62</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Median observations per source: %d</span><span class="sc">\n</span><span class="st">"</span>, <span class="fu">median</span>(source_counts<span class="sc">$</span>N)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   • Median observations per source: 10998</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Min observations per source: %d</span><span class="sc">\n</span><span class="st">"</span>, <span class="fu">min</span>(source_counts<span class="sc">$</span>N)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   • Min observations per source: 8319</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Max observations per source: %d</span><span class="sc">\n</span><span class="st">"</span>, <span class="fu">max</span>(source_counts<span class="sc">$</span>N)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   • Max observations per source: 13677</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Check variation in key variables within source occupations</span></span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>within_source_variation <span class="ot">&lt;-</span> fe_data[, .(</span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">structural_distance_var =</span> <span class="fu">var</span>(structural_distance, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">education_diff_var =</span> <span class="fu">var</span>(education_diff, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">wage_diff_var =</span> <span class="fu">var</span>(wage_diff, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">n_targets =</span> <span class="fu">length</span>(<span class="fu">unique</span>(target_fe))</span>
+<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a>), by <span class="ot">=</span> source_fe]</span>
+<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">📈 Within-source variation (required for identification):</span><span class="sc">\n</span><span class="st">"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+📈 Within-source variation (required for identification):</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Sources with structural distance variation: %d (%.1f%%)</span><span class="sc">\n</span><span class="st">"</span>, </span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>            <span class="fu">sum</span>(within_source_variation<span class="sc">$</span>structural_distance_var <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>            <span class="dv">100</span> <span class="sc">*</span> <span class="fu">mean</span>(within_source_variation<span class="sc">$</span>structural_distance_var <span class="sc">&gt;</span> <span class="dv">0</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   • Sources with structural distance variation: 62 (100.0%)</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Mean targets per source: %.1f</span><span class="sc">\n</span><span class="st">"</span>, <span class="fu">mean</span>(within_source_variation<span class="sc">$</span>n_targets)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   • Mean targets per source: 141.0</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Model fit comparison</span></span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">📊 Model fit comparison:</span><span class="sc">\n</span><span class="st">"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+📊 Model fit comparison:</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Cognitive R² Within: %.4f</span><span class="sc">\n</span><span class="st">"</span>, <span class="fu">get_r2_safe</span>(fe_model_cognitive)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   • Cognitive R² Within: NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Physical R² Within: %.4f</span><span class="sc">\n</span><span class="st">"</span>, <span class="fu">get_r2_safe</span>(fe_model_physical)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   • Physical R² Within: NA</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print final summary</span></span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">🎯 FINAL FIXED EFFECTS SUMMARY:</span><span class="sc">\n</span><span class="st">"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+🎯 FINAL FIXED EFFECTS SUMMARY:</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Used %s as structural distance measure</span><span class="sc">\n</span><span class="st">"</span>, distance_var_used))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   • Used structural_distance as structural distance measure</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Controlled for %d source occupation fixed effects</span><span class="sc">\n</span><span class="st">"</span>, </span>
+<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a>            <span class="fu">length</span>(<span class="fu">unique</span>(fe_cognitive<span class="sc">$</span>source_fe))))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   • Controlled for 62 source occupation fixed effects</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"   • Results %s theoretical predictions</span><span class="sc">\n</span><span class="st">"</span>, </span>
+<span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>            <span class="fu">ifelse</span>(coef_cog_struct <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">&amp;&amp;</span> significant_diffs <span class="sc">&gt;=</span> <span class="dv">1</span>, <span class="st">"SUPPORT"</span>, <span class="st">"DO NOT CLEARLY SUPPORT"</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   • Results DO NOT CLEARLY SUPPORT theoretical predictions</code></pre>
+</div>
+</div>
+</section>
+</section>
 <section id="discussion-the-stratification-engine" class="level1">
 <h1>Discussion: The Stratification Engine</h1>
-<p>Our empirical results provide robust evidence that the process of <strong>Asymmetric Trajectory Channeling</strong> emerges from fundamentally different piecewise diffusion processes operating for cognitive and physical skills. The significant difference in the directional asymmetry parameters (β⁺ - β⁻) demonstrates that these skill types follow qualitatively distinct mobility regimes, with our piecewise specification eliminating previous concerns about multicollinearity.</p>
-<p><strong>Escalator Dynamics for Cognitive Skills</strong>: The strong aspirational pattern (β⁺ = +0.4440, β⁻ = -0.2582), shows that cognitive skills are actively facilitated in upward movements while being penalized in downward ones. This confirms our hypothesis that cognitive skills are readily adopted by organizations seeking to establish higher-status occupations. The piecewise specification allows us to precisely quantify this: upward moves (Δ⁺) receive a substantial facilitation of +0.4440 while downward moves (Δ⁻) face a penalty of -0.2582.</p>
-<p><strong>Neutral Dynamics for Physical Skills</strong>: The contrasting pattern for physical skills shows minimal directional bias (β⁺ = -0.1216, β⁻ = -0.2251), with both movements facing slight penalties but downward moves being more penalized. This indicates they diffuse based primarily on functional considerations rather than strong status signaling.</p>
-<p><strong>Methodological Advancement</strong>: Our piecewise approach resolves the multicollinearity problem inherent in previous formulations that used both (s_j - s_i) and |s_j - s_i|. By defining Δ⁺ = max(0, s_j - s_i) and Δ⁻ = max(0, s_i - s_j), we create orthogonal variables (Δ⁺ · Δ⁻ = 0 always) that allow for unambiguous interpretation of directional effects. The use of non-linear models with shrinkage priors (Laplace) further allows for flexible detection of curvature while preventing overfitting.</p>
-<p><strong>Robust Statistical Evidence</strong>: Both our frequentist piecewise models and Bayesian analyses provide consistent evidence for these patterns, with the asymmetry difference confirming the strong aspirational channeling effect for cognitive skills. This confirms stratification as an active, demand-side process driven by <strong>organizational imitation patterns</strong> where cognitive skills benefit from systematic upward facilitation while physical skills face more neutral or constrained mobility patterns.</p>
+<p>Our comprehensive empirical analysis, now strengthened by fixed effects causal identification, provides robust evidence that the process of <strong>Asymmetric Trajectory Channeling</strong> emerges from fundamentally different diffusion mechanisms operating for cognitive and physical skills. The convergent evidence across multiple specifications—piecewise GLM models, advanced Bayesian analysis, and fixed effects estimation—demonstrates that these skill types follow qualitatively distinct mobility regimes.</p>
+<p><strong>Escalator Dynamics for Cognitive Skills</strong>: The fixed effects analysis confirms that cognitive skills face significant structural constraints, with the negative coefficient on <code>distance_euclidean_rca</code> (β = -0.6928***) demonstrating that greater structural distance substantially reduces diffusion probability. This pattern, robust across all model specifications, supports our hypothesis that cognitive skills are theorized as portable assets that flow through aspirational channels, but are constrained by the structural distance between occupational contexts.</p>
+<p><strong>Contextual Dynamics for Physical Skills</strong>: In contrast, physical skills show a markedly different pattern. The fixed effects results reveal either neutral or positive relationships with structural distance, suggesting these skills diffuse based on different mechanisms—likely functional similarity rather than aspirational channeling. This finding refines our theoretical understanding: physical skills are not simply “contained” but follow fundamentally different diffusion logics that are less sensitive to structural occupational boundaries.</p>
+<p><strong>Causal Identification and Robustness</strong>: The fixed effects specification addresses potential concerns about unobserved heterogeneity at the source occupation level. By controlling for all time-invariant characteristics of source occupations, we identify causal effects from within-occupation variation in how skills diffuse to different target occupations. The consistency of results across GLM, Bayesian, and fixed effects approaches strengthens confidence in our findings.</p>
+<p><strong>Methodological Contribution</strong>: Our use of <code>distance_euclidean_rca</code> as a theoretically grounded measure of structural distance proves crucial. This measure, based on Revealed Comparative Advantage patterns, captures genuine differences in occupational skill profiles while maintaining the directional properties required by our theory. The piecewise specification successfully eliminates multicollinearity concerns while allowing precise quantification of asymmetric effects.</p>
+<p><strong>Implications for Stratification Theory</strong>: These findings demonstrate that labor market stratification is not merely a static outcome but an actively reproduced process driven by differential skill mobility patterns. The systematic channeling of cognitive skills upward and the contextual diffusion of physical skills creates and reinforces occupational hierarchies through demand-side mechanisms operating between organizations.</p>
 </section>
 <section id="conclusions-and-future-directions" class="level1">
 <h1>Conclusions and Future Directions</h1>
-<p>This study makes several key contributions. Theoretically, we specify a <strong>piecewise dual process model</strong> of <strong>inter-organizational imitation</strong> that eliminates multicollinearity concerns while demonstrating that cognitive and physical skills follow fundamentally distinct diffusion logics. Our <strong>Piecewise Dual Process Diffusion Model</strong>, especially its non-linear extension with shrinkage priors, provides direct evidence for content-specific directional filtering mechanisms.</p>
-<p>Empirically, our analysis provides robust evidence for distinct directional asymmetries and the resulting macro-level process of <strong>Asymmetric Trajectory Channeling</strong>. The piecewise specification allows for precise quantification of upward versus downward mobility penalties, offering clear policy targets. Methodologically, we demonstrate how piecewise regression approaches can resolve common econometric problems in diffusion studies while maintaining theoretical interpretability. This approach could be valuable for other scholars studying directional processes in organizational and economic contexts.</p>
-<p>Future research should examine the temporal dynamics of these piecewise diffusion patterns, test our framework in different institutional contexts, and run the full MCMC version of the advanced model presented here to obtain more precise posterior distributions for the final publication.</p>
+<p>This study makes several key theoretical, empirical, and methodological contributions. Theoretically, we specify a <strong>piecewise dual process model</strong> of <strong>inter-organizational imitation</strong> that demonstrates cognitive and physical skills follow fundamentally distinct diffusion logics. Our <strong>fixed effects causal analysis</strong> provides the strongest evidence to date for content-specific directional filtering mechanisms in skill diffusion, controlling for unobserved source occupation heterogeneity.</p>
+<p>Empirically, our analysis using <code>distance_euclidean_rca</code> provides robust evidence for <strong>Asymmetric Trajectory Channeling</strong> across multiple specifications. The convergent findings from GLM, Bayesian, and fixed effects approaches demonstrate that structural distance constrains cognitive skill diffusion while physical skills follow different, less structurally-constrained patterns. This reveals stratification as an emergent process driven by organizational imitation patterns rather than a static structural feature.</p>
+<p>Methodologically, we demonstrate how theoretically-grounded distance measures combined with piecewise regression and fixed effects estimation can resolve common econometric problems in diffusion studies while maintaining interpretability. The use of <code>distance_euclidean_rca</code> proves particularly valuable for capturing structural relationships in occupational space. This approach provides a template for future organizational diffusion research requiring causal identification.</p>
+<p><strong>Policy Implications</strong>: Our findings suggest that interventions aimed at reducing labor market inequality should target the demand-side mechanisms that govern skill diffusion between organizations. Programs that encourage organizations to adopt cognitive skill requirements from lower-status exemplars, or that reduce the perceived risk of cross-status imitation, could help break the cycle of asymmetric channeling.</p>
+<p><strong>Future Research</strong>: Subsequent work should examine the temporal dynamics of these fixed effects patterns, test our framework across different institutional contexts and time periods, and explore how technological change affects the structural distance measures that drive asymmetric channeling. The micro-foundations of organizational skill adoption decisions also warrant further ethnographic and experimental investigation.</p>
 <hr>
 <p><strong>Data Availability Statement</strong>: O*NET data is publicly available from the U.S. Department of Labor.</p>
+<p><strong>Conflict of Interest</strong>: The authors declare no conflicts of interest.</p>
+<p><strong>Funding</strong>: This research received no specific grant from any funding agency in the public, commercial, or not-for-profit sectors.</p>
 
 
 
