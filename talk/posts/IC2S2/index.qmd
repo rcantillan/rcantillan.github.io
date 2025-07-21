@@ -32,21 +32,24 @@ This research addresses the paradox of persistent labor market stratification am
 
 The core theoretical contribution is the concept of **Asymmetric Trajectory Channeling**. Drawing on organizational imitation theory, the research posits that cognitive skills are culturally theorized as "portable assets," leading to an aspirational, upward "escalator effect" across the occupational hierarchy. In contrast, physical skills are seen as "context-dependent," resulting in a more constrained, "lateral containment effect."
 
-Using a novel dyadic dataset of over 1.5 million skill diffusion events from O*NET (2015-2024), the study employs piecewise regression models to test for these asymmetric patterns. The results provide robust evidence for the theory: cognitive skills exhibit a strong upward channeling, while physical skills are largely contained within their status tiers.
+Using a novel dyadic dataset of over 15 million skill diffusion events from O*NET (2015-2024), the study employs piecewise regression models to test for these asymmetric patterns. The results provide robust evidence for the theory: cognitive skills exhibit a strong upward channeling, while physical skills are largely contained within their status tiers.
 
 As a preliminary extension, the research explores the economic consequences of this channeling through a **Value Displacement Mechanism**. The evidence suggests that the economic returns to an innovative strategy (high-propensity adoption of cognitive skills) are conditional on an occupation's pre-existing status and functional need. Specifically, the strategy is economically penalized for low-status and low-need occupations, while this penalty disappears for high-status and high-need occupations.
 
 &nbsp;
 &nbsp;
 
-### Slides
 ```{r echo=FALSE}
 options(htmltools.dir.version = TRUE)
 xaringanExtra::embed_xaringan("https://rcantillan.github.io/slides/IC2S2/ic2s2_slides.html", ratio = "16:9")
 ```
 
 &nbsp;
+
+This works was presented in [IC2S2 Norrköping Sweden, 2025](https://www.ic2s2-2025.org/) and in [INAS Columbia NYC, 2025](https://inas.sociology.columbia.edu/). 
+
 &nbsp;
+
 
 ### Bibliography
 

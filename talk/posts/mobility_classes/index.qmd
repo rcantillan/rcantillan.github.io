@@ -51,14 +51,3 @@ xaringanExtra::embed_xaringan("https://rcantillan.github.io/slides/mobility_clas
 
 
 
-
-
-
-
-
-
-
-
-
-
-
