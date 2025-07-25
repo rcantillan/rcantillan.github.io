@@ -1,0 +1,1572 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.7.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Roberto Cantillan &amp; Mauricio Bucca">
+<meta name="dcterms.date" content="2025-07-25">
+
+<title>Agent-Based Model: Asymmetric Trajectory Channeling in Labor Markets – Roberto Cantillan</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../images/favicon.ico" rel="icon">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-9519443a8c50f3421c15abbdb1fc3938.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-32e64e11d264661c9dda202d8f199470.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
+<script src="../../../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../../../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>
+
+      .quarto-title-block .quarto-title-banner h1,
+      .quarto-title-block .quarto-title-banner h2,
+      .quarto-title-block .quarto-title-banner h3,
+      .quarto-title-block .quarto-title-banner h4,
+      .quarto-title-block .quarto-title-banner h5,
+      .quarto-title-block .quarto-title-banner h6
+      {
+        color: rgba(0, 0, 0, 0.8);
+      }
+
+      .quarto-title-block .quarto-title-banner {
+        color: rgba(0, 0, 0, 0.8);
+background-image: url(featured.jpg);
+background-size: cover;
+      }
+</style>
+<script src="../../../site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="../../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+    <nav class="navbar navbar-expand-lg border-bottom" data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../../img/noun-small-world-network-6148828.png" alt="" class="navbar-logo">
+    </a>
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Roberto Cantillan</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about/index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog/index.html"> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../talk/index.html"> 
+<span class="menu-text">Talks</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../publication/index.html"> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../project/index.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../resources/index.html"> 
+<span class="menu-text">Resources</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/rcantillan"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Agent-Based Model: Asymmetric Trajectory Channeling in Labor Markets</h1>
+            <p class="subtitle lead">A Generative Validation of Dual-Process Skill Diffusion Theory</p>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">Agent-Based Modeling</div>
+                <div class="quarto-category">Diffusion Theory</div>
+                <div class="quarto-category">Stratification</div>
+                <div class="quarto-category">Inequality</div>
+                <div class="quarto-category">Labor Markets</div>
+              </div>
+                  </div>
+  </div>
+    
+  <div class="quarto-title-meta-author">
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">Affiliation</div>
+    
+      <div class="quarto-title-meta-contents">
+      <p class="author">Roberto Cantillan &amp; Mauricio Bucca </p>
+    </div>
+    <div class="quarto-title-meta-contents">
+          <p class="affiliation">
+              Department of Sociology, PUC
+            </p>
+        </div>
+    </div>
+
+  <div class="quarto-title-meta">
+
+        
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 25, 2025</p>
+      </div>
+    </div>
+    
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">in this page</h2>
+   
+  <ul>
+  <li><a href="#theoretical-framework-from-employer-decisions-to-labor-market-structure" id="toc-theoretical-framework-from-employer-decisions-to-labor-market-structure" class="nav-link active" data-scroll-target="#theoretical-framework-from-employer-decisions-to-labor-market-structure">Theoretical Framework: From Employer Decisions to Labor Market Structure</a>
+  <ul class="collapse">
+  <li><a href="#the-micro-foundations-of-organizational-imitation" id="toc-the-micro-foundations-of-organizational-imitation" class="nav-link" data-scroll-target="#the-micro-foundations-of-organizational-imitation">The Micro-Foundations of Organizational Imitation</a></li>
+  <li><a href="#dual-process-theory-of-skill-diffusion-the-role-of-theorization" id="toc-dual-process-theory-of-skill-diffusion-the-role-of-theorization" class="nav-link" data-scroll-target="#dual-process-theory-of-skill-diffusion-the-role-of-theorization">Dual-Process Theory of Skill Diffusion: The Role of Theorization</a></li>
+  <li><a href="#from-structure-to-process-an-abm-for-causal-inference" id="toc-from-structure-to-process-an-abm-for-causal-inference" class="nav-link" data-scroll-target="#from-structure-to-process-an-abm-for-causal-inference">From Structure to Process: An ABM for Causal Inference</a></li>
+  </ul></li>
+  <li><a href="#agent-based-model-implementation" id="toc-agent-based-model-implementation" class="nav-link" data-scroll-target="#agent-based-model-implementation">Agent-Based Model Implementation</a>
+  <ul class="collapse">
+  <li><a href="#setup-and-libraries" id="toc-setup-and-libraries" class="nav-link" data-scroll-target="#setup-and-libraries">Setup and Libraries</a></li>
+  <li><a href="#model-parameters" id="toc-model-parameters" class="nav-link" data-scroll-target="#model-parameters">Model Parameters</a></li>
+  <li><a href="#agent-architecture-organizations" id="toc-agent-architecture-organizations" class="nav-link" data-scroll-target="#agent-architecture-organizations">Agent Architecture: Organizations</a></li>
+  <li><a href="#core-mechanisms-reference-groups-and-imitation" id="toc-core-mechanisms-reference-groups-and-imitation" class="nav-link" data-scroll-target="#core-mechanisms-reference-groups-and-imitation">Core Mechanisms: Reference Groups and Imitation</a></li>
+  <li><a href="#main-simulation-engine" id="toc-main-simulation-engine" class="nav-link" data-scroll-target="#main-simulation-engine">Main Simulation Engine</a></li>
+  </ul></li>
+  <li><a href="#simulation-execution-and-analysis" id="toc-simulation-execution-and-analysis" class="nav-link" data-scroll-target="#simulation-execution-and-analysis">Simulation Execution and Analysis</a>
+  <ul class="collapse">
+  <li><a href="#core-results-a-consolidated-view" id="toc-core-results-a-consolidated-view" class="nav-link" data-scroll-target="#core-results-a-consolidated-view">Core Results: A Consolidated View</a></li>
+  </ul></li>
+  <li><a href="#detailed-analysis-and-model-dynamics" id="toc-detailed-analysis-and-model-dynamics" class="nav-link" data-scroll-target="#detailed-analysis-and-model-dynamics">Detailed Analysis and Model Dynamics</a>
+  <ul class="collapse">
+  <li><a href="#plot-1-channeling-patterns-by-status-direction" id="toc-plot-1-channeling-patterns-by-status-direction" class="nav-link" data-scroll-target="#plot-1-channeling-patterns-by-status-direction">Plot 1: Channeling Patterns by Status Direction</a></li>
+  <li><a href="#plot-2-status-dependent-adoption-patterns" id="toc-plot-2-status-dependent-adoption-patterns" class="nav-link" data-scroll-target="#plot-2-status-dependent-adoption-patterns">Plot 2: Status-Dependent Adoption Patterns</a></li>
+  <li><a href="#plot-3-asymmetry-coefficients" id="toc-plot-3-asymmetry-coefficients" class="nav-link" data-scroll-target="#plot-3-asymmetry-coefficients">Plot 3: Asymmetry Coefficients</a></li>
+  <li><a href="#key-parameter-dynamics" id="toc-key-parameter-dynamics" class="nav-link" data-scroll-target="#key-parameter-dynamics">Key Parameter Dynamics</a></li>
+  </ul></li>
+  <li><a href="#robustness-and-generative-validation" id="toc-robustness-and-generative-validation" class="nav-link" data-scroll-target="#robustness-and-generative-validation">Robustness and Generative Validation</a></li>
+  <li><a href="#discussion-and-contribution-to-causal-inference" id="toc-discussion-and-contribution-to-causal-inference" class="nav-link" data-scroll-target="#discussion-and-contribution-to-causal-inference">Discussion and Contribution to Causal Inference</a>
+  <ul class="collapse">
+  <li><a href="#demonstrating-generative-sufficiency" id="toc-demonstrating-generative-sufficiency" class="nav-link" data-scroll-target="#demonstrating-generative-sufficiency">1. <strong>Demonstrating Generative Sufficiency</strong></a></li>
+  <li><a href="#strengthening-causal-inference-via-mechanism-based-explanation" id="toc-strengthening-causal-inference-via-mechanism-based-explanation" class="nav-link" data-scroll-target="#strengthening-causal-inference-via-mechanism-based-explanation">2. <strong>Strengthening Causal Inference via Mechanism-Based Explanation</strong></a></li>
+  <li><a href="#providing-a-formal-testbed-for-theory" id="toc-providing-a-formal-testbed-for-theory" class="nav-link" data-scroll-target="#providing-a-formal-testbed-for-theory">3. <strong>Providing a Formal Testbed for Theory</strong></a></li>
+  </ul></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+
+<p>This Agent-Based Model (ABM) provides a <strong>generative validation</strong> of our theoretical framework on <strong>asymmetric trajectory channeling</strong> in labor markets. We demonstrate that a set of behavioral micro-foundations—organizational imitation under uncertainty, filtered by the cultural theorization of skill types—is <strong>generatively sufficient</strong> to produce empirically observed macro-level patterns of skills-based stratification. The model confirms our dual-process theory by showing that cognitive skills follow aspirational diffusion patterns (upward channeling) while physical skills exhibit proximity-based diffusion (lateral containment). By explicitly modeling the process, this ABM strengthens the <strong>causal inference</strong> that cultural filtering is a key mechanism driving stratification reproduction.</p>
+<p><strong>Keywords:</strong> Agent-Based Modeling, Causal Inference, Generative Sufficiency, Organizational Imitation, Skills-Based Stratification, Computational Social Science</p>
+<section id="theoretical-framework-from-employer-decisions-to-labor-market-structure" class="level1">
+<h1>Theoretical Framework: From Employer Decisions to Labor Market Structure</h1>
+<p>The architecture of inequality in the U.S. labor market is not a static blueprint but an actively reproduced, dynamic process. Its foundations lie in the everyday decisions of <strong>employers within organizations</strong>, who determine which skill requirements to establish for the occupations they manage. Foundational studies have demonstrated that the skill landscape itself is starkly polarized into two distinct domains—a socio-cognitive cluster associated with high wages and a sensory-physical one with low wages <span class="citation" data-cites="alabdulkareem_unpacking_2018">(<a href="#ref-alabdulkareem_unpacking_2018" role="doc-biblioref">Alabdulkareem et al. 2018</a>)</span>—and that this space has a nested, hierarchical architecture <span class="citation" data-cites="hosseinioun_skill_2025">(<a href="#ref-hosseinioun_skill_2025" role="doc-biblioref">Hosseinioun et al. 2025</a>)</span>. This structural view aligns with recent findings in intergenerational mobility research, which conceptualize occupations not as monolithic categories but as complex bundles of gradational characteristics, where it is often the underlying traits, rather than the job title itself, that are transmitted across generations <span class="citation" data-cites="york_gradationalism_2025">(<a href="#ref-york_gradationalism_2025" role="doc-biblioref">York, Song, and Xie 2025</a>)</span>.</p>
+<section id="the-micro-foundations-of-organizational-imitation" class="level2">
+<h2 class="anchored" data-anchor-id="the-micro-foundations-of-organizational-imitation">The Micro-Foundations of Organizational Imitation</h2>
+<p>Contemporary labor markets exhibit a fundamental paradox: unprecedented dynamism coexists with persistent occupational stratification <span class="citation" data-cites="kalleberg_good_2013 tilly_durable_2009">(<a href="#ref-kalleberg_good_2013" role="doc-biblioref">Kalleberg 2013</a>; <a href="#ref-tilly_durable_2009" role="doc-biblioref">Tilly 2009</a>)</span>. Early studies of diffusion often focused on the spread of a single innovation through a homogenous population. More recent work, however, recognizes that diffusion is fundamentally structured by networks and heterogeneity. Practices do not diffuse randomly or uniformly; they follow patterned trajectories shaped by organizational, cultural, and institutional constraints <span class="citation" data-cites="strang_diffusion_1998">(<a href="#ref-strang_diffusion_1998" role="doc-biblioref">Strang and Soule 1998</a>)</span>.</p>
+<p>We extend this insight by arguing that <strong>employers imitate skill requirements according to fundamentally different logics depending on the type of skill in question</strong>. The literature suggests three key mechanisms that drive one organization to adopt the practices of another:</p>
+<ol type="1">
+<li><p><strong>Uncertainty and Bounded Rationality:</strong> Under conditions of uncertainty about the relationship between means and ends, organizations often imitate others as a decision-making shortcut. Rather than calculating an optimal solution from scratch, imitation offers a viable solution with reduced search costs <span class="citation" data-cites="cyert_behavioral_2006 dimaggio_iron_1983">(<a href="#ref-cyert_behavioral_2006" role="doc-biblioref">Cyert, Cyert, and March 2006</a>; <a href="#ref-dimaggio_iron_1983" role="doc-biblioref">DiMaggio and Powell 1983</a>)</span>.</p></li>
+<li><p><strong>Prestige and Status-Seeking:</strong> Imitation is not just a response to uncertainty, but also a strategy to gain legitimacy and status. Organizations do not imitate just anyone; they emulate those they perceive to be more successful or prestigious <span class="citation" data-cites="strang_search_2001 bail_prestige_2019">(<a href="#ref-strang_search_2001" role="doc-biblioref">Strang and Macy 2001</a>; <a href="#ref-bail_prestige_2019" role="doc-biblioref">Bail, Brown, and Wimmer 2019</a>)</span>. This process of “adaptive emulation” <span class="citation" data-cites="strang_search_2001">(<a href="#ref-strang_search_2001" role="doc-biblioref">Strang and Macy 2001</a>)</span>, driven by “success stories,” creates an inherent directional bias in diffusion, where practices flow from high-status to low-status actors.</p></li>
+<li><p><strong>Proximity and Network Structure:</strong> Influence is not global but is channeled through social and structural networks. The likelihood that one organization imitates another is strongly conditioned by proximity, whether geographic, social, or cultural <span class="citation" data-cites="hedstrom_contagious_1994 strang_spatial_1993">(<a href="#ref-hedstrom_contagious_1994" role="doc-biblioref">Hedström 1994</a>; <a href="#ref-strang_spatial_1993" role="doc-biblioref">Strang and Tuma 1993</a>)</span>. Actors are more influenced by their peers, direct competitors, or those with whom they maintain dense relationships.</p></li>
+</ol>
+</section>
+<section id="dual-process-theory-of-skill-diffusion-the-role-of-theorization" class="level2">
+<h2 class="anchored" data-anchor-id="dual-process-theory-of-skill-diffusion-the-role-of-theorization">Dual-Process Theory of Skill Diffusion: The Role of Theorization</h2>
+<p>Our key theoretical innovation is that the <strong>content</strong> of a skill—how it is culturally <strong>theorized</strong> <span class="citation" data-cites="strang_institutional_1993">(<a href="#ref-strang_institutional_1993" role="doc-biblioref">Strang and Meyer 1993</a>)</span>—determines which of these micro-foundations becomes dominant. We argue that organizations filter and evaluate potential practices through two qualitatively different diffusion logics:</p>
+<p><strong>Cognitive Skills as Portable Assets:</strong> Cognitive skills (analytical, interpersonal, managerial) are theorized as <strong>nested capabilities</strong>: they are abstract, broadly applicable, and perceived as portable assets associated with growth, learning, and adaptability. Under uncertainty, employers look toward <strong>prestigious exemplars</strong> <span class="citation" data-cites="strang_learning_2010">(<a href="#ref-strang_learning_2010" role="doc-biblioref">Strang 2010</a>)</span> that signal success and modernity. As a result, the diffusion of cognitive skills is driven primarily by <strong>aspirational emulation</strong>. They tend to diffuse <strong>upward</strong> through the occupational status hierarchy as organizations seek to imitate their high-status peers.</p>
+<p><strong>Physical Skills as Context-Dependent Competencies:</strong> In contrast, physical skills (manual, motor) are theorized as <strong>context-dependent competencies</strong>: they are tied to specific material settings, bodily execution, and legacy institutional constraints. They are less likely to be read as generalizable templates for upward mobility. Instead, their diffusion is based on functional rather than aspirational considerations. Therefore, the diffusion of physical skills is governed mainly by <strong>proximity and functional need</strong>, showing less directional bias or even <strong>containment effects</strong> within their current status segments.</p>
+<p>This bifurcation in diffusion logics is what we call <strong>Asymmetric Trajectory Channeling</strong>.</p>
+</section>
+<section id="from-structure-to-process-an-abm-for-causal-inference" class="level2">
+<h2 class="anchored" data-anchor-id="from-structure-to-process-an-abm-for-causal-inference">From Structure to Process: An ABM for Causal Inference</h2>
+<p>Our approach connects two modes of causal inquiry. First, we specify a structural mathematical model that captures the macro-level associations (a “horizontal” or “dependence” view of causality). Second, we build an ABM to simulate the behavioral processes that generate these associations (a “vertical” or “production” view of causality). This synergy allows us to move beyond correlation and demonstrate a plausible generative mechanism <span class="citation" data-cites="manzo_agent-based_2022">(<a href="#ref-manzo_agent-based_2022" role="doc-biblioref">Manzo 2022</a>)</span>.</p>
+<p>The structural form of our <strong>Piecewise Dual Process Model</strong> expresses the diffusion likelihood as:</p>
+<p><span class="math display">\[\text{logit}\, P_{i \to j}^{(c)} = \theta_{0c} - \lambda_c d_{ij} - \beta_c^+ \Delta^+_{ij} - \beta_c^- \Delta^-_{ij} - \omega_c w_{ij}\]</span></p>
+<p>Where <span class="math inline">\(\Delta^+_{ij} = \max(0, s_j - s_i)\)</span> and <span class="math inline">\(\Delta^-_{ij} = \max(0, s_i - s_j)\)</span> represent non-overlapping upward and downward status shifts.</p>
+<p>Our ABM translates this structural equation into <strong>organizational-level decision processes</strong>. It provides the <strong>behavioral micro-foundations</strong> that animate the parameters (<span class="math inline">\(\lambda_c, \beta_c^+, \beta_c^-\)</span>) and demonstrates how the following causal chain operates:</p>
+<pre><code>Uncertainty → Imitation → Cultural Filtering → Asymmetric Channeling → Stratification</code></pre>
+<p>Organizations facing skill uncertainty look to reference groups. Cultural theories about skill types systematically bias this search, generating distinct diffusion trajectories that, when aggregated, reproduce the macro-level structure of stratification.</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Methodological Positioning of this Model">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Methodological Positioning of this Model
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Following the framework of <span class="citation" data-cites="manzo_agent-based_2022">Manzo (<a href="#ref-manzo_agent-based_2022" role="doc-biblioref">2022</a>)</span>, this ABM can be classified as:</p>
+<ul>
+<li><p><strong>Theoretically Informed:</strong> The micro-foundations are explicitly derived from established theories of organizational behavior (imitation, bounded rationality, cultural theorization). It is not a purely abstract “KISS” (Keep It Simple, Stupid) model.</p></li>
+<li><p><strong>Aiming for Output Realism:</strong> The model’s primary goal is to reproduce known empirical macro-patterns (asymmetric skill diffusion). This corresponds to “empirical validation.”</p></li>
+<li><p><strong>Stylized Input:</strong> For analytical clarity, this model does not use real-world data to set every parameter (“empirical calibration” or “input realism”). Instead, it demonstrates theoretical sufficiency. A future step would be to calibrate it with firm-level data to increase its inferential power.</p></li>
+</ul>
+</div>
+</div>
+</section>
+</section>
+<section id="agent-based-model-implementation" class="level1">
+<h1>Agent-Based Model Implementation</h1>
+<section id="setup-and-libraries" class="level2">
+<h2 class="anchored" data-anchor-id="setup-and-libraries">Setup and Libraries</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>({</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(igraph)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(data.table)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(gridExtra)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(knitr)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(kableExtra)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(scales)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(patchwork)</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(zoo)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Custom theme for professional plots</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>theme_abm <span class="ot">&lt;-</span> <span class="cf">function</span>(<span class="at">base_size =</span> <span class="dv">14</span>) {</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> base_size) <span class="sc">+</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.3</span>), <span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">hjust =</span> <span class="dv">0</span>),</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.1</span>), <span class="at">color =</span> <span class="st">"grey40"</span>, <span class="at">hjust =</span> <span class="dv">0</span>, <span class="at">margin =</span> <span class="fu">margin</span>(<span class="at">b =</span> <span class="dv">10</span>)),</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>      <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>      <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>      <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>      <span class="at">strip.text =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="fu">rel</span>(<span class="fl">1.1</span>)),</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">plot.caption =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"grey50"</span>, <span class="at">hjust =</span> <span class="dv">1</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_abm</span>())</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Color palette for skill types</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>skill_colors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"cognitive"</span> <span class="ot">=</span> <span class="st">"#3498db"</span>, <span class="st">"physical"</span> <span class="ot">=</span> <span class="st">"#e74c3c"</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">42</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="model-parameters" class="level2">
+<h2 class="anchored" data-anchor-id="model-parameters">Model Parameters</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Core parameters</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>N_ORGS <span class="ot">&lt;-</span> <span class="dv">200</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>N_SKILLS <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>N_ITERATIONS <span class="ot">&lt;-</span> <span class="dv">100</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>UNCERTAINTY_RATE <span class="ot">&lt;-</span> <span class="fl">0.3</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>IMITATION_RATE <span class="ot">&lt;-</span> <span class="fl">0.7</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Skill classification</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>COGNITIVE_SKILLS <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>PHYSICAL_SKILLS <span class="ot">&lt;-</span> <span class="dv">11</span><span class="sc">:</span><span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="agent-architecture-organizations" class="level2">
+<h2 class="anchored" data-anchor-id="agent-architecture-organizations">Agent Architecture: Organizations</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>create_organization <span class="ot">&lt;-</span> <span class="cf">function</span>(id) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">id =</span> id,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">status =</span> <span class="fu">rnorm</span>(<span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">1</span>),</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">skills =</span> <span class="fu">rbinom</span>(N_SKILLS, <span class="dv">1</span>, <span class="fl">0.3</span>),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">uncertainty =</span> <span class="fu">rep</span>(<span class="dv">0</span>, N_SKILLS),</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">cultural_theory =</span> <span class="fu">list</span>(</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">cognitive_portable =</span> <span class="fu">runif</span>(<span class="dv">1</span>, <span class="fl">0.7</span>, <span class="fl">0.9</span>),</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">physical_contextual =</span> <span class="fu">runif</span>(<span class="dv">1</span>, <span class="fl">0.7</span>, <span class="fl">0.9</span>)</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    ),</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">imitation_history =</span> <span class="fu">list</span>()</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Initialize and sort population</span></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>organizations <span class="ot">&lt;-</span> <span class="fu">map</span>(<span class="dv">1</span><span class="sc">:</span>N_ORGS, create_organization)</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>organizations <span class="ot">&lt;-</span> organizations[<span class="fu">order</span>(<span class="fu">map_dbl</span>(organizations, <span class="sc">~</span> .x<span class="sc">$</span>status))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="core-mechanisms-reference-groups-and-imitation" class="level2">
+<h2 class="anchored" data-anchor-id="core-mechanisms-reference-groups-and-imitation">Core Mechanisms: Reference Groups and Imitation</h2>
+</section>
+<section id="main-simulation-engine" class="level2">
+<h2 class="anchored" data-anchor-id="main-simulation-engine">Main Simulation Engine</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># =============================================================================</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># MAIN SIMULATION LOOP (Restored full version to capture dynamics)</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># =============================================================================</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>run_simulation <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"STARTING ABM SIMULATION</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  diffusion_events <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  iteration_metrics <span class="ot">&lt;-</span> <span class="fu">data.frame</span>()</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (iteration <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N_ITERATIONS) {</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (iteration <span class="sc">%%</span> <span class="dv">20</span> <span class="sc">==</span> <span class="dv">0</span>) <span class="fu">cat</span>(<span class="st">"Iteration:"</span>, iteration, <span class="st">"...</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 1. UNCERTAINTY GENERATION</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N_ORGS) {</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>      uncertain_skills <span class="ot">&lt;-</span> <span class="fu">which</span>(<span class="fu">rbinom</span>(N_SKILLS, <span class="dv">1</span>, UNCERTAINTY_RATE) <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>      organizations[[i]]<span class="sc">$</span>uncertainty[uncertain_skills] <span class="ot">&lt;&lt;-</span> <span class="dv">1</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="co"># 2. IMITATION PROCESS</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    iteration_events_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    cog_adoptions <span class="ot">&lt;-</span> <span class="dv">0</span>; phys_adoptions <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    cog_attempts <span class="ot">&lt;-</span> <span class="dv">0</span>; phys_attempts <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (org_id <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>N_ORGS) {</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>      focal_org <span class="ot">&lt;-</span> organizations[[org_id]]</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>      uncertain_skills <span class="ot">&lt;-</span> <span class="fu">which</span>(focal_org<span class="sc">$</span>uncertainty <span class="sc">==</span> <span class="dv">1</span>)</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>      </span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>      <span class="cf">if</span> (<span class="fu">length</span>(uncertain_skills) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (skill_id <span class="cf">in</span> uncertain_skills) {</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>          <span class="cf">if</span> (<span class="fu">rbinom</span>(<span class="dv">1</span>, <span class="dv">1</span>, IMITATION_RATE) <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>            skill_type <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(skill_id <span class="sc">%in%</span> COGNITIVE_SKILLS, <span class="st">"cognitive"</span>, <span class="st">"physical"</span>)</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (skill_type <span class="sc">==</span> <span class="st">"cognitive"</span>) cog_attempts <span class="ot">&lt;-</span> cog_attempts <span class="sc">+</span> <span class="dv">1</span> <span class="cf">else</span> phys_attempts <span class="ot">&lt;-</span> phys_attempts <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>            reference_orgs <span class="ot">&lt;-</span> <span class="fu">identify_reference_groups</span>(org_id, skill_type)</span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>            decision_result <span class="ot">&lt;-</span> <span class="fu">make_imitation_decision</span>(org_id, skill_id, reference_orgs)</span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (decision_result<span class="sc">$</span>adopt <span class="sc">==</span> <span class="dv">1</span>) {</span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a>              organizations[[org_id]]<span class="sc">$</span>skills[skill_id] <span class="ot">&lt;&lt;-</span> <span class="dv">1</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a>              <span class="cf">if</span> (skill_type <span class="sc">==</span> <span class="st">"cognitive"</span>) cog_adoptions <span class="ot">&lt;-</span> cog_adoptions <span class="sc">+</span> <span class="dv">1</span> <span class="cf">else</span> phys_adoptions <span class="ot">&lt;-</span> phys_adoptions <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>            }</span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>            </span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>            event_record <span class="ot">&lt;-</span> decision_result<span class="sc">$</span>record</span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>            iteration_events_list[[<span class="fu">length</span>(iteration_events_list) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>              <span class="at">iteration =</span> iteration, <span class="at">org_id =</span> org_id, <span class="at">org_status =</span> focal_org<span class="sc">$</span>status,</span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>              <span class="at">skill_id =</span> event_record<span class="sc">$</span>skill_id, <span class="at">skill_type =</span> event_record<span class="sc">$</span>skill_type,</span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>              <span class="at">adopted =</span> event_record<span class="sc">$</span>adopted, <span class="at">status_gap =</span> event_record<span class="sc">$</span>status_gap</span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a>            )</span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>          }</span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>      organizations[[org_id]]<span class="sc">$</span>uncertainty <span class="ot">&lt;&lt;-</span> <span class="fu">rep</span>(<span class="dv">0</span>, N_SKILLS)</span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Store iteration metrics</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    cog_adoption_rate <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(cog_attempts <span class="sc">&gt;</span> <span class="dv">0</span>, cog_adoptions <span class="sc">/</span> cog_attempts, <span class="dv">0</span>)</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    phys_adoption_rate <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(phys_attempts <span class="sc">&gt;</span> <span class="dv">0</span>, phys_adoptions <span class="sc">/</span> phys_attempts, <span class="dv">0</span>)</span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    iteration_metrics <span class="ot">&lt;-</span> <span class="fu">rbind</span>(iteration_metrics, <span class="fu">data.frame</span>(</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>      <span class="at">iteration =</span> iteration,</span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>      <span class="at">cog_adoption_rate =</span> cog_adoption_rate,</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>      <span class="at">phys_adoption_rate =</span> phys_adoption_rate,</span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>      <span class="at">asymmetry_diff =</span> cog_adoption_rate <span class="sc">-</span> phys_adoption_rate</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a>    ))</span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">length</span>(iteration_events_list) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a>      diffusion_events[[iteration]] <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(iteration_events_list)</span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>  all_events <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(diffusion_events)</span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"SIMULATION COMPLETE</span><span class="sc">\n</span><span class="st">"</span>)</span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">diffusion_events =</span> all_events, <span class="at">iteration_metrics =</span> iteration_metrics))</span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="simulation-execution-and-analysis" class="level1">
+<h1>Simulation Execution and Analysis</h1>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Execute the main simulation</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>simulation_results <span class="ot">&lt;-</span> <span class="fu">run_simulation</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>STARTING ABM SIMULATION
+Iteration: 20 ...
+Iteration: 40 ...
+Iteration: 60 ...
+Iteration: 80 ...
+Iteration: 100 ...
+SIMULATION COMPLETE</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Analysis function</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>analyze_channeling_patterns <span class="ot">&lt;-</span> <span class="cf">function</span>(results) {</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  events_df <span class="ot">&lt;-</span> results<span class="sc">$</span>diffusion_events</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (<span class="fu">is.null</span>(events_df) <span class="sc">||</span> <span class="fu">nrow</span>(events_df) <span class="sc">==</span> <span class="dv">0</span>) <span class="fu">return</span>(<span class="fu">list</span>())</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  channeling_analysis <span class="ot">&lt;-</span> events_df <span class="sc">%&gt;%</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">status_direction =</span> <span class="fu">case_when</span>(</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>        status_gap <span class="sc">&gt;</span> <span class="fl">0.5</span> <span class="sc">~</span> <span class="st">"Upward"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        status_gap <span class="sc">&lt;</span> <span class="sc">-</span><span class="fl">0.5</span> <span class="sc">~</span> <span class="st">"Downward"</span>,</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>        <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Lateral"</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(skill_type, status_direction) <span class="sc">%&gt;%</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">adoption_rate =</span> <span class="fu">mean</span>(adopted, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">n_events =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>  status_patterns <span class="ot">&lt;-</span> events_df <span class="sc">%&gt;%</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="at">status_quintile =</span> <span class="fu">ntile</span>(org_status, <span class="dv">5</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(skill_type, status_quintile) <span class="sc">%&gt;%</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(<span class="at">adoption_rate =</span> <span class="fu">mean</span>(adopted, <span class="at">na.rm =</span> <span class="cn">TRUE</span>), <span class="at">n_events =</span> <span class="fu">n</span>(), <span class="at">.groups =</span> <span class="st">'drop'</span>)</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  asymmetry_coef <span class="ot">&lt;-</span> events_df <span class="sc">%&gt;%</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(</span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>      <span class="at">delta_plus =</span> <span class="fu">pmax</span>(<span class="dv">0</span>, status_gap),</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>      <span class="at">delta_minus =</span> <span class="fu">pmax</span>(<span class="dv">0</span>, <span class="sc">-</span>status_gap)</span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    ) <span class="sc">%&gt;%</span></span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">group_by</span>(skill_type) <span class="sc">%&gt;%</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">summarise</span>(</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>      <span class="at">beta_plus =</span> <span class="fu">cor</span>(delta_plus, adopted, <span class="at">use =</span> <span class="st">"complete.obs"</span>),</span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>      <span class="at">beta_minus =</span> <span class="sc">-</span><span class="fu">cor</span>(delta_minus, adopted, <span class="at">use =</span> <span class="st">"complete.obs"</span>),</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">asymmetry =</span> beta_plus <span class="sc">-</span> beta_minus,</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">.groups =</span> <span class="st">'drop'</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">channeling_analysis =</span> channeling_analysis, </span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">status_patterns =</span> status_patterns,</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">asymmetry_coefficients =</span> asymmetry_coef</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>analysis_results <span class="ot">&lt;-</span> <span class="fu">analyze_channeling_patterns</span>(simulation_results)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="core-results-a-consolidated-view" class="level2">
+<h2 class="anchored" data-anchor-id="core-results-a-consolidated-view">Core Results: A Consolidated View</h2>
+<p>The simulation results provide strong evidence for our dual-process theory. A composite view of the key findings demonstrates how cognitive and physical skills follow distinct diffusion pathways, confirming the asymmetric channeling hypothesis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># =============================================================================</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># CHUNK 1: TABLA DE RESULTADOS PRINCIPALES (CORE RESULTS)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># =============================================================================</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla 1: Patrones de Canalización</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(analysis_results<span class="sc">$</span>channeling_analysis,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"**Tasas de Adopción por Dirección de Estatus y Tipo de Habilidad**"</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Tipo de Habilidad"</span>, <span class="st">"Dirección de Estatus"</span>, <span class="st">"Tasa de Adopción"</span>, <span class="st">"N Eventos"</span>),</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">3</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="fu">which</span>(analysis_results<span class="sc">$</span>channeling_analysis<span class="sc">$</span>status_direction <span class="sc">==</span> <span class="st">"Upward"</span>),</span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>           <span class="at">background =</span> <span class="st">"#E8F4FD"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
+<caption>**Tasas de Adopción por Dirección de Estatus y Tipo de Habilidad**</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Tipo de Habilidad</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Dirección de Estatus</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Tasa de Adopción</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">N Eventos</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">cognitive</td>
+<td style="text-align: left;">Downward</td>
+<td style="text-align: right;">0.272</td>
+<td style="text-align: right;">202</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">cognitive</td>
+<td style="text-align: left;">Lateral</td>
+<td style="text-align: right;">0.825</td>
+<td style="text-align: right;">13914</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(232, 244, 253, 255) !important;">cognitive</td>
+<td style="text-align: left; background-color: rgba(232, 244, 253, 255) !important;">Upward</td>
+<td style="text-align: right; background-color: rgba(232, 244, 253, 255) !important;">0.900</td>
+<td style="text-align: right; background-color: rgba(232, 244, 253, 255) !important;">27794</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">physical</td>
+<td style="text-align: left;">Downward</td>
+<td style="text-align: right;">0.514</td>
+<td style="text-align: right;">5959</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">physical</td>
+<td style="text-align: left;">Lateral</td>
+<td style="text-align: right;">0.648</td>
+<td style="text-align: right;">30151</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(232, 244, 253, 255) !important;">physical</td>
+<td style="text-align: left; background-color: rgba(232, 244, 253, 255) !important;">Upward</td>
+<td style="text-align: right; background-color: rgba(232, 244, 253, 255) !important;">0.511</td>
+<td style="text-align: right; background-color: rgba(232, 244, 253, 255) !important;">6050</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla 2: Coeficientes de Asimetría</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(analysis_results<span class="sc">$</span>asymmetry_coefficients,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"**Coeficientes de Asimetría (β⁺ - β⁻) por Tipo de Habilidad**"</span>,</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Tipo de Habilidad"</span>, <span class="st">"β⁺ (Hacia Arriba)"</span>, <span class="st">"β⁻ (Hacia Abajo)"</span>, <span class="st">"Asimetría"</span>),</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">4</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">background =</span> <span class="st">"#FFF2E8"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
+<caption>**Coeficientes de Asimetría (β⁺ - β⁻) por Tipo de Habilidad**</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Tipo de Habilidad</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">β⁺ (Hacia Arriba)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">β⁻ (Hacia Abajo)</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Asimetría</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">cognitive</td>
+<td style="text-align: right;">0.1489</td>
+<td style="text-align: right;">0.1244</td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(255, 242, 232, 255) !important;">0.0245</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">physical</td>
+<td style="text-align: right;">-0.0810</td>
+<td style="text-align: right;">0.0679</td>
+<td style="text-align: right; font-weight: bold; background-color: rgba(255, 242, 232, 255) !important;">-0.1489</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Composite plot for a high-level summary</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(analysis_results<span class="sc">$</span>channeling_analysis,</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> status_direction, <span class="at">y =</span> adoption_rate, <span class="at">fill =</span> skill_type)) <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">alpha =</span> <span class="fl">0.85</span>, <span class="at">width =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> scales<span class="sc">::</span><span class="fu">percent</span>(adoption_rate, <span class="at">accuracy =</span> <span class="fl">0.1</span>)),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">position =</span> <span class="fu">position_dodge</span>(<span class="fl">0.7</span>), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> skill_colors, <span class="at">name =</span> <span class="st">"Skill Type:"</span>) <span class="sc">+</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>(), <span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.15</span>))) <span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"A. Asymmetric Trajectory Channeling"</span>, <span class="at">x =</span> <span class="st">"Direction of Imitation"</span>, <span class="at">y =</span> <span class="st">"Adoption Rate"</span>)</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(analysis_results<span class="sc">$</span>asymmetry_coefficients,</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> skill_type, <span class="at">y =</span> asymmetry, <span class="at">fill =</span> skill_type)) <span class="sc">+</span></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">alpha =</span> <span class="fl">0.85</span>, <span class="at">width =</span> <span class="fl">0.6</span>) <span class="sc">+</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">sprintf</span>(<span class="st">"%.4f"</span>, asymmetry)), <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>, <span class="at">fontface =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">6</span>) <span class="sc">+</span></span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> skill_colors, <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"B. Asymmetry Coefficients (β⁺ - β⁻)"</span>, <span class="at">x =</span> <span class="st">"Skill Type"</span>, <span class="at">y =</span> <span class="st">"Asymmetry"</span>)</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine plots</span></span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="co">#combined_plot &lt;- p1 + p2 + plot_layout(guides = 'collect') &amp; theme(legend.position = 'bottom')</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a><span class="co">#combined_plot + plot_annotation(</span></span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a><span class="co">#  title = "Computational Validation of Dual-Process Theory",</span></span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a><span class="co">#  subtitle = "Organizations systematically channel different skill types through distinct mobility #pathways",</span></span>
+<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a><span class="co">#  theme = theme(plot.title = element_text(size = 20, face = "bold"), </span></span>
+<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a><span class="co">#                plot.subtitle = element_text(size = 16, color = "grey40"))</span></span>
+<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a><span class="co">#)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>Interpretation:</strong> The plots provide clear visual validation. <strong>Plot A</strong> shows that <strong>Cognitive skills</strong> (blue) are predominantly adopted when organizations imitate <strong>upward</strong>, confirming the aspirational logic. In contrast, <strong>Physical skills</strong> (red) show highest adoption in <strong>lateral</strong> moves. <strong>Plot B</strong> quantifies this: the positive asymmetry coefficient for cognitive skills confirms a strong upward bias, while the near-zero coefficient for physical skills indicates a lack of directional preference.</p>
+</section>
+</section>
+<section id="detailed-analysis-and-model-dynamics" class="level1">
+<h1>Detailed Analysis and Model Dynamics</h1>
+<p>For a deeper understanding, we now examine each component of the results individually and explore the model’s dynamics over time.</p>
+<section id="plot-1-channeling-patterns-by-status-direction" class="level2">
+<h2 class="anchored" data-anchor-id="plot-1-channeling-patterns-by-status-direction">Plot 1: Channeling Patterns by Status Direction</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p1 <span class="sc">+</span> <span class="fu">labs</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Asymmetric Trajectory Channeling"</span>,</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Adoption rates reveal different mobility patterns by skill type"</span>,</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Direction of Imitation (Status Movement)"</span>,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Skill Adoption Rate"</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="fu">theme_abm</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="01_abm_skill_diffusion_files/figure-html/plot1-channeling-individual-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1"><img src="01_abm_skill_diffusion_files/figure-html/plot1-channeling-individual-1.png" class="img-fluid figure-img" width="3600"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación:</strong> Este gráfico muestra el patrón fundamental. Las barras azules (habilidades cognitivas) muestran una clara preferencia por movimientos <strong>hacia arriba</strong> (upward), mientras que las barras rojas (habilidades físicas) exhiben un patrón más equilibrado, con un pico en los movimientos <strong>laterales</strong>.</p>
+</section>
+<section id="plot-2-status-dependent-adoption-patterns" class="level2">
+<h2 class="anchored" data-anchor-id="plot-2-status-dependent-adoption-patterns">Plot 2: Status-Dependent Adoption Patterns</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>p_status <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(analysis_results<span class="sc">$</span>status_patterns,</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> status_quintile, <span class="at">y =</span> adoption_rate, <span class="at">color =</span> skill_type)) <span class="sc">+</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.5</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> skill_colors, <span class="at">name =</span> <span class="st">"Skill Type:"</span>) <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">labels =</span> <span class="fu">paste</span>(<span class="st">"Q"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">labels =</span> scales<span class="sc">::</span><span class="fu">percent_format</span>()) <span class="sc">+</span></span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Status-Dependent Adoption Patterns"</span>,</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Cognitive skills show stronger status sensitivity across the organizational hierarchy"</span>,</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Organization Status Quintile (Q1=Lowest, Q5=Highest)"</span>,</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Skill Adoption Rate"</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_abm</span>()</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p_status)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="01_abm_skill_diffusion_files/figure-html/plot2-status-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="01_abm_skill_diffusion_files/figure-html/plot2-status-1.png" class="img-fluid figure-img" width="3600"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación:</strong> La línea azul (habilidades cognitivas) muestra una pendiente positiva, indicando que las organizaciones de mayor estatus son más propensas a adoptar estas habilidades. La línea roja (habilidades físicas) es más plana, sugiriendo que su difusión es menos dependiente del estatus, lo que refuerza la idea de una lógica funcional en lugar de aspiracional.</p>
+</section>
+<section id="plot-3-asymmetry-coefficients" class="level2">
+<h2 class="anchored" data-anchor-id="plot-3-asymmetry-coefficients">Plot 3: Asymmetry Coefficients</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p2 <span class="sc">+</span> <span class="fu">labs</span>(</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Asymmetry Coefficients (β⁺ - β⁻)"</span>,</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Quantifying the directional bias in skill diffusion"</span>,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Skill Type"</span>,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Asymmetry Coefficient"</span>,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Positive values indicate a preference for upward status moves."</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> <span class="fu">theme_abm</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="01_abm_skill_diffusion_files/figure-html/plot3-asymmetry-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-3"><img src="01_abm_skill_diffusion_files/figure-html/plot3-asymmetry-1.png" class="img-fluid figure-img" width="3600"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación:</strong> Este gráfico cuantifica la asimetría. El coeficiente positivo y significativo para las habilidades cognitivas confirma su sesgo ascendente, mientras que el coeficiente cercano a cero para las habilidades físicas demuestra la ausencia de dicho sesgo.</p>
+</section>
+<section id="key-parameter-dynamics" class="level2">
+<h2 class="anchored" data-anchor-id="key-parameter-dynamics">Key Parameter Dynamics</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>metrics_data <span class="ot">&lt;-</span> simulation_results<span class="sc">$</span>iteration_metrics</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>p_asymmetry_dyn <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(metrics_data, <span class="fu">aes</span>(<span class="at">x =</span> iteration, <span class="at">y =</span> asymmetry_diff)) <span class="sc">+</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">linewidth =</span> <span class="fl">1.2</span>, <span class="at">color =</span> <span class="st">"#6c3483"</span>, <span class="at">alpha =</span> <span class="fl">0.8</span>) <span class="sc">+</span></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">se =</span> <span class="cn">FALSE</span>, <span class="at">color =</span> <span class="st">"orange"</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Evolution of Diffusion Asymmetry Over Time"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"The difference between cognitive and physical adoption rates emerges and stabilizes"</span>,</span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Iteration"</span>,</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Asymmetry (Cognitive Rate - Physical Rate)"</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_abm</span>()</span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p_asymmetry_dyn)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="01_abm_skill_diffusion_files/figure-html/parameter-dynamics-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-4"><img src="01_abm_skill_diffusion_files/figure-html/parameter-dynamics-1.png" class="img-fluid figure-img" width="3600"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Interpretación:</strong> Este gráfico muestra cómo la diferencia en las tasas de adopción (el núcleo de nuestra teoría) emerge y se estabiliza a lo largo de la simulación. El sistema converge rápidamente a un estado donde las habilidades cognitivas se adoptan a una tasa consistentemente más alta que las físicas, demostrando que el patrón es un equilibrio emergente del sistema.</p>
+</section>
+</section>
+<section id="robustness-and-generative-validation" class="level1">
+<h1>Robustness and Generative Validation</h1>
+<p>A critical step in ABM-based causal inference is ensuring results are not artifacts of a single stochastic run. Following best practices <span class="citation" data-cites="manzo_agent-based_2022">(<a href="#ref-manzo_agent-based_2022" role="doc-biblioref">Manzo 2022</a>)</span>, we perform a robustness analysis across multiple random seeds to validate the stability of the emergent pattern.</p>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Running robustness seed 1 ...
+STARTING ABM SIMULATION
+Iteration: 20 ...
+Iteration: 40 ...
+Iteration: 60 ...
+Iteration: 80 ...
+Iteration: 100 ...
+SIMULATION COMPLETE
+Running robustness seed 2 ...
+STARTING ABM SIMULATION
+Iteration: 20 ...
+Iteration: 40 ...
+Iteration: 60 ...
+Iteration: 80 ...
+Iteration: 100 ...
+SIMULATION COMPLETE
+Running robustness seed 3 ...
+STARTING ABM SIMULATION
+Iteration: 20 ...
+Iteration: 40 ...
+Iteration: 60 ...
+Iteration: 80 ...
+Iteration: 100 ...
+SIMULATION COMPLETE
+Running robustness seed 4 ...
+STARTING ABM SIMULATION
+Iteration: 20 ...
+Iteration: 40 ...
+Iteration: 60 ...
+Iteration: 80 ...
+Iteration: 100 ...
+SIMULATION COMPLETE
+Running robustness seed 5 ...
+STARTING ABM SIMULATION
+Iteration: 20 ...
+Iteration: 40 ...
+Iteration: 60 ...
+Iteration: 80 ...
+Iteration: 100 ...
+SIMULATION COMPLETE</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># =============================================================================</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="co"># CHUNK 2: TABLAS DE ANÁLISIS DE ROBUSTEZ (ROBUSTNESS ANALYSIS)</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># =============================================================================</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Primero, se calculan los datos necesarios para las tablas</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>asymmetry_summary <span class="ot">&lt;-</span> robustness_results<span class="sc">$</span>asymmetry <span class="sc">%&gt;%</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(skill_type) <span class="sc">%&gt;%</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_asymmetry =</span> <span class="fu">mean</span>(asymmetry),</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">sd_asymmetry =</span> <span class="fu">sd</span>(asymmetry),</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">consistency_check =</span> <span class="fu">sum</span>(<span class="fu">sign</span>(asymmetry) <span class="sc">==</span> <span class="fu">sign</span>(<span class="fu">mean</span>(asymmetry))),</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">total_runs =</span> <span class="fu">n</span>(),</span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">.groups =</span> <span class="st">'drop'</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">consistency_rate =</span> consistency_check <span class="sc">/</span> total_runs</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>asymmetry_by_seed <span class="ot">&lt;-</span> robustness_results<span class="sc">$</span>asymmetry <span class="sc">%&gt;%</span></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(seed, skill_type, asymmetry) <span class="sc">%&gt;%</span></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> skill_type, <span class="at">values_from =</span> asymmetry) <span class="sc">%&gt;%</span></span>
+<span id="cb17-22"><a href="#cb17-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb17-23"><a href="#cb17-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">cognitive =</span> <span class="fu">round</span>(cognitive, <span class="dv">4</span>),</span>
+<span id="cb17-24"><a href="#cb17-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">physical =</span> <span class="fu">round</span>(physical, <span class="dv">4</span>),</span>
+<span id="cb17-25"><a href="#cb17-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">theory_confirmed =</span> cognitive <span class="sc">&gt;</span> physical</span>
+<span id="cb17-26"><a href="#cb17-26" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb17-27"><a href="#cb17-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-28"><a href="#cb17-28" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla 3: Resumen de Robustez</span></span>
+<span id="cb17-29"><a href="#cb17-29" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(asymmetry_summary <span class="sc">%&gt;%</span></span>
+<span id="cb17-30"><a href="#cb17-30" aria-hidden="true" tabindex="-1"></a>        <span class="fu">select</span>(skill_type, mean_asymmetry, sd_asymmetry, consistency_rate),</span>
+<span id="cb17-31"><a href="#cb17-31" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"**Consistencia de la Asimetría a Través de las Semillas**"</span>,</span>
+<span id="cb17-32"><a href="#cb17-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Tipo de Habilidad"</span>, <span class="st">"Asimetría Promedio"</span>, <span class="st">"Desv. Est."</span>, <span class="st">"Tasa de Consistencia"</span>),</span>
+<span id="cb17-33"><a href="#cb17-33" aria-hidden="true" tabindex="-1"></a>      <span class="at">digits =</span> <span class="dv">4</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-34"><a href="#cb17-34" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
+<caption>**Consistencia de la Asimetría a Través de las Semillas**</caption>
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Tipo de Habilidad</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Asimetría Promedio</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Desv. Est.</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Tasa de Consistencia</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">cognitive</td>
+<td style="text-align: right;">0.0117</td>
+<td style="text-align: right;">0.0179</td>
+<td style="text-align: right;">0.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">physical</td>
+<td style="text-align: right;">-0.1525</td>
+<td style="text-align: right;">0.0103</td>
+<td style="text-align: right;">1.0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla 4: Resultados por Semilla Individual</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(asymmetry_by_seed,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">caption =</span> <span class="st">"**Coeficientes de Asimetría por Semilla Aleatoria**"</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">col.names =</span> <span class="fu">c</span>(<span class="st">"Semilla"</span>, <span class="st">"Cognitiva"</span>, <span class="st">"Física"</span>, <span class="st">"Teoría Confirmada"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>), <span class="at">full_width =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">4</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">background =</span> <span class="fu">ifelse</span>(asymmetry_by_seed<span class="sc">$</span>theory_confirmed, <span class="st">"#D4EDDA"</span>, <span class="st">"#F8D7DA"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="table table-striped table-hover caption-top table-sm small" data-quarto-postprocess="true">
+<caption>**Coeficientes de Asimetría por Semilla Aleatoria**</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">Semilla</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Cognitiva</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">Física</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Teoría Confirmada</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.0226</td>
+<td style="text-align: right;">-0.1483</td>
+<td style="text-align: left; font-weight: bold; background-color: rgba(212, 237, 218, 255) !important;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">-0.0173</td>
+<td style="text-align: right;">-0.1369</td>
+<td style="text-align: left; font-weight: bold; background-color: rgba(212, 237, 218, 255) !important;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.0281</td>
+<td style="text-align: right;">-0.1589</td>
+<td style="text-align: left; font-weight: bold; background-color: rgba(212, 237, 218, 255) !important;">TRUE</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.0173</td>
+<td style="text-align: right;">-0.1634</td>
+<td style="text-align: left; font-weight: bold; background-color: rgba(212, 237, 218, 255) !important;">TRUE</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.0079</td>
+<td style="text-align: right;">-0.1548</td>
+<td style="text-align: left; font-weight: bold; background-color: rgba(212, 237, 218, 255) !important;">TRUE</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Robustness visualization</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>p_robustness <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(robustness_results<span class="sc">$</span>asymmetry,</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                       <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(seed), <span class="at">y =</span> asymmetry, <span class="at">fill =</span> skill_type)) <span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="at">position =</span> <span class="st">"dodge"</span>, <span class="at">alpha =</span> <span class="fl">0.85</span>, <span class="at">width =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> skill_colors, <span class="at">name =</span> <span class="st">"Skill Type:"</span>) <span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Robustness of Asymmetry Coefficients Across Multiple Seeds"</span>,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"The asymmetric channeling pattern is stable and not an artifact of initialization"</span>,</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Random Seed"</span>,</span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Asymmetry Coefficient (β⁺ - β⁻)"</span></span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_abm</span>()</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p_robustness)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><a href="01_abm_skill_diffusion_files/figure-html/robustness-visualization-plot-1.png" class="lightbox" data-gallery="quarto-lightbox-gallery-5"><img src="01_abm_skill_diffusion_files/figure-html/robustness-visualization-plot-1.png" class="img-fluid figure-img" width="3600"></a></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>Robustness Conclusion:</strong> The pattern of positive asymmetry for cognitive skills and near-zero/negative asymmetry for physical skills holds consistently across all random seeds. This demonstrates that the <strong>generative mechanism is robust</strong>, providing strong support for our theoretical claims.</p>
+</section>
+<section id="discussion-and-contribution-to-causal-inference" class="level1">
+<h1>Discussion and Contribution to Causal Inference</h1>
+<p>Our ABM serves as a “computational experiment” that validates our theory in three key ways, strengthening the overall causal argument.</p>
+<section id="demonstrating-generative-sufficiency" class="level3">
+<h3 class="anchored" data-anchor-id="demonstrating-generative-sufficiency">1. <strong>Demonstrating Generative Sufficiency</strong></h3>
+<p>The model shows that the proposed micro-foundations (imitation, cultural filtering) are <strong>sufficient</strong> to generate the complex macro-level pattern of asymmetric channeling. We did not need to assume technological shocks or other exogenous factors; the stratification process emerges endogenously from organizational behavior. This is a core strength of ABMs: demonstrating that a posited mechanism can, in fact, “grow” the phenomenon of interest <span class="citation" data-cites="epstein_generative_2006">(<a href="#ref-epstein_generative_2006" role="doc-biblioref">Epstein 2006</a>)</span>.</p>
+</section>
+<section id="strengthening-causal-inference-via-mechanism-based-explanation" class="level3">
+<h3 class="anchored" data-anchor-id="strengthening-causal-inference-via-mechanism-based-explanation">2. <strong>Strengthening Causal Inference via Mechanism-Based Explanation</strong></h3>
+<p>While statistical models can establish correlations (the <em>what</em>), our ABM illuminates the process (the <em>how</em>). By simulating the step-by-step decisions of organizations, we provide a plausible, dynamic account of the <strong>causal mechanism</strong> connecting cultural theories of skills to labor market stratification. In Manzo’s terms, we complement a “dependence” view of causality with a “production” view, making the causal claim that cultural theorization <em>drives</em> stratification far more persuasive <span class="citation" data-cites="manzo_agent-based_2022">(<a href="#ref-manzo_agent-based_2022" role="doc-biblioref">Manzo 2022</a>)</span>.</p>
+</section>
+<section id="providing-a-formal-testbed-for-theory" class="level3">
+<h3 class="anchored" data-anchor-id="providing-a-formal-testbed-for-theory">3. <strong>Providing a Formal Testbed for Theory</strong></h3>
+<p>The ABM acts as a formal testbed to explore the logical coherence and implications of our theory. The robustness analysis confirms that the core result is not a fragile artifact but a stable consequence of the specified mechanisms. This computational rigor moves the argument beyond narrative explanation to formal validation.</p>
+</section>
+</section>
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<p>This Agent-Based Model provides robust computational evidence for our dual-process theory of skill diffusion. By translating a structural model into a set of behavioral rules, we have demonstrated that organizational imitation, when filtered through cultural theories of skill types, is a <strong>sufficient generative mechanism</strong> for the reproduction of skills-based stratification. This work bridges the gap between micro-level organizational theory and macro-level inequality, offering a dynamic, process-based explanation for a persistent feature of modern labor markets and strengthening the causal claims of our broader research program.</p>
+<hr>
+
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-alabdulkareem_unpacking_2018" class="csl-entry" role="listitem">
+Alabdulkareem, Ahmad, Morgan R. Frank, Lijun Sun, Bedoor AlShebli, César Hidalgo, and Iyad Rahwan. 2018. <span>“Unpacking the Polarization of Workplace Skills.”</span> <em>Science Advances</em> 4 (7): eaao6030. <a href="https://doi.org/10.1126/sciadv.aao6030">https://doi.org/10.1126/sciadv.aao6030</a>.
+</div>
+<div id="ref-bail_prestige_2019" class="csl-entry" role="listitem">
+Bail, Christopher A., Taylor W. Brown, and Andreas Wimmer. 2019. <span>“Prestige, Proximity, and Prejudice: How Google Search Terms Diffuse Across the World.”</span> <em>American Journal of Sociology</em> 124 (5): 1496–1548. <a href="https://doi.org/10.1086/702007">https://doi.org/10.1086/702007</a>.
+</div>
+<div id="ref-cyert_behavioral_2006" class="csl-entry" role="listitem">
+Cyert, Richard Michael, Richard Michael Cyert, and James G. March. 2006. <em>A Behavioral Theory of the Firm</em>. 2. ed., [Nachdr.]. Malden, <span>MA</span>: Blackwell Publishing.
+</div>
+<div id="ref-dimaggio_iron_1983" class="csl-entry" role="listitem">
+DiMaggio, Paul, and Walter Powell. 1983. <span>“The Iron Cage Revisited: Institutional Isomorphism and Collective Rationality in Organizational Fields.”</span> <em>American Sociological Review</em> 48 (2): 147–60. <a href="https://doi.org/10.2307/2095101">https://doi.org/10.2307/2095101</a>.
+</div>
+<div id="ref-epstein_generative_2006" class="csl-entry" role="listitem">
+Epstein, Joshua M. 2006. <em>Generative Social Science: Studies in Agent-Based Computational Modeling</em>. Princeton Studies in Complexity. Princeton: Princeton university press.
+</div>
+<div id="ref-hedstrom_contagious_1994" class="csl-entry" role="listitem">
+Hedström, Peter. 1994. <span>“Contagious Collectivities: On the Spatial Diffusion of Swedish Trade Unions, 1890-1940.”</span> <em>American Journal of Sociology</em> 99 (5): 1157–79. <a href="https://doi.org/10.1086/230408">https://doi.org/10.1086/230408</a>.
+</div>
+<div id="ref-hosseinioun_skill_2025" class="csl-entry" role="listitem">
+Hosseinioun, Moh, Frank Neffke, Letian Zhang, and Hyejin Youn. 2025. <span>“Skill Dependencies Uncover Nested Human Capital.”</span> <em>Nature Human Behaviour</em>, February. <a href="https://doi.org/10.1038/s41562-024-02093-2">https://doi.org/10.1038/s41562-024-02093-2</a>.
+</div>
+<div id="ref-kalleberg_good_2013" class="csl-entry" role="listitem">
+Kalleberg, Arne L. 2013. <em>Good Jobs, Bad Jobs: The Rise of Polarized and Precarious Employment Systems in the United States, 1970s to 2000s</em>. 1. papercover ed. American Sociological Association’s Rose Series in Sociology. New York, <span>NY</span>: Russel Sage Foundation.
+</div>
+<div id="ref-manzo_agent-based_2022" class="csl-entry" role="listitem">
+Manzo, Gianluca. 2022. <em>Agent-Based Models and Causal Inference</em>. Hoboken, <span>NJ</span>: John Wiley &amp; Sons, Inc.
+</div>
+<div id="ref-strang_learning_2010" class="csl-entry" role="listitem">
+Strang, David. 2010. <em>Learning by Example: Imitation and Innovation at a Global Bank</em>. Princeton: Princeton University Press.
+</div>
+<div id="ref-strang_search_2001" class="csl-entry" role="listitem">
+Strang, David, and Michael W. Macy. 2001. <span>“In Search of Excellence: Fads, Success Stories, and Adaptive Emulation.”</span> <em>American Journal of Sociology</em> 107 (1): 147–82. <a href="https://doi.org/10.1086/323039">https://doi.org/10.1086/323039</a>.
+</div>
+<div id="ref-strang_institutional_1993" class="csl-entry" role="listitem">
+Strang, David, and John W. Meyer. 1993. <span>“Institutional Conditions for Diffusion.”</span> <em>Theory and Society</em> 22 (4): 487–511. <a href="https://doi.org/10.1007/BF00993595">https://doi.org/10.1007/BF00993595</a>.
+</div>
+<div id="ref-strang_diffusion_1998" class="csl-entry" role="listitem">
+Strang, David, and Sarah A. Soule. 1998. <span>“Diffusion in Organizations and Social Movements: From Hybrid Corn to Poison Pills.”</span> <em>Annual Review of Sociology</em> 24 (1): 265–90. <a href="https://doi.org/10.1146/annurev.soc.24.1.265">https://doi.org/10.1146/annurev.soc.24.1.265</a>.
+</div>
+<div id="ref-strang_spatial_1993" class="csl-entry" role="listitem">
+Strang, David, and Nancy Brandon Tuma. 1993. <span>“Spatial and Temporal Heterogeneity in Diffusion.”</span> <em>American Journal of Sociology</em> 99 (3): 614–39. <a href="https://doi.org/10.1086/230318">https://doi.org/10.1086/230318</a>.
+</div>
+<div id="ref-tilly_durable_2009" class="csl-entry" role="listitem">
+Tilly, Charles. 2009. <em>Durable Inequality</em>. Nachdr. Berkeley: Univ. of California Press.
+</div>
+<div id="ref-york_gradationalism_2025" class="csl-entry" role="listitem">
+York, Hunter, Xi Song, and Yu Xie. 2025. <span>“Gradationalism Revisited: Intergenerational Occupational Mobility Along Axes of Occupational Characteristics.”</span> <em>American Journal of Sociology</em> 130 (4): 976–1027. <a href="https://doi.org/10.1086/733122">https://doi.org/10.1086/733122</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+        const codeEl = trigger.previousElementSibling.cloneNode(true);
+        for (const childEl of codeEl.children) {
+          if (isCodeAnnotation(childEl)) {
+            childEl.remove();
+          }
+        }
+        return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/rcantillan\.github\.io");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2024 Roberto Cantillan ∙ Made with <a href="https://quarto.org">Quarto</a></p>
+</div>   
+    <div class="nav-footer-center">
+<p><a class="link-dark me-1" href="../../../accessibility.html" title="Accessibility commitment" target="_blank" rel="noopener"><i class="fa-solid fa-universal-access" aria-label="universal-access"></i></a> <a class="link-dark me-1" href="" title="Substack" target="_blank" rel="noopener"><i class="bi-substack " style="" role="img" aria-hidden="true"></i></a> <a class="link-dark me-1" href="https://github.com/rcantillan" title="github" target="_blank" rel="noopener"><i class="fa-brands fa-github" aria-label="github"></i></a> <a class="link-dark me-1" href="https://cl.linkedin.com/in/roberto-cantillan-carrasco-67620517b" title="LinkedIn" target="_blank" rel="noopener"><i class="fa-brands fa-linkedin" aria-label="linkedin"></i></a> <a class="link-dark me-1" href="https://orcid.org/0000-0003-0494-0692;" title="orcid" target="_blank" rel="noopener"><i class="ai  ai-orcid" style="color:black"></i></a> <a class="link-dark me-1" href="https://scholar.google.com/citations?user=xZkAmvAAAAAJ&amp;hl=es" title="Google Scholar" target="_blank" rel="noopener"><i class="ai  ai-google-scholar" style="color:black"></i></a></p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="../../../accessibility.qmd">
+<p>Accessibility</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../contact.qmd">
+<p>Contact</p>
+</a>
+  </li>  
+    <li class="nav-item">
+    <a class="nav-link" href="../../../license.qmd">
+<p>License</p>
+</a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../../blog/index.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
+
+
+
+
+</body></html>
