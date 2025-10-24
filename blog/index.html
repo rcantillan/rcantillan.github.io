@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -35,14 +35,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-9519443a8c50f3421c15abbdb1fc3938.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-24c2121c465d1e416670330144b9f0c4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-32e64e11d264661c9dda202d8f199470.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-b84f3661271bab6e3ce52e591ed9adc4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
@@ -127,7 +128,7 @@ const typesetMath = (el) => {
     var macros = [];
     for (var i = 0; i < mathElements.length; i++) {
       var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
         window.katex.render(texText.data, mathElements[i], {
           displayMode: mathElements[i].classList.contains('display'),
           throwOnError: false,
@@ -153,7 +154,8 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../img/noun-small-world-network-6148828.png" alt="" class="navbar-logo">
+    <img src="../img/noun-small-world-network-6148828.png" alt="" class="navbar-logo light-content">
+    <img src="../img/noun-small-world-network-6148828.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Roberto Cantillan</span>
@@ -272,7 +274,7 @@ window.Quarto = {
     </div>
 </div>
 <div class="list grid quarto-listing-cols-2">
-<div class="g-col-1" data-index="0" data-categories="UiUyQ0RpZmZ1c2lvbiUyMFRoZW9yeSUyQ1BvbGFyaXphdGlvbiUyQ1N0cmF0aWZpY2F0aW9uJTJDSW5lcXVhbGl0eSUyQ0xhYm9yJTIwTWFya2V0cw==" data-listing-date-sort="1753833600000" data-listing-file-modified-sort="1753844965825" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="56" data-listing-word-count-sort="11173">
+<div class="g-col-1" data-index="0" data-categories="UiUyQ0RpZmZ1c2lvbiUyMFRoZW9yeSUyQ1BvbGFyaXphdGlvbiUyQ1N0cmF0aWZpY2F0aW9uJTJDSW5lcXVhbGl0eSUyQ0xhYm9yJTIwTWFya2V0cw==" data-listing-date-sort="1761264000000" data-listing-file-modified-sort="1761320886947" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="56" data-listing-word-count-sort="11173">
 <a href="../blog/posts/09-skill_diffusion/01_model.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -290,13 +292,13 @@ The architecture of inequality in the U.S. labor market is not a static blueprin
 Roberto Cantillan &amp; Mauricio Bucca
 </div>
 <div class="listing-date">
-Jul 30, 2025
+Oct 24, 2025
 </div>
 </div>
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="UiUyQ0RpZmZ1c2lvbiUyMFRoZW9yeSUyQ1BvbGFyaXphdGlvbiUyQ1N0cmF0aWZpY2F0aW9uJTJDSW5lcXVhbGl0eSUyQ0xhYm9yJTIwTWFya2V0cyUyQ0FnZW50JTIwQmFzZWQlMjBNb2RlbGxpbmc=" data-listing-date-sort="1753833600000" data-listing-file-modified-sort="1753844965837" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="31" data-listing-word-count-sort="6033">
+<div class="g-col-1" data-index="1" data-categories="UiUyQ0RpZmZ1c2lvbiUyMFRoZW9yeSUyQ1BvbGFyaXphdGlvbiUyQ1N0cmF0aWZpY2F0aW9uJTJDSW5lcXVhbGl0eSUyQ0xhYm9yJTIwTWFya2V0cyUyQ0FnZW50JTIwQmFzZWQlMjBNb2RlbGxpbmc=" data-listing-date-sort="1761264000000" data-listing-file-modified-sort="1761320886958" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="31" data-listing-word-count-sort="6033">
 <a href="../blog/posts/10-abm-skill-diffusion/01_abm_skill_diffusion.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -314,13 +316,13 @@ This Agent-Based Model provides comprehensive generative validation of our theor
 Roberto Cantillan &amp; Mauricio Bucca
 </div>
 <div class="listing-date">
-Jul 30, 2025
+Oct 24, 2025
 </div>
 </div>
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="UiUyQ05ldHdvcmtzJTJDRVJHTSUyQ1NvY2lhbCUyME1vdmVtZW50cyUyQ0NvbnRlbnRpb3VzJTIwcG9sJUMzJUFEdGljcw==" data-listing-date-sort="1731456000000" data-listing-file-modified-sort="1753844965824" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="47" data-listing-word-count-sort="9231">
+<div class="g-col-1" data-index="2" data-categories="UiUyQ05ldHdvcmtzJTJDRVJHTSUyQ1NvY2lhbCUyME1vdmVtZW50cyUyQ0NvbnRlbnRpb3VzJTIwcG9sJUMzJUFEdGljcw==" data-listing-date-sort="1731456000000" data-listing-file-modified-sort="1761320886946" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="47" data-listing-word-count-sort="9231">
 <a href="../blog/posts/07-social_movements/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -344,7 +346,7 @@ Nov 13, 2024
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="3" data-categories="UiUyQ05ldHdvcmtzJTJDRWdvJTIwbmV0d29ya3MlMkNIb21vcGhpbHk=" data-listing-date-sort="1730764800000" data-listing-file-modified-sort="1753844965783" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22" data-listing-word-count-sort="4213">
+<div class="g-col-1" data-index="3" data-categories="UiUyQ05ldHdvcmtzJTJDRWdvJTIwbmV0d29ya3MlMkNIb21vcGhpbHk=" data-listing-date-sort="1730764800000" data-listing-file-modified-sort="1761320886905" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="22" data-listing-word-count-sort="4213">
 <a href="../blog/posts/01-multihomophily/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -368,7 +370,7 @@ Nov 5, 2024
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="UiUyQ05ldHdvcmtzJTJDVHdvJTIwbW9kZSUyQ0VSR00lMkNTY2llbnRpZmljJTIwbmV0d29ya3M=" data-listing-date-sort="1730419200000" data-listing-file-modified-sort="1753844965810" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="29" data-listing-word-count-sort="5684">
+<div class="g-col-1" data-index="4" data-categories="UiUyQ05ldHdvcmtzJTJDVHdvJTIwbW9kZSUyQ0VSR00lMkNTY2llbnRpZmljJTIwbmV0d29ya3M=" data-listing-date-sort="1730419200000" data-listing-file-modified-sort="1761320886932" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="29" data-listing-word-count-sort="5684">
 <a href="../blog/posts/04-twomode-ergm/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
@@ -392,35 +394,11 @@ Nov 1, 2024
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="UiUyQ2dncGxvdCUyQ2NhdGVnb3JpY2FsJTIwZGF0YQ==" data-listing-date-sort="1691539200000" data-listing-file-modified-sort="1753844965819" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="41" data-listing-word-count-sort="8085">
-<a href="../blog/posts/06-ggplot/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../blog/posts/06-ggplot/featured.jpg" class="thumbnail-image card-img" style="height: 250px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Visualización Avanzada de Datos Categóricos
-</h5>
-<div class="card-text listing-description delink">
-Esta guía está diseñada para ayudarte a comprender y crear visualizaciones efectivas de datos categóricos usando R. Aprenderemos desde gráficos básicos hasta visualizaciones…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Roberto Cantillan
-</div>
-<div class="listing-date">
-Aug 9, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="6" data-categories="UiUyQ05ldHdvcmtzJTJDRWdvJTIwbmV0d29ya3MlMkNIb21vcGhpbHk=" data-listing-date-sort="1691539200000" data-listing-file-modified-sort="1753844965801" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3104">
+<div class="g-col-1" data-index="5" data-categories="UiUyQ05ldHdvcmtzJTJDRWdvJTIwbmV0d29ya3MlMkNIb21vcGhpbHk=" data-listing-date-sort="1691539200000" data-listing-file-modified-sort="1761320886922" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="16" data-listing-word-count-sort="3104">
 <a href="../blog/posts/03-egodescriptives/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
-<img loading="lazy" data-src="../blog/posts/03-egodescriptives/featured.jpg" class="thumbnail-image card-img" style="height: 250px;">
+<img loading="lazy" src="../blog/posts/03-egodescriptives/featured.jpg" class="thumbnail-image card-img" style="height: 250px;">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
@@ -440,7 +418,31 @@ Aug 9, 2023
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="7" data-categories="UiUyQ05ldHdvcmtzJTJDRWdvJTIwbmV0d29ya3MlMkNFUkdNJTIwZWdvJTJDSG9tb3BoaWx5" data-listing-date-sort="1666742400000" data-listing-file-modified-sort="1753844965818" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2034">
+<div class="g-col-1" data-index="6" data-categories="UiUyQ2dncGxvdCUyQ2NhdGVnb3JpY2FsJTIwZGF0YQ==" data-listing-date-sort="1691539200000" data-listing-file-modified-sort="1761320886940" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="41" data-listing-word-count-sort="8085">
+<a href="../blog/posts/06-ggplot/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" data-src="../blog/posts/06-ggplot/featured.jpg" class="thumbnail-image card-img" style="height: 250px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Visualización Avanzada de Datos Categóricos
+</h5>
+<div class="card-text listing-description delink">
+Esta guía está diseñada para ayudarte a comprender y crear visualizaciones efectivas de datos categóricos usando R. Aprenderemos desde gráficos básicos hasta visualizaciones…
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+Roberto Cantillan
+</div>
+<div class="listing-date">
+Aug 9, 2023
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="7" data-categories="UiUyQ05ldHdvcmtzJTJDRWdvJTIwbmV0d29ya3MlMkNFUkdNJTIwZWdvJTJDSG9tb3BoaWx5" data-listing-date-sort="1666742400000" data-listing-file-modified-sort="1761320886940" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="11" data-listing-word-count-sort="2034">
 <a href="../blog/posts/05_multihomophily/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img data-src="posts/05_multihomophily/index_files/figure-html/unnamed-chunk-11-1.png" style="height: 250px;"  class="thumbnail-image card-img"/></p>
@@ -519,13 +521,14 @@ Oct 26, 2022
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

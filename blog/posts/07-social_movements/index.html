@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -90,14 +90,15 @@ div.csl-indent {
 <link href="../../../images/favicon.ico" rel="icon">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-9519443a8c50f3421c15abbdb1fc3938.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-24c2121c465d1e416670330144b9f0c4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-32e64e11d264661c9dda202d8f199470.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-b84f3661271bab6e3ce52e591ed9adc4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
@@ -175,7 +176,8 @@ background-size: cover;
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../img/noun-small-world-network-6148828.png" alt="" class="navbar-logo">
+    <img src="../../../img/noun-small-world-network-6148828.png" alt="" class="navbar-logo light-content">
+    <img src="../../../img/noun-small-world-network-6148828.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Roberto Cantillan</span>
@@ -481,10 +483,10 @@ background-size: cover;
 <section id="resultados" class="level1">
 <h1>Resultados</h1>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidygraph)</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(statnet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(statnet)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               Installed ReposVer Built  
 ergm           "4.7.5"   "4.9.0"  "4.3.3"
@@ -493,7 +495,7 @@ statnet.common "4.10.0"  "4.12.0" "4.3.3"
 tergm          "4.2.1"   "4.2.2"  "4.3.3"
 tsna           "0.3.5"   "0.3.6"  "4.3.3"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ergm)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ergm)</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(network)</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span>
@@ -505,14 +507,14 @@ tsna           "0.3.5"   "0.3.6"  "4.3.3"</code></pre>
 <span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggraph)</span>
 <span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Matrix)</span>
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(texreg)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(texreg)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <section id="descriptivos" class="level2">
 <h2 class="anchored" data-anchor-id="descriptivos">Descriptivos</h2>
 <section id="red" class="level3">
 <h3 class="anchored" data-anchor-id="red">Red</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leer y preparar las matrices</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leer y preparar las matrices</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>coop_matrix <span class="ot">&lt;-</span>       <span class="fu">as.matrix</span>(<span class="fu">read.csv</span>(<span class="st">"datos/CoopNet.csv"</span>, <span class="at">header=</span><span class="cn">FALSE</span>))</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>trust_matrix <span class="ot">&lt;-</span>      <span class="fu">as.matrix</span>(<span class="fu">read.csv</span>(<span class="st">"datos/ConfianzaNet.csv"</span>, <span class="at">header=</span><span class="cn">FALSE</span>))</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>resources_matrix <span class="ot">&lt;-</span>  <span class="fu">as.matrix</span>(<span class="fu">read.csv</span>(<span class="st">"datos/RecursosNet.csv"</span>, <span class="at">header=</span><span class="cn">FALSE</span>))</span>
@@ -531,16 +533,16 @@ tsna           "0.3.5"   "0.3.6"  "4.3.3"</code></pre>
 <span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">Parentesco =</span> <span class="sc">!</span><span class="fu">isSymmetric</span>(parentesco_matrix)</span>
 <span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Verificación de direccionalidad de las redes:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Verificación de direccionalidad de las redes:"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Verificación de direccionalidad de las redes:"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">unlist</span>(is_directed))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">unlist</span>(is_directed))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Cooperacion   Confianza    Recursos     Valores  Parentesco 
        TRUE        TRUE        TRUE        TRUE        TRUE </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista de todas las matrices para análisis</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Lista de todas las matrices para análisis</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>matrices_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">Cooperacion =</span> coop_matrix,</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">Confianza =</span> trust_matrix,</span>
@@ -549,21 +551,21 @@ tsna           "0.3.5"   "0.3.6"  "4.3.3"</code></pre>
 <span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">Parentesco =</span> parentesco_matrix</span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">map_lgl</span>(matrices_list, is.matrix)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="fu">map_lgl</span>(matrices_list, is.matrix)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Cooperacion   Confianza    Recursos     Valores  Parentesco 
        TRUE        TRUE        TRUE        TRUE        TRUE </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map_lgl</span>(matrices_list, <span class="cf">function</span>(x) <span class="fu">nrow</span>(x) <span class="sc">==</span> <span class="fu">ncol</span>(x))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map_lgl</span>(matrices_list, <span class="cf">function</span>(x) <span class="fu">nrow</span>(x) <span class="sc">==</span> <span class="fu">ncol</span>(x))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Cooperacion   Confianza    Recursos     Valores  Parentesco 
        TRUE        TRUE        TRUE        TRUE        TRUE </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Estadísticas descriptivas de las redes:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Estadísticas descriptivas de las redes:"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "\nEstadísticas descriptivas de las redes:"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map_dfr</span>(matrices_list, <span class="cf">function</span>(x) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">map_dfr</span>(matrices_list, <span class="cf">function</span>(x) {</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  g <span class="ot">&lt;-</span> <span class="fu">graph_from_adjacency_matrix</span>(x, <span class="at">mode=</span><span class="st">"directed"</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">tibble</span>(</span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">Densidad =</span> <span class="fu">edge_density</span>(g),</span>
@@ -576,9 +578,9 @@ tsna           "0.3.5"   "0.3.6"  "4.3.3"</code></pre>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a>}, <span class="at">.id =</span> <span class="st">"Red"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_paper</span>(<span class="st">"hover"</span>, <span class="at">full_width =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_paper</span>(<span class="st">"hover"</span>, <span class="at">full_width =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<table class="lightable-paper lightable-hover caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="lightable-paper lightable-hover caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Red</th>
@@ -663,7 +665,7 @@ tsna           "0.3.5"   "0.3.6"  "4.3.3"</code></pre>
 <section id="actores" class="level3">
 <h3 class="anchored" data-anchor-id="actores">Actores</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear objeto network con atributos</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear objeto network con atributos</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>net_coop <span class="ot">&lt;-</span> <span class="fu">network</span>(coop_matrix, <span class="at">directed=</span><span class="cn">TRUE</span>)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregar atributos a la red</span></span>
@@ -685,18 +687,18 @@ tsna           "0.3.5"   "0.3.6"  "4.3.3"</code></pre>
 <span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Top 10 actores más centrales según diferentes medidas</span></span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Top 10 actores según Indegree:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Top 10 actores según Indegree:"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Top 10 actores según Indegree:"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cent_df <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>cent_df <span class="sc">%&gt;%</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Indegree)) <span class="sc">%&gt;%</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Organizacion, Tipo, Indegree) <span class="sc">%&gt;%</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_paper</span>(<span class="st">"hover"</span>, <span class="at">full_width =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_paper</span>(<span class="st">"hover"</span>, <span class="at">full_width =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<table class="lightable-paper lightable-hover caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="lightable-paper lightable-hover caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Organizacion</th>
@@ -758,18 +760,18 @@ tsna           "0.3.5"   "0.3.6"  "4.3.3"</code></pre>
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Top 10 actores según Betweenness:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Top 10 actores según Betweenness:"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "\nTop 10 actores según Betweenness:"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>cent_df <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>cent_df <span class="sc">%&gt;%</span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(Betweenness)) <span class="sc">%&gt;%</span></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Organizacion, Tipo, Betweenness) <span class="sc">%&gt;%</span></span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">10</span>) <span class="sc">%&gt;%</span></span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_paper</span>(<span class="st">"hover"</span>, <span class="at">full_width =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_paper</span>(<span class="st">"hover"</span>, <span class="at">full_width =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<table class="lightable-paper lightable-hover caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="lightable-paper lightable-hover caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Organizacion</th>
@@ -831,7 +833,7 @@ tsna           "0.3.5"   "0.3.6"  "4.3.3"</code></pre>
 </tbody>
 </table>
 </div>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis de centralidad por tipo de organización</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis de centralidad por tipo de organización</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>cent_by_type <span class="ot">&lt;-</span> cent_df <span class="sc">%&gt;%</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(Tipo) <span class="sc">%&gt;%</span></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -840,15 +842,15 @@ tsna           "0.3.5"   "0.3.6"  "4.3.3"</code></pre>
 <span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">N =</span> <span class="fu">n</span>()</span>
 <span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Centralidad promedio por tipo de organización:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Centralidad promedio por tipo de organización:"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "\nCentralidad promedio por tipo de organización:"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>cent_by_type <span class="sc">%&gt;%</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>cent_by_type <span class="sc">%&gt;%</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kbl</span>() <span class="sc">%&gt;%</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_paper</span>(<span class="st">"hover"</span>, <span class="at">full_width =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_paper</span>(<span class="st">"hover"</span>, <span class="at">full_width =</span> T)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<table class="lightable-paper lightable-hover caption-top table table-sm table-striped small" data-quarto-postprocess="true">
+<table class="lightable-paper lightable-hover caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
 <th style="text-align: left;" data-quarto-table-cell-role="th">Tipo</th>
@@ -943,7 +945,7 @@ tsna           "0.3.5"   "0.3.6"  "4.3.3"</code></pre>
 </ul>
 <p>[Quote opportunity: Description of different organizational roles in the movement]</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leer datos</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Leer datos</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>coop_matrix <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">read.csv</span>(<span class="st">"datos/CoopNet.csv"</span>, <span class="at">header=</span><span class="cn">FALSE</span>))</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>attributes <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"datos/Atributos _org2011.csv"</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -958,7 +960,7 @@ tsna           "0.3.5"   "0.3.6"  "4.3.3"</code></pre>
 <span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="fu">table</span>(organizaciones<span class="sc">$</span>Tipo))</span>
 <span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Organizaciones específicas:</span><span class="sc">\n</span><span class="st">"</span>)</span>
 <span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(organizaciones<span class="sc">$</span>Nombre)</span>
-<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 
@@ -1028,7 +1030,7 @@ Organizaciones específicas:
 [13] "OV_JJVV_n°19_Heroes"             "OV_JJVV_n°29_LoHerAlto"         
 [15] "OV_JJVV_PortalDelSol"           </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular densidades entre bloques</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular densidades entre bloques</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>block_density <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="dv">4</span>, <span class="dv">4</span>)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) {</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) {</span>
@@ -1042,13 +1044,13 @@ Organizaciones específicas:
 <span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar densidades</span></span>
-<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n\n</span><span class="st">Densidad entre bloques:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n\n</span><span class="st">Densidad entre bloques:</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 
 Densidad entre bloques:</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">round</span>(block_density, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">round</span>(block_density, <span class="dv">3</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      [,1]  [,2]  [,3]  [,4]
 [1,] 0.056 0.009 0.044 0.022
@@ -1056,7 +1058,7 @@ Densidad entre bloques:</code></pre>
 [3,] 0.048 0.044 0.112 0.010
 [4,] 0.007 0.026 0.024 0.036</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular cohesión de bloques</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calcular cohesión de bloques</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>) {</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">"</span><span class="sc">\n\n</span><span class="st">Cohesión Bloque"</span>, i, <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>))</span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>    internal <span class="ot">&lt;-</span> block_density[i,i]</span>
@@ -1065,7 +1067,7 @@ Densidad entre bloques:</code></pre>
 <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">"Densidad interna:"</span>, <span class="fu">round</span>(internal, <span class="dv">3</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>))</span>
 <span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">"Densidad externa media:"</span>, <span class="fu">round</span>(external, <span class="dv">3</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>))</span>
 <span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">paste</span>(<span class="st">"Índice E-I:"</span>, <span class="fu">round</span>(ei_index, <span class="dv">3</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>))</span>
-<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-10"><a href="#cb30-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 
@@ -1094,7 +1096,7 @@ Densidad externa media: 0.019
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Preparar datos para el heatmap de densidades entre bloques</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Preparar datos para el heatmap de densidades entre bloques</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>density_df <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">from =</span> <span class="fu">factor</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">labels =</span> <span class="fu">paste</span>(<span class="st">"Bloque"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>)),</span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">to =</span> <span class="fu">factor</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="at">labels =</span> <span class="fu">paste</span>(<span class="st">"Bloque"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>))</span>
@@ -1168,24 +1170,24 @@ Densidad externa media: 0.019
 <span id="cb32-72"><a href="#cb32-72" aria-hidden="true" tabindex="-1"></a>p3_plotly <span class="ot">&lt;-</span> <span class="fu">ggplotly</span>(p3)</span>
 <span id="cb32-73"><a href="#cb32-73" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb32-74"><a href="#cb32-74" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostrar los plots</span></span>
-<span id="cb32-75"><a href="#cb32-75" aria-hidden="true" tabindex="-1"></a>p1_plotly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-75"><a href="#cb32-75" aria-hidden="true" tabindex="-1"></a>p1_plotly</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="plotly html-widget html-fill-item" id="htmlwidget-e4512180a10cfa37d3d1" style="width:100%;height:464px;"></div>
 <script type="application/json" data-for="htmlwidget-e4512180a10cfa37d3d1">{"x":{"data":[{"x":[1,2,3,4],"y":[1,2,3,4],"z":[[0.49494949494949492,0,0.4242424242424242,0.065993265993265993],[0.076146076146076158,0.68531468531468531,0.39160839160839161,0.22843822843822842],[0.3888888888888889,0.2937062937062937,1,0.2121212121212121],[0.19797979797979798,0.22843822843822842,0.084848484848484854,0.31676767676767675]],"text":[["from: Bloque 1<br />to: Bloque 1<br />density: 0.055555556","from: Bloque 2<br />to: Bloque 1<br />density: 0.000000000","from: Bloque 3<br />to: Bloque 1<br />density: 0.047619048","from: Bloque 4<br />to: Bloque 1<br />density: 0.007407407"],["from: Bloque 1<br />to: Bloque 2<br />density: 0.008547009","from: Bloque 2<br />to: Bloque 2<br />density: 0.076923077","from: Bloque 3<br />to: Bloque 2<br />density: 0.043956044","from: Bloque 4<br />to: Bloque 2<br />density: 0.025641026"],["from: Bloque 1<br />to: Bloque 3<br />density: 0.043650794","from: Bloque 2<br />to: Bloque 3<br />density: 0.032967033","from: Bloque 3<br />to: Bloque 3<br />density: 0.112244898","from: Bloque 4<br />to: Bloque 3<br />density: 0.023809524"],["from: Bloque 1<br />to: Bloque 4<br />density: 0.022222222","from: Bloque 2<br />to: Bloque 4<br />density: 0.025641026","from: Bloque 3<br />to: Bloque 4<br />density: 0.009523810","from: Bloque 4<br />to: Bloque 4<br />density: 0.035555556"]],"colorscale":[[0,"#440154"],[0.065993265993265993,"#481A6C"],[0.076146076146076158,"#481C6E"],[0.084848484848484854,"#482071"],[0.19797979797979798,"#414387"],[0.2121212121212121,"#3F4788"],[0.22843822843822842,"#3E4C8A"],[0.2937062937062937,"#355E8D"],[0.31676767676767675,"#32648E"],[0.3888888888888889,"#2B758E"],[0.39160839160839161,"#2A768E"],[0.4242424242424242,"#277E8E"],[0.49494949494949492,"#218F8D"],[0.68531468531468531,"#3DBC74"],[1,"#FDE725"]],"type":"heatmap","showscale":false,"autocolorscale":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1],"y":[1],"name":"b50039613ae82af16212624818f8e597","type":"scatter","mode":"markers","opacity":0,"hoverinfo":"skip","showlegend":false,"marker":{"color":[0,1],"colorscale":[[0,"#440154"],[0.0033444816053511705,"#440256"],[0.006688963210702341,"#450357"],[0.010033444816053512,"#450558"],[0.013377926421404682,"#450659"],[0.016722408026755852,"#46075B"],[0.020066889632107024,"#46085C"],[0.023411371237458192,"#460A5D"],[0.026755852842809364,"#460B5E"],[0.030100334448160536,"#470C5F"],[0.033444816053511704,"#470E61"],[0.036789297658862873,"#470F62"],[0.040133779264214048,"#471063"],[0.043478260869565223,"#471164"],[0.046822742474916385,"#471365"],[0.050167224080267553,"#481467"],[0.053511705685618728,"#481568"],[0.056856187290969903,"#481768"],[0.060200668896321072,"#481769"],[0.06354515050167224,"#48186A"],[0.066889632107023408,"#481A6C"],[0.070234113712374591,"#481B6D"],[0.073578595317725745,"#481C6E"],[0.076923076923076913,"#481D6F"],[0.080267558528428096,"#481E6F"],[0.083612040133779264,"#481F70"],[0.086956521739130446,"#482071"],[0.090301003344481601,"#482173"],[0.093645484949832769,"#482374"],[0.096989966555183951,"#482475"],[0.10033444816053511,"#482576"],[0.10367892976588627,"#482576"],[0.10702341137123746,"#482777"],[0.11036789297658862,"#482878"],[0.11371237458193981,"#482979"],[0.11705685618729096,"#472A7A"],[0.12040133779264214,"#472B7A"],[0.12374581939799331,"#472D7B"],[0.12709030100334448,"#472D7B"],[0.13043478260869565,"#472E7C"],[0.13377926421404682,"#472F7D"],[0.13712374581939799,"#46307E"],[0.14046822742474918,"#46327E"],[0.14381270903010032,"#46337F"],[0.14715719063545149,"#463480"],[0.15050167224080269,"#463480"],[0.15384615384615383,"#453581"],[0.15719063545150502,"#453781"],[0.16053511705685619,"#453882"],[0.16387959866220733,"#443983"],[0.16722408026755853,"#443A83"],[0.1705685618729097,"#443A83"],[0.17391304347826089,"#443C84"],[0.17725752508361203,"#433D84"],[0.1806020066889632,"#433E85"],[0.1839464882943144,"#423F85"],[0.18729096989966554,"#424086"],[0.19063545150501671,"#424186"],[0.1939799331103679,"#424186"],[0.19732441471571904,"#414387"],[0.20066889632107021,"#414487"],[0.20401337792642141,"#404588"],[0.20735785953177255,"#404688"],[0.21070234113712374,"#3F4788"],[0.21404682274247491,"#3F4889"],[0.21739130434782608,"#3F4889"],[0.22073578595317725,"#3E4989"],[0.22408026755852842,"#3E4A89"],[0.22742474916387961,"#3E4C8A"],[0.23076923076923075,"#3D4D8A"],[0.23411371237458192,"#3D4E8A"],[0.23745819397993312,"#3C4F8A"],[0.24080267558528429,"#3C4F8A"],[0.24414715719063543,"#3C508B"],[0.24749163879598662,"#3B518B"],[0.25083612040133779,"#3B528B"],[0.25418060200668896,"#3A538B"],[0.25752508361204013,"#3A548C"],[0.2608695652173913,"#39558C"],[0.26421404682274247,"#39558C"],[0.26755852842809363,"#39568C"],[0.2709030100334448,"#38588C"],[0.27424749163879597,"#38598C"],[0.27759197324414714,"#375A8C"],[0.28093645484949836,"#375B8D"],[0.28428093645484948,"#375B8D"],[0.28762541806020064,"#365C8D"],[0.29096989966555187,"#365D8D"],[0.29431438127090298,"#355E8D"],[0.29765886287625415,"#355F8D"],[0.30100334448160537,"#34608D"],[0.30434782608695654,"#34618D"],[0.30769230769230765,"#34618D"],[0.31103678929765888,"#33628D"],[0.31438127090301005,"#33638D"],[0.31772575250836116,"#32648E"],[0.32107023411371238,"#32658E"],[0.32441471571906355,"#31668E"],[0.32775919732441466,"#31678E"],[0.33110367892976589,"#31678E"],[0.33444816053511706,"#31688E"],[0.33779264214046817,"#30698E"],[0.34113712374581939,"#306A8E"],[0.34448160535117056,"#2F6B8E"],[0.34782608695652178,"#2F6C8E"],[0.3511705685618729,"#2E6D8E"],[0.35451505016722407,"#2E6D8E"],[0.35785953177257529,"#2E6E8E"],[0.3612040133779264,"#2E6F8E"],[0.36454849498327757,"#2D708E"],[0.3678929765886288,"#2D718E"],[0.37123745819397991,"#2C718E"],[0.37458193979933108,"#2C728E"],[0.3779264214046823,"#2C728E"],[0.38127090301003341,"#2C738E"],[0.38461538461538458,"#2B748E"],[0.38795986622073581,"#2B758E"],[0.39130434782608692,"#2A768E"],[0.39464882943143809,"#2A778E"],[0.39799331103678931,"#2A778E"],[0.40133779264214042,"#2A788E"],[0.40468227424749159,"#29798E"],[0.40802675585284282,"#297A8E"],[0.41137123745819398,"#297B8E"],[0.4147157190635451,"#287C8E"],[0.41806020066889632,"#287D8E"],[0.42140468227424749,"#287D8E"],[0.42474916387959866,"#277E8E"],[0.42809364548494983,"#277F8E"],[0.43143812709030099,"#27808E"],[0.43478260869565216,"#26818E"],[0.43812709030100333,"#26828E"],[0.4414715719063545,"#26828E"],[0.44481605351170567,"#26828E"],[0.44816053511705684,"#25838E"],[0.451505016722408,"#25848E"],[0.45484949832775923,"#25858E"],[0.45819397993311034,"#24868E"],[0.46153846153846151,"#24878E"],[0.46488294314381273,"#23888E"],[0.46822742474916385,"#23888E"],[0.47157190635451501,"#23898E"],[0.47491638795986624,"#238A8D"],[0.47826086956521735,"#228B8D"],[0.48160535117056857,"#228C8D"],[0.48494983277591974,"#228D8D"],[0.48829431438127086,"#218E8D"],[0.49163879598662208,"#218E8D"],[0.49498327759197325,"#218F8D"],[0.49832775919732436,"#21908D"],[0.50167224080267558,"#21918C"],[0.50501672240802675,"#20928C"],[0.50836120401337792,"#20928C"],[0.51170568561872909,"#20928C"],[0.51505016722408026,"#20938C"],[0.51839464882943143,"#1F948C"],[0.52173913043478259,"#1F958B"],[0.52508361204013376,"#1F968B"],[0.52842809364548493,"#1F978B"],[0.5317725752508361,"#1F988B"],[0.53511705685618727,"#1F988B"],[0.53846153846153844,"#1F998A"],[0.5418060200668896,"#1F9A8A"],[0.54515050167224077,"#1E9B8A"],[0.54849498327759194,"#1E9C89"],[0.55183946488294311,"#1E9D89"],[0.55518394648829428,"#1F9E89"],[0.55852842809364545,"#1F9E89"],[0.56187290969899673,"#1F9F88"],[0.56521739130434778,"#1FA088"],[0.56856187290969895,"#1FA188"],[0.57190635451505023,"#1FA187"],[0.57525083612040129,"#1FA287"],[0.57859531772575246,"#20A386"],[0.58193979933110374,"#20A386"],[0.58528428093645479,"#20A486"],[0.58862876254180596,"#21A585"],[0.59197324414715724,"#21A685"],[0.5953177257525083,"#22A785"],[0.59866220735785958,"#22A884"],[0.60200668896321075,"#23A983"],[0.6053511705685618,"#23A983"],[0.60869565217391308,"#24AA83"],[0.61204013377926425,"#25AB82"],[0.61538461538461531,"#25AC82"],[0.61872909698996659,"#26AD81"],[0.62207357859531776,"#27AD81"],[0.62541806020066881,"#27AD81"],[0.62876254180602009,"#28AE80"],[0.63210702341137126,"#29AF7F"],[0.63545150501672232,"#2AB07F"],[0.6387959866220736,"#2CB17E"],[0.64214046822742477,"#2DB27D"],[0.64548494983277582,"#2EB37C"],[0.6488294314381271,"#2EB37C"],[0.65217391304347827,"#30B47C"],[0.65551839464882933,"#31B57B"],[0.65886287625418061,"#32B67A"],[0.66220735785953178,"#34B679"],[0.66555183946488283,"#35B779"],[0.66889632107023411,"#36B878"],[0.67224080267558528,"#37B878"],[0.67558528428093634,"#39B977"],[0.67892976588628762,"#3ABA76"],[0.68227424749163879,"#3BBB75"],[0.68561872909698984,"#3DBC74"],[0.68896321070234112,"#3EBC73"],[0.69230769230769229,"#40BD72"],[0.69565217391304357,"#41BD72"],[0.69899665551839463,"#42BE71"],[0.7023411371237458,"#44BF70"],[0.70568561872909707,"#46C06F"],[0.70903010033444813,"#48C16E"],[0.7123745819397993,"#49C16D"],[0.71571906354515058,"#4BC26C"],[0.71906354515050164,"#4DC26C"],[0.72240802675585281,"#4EC36B"],[0.72575250836120409,"#50C46A"],[0.72909698996655514,"#52C569"],[0.73244147157190631,"#54C568"],[0.73578595317725759,"#55C667"],[0.73913043478260865,"#57C666"],[0.74247491638795982,"#59C765"],[0.7458193979933111,"#5AC864"],[0.74916387959866215,"#5CC863"],[0.75250836120401332,"#5EC962"],[0.7558528428093646,"#5FCA61"],[0.75919732441471566,"#62CB5F"],[0.76254180602006683,"#64CB5F"],[0.76588628762541811,"#66CB5D"],[0.76923076923076916,"#67CC5C"],[0.77257525083612033,"#69CD5B"],[0.77591973244147161,"#6CCD5A"],[0.77926421404682267,"#6DCE59"],[0.78260869565217384,"#6FCF57"],[0.78595317725752512,"#71CF57"],[0.78929765886287617,"#74D055"],[0.79264214046822734,"#75D054"],[0.79598662207357862,"#77D153"],[0.79933110367892968,"#79D151"],[0.80267558528428085,"#7BD250"],[0.80602006688963213,"#7ED34F"],[0.80936454849498318,"#80D34E"],[0.81270903010033446,"#82D34D"],[0.81605351170568563,"#84D44B"],[0.81939799331103669,"#86D549"],[0.82274247491638797,"#88D548"],[0.82608695652173914,"#8AD647"],[0.82943143812709019,"#8DD645"],[0.83277591973244147,"#8FD644"],[0.83612040133779264,"#91D743"],[0.83946488294314381,"#93D741"],[0.84280936454849498,"#95D840"],[0.84615384615384615,"#97D83E"],[0.84949832775919731,"#9AD93D"],[0.85284280936454848,"#9CD93C"],[0.85618729096989965,"#9ED93A"],[0.85953177257525082,"#A0DA39"],[0.86287625418060199,"#A2DA37"],[0.86622073578595316,"#A5DB36"],[0.86956521739130432,"#A7DB35"],[0.87290969899665549,"#A9DC33"],[0.87625418060200666,"#ABDC31"],[0.87959866220735783,"#AEDC30"],[0.882943143812709,"#B0DD2F"],[0.88628762541806017,"#B2DD2D"],[0.88963210702341133,"#B5DE2B"],[0.8929765886287625,"#B7DE2A"],[0.89632107023411367,"#B9DE28"],[0.89966555183946484,"#BBDE27"],[0.90301003344481601,"#BEDF26"],[0.90635451505016718,"#C0DF25"],[0.90969899665551845,"#C2DF23"],[0.91304347826086951,"#C4E021"],[0.91638795986622068,"#C7E020"],[0.91973244147157196,"#C9E11F"],[0.92307692307692302,"#CBE11E"],[0.92642140468227419,"#CEE11D"],[0.92976588628762546,"#D0E11C"],[0.93311036789297652,"#D2E21B"],[0.93645484949832769,"#D4E21A"],[0.93979933110367897,"#D7E219"],[0.94314381270903003,"#D9E319"],[0.9464882943143812,"#DBE319"],[0.94983277591973247,"#DDE318"],[0.95317725752508364,"#DFE318"],[0.9565217391304347,"#E2E418"],[0.95986622073578598,"#E4E419"],[0.96321070234113715,"#E6E419"],[0.96655518394648821,"#E8E419"],[0.96989966555183948,"#EBE51A"],[0.97324414715719065,"#EDE51B"],[0.97658862876254171,"#EFE51C"],[0.97993311036789299,"#F1E51D"],[0.98327759197324416,"#F3E61E"],[0.98662207357859522,"#F5E61F"],[0.98996655518394649,"#F7E620"],[0.99331103678929766,"#F9E622"],[0.99665551839464872,"#FBE723"],[1,"#FDE725"]],"colorbar":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"thickness":23.039999999999996,"title":"Densidad","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"tickmode":"array","ticktext":["0.00","0.03","0.06","0.09"],"tickvals":[0.0016666666666666668,0.26804848484848481,0.53443030303030303,0.80081212121212109],"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"ticklen":2,"len":0.5}},"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":53.812112334378554,"l":72.32876712328769},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Densidad entre Bloques","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,4.5999999999999996],"tickmode":"array","ticktext":["Bloque 1","Bloque 2","Bloque 3","Bloque 4"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["Bloque 1","Bloque 2","Bloque 3","Bloque 4"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-45,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Bloque Origen","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,4.5999999999999996],"tickmode":"array","ticktext":["Bloque 1","Bloque 2","Bloque 3","Bloque 4"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["Bloque 1","Bloque 2","Bloque 3","Bloque 4"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Bloque Destino","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Densidad","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3d187b2a2546":{"x":{},"y":{},"fill":{},"type":"heatmap"}},"cur_data":"3d187b2a2546","visdat":{"3d187b2a2546":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>p2_plotly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>p2_plotly</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="plotly html-widget html-fill-item" id="htmlwidget-b4be1be33f1436c6fc8d" style="width:100%;height:464px;"></div>
 <script type="application/json" data-for="htmlwidget-b4be1be33f1436c6fc8d">{"x":{"data":[{"orientation":"v","width":0.89999999999999991,"base":0.77777777777777779,"x":[1],"y":[0.22222222222222221],"text":"count: 0.22222222<br />factor(Bloque): 1<br />Tipo: Club Deportivo","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(68,1,84,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Club Deportivo","legendgroup":"Club Deportivo","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":0.89999999999999991,"base":0.27777777777777779,"x":[1],"y":[0.5],"text":"count: 0.50000000<br />factor(Bloque): 1<br />Tipo: Comite Vivienda","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(71,45,123,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Comite Vivienda","legendgroup":"Comite Vivienda","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":0.89999999999999991,"base":0.22222222222222221,"x":[1],"y":[0.05555555555555558],"text":"count: 0.05555556<br />factor(Bloque): 1<br />Tipo: Gob. Municipal","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(59,82,139,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Gob. Municipal","legendgroup":"Gob. Municipal","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.89999999999999991,0.90000000000000013],"base":[0,0.38461538461538464],"x":[1,2],"y":[0.22222222222222221,0.61538461538461542],"text":["count: 0.22222222<br />factor(Bloque): 1<br />Tipo: Org. Cultural","count: 0.61538462<br />factor(Bloque): 2<br />Tipo: Org. Cultural"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(44,114,142,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Org. Cultural","legendgroup":"Org. Cultural","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.90000000000000013,0.90000000000000036],"base":[0.30769230769230771,0.6428571428571429],"x":[2,3],"y":[0.076923076923076927,0.3571428571428571],"text":["count: 0.07692308<br />factor(Bloque): 2<br />Tipo: Org. Política Base","count: 0.35714286<br />factor(Bloque): 3<br />Tipo: Org. Política Base"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(33,144,140,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Org. Política Base","legendgroup":"Org. Política Base","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":0.90000000000000036,"base":0.21428571428571427,"x":[3],"y":[0.4285714285714286],"text":"count: 0.42857143<br />factor(Bloque): 3<br />Tipo: Org. Política Pobladores","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(39,173,129,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Org. Política Pobladores","legendgroup":"Org. Política Pobladores","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":0.90000000000000036,"base":0,"x":[4],"y":[1],"text":"count: 1.00000000<br />factor(Bloque): 4<br />Tipo: Org. vecinal","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(93,200,99,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Org. vecinal","legendgroup":"Org. vecinal","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":0.90000000000000036,"base":0,"x":[3],"y":[0.21428571428571427],"text":"count: 0.21428571<br />factor(Bloque): 3<br />Tipo: Org. Vecinal","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(170,220,50,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Org. Vecinal","legendgroup":"Org. Vecinal","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":0.90000000000000013,"base":0,"x":[2],"y":[0.30769230769230771],"text":"count: 0.30769231<br />factor(Bloque): 2<br />Tipo: Otros","type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(253,231,37,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Otros","legendgroup":"Otros","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826491,"l":48.949771689497723},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Composición de Bloques","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,4.5999999999999996],"tickmode":"array","ticktext":["1","2","3","4"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["1","2","3","4"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Bloque","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.050000000000000003,1.05],"tickmode":"array","ticktext":["0.00","0.25","0.50","0.75","1.00"],"tickvals":[0,0.25,0.5,0.75,1],"categoryorder":"array","categoryarray":["0.00","0.25","0.50","0.75","1.00"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Proporción","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Tipo de Organización","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3d1854598cb3":{"x":{},"fill":{},"type":"bar"}},"cur_data":"3d1854598cb3","visdat":{"3d1854598cb3":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>p3_plotly</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>p3_plotly</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="plotly html-widget html-fill-item" id="htmlwidget-3aa6d18eed1f9d16d0ba" style="width:100%;height:464px;"></div>
 <script type="application/json" data-for="htmlwidget-3aa6d18eed1f9d16d0ba">{"x":{"data":[{"orientation":"v","width":[0.30000000000000004,0.30000000000000027,0.29999999999999982,0.29999999999999982],"base":[0,0,0,0],"x":[0.69999999999999996,1.7,2.7000000000000002,3.7000000000000002],"y":[0.024806674806674808,0.019536019536019536,0.033699633699633698,0.018952652285985618],"text":["Bloque: Bloque 1<br />Valor: 0.02480667<br />Metrica: Densidad_externa","Bloque: Bloque 2<br />Valor: 0.01953602<br />Metrica: Densidad_externa","Bloque: Bloque 3<br />Valor: 0.03369963<br />Metrica: Densidad_externa","Bloque: Bloque 4<br />Valor: 0.01895265<br />Metrica: Densidad_externa"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(68,1,84,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Densidad_externa","legendgroup":"Densidad_externa","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.29999999999999993,0.29999999999999982,0.29999999999999982,0.30000000000000027],"base":[0,0,0,0],"x":[1,2,3,4],"y":[0.055555555555555552,0.076923076923076927,0.11224489795918367,0.035555555555555556],"text":["Bloque: Bloque 1<br />Valor: 0.05555556<br />Metrica: Densidad_interna","Bloque: Bloque 2<br />Valor: 0.07692308<br />Metrica: Densidad_interna","Bloque: Bloque 3<br />Valor: 0.11224490<br />Metrica: Densidad_interna","Bloque: Bloque 4<br />Valor: 0.03555556<br />Metrica: Densidad_interna"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(33,144,140,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"Densidad_interna","legendgroup":"Densidad_interna","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.29999999999999982,0.29999999999999982,0.29999999999999982,0.30000000000000071],"base":[-0.38262851354773353,-0.59493670886075956,-0.53818572965220501,-0.30459455423366028],"x":[1.3,2.2999999999999998,3.2999999999999998,4.2999999999999998],"y":[0.38262851354773353,0.59493670886075956,0.53818572965220501,0.30459455423366028],"text":["Bloque: Bloque 1<br />Valor: 0.38262851<br />Metrica: EI_index","Bloque: Bloque 2<br />Valor: 0.59493671<br />Metrica: EI_index","Bloque: Bloque 3<br />Valor: 0.53818573<br />Metrica: EI_index","Bloque: Bloque 4<br />Valor: 0.30459455<br />Metrica: EI_index"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(253,231,37,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"EI_index","legendgroup":"EI_index","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826491,"l":48.949771689497723},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Métricas de Cohesión por Bloque","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,4.5999999999999996],"tickmode":"array","ticktext":["Bloque 1","Bloque 2","Bloque 3","Bloque 4"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["Bloque 1","Bloque 2","Bloque 3","Bloque 4"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Bloque","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-0.63029578920175666,0.14760397830018085],"tickmode":"array","ticktext":["-0.6","-0.4","-0.2","0.0"],"tickvals":[-0.60000000000000009,-0.40000000000000008,-0.20000000000000007,0],"categoryorder":"array","categoryarray":["-0.6","-0.4","-0.2","0.0"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Valor","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Métrica","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"3d1824e23e9a":{"x":{},"y":{},"fill":{},"type":"bar"}},"cur_data":"3d1824e23e9a","visdat":{"3d1824e23e9a":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create multiplex network</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create multiplex network</span></span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>multiplex_matrix <span class="ot">&lt;-</span> coop_matrix <span class="sc">*</span> <span class="fl">0.3</span> <span class="sc">+</span> </span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>                   trust_matrix <span class="sc">*</span> <span class="fl">0.3</span> <span class="sc">+</span> </span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>                   resources_matrix <span class="sc">*</span> <span class="fl">0.2</span> <span class="sc">+</span> </span>
@@ -1241,7 +1243,7 @@ Densidad externa media: 0.019
 <span id="cb35-54"><a href="#cb35-54" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">10</span>),</span>
 <span id="cb35-55"><a href="#cb35-55" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>)) </span>
 <span id="cb35-56"><a href="#cb35-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-57"><a href="#cb35-57" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-57"><a href="#cb35-57" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(p1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1268,19 +1270,19 @@ Densidad externa media: 0.019
 <section id="ergm" class="level2">
 <h2 class="anchored" data-anchor-id="ergm">ERGM</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar distribución de grados</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Verificar distribución de grados</span></span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>out_degrees <span class="ot">&lt;-</span> sna<span class="sc">::</span><span class="fu">degree</span>(net_coop)</span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(out_degrees)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(out_degrees)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>out_degrees
  0  1  2  3  4  5  6  7  8  9 10 11 12 14 19 
 10 20  7  6  2  1  5  4  1  7  1  3  1  1  1 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(out_degrees)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">max</span>(out_degrees)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 19</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregar constraints para manejar el límite de nominaciones</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Agregar constraints para manejar el límite de nominaciones</span></span>
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>model2 <span class="ot">&lt;-</span> <span class="fu">ergm</span>(net_coop <span class="sc">~</span> </span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>               edges <span class="sc">+</span> </span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>               <span class="fu">gwesp</span>(<span class="fl">0.25</span>, <span class="at">fixed =</span> <span class="cn">TRUE</span>) <span class="sc">+</span> </span>
@@ -1303,7 +1305,7 @@ Densidad externa media: 0.019
 <span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">MCMC.samplesize =</span> <span class="dv">10000</span>, <span class="co"># Aumentar tamaño de muestra</span></span>
 <span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">parallel =</span> <span class="dv">8</span>,</span>
 <span id="cb40-23"><a href="#cb40-23" aria-hidden="true" tabindex="-1"></a>                                    <span class="at">parallel.type =</span> <span class="st">"PSOCK"</span>))</span>
-<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb40-24"><a href="#cb40-24" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(model2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Call:
 ergm(formula = net_coop ~ edges + gwesp(0.25, fixed = TRUE) + 
@@ -1352,7 +1354,7 @@ reference distribution and constraints.
 AIC: -5211  BIC: -5147  (Smaller is better. MC Std. Err. = 12.24)</code></pre>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print summary</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print summary</span></span>
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="fu">htmlreg</span>(model2,</span>
 <span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">stars=</span><span class="fu">c</span>(<span class="fl">0.01</span>,<span class="fl">0.05</span>,<span class="fl">0.1</span>), </span>
 <span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">digits=</span><span class="dv">3</span>, </span>
@@ -1360,7 +1362,7 @@ AIC: -5211  BIC: -5147  (Smaller is better. MC Std. Err. = 12.24)</code></pre>
 <span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>        <span class="at">custom.note =</span> <span class="fu">paste</span>(<span class="st">"%stars."</span>),</span>
 <span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">align.center=</span><span class="cn">TRUE</span>,</span>
 <span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>        <span class="at">single.row =</span> T, </span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">bold =</span> <span class="fl">0.05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">bold =</span> <span class="fl">0.05</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <pre><code>Warning in nobs.ergm(object): The number of observed dyads in this network is
 ill-defined due to complex constraints on the sample space. Disable this
 warning with 'options(ergm.loglik.warn_dyads=FALSE)'.</code></pre>
@@ -1503,9 +1505,9 @@ Log Likelihood
 <li>Different tie types serve distinct but complementary functions</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assess goodness-of-fit  </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assess goodness-of-fit  </span></span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>gof <span class="ot">&lt;-</span> <span class="fu">gof</span>(model2)</span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(gof)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(gof)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Goodness-of-fit for in-degree 
@@ -1596,7 +1598,7 @@ nodematch.orientacion.Conflictiva          1.00
 nodematch.orientacion.No_conflictiva       1.00
 nodematch.ubicacion                        1.00</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gof)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(gof)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1634,8 +1636,8 @@ nodematch.ubicacion                        1.00</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot diagnostics  </span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc.diagnostics</span>(model2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot diagnostics  </span></span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mcmc.diagnostics</span>(model2)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2297,12 +2299,12 @@ Note: MCMC diagnostics shown here are from the last round of
 <section id="umbrales-heterogéneos" class="level5">
 <h5 class="anchored" data-anchor-id="umbrales-heterogéneos">Umbrales Heterogéneos</h5>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>thresholds <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>thresholds <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">base =</span> <span class="fl">0.05</span>,</span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">by_type =</span> <span class="fu">c</span>(</span>
 <span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>      <span class="st">" Club deportivo "</span> <span class="ot">=</span> <span class="fl">0.15</span>,</span>
 <span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>      <span class="st">" Comité de vivienda "</span> <span class="ot">=</span> <span class="fl">0.06</span>,</span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">" Organización política de pobladores "</span> <span class="ot">=</span> <span class="fl">0.05</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>      <span class="st">" Organización política de pobladores "</span> <span class="ot">=</span> <span class="fl">0.05</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>La heterogeneidad en umbrales refleja la teoría de Tarrow sobre “madrugadores” (early risers) en ciclos de protesta:</p>
 <ul>
@@ -2315,7 +2317,7 @@ Note: MCMC diagnostics shown here are from the last round of
 <section id="multiplicidad-de-vínculos" class="level4">
 <h4 class="anchored" data-anchor-id="multiplicidad-de-vínculos">Multiplicidad de Vínculos</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>weights <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.35</span>, <span class="fl">0.35</span>, <span class="fl">0.15</span>, <span class="fl">0.15</span>) <span class="co"># Confianza, valores, parentesco, recursos</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>weights <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.35</span>, <span class="fl">0.35</span>, <span class="fl">0.15</span>, <span class="fl">0.15</span>) <span class="co"># Confianza, valores, parentesco, recursos</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Siguiendo a Diani, se pondera diferencialmente distintos tipos de vínculos:</p>
 <ul>
@@ -2329,13 +2331,13 @@ Note: MCMC diagnostics shown here are from the last round of
 <section id="clustering-local" class="level5">
 <h5 class="anchored" data-anchor-id="clustering-local">Clustering Local</h5>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>calc_local_clustering <span class="ot">&lt;-</span> <span class="cf">function</span>(node, networks) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>calc_local_clustering <span class="ot">&lt;-</span> <span class="cf">function</span>(node, networks) {</span>
 <span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>    cluster_scores <span class="ot">&lt;-</span> <span class="fu">sapply</span>(networks, <span class="cf">function</span>(x) {</span>
 <span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>      neighbors <span class="ot">&lt;-</span> <span class="fu">which</span>(x[node,] <span class="sc">&gt;</span> <span class="dv">0</span>)</span>
 <span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a>      submat <span class="ot">&lt;-</span> x[neighbors, neighbors]</span>
 <span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">sum</span>(submat) <span class="sc">/</span> (<span class="fu">length</span>(neighbors) <span class="sc">*</span> (<span class="fu">length</span>(neighbors)<span class="sc">-</span><span class="dv">1</span>))</span>
 <span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>    })</span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Operacionaliza el concepto de “estructuras de movilización” (McAdam):</p>
 <ul>
@@ -2348,10 +2350,10 @@ Note: MCMC diagnostics shown here are from the last round of
 <section id="exposición-temporal" class="level4">
 <h4 class="anchored" data-anchor-id="exposición-temporal">Exposición Temporal</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>calc_exposure_time <span class="ot">&lt;-</span> <span class="cf">function</span>(node, history, <span class="at">window =</span> memory_window) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>calc_exposure_time <span class="ot">&lt;-</span> <span class="cf">function</span>(node, history, <span class="at">window =</span> memory_window) {</span>
 <span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>    weights <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span>(current_window<span class="sc">:</span><span class="dv">1</span>)<span class="sc">/</span><span class="dv">3</span>)</span>
 <span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">weighted.mean</span>(exposed_neighbors, weights))</span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Implementa “memoria colectiva” en movilización:</p>
 <ul>
@@ -2363,11 +2365,11 @@ Note: MCMC diagnostics shown here are from the last round of
 <section id="alineamiento-identitario" class="level4">
 <h4 class="anchored" data-anchor-id="alineamiento-identitario">Alineamiento Identitario</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>identity_alignment <span class="ot">&lt;-</span> <span class="cf">function</span>(node, attributes) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>identity_alignment <span class="ot">&lt;-</span> <span class="cf">function</span>(node, attributes) {</span>
 <span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>    same_type <span class="ot">&lt;-</span> attributes<span class="sc">$</span>tipo <span class="sc">==</span> attributes<span class="sc">$</span>tipo[node]</span>
 <span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>    same_orientation <span class="ot">&lt;-</span> attributes<span class="sc">$</span>Orientación <span class="sc">==</span> attributes<span class="sc">$</span>Orientación[node]</span>
 <span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="fu">mean</span>(same_type <span class="sc">&amp;</span> same_orientation))</span>
-<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Basado en teoría de identidad colectiva:</p>
 <ul>
@@ -2379,8 +2381,8 @@ Note: MCMC diagnostics shown here are from the last round of
 <section id="roles-estructurales" class="level4">
 <h4 class="anchored" data-anchor-id="roles-estructurales">Roles Estructurales</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>role_scores<span class="sc">$</span>broker_score <span class="ot">&lt;-</span> role_scores<span class="sc">$</span>between_score <span class="sc">+</span> role_scores<span class="sc">$</span>degree_score</span>
-<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>role_scores<span class="sc">$</span>core_score <span class="ot">&lt;-</span> role_scores<span class="sc">$</span>eigen_score <span class="sc">+</span> role_scores<span class="sc">$</span>authority_score</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>role_scores<span class="sc">$</span>broker_score <span class="ot">&lt;-</span> role_scores<span class="sc">$</span>between_score <span class="sc">+</span> role_scores<span class="sc">$</span>degree_score</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>role_scores<span class="sc">$</span>core_score <span class="ot">&lt;-</span> role_scores<span class="sc">$</span>eigen_score <span class="sc">+</span> role_scores<span class="sc">$</span>authority_score</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Operacionaliza roles clave en difusión (Tarrow):</p>
 <ul>
@@ -2395,9 +2397,9 @@ Note: MCMC diagnostics shown here are from the last round of
 <section id="cálculo-de-influencia" class="level5">
 <h5 class="anchored" data-anchor-id="cálculo-de-influencia">Cálculo de Influencia</h5>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>combined_influence <span class="ot">&lt;-</span> net_influence <span class="sc">*</span> weights[n] <span class="sc">*</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>combined_influence <span class="ot">&lt;-</span> net_influence <span class="sc">*</span> weights[n] <span class="sc">*</span> </span>
 <span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>    temporal_factor <span class="sc">*</span> cluster_multiplier <span class="sc">*</span> </span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">1</span> <span class="sc">+</span> identity_effect) <span class="sc">/</span> action_cost</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">1</span> <span class="sc">+</span> identity_effect) <span class="sc">/</span> action_cost</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Integra múltiples mecanismos:</p>
 <ol type="1">
@@ -2411,9 +2413,9 @@ Note: MCMC diagnostics shown here are from the last round of
 <section id="umbrales-dinámicos" class="level5">
 <h5 class="anchored" data-anchor-id="umbrales-dinámicos">Umbrales Dinámicos</h5>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>final_threshold <span class="ot">&lt;-</span> (base_threshold <span class="sc">*</span> type_threshold) <span class="sc">*</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>final_threshold <span class="ot">&lt;-</span> (base_threshold <span class="sc">*</span> type_threshold) <span class="sc">*</span> </span>
 <span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">exp</span>(<span class="sc">-</span><span class="fl">0.05</span> <span class="sc">*</span> exposure_effect) <span class="sc">*</span></span>
-<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.2</span> <span class="sc">*</span> cluster_effect)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>    (<span class="dv">1</span> <span class="sc">-</span> <span class="fl">0.2</span> <span class="sc">*</span> cluster_effect)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Modela adaptación de umbrales por:</p>
 <ul>
@@ -2481,7 +2483,7 @@ Note: MCMC diagnostics shown here are from the last round of
 <section id="cargamos-datos" class="level3">
 <h3 class="anchored" data-anchor-id="cargamos-datos">Cargamos datos</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Cargar datos</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Cargar datos</span></span>
 <span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>coop_matrix      <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">read.csv</span>(<span class="st">"datos/CoopNet.csv"</span>, <span class="at">header=</span><span class="cn">FALSE</span>))</span>
 <span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>trust_matrix     <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">read.csv</span>(<span class="st">"datos/ConfianzaNet.csv"</span>, <span class="at">header=</span><span class="cn">FALSE</span>))</span>
 <span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>resources_matrix <span class="ot">&lt;-</span> <span class="fu">as.matrix</span>(<span class="fu">read.csv</span>(<span class="st">"datos/RecursosNet.csv"</span>, <span class="at">header=</span><span class="cn">FALSE</span>))</span>
@@ -2498,11 +2500,11 @@ Note: MCMC diagnostics shown here are from the last round of
 <span id="cb57-15"><a href="#cb57-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb57-16"><a href="#cb57-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb57-17"><a href="#cb57-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Verificar la creación correcta de la variable</span></span>
-<span id="cb57-18"><a href="#cb57-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Verificar variable conflictivo:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb57-18"><a href="#cb57-18" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Verificar variable conflictivo:"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Verificar variable conflictivo:"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(org_attributes<span class="sc">$</span>conflictivo, org_attributes<span class="sc">$</span>Orientación, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(org_attributes<span class="sc">$</span>conflictivo, org_attributes<span class="sc">$</span>Orientación, <span class="at">useNA =</span> <span class="st">"always"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       
         Conflictiva No_conflictiva &lt;NA&gt;
@@ -2510,18 +2512,18 @@ Note: MCMC diagnostics shown here are from the last round of
   TRUE           29              0    0
   &lt;NA&gt;            0              0    0</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Preparar lista de redes</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Preparar lista de redes</span></span>
 <span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>networks <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
 <span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  trust_matrix,    <span class="co"># Red de confianza (peso 0.3)</span></span>
 <span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>  values_matrix,   <span class="co"># Red de valores (peso 0.3)</span></span>
 <span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>  coop_matrix,     <span class="co"># Red de cooperación (peso 0.2)</span></span>
 <span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>  resources_matrix <span class="co"># Red de recursos (peso 0.2)</span></span>
-<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>org_attributes<span class="sc">$</span>block <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(org_attributes<span class="sc">$</span><span class="st">`</span><span class="at">X1PosciónCONCOR</span><span class="st">`</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>org_attributes<span class="sc">$</span>block <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(org_attributes<span class="sc">$</span><span class="st">`</span><span class="at">X1PosciónCONCOR</span><span class="st">`</span>)</span>
 <span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>improved_diffusion_v9 <span class="ot">&lt;-</span> <span class="cf">function</span>(networks, attributes, seeds, </span>
 <span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">max_iterations =</span> <span class="dv">1000</span>,</span>
@@ -2816,7 +2818,7 @@ Note: MCMC diagnostics shown here are from the last round of
 <span id="cb62-293"><a href="#cb62-293" aria-hidden="true" tabindex="-1"></a>      <span class="at">use_heterogeneous_thresholds =</span> use_heterogeneous_thresholds</span>
 <span id="cb62-294"><a href="#cb62-294" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb62-295"><a href="#cb62-295" aria-hidden="true" tabindex="-1"></a>  ))</span>
-<span id="cb62-296"><a href="#cb62-296" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb62-296"><a href="#cb62-296" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -2825,7 +2827,7 @@ Note: MCMC diagnostics shown here are from the last round of
 <div class="cell">
 <details open="" class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>plot_diffusion_results_v2 <span class="ot">&lt;-</span> <span class="cf">function</span>(results, org_attributes) {</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>plot_diffusion_results_v2 <span class="ot">&lt;-</span> <span class="cf">function</span>(results, org_attributes) {</span>
 <span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(ggplot2)</span>
 <span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(dplyr)</span>
 <span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(tidyr)</span>
@@ -2974,7 +2976,7 @@ Note: MCMC diagnostics shown here are from the last round of
 <span id="cb63-147"><a href="#cb63-147" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb63-148"><a href="#cb63-148" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb63-149"><a href="#cb63-149" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(combined_plot)</span>
-<span id="cb63-150"><a href="#cb63-150" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb63-150"><a href="#cb63-150" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -2983,19 +2985,19 @@ Note: MCMC diagnostics shown here are from the last round of
 <section id="resultados-heterogeneous-thresholds-false" class="level4">
 <h4 class="anchored" data-anchor-id="resultados-heterogeneous-thresholds-false">Resultados heterogeneous thresholds = FALSE</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejecutar una simulación</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejecutar una simulación</span></span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">improved_diffusion_v9</span>(</span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">networks =</span> networks,</span>
 <span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">attributes =</span> org_attributes,</span>
 <span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">seeds =</span> <span class="fu">which</span>(org_attributes<span class="sc">$</span>tipo <span class="sc">==</span> <span class="st">" Organización política de pobladores "</span>),</span>
 <span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">use_heterogeneous_thresholds =</span> <span class="cn">FALSE</span></span>
-<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: `authority_score()` was deprecated in igraph 2.1.0.
 ℹ Please use `hits_scores()` instead.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar resultados</span></span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_diffusion_results_v2</span>(results, org_attributes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar resultados</span></span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_diffusion_results_v2</span>(results, org_attributes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
@@ -3015,7 +3017,7 @@ Note: MCMC diagnostics shown here are from the last round of
 <section id="resultados-heterogeneous-thresholds-true" class="level4">
 <h4 class="anchored" data-anchor-id="resultados-heterogeneous-thresholds-true">Resultados heterogeneous thresholds = TRUE</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejecutar una simulación</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ejecutar una simulación</span></span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>results <span class="ot">&lt;-</span> <span class="fu">improved_diffusion_v9</span>(</span>
 <span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">networks =</span> networks,</span>
 <span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">attributes =</span> org_attributes,</span>
@@ -3024,7 +3026,7 @@ Note: MCMC diagnostics shown here are from the last round of
 <span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Visualizar resultados</span></span>
-<span id="cb69-10"><a href="#cb69-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_diffusion_results_v2</span>(results, org_attributes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb69-10"><a href="#cb69-10" aria-hidden="true" tabindex="-1"></a><span class="fu">plot_diffusion_results_v2</span>(results, org_attributes)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
 </div>
@@ -3047,7 +3049,7 @@ Note: MCMC diagnostics shown here are from the last round of
 <section id="simulaciones-heterogeneous-thresholds-true" class="level3">
 <h3 class="anchored" data-anchor-id="simulaciones-heterogeneous-thresholds-true">Simulaciones heterogeneous thresholds = TRUE</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para ejecutar múltiples simulaciones</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para ejecutar múltiples simulaciones</span></span>
 <span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>run_multiple_simulations <span class="ot">&lt;-</span> <span class="cf">function</span>(networks, attributes, seeds, <span class="at">n_sims =</span> <span class="dv">100</span>) {</span>
 <span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>  results_list <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
 <span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_sims) {</span>
@@ -3084,15 +3086,15 @@ Note: MCMC diagnostics shown here are from the last round of
 <span id="cb71-35"><a href="#cb71-35" aria-hidden="true" tabindex="-1"></a>mean_adoption_rate <span class="ot">&lt;-</span> multiple_results<span class="sc">$</span>mean_adoption</span>
 <span id="cb71-36"><a href="#cb71-36" aria-hidden="true" tabindex="-1"></a>sd_adoption_rate <span class="ot">&lt;-</span> multiple_results<span class="sc">$</span>sd_adoption</span>
 <span id="cb71-37"><a href="#cb71-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-38"><a href="#cb71-38" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"La tasa de adopción final promedio es:"</span>, <span class="fu">round</span>(mean_adoption_rate <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>), <span class="st">"%</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb71-38"><a href="#cb71-38" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"La tasa de adopción final promedio es:"</span>, <span class="fu">round</span>(mean_adoption_rate <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>), <span class="st">"%</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>La tasa de adopción final promedio es: 35.83 %</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"La desviación estándar de la tasa de adopción final es:"</span>, <span class="fu">round</span>(sd_adoption_rate <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>), <span class="st">"%</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"La desviación estándar de la tasa de adopción final es:"</span>, <span class="fu">round</span>(sd_adoption_rate <span class="sc">*</span> <span class="dv">100</span>, <span class="dv">2</span>), <span class="st">"%</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>La desviación estándar de la tasa de adopción final es: 1.42 %</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Trayectorias simuladas</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Trayectorias simuladas</span></span>
 <span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>diffusion_trajectories <span class="ot">&lt;-</span> <span class="fu">lapply</span>(<span class="fu">seq_along</span>(multiple_results<span class="sc">$</span>results), <span class="cf">function</span>(i) {</span>
 <span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data.frame</span>(</span>
 <span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">iteration =</span> <span class="fu">seq_along</span>(multiple_results<span class="sc">$</span>results[[i]]<span class="sc">$</span>final_metrics<span class="sc">$</span>change_trajectory),</span>
@@ -3108,7 +3110,7 @@ Note: MCMC diagnostics shown here are from the last round of
 <span id="cb75-14"><a href="#cb75-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Iteración"</span>, <span class="at">y =</span> <span class="st">"Tasa de Adopción"</span>) <span class="sc">+</span></span>
 <span id="cb75-15"><a href="#cb75-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Trayectorias de Difusión"</span>) <span class="sc">+</span></span>
 <span id="cb75-16"><a href="#cb75-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb75-17"><a href="#cb75-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb75-17"><a href="#cb75-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -3116,18 +3118,18 @@ Note: MCMC diagnostics shown here are from the last round of
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Adopción por tipo y rol</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Adopción por tipo y rol</span></span>
 <span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>adoption_by_type <span class="ot">&lt;-</span> <span class="fu">lapply</span>(multiple_results<span class="sc">$</span>results, <span class="cf">function</span>(x) x<span class="sc">$</span>final_metrics<span class="sc">$</span>adoption_by_type)</span>
 <span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>adoption_by_role <span class="ot">&lt;-</span> <span class="fu">lapply</span>(multiple_results<span class="sc">$</span>results, <span class="cf">function</span>(x) x<span class="sc">$</span>final_metrics<span class="sc">$</span>adoption_by_role)</span>
 <span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>mean_adoption_by_type <span class="ot">&lt;-</span> <span class="fu">Reduce</span>(<span class="st">"+"</span>, adoption_by_type) <span class="sc">/</span> <span class="fu">length</span>(adoption_by_type)</span>
 <span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>mean_adoption_by_role <span class="ot">&lt;-</span> <span class="fu">Reduce</span>(<span class="st">"+"</span>, adoption_by_role) <span class="sc">/</span> <span class="fu">length</span>(adoption_by_role)</span>
 <span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Adopción promedio por tipo de organización:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Adopción promedio por tipo de organización:"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Adopción promedio por tipo de organización:"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mean_adoption_by_type)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mean_adoption_by_type)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                      Club deportivo                    Comité de vivienda  
                             0.0000000                             0.3333333 
@@ -3138,16 +3140,16 @@ Note: MCMC diagnostics shown here are from the last round of
                                 Otros 
                             0.0000000 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Adopción promedio por rol estructural:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="st">"Adopción promedio por rol estructural:"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Adopción promedio por rol estructural:"</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mean_adoption_by_role)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(mean_adoption_by_role)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> authority     broker       core peripheral 
  0.5000000  0.8118182  0.9800000  0.1878846 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Adopción y centralidad </span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb84"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Adopción y centralidad </span></span>
 <span id="cb84-2"><a href="#cb84-2" aria-hidden="true" tabindex="-1"></a>centrality_measures <span class="ot">&lt;-</span> <span class="fu">lapply</span>(multiple_results<span class="sc">$</span>results, <span class="cf">function</span>(x) x<span class="sc">$</span>centrality_measures)</span>
 <span id="cb84-3"><a href="#cb84-3" aria-hidden="true" tabindex="-1"></a>clustering_effects <span class="ot">&lt;-</span> <span class="fu">lapply</span>(multiple_results<span class="sc">$</span>results, <span class="cf">function</span>(x) x<span class="sc">$</span>final_metrics<span class="sc">$</span>clustering_effect)</span>
 <span id="cb84-4"><a href="#cb84-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -3159,13 +3161,13 @@ Note: MCMC diagnostics shown here are from the last round of
 <span id="cb84-10"><a href="#cb84-10" aria-hidden="true" tabindex="-1"></a>})</span>
 <span id="cb84-11"><a href="#cb84-11" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb84-12"><a href="#cb84-12" aria-hidden="true" tabindex="-1"></a>mean_cor_degree_adoption <span class="ot">&lt;-</span> <span class="fu">mean</span>(cor_degree_adoption)</span>
-<span id="cb84-13"><a href="#cb84-13" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Correlación promedio entre centralidad de grado y adopción final:"</span>, <span class="fu">round</span>(mean_cor_degree_adoption, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb84-13"><a href="#cb84-13" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Correlación promedio entre centralidad de grado y adopción final:"</span>, <span class="fu">round</span>(mean_cor_degree_adoption, <span class="dv">2</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Correlación promedio entre centralidad de grado y adopción final: 0.74 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Asumiendo que ejecutaste múltiples simulaciones con diferentes parámetros y los resultados están en `multiple_results`</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Asumiendo que ejecutaste múltiples simulaciones con diferentes parámetros y los resultados están en `multiple_results`</span></span>
 <span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>mean_adoption_rates <span class="ot">&lt;-</span> <span class="fu">sapply</span>(multiple_results<span class="sc">$</span>results, <span class="cf">function</span>(x) x<span class="sc">$</span>final_metrics<span class="sc">$</span>adoption_rate)</span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean_adoption_rates, <span class="at">xlab =</span> <span class="st">"Simulación"</span>, <span class="at">ylab =</span> <span class="st">"Tasa de Adopción Final"</span>, <span class="at">main =</span> <span class="st">"Análisis de Sensibilidad"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mean_adoption_rates, <span class="at">xlab =</span> <span class="st">"Simulación"</span>, <span class="at">ylab =</span> <span class="st">"Tasa de Adopción Final"</span>, <span class="at">main =</span> <span class="st">"Análisis de Sensibilidad"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -3179,7 +3181,7 @@ Note: MCMC diagnostics shown here are from the last round of
 <section id="relaciones-múltiples" class="level2">
 <h2 class="anchored" data-anchor-id="relaciones-múltiples">Relaciones múltiples</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis de tipos de vínculos por organización</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb87"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Análisis de tipos de vínculos por organización</span></span>
 <span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>analyze_tie_types <span class="ot">&lt;-</span> <span class="cf">function</span>(networks, org_id) {</span>
 <span id="cb87-3"><a href="#cb87-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Contar en cuántas redes diferentes tiene vínculos la organización</span></span>
 <span id="cb87-4"><a href="#cb87-4" aria-hidden="true" tabindex="-1"></a>  tie_count <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">sapply</span>(networks, <span class="cf">function</span>(net) <span class="fu">any</span>(net[org_id,] <span class="sc">&gt;</span> <span class="dv">0</span> <span class="sc">|</span> net[,org_id] <span class="sc">&gt;</span> <span class="dv">0</span>)))</span>
@@ -3191,7 +3193,7 @@ Note: MCMC diagnostics shown here are from the last round of
 <span id="cb87-10"><a href="#cb87-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb87-11"><a href="#cb87-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Cruzar con resultados de adopción</span></span>
 <span id="cb87-12"><a href="#cb87-12" aria-hidden="true" tabindex="-1"></a>adoption_by_tie_types <span class="ot">&lt;-</span> <span class="fu">tapply</span>(results<span class="sc">$</span>final_states, tie_types, mean)</span>
-<span id="cb87-13"><a href="#cb87-13" aria-hidden="true" tabindex="-1"></a>adoption_by_tie_types</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb87-13"><a href="#cb87-13" aria-hidden="true" tabindex="-1"></a>adoption_by_tie_types</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>        0         2         3         4 
 0.0000000 0.0000000 0.2500000 0.4423077 </code></pre>
@@ -3213,14 +3215,14 @@ Note: MCMC diagnostics shown here are from the last round of
 <li>These findings extend Baldassarri &amp; Diani’s (2007) network integration theory by showing how different types of ties interact to produce qualitatively different outcomes.</li>
 </ul>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Número de organizaciones por categoría de vínculos</span></span>
-<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(tie_types)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb89"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb89-1"><a href="#cb89-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Número de organizaciones por categoría de vínculos</span></span>
+<span id="cb89-2"><a href="#cb89-2" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(tie_types)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>tie_types
  0  2  3  4 
 10  4  4 52 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Para cada categoría, analizar qué tipos de vínculos tienen</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb91"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Para cada categoría, analizar qué tipos de vínculos tienen</span></span>
 <span id="cb91-2"><a href="#cb91-2" aria-hidden="true" tabindex="-1"></a>analyze_link_types <span class="ot">&lt;-</span> <span class="cf">function</span>(networks, org_id) {</span>
 <span id="cb91-3"><a href="#cb91-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Ver qué tipos de redes tienen vínculos</span></span>
 <span id="cb91-4"><a href="#cb91-4" aria-hidden="true" tabindex="-1"></a>  types <span class="ot">&lt;-</span> <span class="fu">sapply</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(networks), <span class="cf">function</span>(n) {</span>
@@ -3245,10 +3247,10 @@ Note: MCMC diagnostics shown here are from the last round of
 <span id="cb91-23"><a href="#cb91-23" aria-hidden="true" tabindex="-1"></a>  tie_types</span>
 <span id="cb91-24"><a href="#cb91-24" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb91-25"><a href="#cb91-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb91-26"><a href="#cb91-26" aria-hidden="true" tabindex="-1"></a><span class="co">#org_types_by_links</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb91-26"><a href="#cb91-26" aria-hidden="true" tabindex="-1"></a><span class="co">#org_types_by_links</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Distribución de multiplexidad por tipo de organización</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Distribución de multiplexidad por tipo de organización</span></span>
 <span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(</span>
 <span id="cb92-3"><a href="#cb92-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">tipo =</span> <span class="fu">unlist</span>(org_types_by_links),</span>
 <span id="cb92-4"><a href="#cb92-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">vinculos =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="fu">sapply</span>(org_types_by_links, length))</span>
@@ -3259,7 +3261,7 @@ Note: MCMC diagnostics shown here are from the last round of
 <span id="cb92-9"><a href="#cb92-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
 <span id="cb92-10"><a href="#cb92-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Distribución de Multiplexidad por Tipo Organizacional"</span>,</span>
 <span id="cb92-11"><a href="#cb92-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Tipo de Organización"</span>,</span>
-<span id="cb92-12"><a href="#cb92-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Proporción"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb92-12"><a href="#cb92-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Proporción"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -3286,7 +3288,7 @@ Note: MCMC diagnostics shown here are from the last round of
 </ul>
 <p>[Quote opportunity: Discussing organizational differences in maintaining relationships]</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Tasa de adopción por nivel de multiplexidad</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb93"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Tasa de adopción por nivel de multiplexidad</span></span>
 <span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(</span>
 <span id="cb93-3"><a href="#cb93-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">vinculos =</span> <span class="fu">factor</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>)),</span>
 <span id="cb93-4"><a href="#cb93-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">adopcion =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>, <span class="fl">0.25</span>, <span class="fl">0.4615385</span>)</span>
@@ -3297,7 +3299,7 @@ Note: MCMC diagnostics shown here are from the last round of
 <span id="cb93-9"><a href="#cb93-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb93-10"><a href="#cb93-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Tasa de Adopción por Nivel de Multiplexidad"</span>,</span>
 <span id="cb93-11"><a href="#cb93-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Número de Vínculos"</span>,</span>
-<span id="cb93-12"><a href="#cb93-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Tasa de Adopción"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb93-12"><a href="#cb93-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Tasa de Adopción"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -3308,7 +3310,7 @@ Note: MCMC diagnostics shown here are from the last round of
 </div>
 <p>The relationship between multiple ties and adoption shows a clear threshold effect. Organizations with fewer than three types of ties show no adoption, while those with four types of ties show the highest adoption rates (46.15%).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Composición de grupos por multiplexidad</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb94"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb94-1"><a href="#cb94-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Composición de grupos por multiplexidad</span></span>
 <span id="cb94-2"><a href="#cb94-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(</span>
 <span id="cb94-3"><a href="#cb94-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">vinculos =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>,<span class="dv">3</span>,<span class="dv">4</span>), <span class="fu">sapply</span>(org_types_by_links, length)),</span>
 <span id="cb94-4"><a href="#cb94-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">count =</span> <span class="dv">1</span></span>
@@ -3318,7 +3320,7 @@ Note: MCMC diagnostics shown here are from the last round of
 <span id="cb94-8"><a href="#cb94-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb94-9"><a href="#cb94-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Número de Organizaciones por Nivel de Multiplexidad"</span>,</span>
 <span id="cb94-10"><a href="#cb94-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Número de Vínculos"</span>,</span>
-<span id="cb94-11"><a href="#cb94-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Cantidad de Organizaciones"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb94-11"><a href="#cb94-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Cantidad de Organizaciones"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -3457,13 +3459,14 @@ Tilly, Charles, and Sidney G. Tarrow. 2015. <em>Contentious Politics</em>. Secon
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

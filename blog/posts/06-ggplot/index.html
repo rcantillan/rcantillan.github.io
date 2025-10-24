@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.32">
+<meta name="generator" content="quarto-1.8.25">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -70,14 +70,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../images/favicon.ico" rel="icon">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-9519443a8c50f3421c15abbdb1fc3938.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-24c2121c465d1e416670330144b9f0c4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-32e64e11d264661c9dda202d8f199470.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-b84f3661271bab6e3ce52e591ed9adc4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
@@ -154,7 +155,8 @@ background: featured.jpg;
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../img/noun-small-world-network-6148828.png" alt="" class="navbar-logo">
+    <img src="../../../img/noun-small-world-network-6148828.png" alt="" class="navbar-logo light-content">
+    <img src="../../../img/noun-small-world-network-6148828.png" alt="" class="navbar-logo dark-content">
     </a>
     <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">Roberto Cantillan</span>
@@ -306,7 +308,7 @@ background: featured.jpg;
 <h3 class="anchored" data-anchor-id="configuración-del-entorno">1.1 Configuración del Entorno</h3>
 <p>Primero, configuraremos nuestro entorno de trabajo cargando los paquetes necesarios. Cada paquete tiene un propósito específico en nuestro flujo de trabajo:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos los paquetes necesarios usando pacman</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos los paquetes necesarios usando pacman</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># pacman nos permite instalar y cargar paquetes en un solo paso</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  tidyverse,      <span class="co"># Conjunto de paquetes para manipulación y visualización</span></span>
@@ -324,7 +326,7 @@ background: featured.jpg;
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Configuramos un tema global para consistencia en nuestros gráficos</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">theme_set</span>(<span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">12</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
@@ -334,7 +336,7 @@ background: featured.jpg;
 <h3 class="anchored" data-anchor-id="gráfico-de-barras-avanzado">2.1 Gráfico de Barras Avanzado</h3>
 <p>Los gráficos de barras son fundamentales para visualizar datos categóricos. Aquí aprenderemos a crear uno con características avanzadas:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos de ejemplo estructurados</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos de ejemplo estructurados</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Este es un ejemplo común en análisis de datos categóricos</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>datos_categoricos <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">categoria =</span> LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>],            <span class="co"># Usamos las primeras 6 letras del alfabeto</span></span>
@@ -373,7 +375,7 @@ background: featured.jpg;
 <span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
 <span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">16</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
 <span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"top"</span></span>
-<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -406,7 +408,7 @@ background: featured.jpg;
 <h3 class="anchored" data-anchor-id="visualización-de-redes-con-ggraph">2.2 Visualización de Redes con ggraph</h3>
 <p>Ahora crearemos una visualización de red usando ggraph, que es más flexible y consistente con la gramática de ggplot2:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos para la red</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos para la red</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Primero los nodos</span></span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>nodos <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">8</span>,</span>
@@ -449,7 +451,7 @@ background: featured.jpg;
 <span id="cb3-41"><a href="#cb3-41" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"Visualización con ggraph"</span>,</span>
 <span id="cb3-42"><a href="#cb3-42" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"Tipo"</span>,</span>
 <span id="cb3-43"><a href="#cb3-43" aria-hidden="true" tabindex="-1"></a>       <span class="at">size =</span> <span class="st">"Tamaño"</span>,</span>
-<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>       <span class="at">edge_width =</span> <span class="st">"Peso de conexión"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb3-44"><a href="#cb3-44" aria-hidden="true" tabindex="-1"></a>       <span class="at">edge_width =</span> <span class="st">"Peso de conexión"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -479,7 +481,7 @@ background: featured.jpg;
 <h3 class="anchored" data-anchor-id="gráficos-de-mosaico-avanzados">2.3 Gráficos de Mosaico Avanzados</h3>
 <p>Los gráficos de mosaico son excelentes para visualizar relaciones entre variables categóricas. Son particularmente útiles cuando queremos mostrar proporciones y dependencias:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Primero, creamos datos más significativos</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Primero, creamos datos más significativos</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)  <span class="co"># Para reproducibilidad</span></span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>datos_mosaico <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">nivel_educativo =</span> <span class="fu">sample</span>(<span class="fu">c</span>(<span class="st">"Básica"</span>, <span class="st">"Media"</span>, <span class="st">"Superior"</span>), <span class="dv">1000</span>, </span>
@@ -507,7 +509,7 @@ background: featured.jpg;
 <span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>, <span class="at">size =</span> <span class="dv">14</span>),</span>
 <span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>, <span class="at">color =</span> <span class="st">"gray30"</span>),</span>
 <span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: The `scale_name` argument of `continuous_scale()` is deprecated as of ggplot2
 3.5.0.</code></pre>
@@ -530,13 +532,13 @@ background: featured.jpg;
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Añadimos una tabla resumen para complementar el gráfico</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Añadimos una tabla resumen para complementar el gráfico</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>datos_mosaico <span class="sc">%&gt;%</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(nivel_educativo, grupo_edad, genero) <span class="sc">%&gt;%</span></span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(genero, n) <span class="sc">%&gt;%</span></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Distribución de frecuencias"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'nivel_educativo', 'grupo_edad'. You can
 override using the `.groups` argument.</code></pre>
@@ -711,7 +713,7 @@ Superior
 <h3 class="anchored" data-anchor-id="heatmaps-categóricos-interactivos">2.4 Heatmaps Categóricos Interactivos</h3>
 <p>Los heatmaps son ideales para visualizar relaciones entre categorías cuando tenemos una medida de intensidad:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos más significativos</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos más significativos</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>datos_heat <span class="ot">&lt;-</span> <span class="fu">expand_grid</span>(</span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">departamento =</span> <span class="fu">c</span>(<span class="st">"Ventas"</span>, <span class="st">"Marketing"</span>, <span class="st">"IT"</span>, <span class="st">"RRHH"</span>, <span class="st">"Finanzas"</span>),</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">trimestre =</span> <span class="fu">c</span>(<span class="st">"Q1"</span>, <span class="st">"Q2"</span>, <span class="st">"Q3"</span>, <span class="st">"Q4"</span>)</span>
@@ -749,13 +751,13 @@ Superior
 <span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertimos a interactivo</span></span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p, <span class="at">tooltip =</span> <span class="st">"text"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p, <span class="at">tooltip =</span> <span class="st">"text"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="plotly html-widget html-fill-item" id="htmlwidget-60e47007fa32436b2ab7" style="width:100%;height:464px;"></div>
 <script type="application/json" data-for="htmlwidget-60e47007fa32436b2ab7">{"x":{"data":[{"x":[1,2,3,4],"y":[1,2,3,4,5],"z":[[0.34788076376362842,0.60790462254235855,0.39091924782806581,0.32921479053028824],[0.70075489707786787,0.66826812764184518,0.35809543936420213,0],[0.72677345455330622,1,0.52209865558411461,0.18536250676663557],[0.62934103578454392,0.72915858452296434,0.34266583867255546,0.56826562302061223],[0.19996052053779359,0.33936891151188969,0.17794971873590326,0.59291263455714405]],"text":[["Departamento: Finanzas <br />Trimestre: Q1 <br />Rendimiento: 70.9","Departamento: Finanzas <br />Trimestre: Q2 <br />Rendimiento: 85.2","Departamento: Finanzas <br />Trimestre: Q3 <br />Rendimiento: 73.2","Departamento: Finanzas <br />Trimestre: Q4 <br />Rendimiento: 69.8"],["Departamento: IT <br />Trimestre: Q1 <br />Rendimiento: 90.4","Departamento: IT <br />Trimestre: Q2 <br />Rendimiento: 88.6","Departamento: IT <br />Trimestre: Q3 <br />Rendimiento: 71.4","Departamento: IT <br />Trimestre: Q4 <br />Rendimiento: 51.6"],["Departamento: Marketing <br />Trimestre: Q1 <br />Rendimiento: 91.8","Departamento: Marketing <br />Trimestre: Q2 <br />Rendimiento: 106.9","Departamento: Marketing <br />Trimestre: Q3 <br />Rendimiento: 80.5","Departamento: Marketing <br />Trimestre: Q4 <br />Rendimiento: 61.9"],["Departamento: RRHH <br />Trimestre: Q1 <br />Rendimiento: 86.4","Departamento: RRHH <br />Trimestre: Q2 <br />Rendimiento: 91.9","Departamento: RRHH <br />Trimestre: Q3 <br />Rendimiento: 70.6","Departamento: RRHH <br />Trimestre: Q4 <br />Rendimiento: 83"],["Departamento: Ventas <br />Trimestre: Q1 <br />Rendimiento: 62.7","Departamento: Ventas <br />Trimestre: Q2 <br />Rendimiento: 70.4","Departamento: Ventas <br />Trimestre: Q3 <br />Rendimiento: 61.5","Departamento: Ventas <br />Trimestre: Q4 <br />Rendimiento: 84.4"]],"colorscale":[[0,"#440154"],[0.17794971873590326,"#433D84"],[0.18536250676663557,"#423F85"],[0.19996052053779359,"#414487"],[0.32921479053028824,"#31678E"],[0.33936891151188969,"#306A8E"],[0.34266583867255546,"#306A8E"],[0.34788076376362842,"#2F6C8E"],[0.35809543936420213,"#2E6E8E"],[0.39091924782806581,"#2A768E"],[0.52209865558411461,"#1F958B"],[0.56826562302061223,"#1FA188"],[0.59291263455714405,"#21A685"],[0.60790462254235855,"#24AA83"],[0.62934103578454392,"#28AE80"],[0.66826812764184518,"#36B779"],[0.70075489707786787,"#43BF70"],[0.72677345455330622,"#51C46A"],[0.72915858452296434,"#52C569"],[1,"#FDE725"]],"type":"heatmap","showscale":false,"autocolorscale":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1],"y":[1],"name":"16ef3a0bec740c4414e569f77f02503f","type":"scatter","mode":"markers","opacity":0,"hoverinfo":"skip","showlegend":false,"marker":{"color":[0,1],"colorscale":[[0,"#440154"],[0.0033444816053512334,"#440256"],[0.0066889632107023384,"#450357"],[0.010033444816053571,"#450558"],[0.013377926421404677,"#450659"],[0.016722408026755911,"#46075B"],[0.020066889632107014,"#46085C"],[0.023411371237458248,"#460A5D"],[0.026755852842809354,"#460B5E"],[0.030100334448160584,"#470C5F"],[0.03344481605351169,"#470E61"],[0.036789297658862921,"#470F62"],[0.040133779264214027,"#471063"],[0.043478260869565265,"#471164"],[0.046822742474916364,"#471365"],[0.050167224080267601,"#481467"],[0.053511705685618707,"#481568"],[0.056856187290969938,"#481768"],[0.060200668896321044,"#481769"],[0.063545150501672282,"#48186A"],[0.066889632107023381,"#481A6C"],[0.070234113712374618,"#481B6D"],[0.073578595317725717,"#481C6E"],[0.076923076923076955,"#481D6F"],[0.080267558528428054,"#481E6F"],[0.083612040133779292,"#481F70"],[0.086956521739130391,"#482071"],[0.090301003344481628,"#482173"],[0.093645484949832727,"#482374"],[0.096989966555183965,"#482475"],[0.10033444816053508,"#482576"],[0.1036789297658863,"#482576"],[0.10702341137123741,"#482777"],[0.11036789297658864,"#482878"],[0.11371237458193975,"#482979"],[0.11705685618729098,"#472A7A"],[0.12040133779264209,"#472B7A"],[0.12374581939799333,"#472D7B"],[0.12709030100334456,"#472D7B"],[0.13043478260869565,"#472E7C"],[0.13377926421404676,"#472F7D"],[0.13712374581939799,"#46307E"],[0.14046822742474924,"#46327E"],[0.14381270903010032,"#46337F"],[0.14715719063545143,"#463480"],[0.15050167224080266,"#463480"],[0.15384615384615391,"#453581"],[0.15719063545150502,"#453781"],[0.16053511705685611,"#453882"],[0.16387959866220736,"#443983"],[0.16722408026755858,"#443A83"],[0.1705685618729097,"#443A83"],[0.17391304347826078,"#443C84"],[0.17725752508361203,"#433D84"],[0.18060200668896326,"#433E85"],[0.18394648829431437,"#423F85"],[0.18729096989966559,"#424086"],[0.19063545150501671,"#424186"],[0.19397993311036793,"#424186"],[0.19732441471571904,"#414387"],[0.20066889632107027,"#414487"],[0.20401337792642138,"#404588"],[0.2073578595317726,"#404688"],[0.21070234113712372,"#3F4788"],[0.21404682274247494,"#3F4889"],[0.21739130434782605,"#3F4889"],[0.22073578595317728,"#3E4989"],[0.22408026755852853,"#3E4A89"],[0.2274247491638795,"#3E4C8A"],[0.23076923076923073,"#3D4D8A"],[0.23411371237458195,"#3D4E8A"],[0.2374581939799332,"#3C4F8A"],[0.24080267558528418,"#3C4F8A"],[0.2441471571906354,"#3C508B"],[0.24749163879598665,"#3B518B"],[0.25083612040133785,"#3B528B"],[0.25418060200668885,"#3A538B"],[0.25752508361204007,"#3A548C"],[0.2608695652173913,"#39558C"],[0.26421404682274258,"#39558C"],[0.2675585284280938,"#39568C"],[0.27090301003344475,"#38588C"],[0.27424749163879597,"#38598C"],[0.27759197324414725,"#375A8C"],[0.2809364548494982,"#375B8D"],[0.28428093645484942,"#375B8D"],[0.28762541806020064,"#365C8D"],[0.29096989966555192,"#365D8D"],[0.29431438127090315,"#355E8D"],[0.29765886287625409,"#355F8D"],[0.30100334448160532,"#34608D"],[0.3043478260869566,"#34618D"],[0.30769230769230754,"#34618D"],[0.31103678929765877,"#33628D"],[0.31438127090301005,"#33638D"],[0.31772575250836127,"#32648E"],[0.32107023411371249,"#32658E"],[0.32441471571906344,"#31668E"],[0.32775919732441472,"#31678E"],[0.33110367892976594,"#31678E"],[0.33444816053511689,"#31688E"],[0.33779264214046811,"#30698E"],[0.34113712374581939,"#306A8E"],[0.34448160535117062,"#2F6B8E"],[0.34782608695652184,"#2F6C8E"],[0.35117056856187284,"#2E6D8E"],[0.35451505016722407,"#2E6D8E"],[0.35785953177257529,"#2E6E8E"],[0.36120401337792651,"#2E6F8E"],[0.36454849498327774,"#2D708E"],[0.36789297658862874,"#2D718E"],[0.37123745819397996,"#2C718E"],[0.37458193979933119,"#2C728E"],[0.37792642140468219,"#2C728E"],[0.38127090301003341,"#2C738E"],[0.38461538461538464,"#2B748E"],[0.38795986622073586,"#2B758E"],[0.39130434782608708,"#2A768E"],[0.39464882943143809,"#2A778E"],[0.39799331103678931,"#2A778E"],[0.40133779264214053,"#2A788E"],[0.40468227424749154,"#29798E"],[0.40802675585284276,"#297A8E"],[0.41137123745819398,"#297B8E"],[0.41471571906354521,"#287C8E"],[0.41806020066889643,"#287D8E"],[0.42140468227424743,"#287D8E"],[0.42474916387959866,"#277E8E"],[0.42809364548494988,"#277F8E"],[0.43143812709030088,"#27808E"],[0.43478260869565211,"#26818E"],[0.43812709030100333,"#26828E"],[0.44147157190635455,"#26828E"],[0.44481605351170583,"#26828E"],[0.44816053511705678,"#25838E"],[0.451505016722408,"#25848E"],[0.45484949832775923,"#25858E"],[0.45819397993311023,"#24868E"],[0.46153846153846145,"#24878E"],[0.46488294314381268,"#23888E"],[0.4682274247491639,"#23888E"],[0.47157190635451518,"#23898E"],[0.47491638795986613,"#238A8D"],[0.47826086956521735,"#228B8D"],[0.48160535117056863,"#228C8D"],[0.48494983277591958,"#228D8D"],[0.4882943143812708,"#218E8D"],[0.49163879598662202,"#218E8D"],[0.4949832775919733,"#218F8D"],[0.49832775919732453,"#21908D"],[0.50167224080267547,"#21918C"],[0.50501672240802675,"#20928C"],[0.50836120401337792,"#20928C"],[0.5117056856187292,"#20928C"],[0.51505016722408037,"#20938C"],[0.51839464882943143,"#1F948C"],[0.52173913043478259,"#1F958B"],[0.52508361204013387,"#1F968B"],[0.52842809364548482,"#1F978B"],[0.5317725752508361,"#1F988B"],[0.53511705685618727,"#1F988B"],[0.53846153846153855,"#1F998A"],[0.54180602006688983,"#1F9A8A"],[0.54515050167224077,"#1E9B8A"],[0.54849498327759194,"#1E9C89"],[0.55183946488294322,"#1E9D89"],[0.55518394648829417,"#1F9E89"],[0.55852842809364545,"#1F9E89"],[0.56187290969899661,"#1F9F88"],[0.56521739130434789,"#1FA088"],[0.56856187290969917,"#1FA188"],[0.57190635451505012,"#1FA187"],[0.57525083612040129,"#1FA287"],[0.57859531772575257,"#20A386"],[0.58193979933110351,"#20A386"],[0.58528428093645501,"#20A486"],[0.58862876254180596,"#21A585"],[0.59197324414715724,"#21A685"],[0.59531772575250852,"#22A785"],[0.59866220735785947,"#22A884"],[0.60200668896321063,"#23A983"],[0.60535117056856191,"#23A983"],[0.60869565217391286,"#24AA83"],[0.61204013377926436,"#25AB82"],[0.61538461538461542,"#25AC82"],[0.61872909698996659,"#26AD81"],[0.62207357859531787,"#27AD81"],[0.62541806020066881,"#27AD81"],[0.62876254180602009,"#28AE80"],[0.63210702341137126,"#29AF7F"],[0.63545150501672221,"#2AB07F"],[0.63879598662207371,"#2CB17E"],[0.64214046822742477,"#2DB27D"],[0.64548494983277593,"#2EB37C"],[0.64882943143812721,"#2EB37C"],[0.65217391304347816,"#30B47C"],[0.65551839464882944,"#31B57B"],[0.65886287625418061,"#32B67A"],[0.66220735785953155,"#34B679"],[0.66555183946488305,"#35B779"],[0.66889632107023411,"#36B878"],[0.67224080267558528,"#37B878"],[0.67558528428093656,"#39B977"],[0.67892976588628751,"#3ABA76"],[0.68227424749163879,"#3BBB75"],[0.68561872909698995,"#3DBC74"],[0.6889632107023409,"#3EBC73"],[0.6923076923076924,"#40BD72"],[0.69565217391304346,"#41BD72"],[0.69899665551839463,"#42BE71"],[0.70234113712374591,"#44BF70"],[0.70568561872909685,"#46C06F"],[0.70903010033444813,"#48C16E"],[0.7123745819397993,"#49C16D"],[0.71571906354515058,"#4BC26C"],[0.71906354515050175,"#4DC26C"],[0.72240802675585281,"#4EC36B"],[0.72575250836120397,"#50C46A"],[0.72909698996655525,"#52C569"],[0.7324414715719062,"#54C568"],[0.7357859531772577,"#55C667"],[0.73913043478260865,"#57C666"],[0.74247491638795993,"#59C765"],[0.74581939799331121,"#5AC864"],[0.74916387959866215,"#5CC863"],[0.75250836120401332,"#5EC962"],[0.7558528428093646,"#5FCA61"],[0.75919732441471555,"#62CB5F"],[0.76254180602006705,"#64CB5F"],[0.76588628762541799,"#66CB5D"],[0.76923076923076927,"#67CC5C"],[0.77257525083612055,"#69CD5B"],[0.7759197324414715,"#6CCD5A"],[0.77926421404682267,"#6DCE59"],[0.78260869565217395,"#6FCF57"],[0.78595317725752489,"#71CF57"],[0.78929765886287639,"#74D055"],[0.79264214046822734,"#75D054"],[0.79598662207357862,"#77D153"],[0.7993311036789299,"#79D151"],[0.80267558528428085,"#7BD250"],[0.80602006688963201,"#7ED34F"],[0.80936454849498329,"#80D34E"],[0.81270903010033424,"#82D34D"],[0.81605351170568574,"#84D44B"],[0.81939799331103669,"#86D549"],[0.82274247491638797,"#88D548"],[0.82608695652173925,"#8AD647"],[0.82943143812709019,"#8DD645"],[0.83277591973244147,"#8FD644"],[0.83612040133779264,"#91D743"],[0.83946488294314359,"#93D741"],[0.84280936454849509,"#95D840"],[0.84615384615384615,"#97D83E"],[0.84949832775919731,"#9AD93D"],[0.85284280936454859,"#9CD93C"],[0.85618729096989954,"#9ED93A"],[0.85953177257525104,"#A0DA39"],[0.86287625418060199,"#A2DA37"],[0.86622073578595327,"#A5DB36"],[0.86956521739130443,"#A7DB35"],[0.87290969899665549,"#A9DC33"],[0.87625418060200666,"#ABDC31"],[0.87959866220735794,"#AEDC30"],[0.88294314381270889,"#B0DD2F"],[0.88628762541806039,"#B2DD2D"],[0.88963210702341133,"#B5DE2B"],[0.89297658862876261,"#B7DE2A"],[0.89632107023411378,"#B9DE28"],[0.89966555183946484,"#BBDE27"],[0.90301003344481601,"#BEDF26"],[0.90635451505016729,"#C0DF25"],[0.90969899665551823,"#C2DF23"],[0.91304347826086973,"#C4E021"],[0.91638795986622068,"#C7E020"],[0.91973244147157196,"#C9E11F"],[0.92307692307692313,"#CBE11E"],[0.92642140468227419,"#CEE11D"],[0.92976588628762535,"#D0E11C"],[0.93311036789297663,"#D2E21B"],[0.93645484949832758,"#D4E21A"],[0.93979933110367908,"#D7E219"],[0.94314381270903003,"#D9E319"],[0.94648829431438131,"#DBE319"],[0.94983277591973247,"#DDE318"],[0.95317725752508353,"#DFE318"],[0.9565217391304347,"#E2E418"],[0.95986622073578598,"#E4E419"],[0.96321070234113693,"#E6E419"],[0.96655518394648843,"#E8E419"],[0.96989966555183937,"#EBE51A"],[0.97324414715719065,"#EDE51B"],[0.97658862876254193,"#EFE51C"],[0.97993311036789288,"#F1E51D"],[0.98327759197324405,"#F3E61E"],[0.98662207357859533,"#F5E61F"],[0.98996655518394627,"#F7E620"],[0.99331103678929777,"#F9E622"],[0.99665551839464872,"#FBE723"],[1,"#FDE725"]],"colorbar":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"thickness":23.039999999999996,"title":"Rendimiento","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"tickmode":"array","ticktext":["60","70","80","90","100"],"tickvals":[0.15254456598102226,0.33285178477817579,0.5131590035753294,0.69346622237248301,0.87377344116963651],"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"ticklen":2,"len":0.5}},"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826491,"l":78.173515981735179},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Rendimiento por Departamento y Trimestre","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,4.5999999999999996],"tickmode":"array","ticktext":["Q1","Q2","Q3","Q4"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["Q1","Q2","Q3","Q4"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Trimestre","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,5.5999999999999996],"tickmode":"array","ticktext":["Finanzas","IT","Marketing","RRHH","Ventas"],"tickvals":[1,2,3,4,5],"categoryorder":"array","categoryarray":["Finanzas","IT","Marketing","RRHH","Ventas"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":false,"gridcolor":null,"gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Departamento","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Rendimiento","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"456540b65ea1":{"x":{},"y":{},"fill":{},"text":{},"type":"heatmap"}},"cur_data":"456540b65ea1","visdat":{"456540b65ea1":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <p>Heatmap interactivo de relaciones categóricas</p>
 </div>
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Explicación del patrón observado</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Explicación del patrón observado</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>datos_heat <span class="sc">%&gt;%</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(departamento) <span class="sc">%&gt;%</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -765,7 +767,7 @@ Superior
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(rendimiento_medio)) <span class="sc">%&gt;%</span></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Resumen de rendimiento por departamento"</span>,</span>
 <span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -865,7 +867,7 @@ Ventas
 <h3 class="anchored" data-anchor-id="visualización-de-flujos-con-ggalluvial">2.5 Visualización de Flujos con ggalluvial</h3>
 <p>Los diagramas de flujo (o aluviales) son excelentes para mostrar cambios en categorías a lo largo del tiempo o entre estados:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos de ejemplo de trayectorias profesionales</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos de ejemplo de trayectorias profesionales</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>datos_flujo <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">id =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">200</span>, <span class="at">each =</span> <span class="dv">3</span>),</span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">tiempo =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"2020"</span>, <span class="st">"2021"</span>, <span class="st">"2022"</span>), <span class="at">times =</span> <span class="dv">200</span>),</span>
@@ -907,7 +909,7 @@ Ventas
 <span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"bottom"</span>,</span>
 <span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
 <span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>)</span>
-<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -916,13 +918,13 @@ Ventas
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Añadimos una tabla de transiciones</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Añadimos una tabla de transiciones</span></span>
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>datos_flujo <span class="sc">%&gt;%</span></span>
 <span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tiempo, estado) <span class="sc">%&gt;%</span></span>
 <span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
 <span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">spread</span>(tiempo, n) <span class="sc">%&gt;%</span></span>
 <span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Distribución por año"</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'tiempo'. You can override using the
 `.groups` argument.</code></pre>
@@ -1019,7 +1021,7 @@ Estudiante
 <h3 class="anchored" data-anchor-id="gráficos-de-ridgeline-para-categorías">3.1 Gráficos de Ridgeline para Categorías</h3>
 <p>Los gráficos de ridgeline son excelentes para comparar distribuciones entre categorías, especialmente cuando queremos ver cambios o patrones evolutivos:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos ggridges</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Cargamos ggridges</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggridges)</span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos más significativos</span></span>
@@ -1059,7 +1061,7 @@ Estudiante
 <span id="cb15-38"><a href="#cb15-38" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span>,</span>
 <span id="cb15-39"><a href="#cb15-39" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
 <span id="cb15-40"><a href="#cb15-40" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">color =</span> <span class="st">"gray40"</span>)</span>
-<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb15-41"><a href="#cb15-41" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Picking joint bandwidth of 1.11</code></pre>
 </div>
@@ -1071,7 +1073,7 @@ Estudiante
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Añadimos estadísticas descriptivas</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Añadimos estadísticas descriptivas</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>datos_distribuciones <span class="sc">%&gt;%</span></span>
 <span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(año) <span class="sc">%&gt;%</span></span>
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -1083,7 +1085,7 @@ Estudiante
 <span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Estadísticas descriptivas por año"</span>,</span>
 <span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table class="table table-striped table-hover" style="margin-left: auto; margin-right: auto;">
 <caption>
@@ -1237,7 +1239,7 @@ q75
 <h3 class="anchored" data-anchor-id="visualizaciones-compuestas-con-faceting">3.2 Visualizaciones Compuestas con Faceting</h3>
 <p>El faceting es una técnica poderosa para crear múltiples visualizaciones relacionadas:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos más complejos</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos más complejos</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>datos_panel <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">departamento =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Ventas"</span>, <span class="st">"Marketing"</span>, <span class="st">"IT"</span>), <span class="at">each =</span> <span class="dv">300</span>),  <span class="co"># Reducimos a 300 cada uno</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  año <span class="ot">=</span> <span class="fu">rep</span>(<span class="fu">rep</span>(<span class="dv">2020</span><span class="sc">:</span><span class="dv">2022</span>, <span class="at">each =</span> <span class="dv">100</span>), <span class="dv">3</span>),  <span class="co"># Ahora coincide: 100 x 3 años x 3 departamentos = 900</span></span>
@@ -1280,7 +1282,7 @@ q75
 <span id="cb18-41"><a href="#cb18-41" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Distribuciones y comparaciones por departamento y año"</span>,</span>
 <span id="cb18-42"><a href="#cb18-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">tag_levels =</span> <span class="st">"A"</span></span>
 <span id="cb18-43"><a href="#cb18-43" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">&amp;</span></span>
-<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb18-44"><a href="#cb18-44" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1289,7 +1291,7 @@ q75
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla resumen</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Tabla resumen</span></span>
 <span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>datos_panel <span class="sc">%&gt;%</span></span>
 <span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(departamento, año) <span class="sc">%&gt;%</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -1301,7 +1303,7 @@ q75
 <span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>(<span class="at">caption =</span> <span class="st">"Métricas de rendimiento por departamento y año"</span>,</span>
 <span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>        <span class="at">digits =</span> <span class="dv">2</span>) <span class="sc">%&gt;%</span></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable_styling</span>(<span class="at">bootstrap_options =</span> <span class="fu">c</span>(<span class="st">"striped"</span>, <span class="st">"hover"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'departamento'. You can override using the
 `.groups` argument.</code></pre>
@@ -1569,16 +1571,16 @@ Ventas
 <h3 class="anchored" data-anchor-id="gráficos-de-waffle-para-proporciones">3.3 Gráficos de Waffle para Proporciones</h3>
 <p>Los gráficos de waffle son una alternativa interesante a los gráficos de pie para mostrar proporciones:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear datos de proporciones</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear datos de proporciones</span></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>datos_proporcion <span class="ot">&lt;-</span> datos_panel <span class="sc">%&gt;%</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(departamento, categoria) <span class="sc">%&gt;%</span></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n =</span> <span class="fu">n</span>()) <span class="sc">%&gt;%</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> <span class="fu">round</span>(n<span class="sc">/</span><span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prop =</span> <span class="fu">round</span>(n<span class="sc">/</span><span class="fu">sum</span>(n) <span class="sc">*</span> <span class="dv">100</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'departamento'. You can override using the
 `.groups` argument.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear gráfico de waffle por departamento</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear gráfico de waffle por departamento</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>waffle_plots <span class="ot">&lt;-</span> datos_proporcion <span class="sc">%&gt;%</span></span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">split</span>(.<span class="sc">$</span>departamento) <span class="sc">%&gt;%</span></span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">map</span>(<span class="cf">function</span>(dept) {</span>
@@ -1596,7 +1598,7 @@ Ventas
 <span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>  <span class="at">grobs =</span> waffle_plots,</span>
 <span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>  <span class="at">ncol =</span> <span class="dv">3</span>,</span>
 <span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  <span class="at">top =</span> <span class="st">"Distribución de Categorías por Departamento"</span></span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1629,7 +1631,7 @@ Ventas
 <h3 class="anchored" data-anchor-id="temas-personalizados-y-consistencia-visual">4.1 Temas Personalizados y Consistencia Visual</h3>
 <p>La consistencia visual es crucial en la visualización de datos. Aprenderemos a crear y aplicar temas personalizados:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos un tema personalizado</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos un tema personalizado</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>tema_personalizado <span class="ot">&lt;-</span> <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Títulos</span></span>
@@ -1695,7 +1697,7 @@ Ventas
 <span id="cb24-64"><a href="#cb24-64" aria-hidden="true" tabindex="-1"></a>  tema_personalizado</span>
 <span id="cb24-65"><a href="#cb24-65" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-66"><a href="#cb24-66" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostramos los gráficos lado a lado</span></span>
-<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">/</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb24-67"><a href="#cb24-67" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">/</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1710,7 +1712,7 @@ Ventas
 <h3 class="anchored" data-anchor-id="anotaciones-y-capas-personalizadas">4.2 Anotaciones y Capas Personalizadas</h3>
 <p>Las anotaciones pueden mejorar significativamente la comprensión de nuestros gráficos:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos con puntos de interés</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos con puntos de interés</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>datos_tendencia <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  año <span class="ot">=</span> <span class="dv">2015</span><span class="sc">:</span><span class="dv">2022</span>,</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">valor =</span> <span class="fu">c</span>(<span class="dv">45</span>, <span class="dv">52</span>, <span class="dv">58</span>, <span class="dv">60</span>, <span class="dv">85</span>, <span class="dv">75</span>, <span class="dv">90</span>, <span class="dv">88</span>),</span>
@@ -1758,7 +1760,7 @@ Ventas
 <span id="cb25-46"><a href="#cb25-46" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">12</span>, <span class="at">color =</span> <span class="st">"gray40"</span>),</span>
 <span id="cb25-47"><a href="#cb25-47" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">face =</span> <span class="st">"bold"</span>),</span>
 <span id="cb25-48"><a href="#cb25-48" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>()</span>
-<span id="cb25-49"><a href="#cb25-49" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb25-49"><a href="#cb25-49" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
 ℹ Please use `linewidth` instead.</code></pre>
@@ -1776,7 +1778,7 @@ Ventas
 <h3 class="anchored" data-anchor-id="interactividad-avanzada-con-plotly">4.3 Interactividad Avanzada con plotly</h3>
 <p>La interactividad puede añadir una capa adicional de información a nuestros gráficos:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos más complejos</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos más complejos</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>datos_interactivos <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">categoria =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>), <span class="at">each =</span> <span class="dv">4</span>),</span>
 <span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">subcategoria =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Q1"</span>, <span class="st">"Q2"</span>, <span class="st">"Q3"</span>, <span class="st">"Q4"</span>), <span class="dv">3</span>),</span>
@@ -1811,7 +1813,7 @@ Ventas
 <span id="cb27-33"><a href="#cb27-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">layout</span>(</span>
 <span id="cb27-34"><a href="#cb27-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">hoverlabel =</span> <span class="fu">list</span>(<span class="at">bgcolor =</span> <span class="st">"white"</span>),</span>
 <span id="cb27-35"><a href="#cb27-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">showlegend =</span> <span class="cn">TRUE</span></span>
-<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb27-36"><a href="#cb27-36" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="plotly html-widget html-fill-item" id="htmlwidget-0a09f2c65470bfad74ca" style="width:100%;height:464px;"></div>
 <script type="application/json" data-for="htmlwidget-0a09f2c65470bfad74ca">{"x":{"data":[{"orientation":"v","width":[0.30000000000000004,0.30000000000000027,0.29999999999999982,0.29999999999999982],"base":[0,0,0,0],"x":[0.69999999999999996,1.7,2.7000000000000002,3.7000000000000002],"y":[63,84,57,96],"text":["Categoría: A<br>Período: Q1<br>Valor: 63<br>Tendencia: ↓","Categoría: A<br>Período: Q2<br>Valor: 84<br>Tendencia: ↑","Categoría: A<br>Período: Q3<br>Valor: 57<br>Tendencia: ↓","Categoría: A<br>Período: Q4<br>Valor: 96<br>Tendencia: →"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(68,1,84,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"A","legendgroup":"A","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.29999999999999993,0.29999999999999982,0.29999999999999982,0.30000000000000027],"base":[0,0,0,0],"x":[1,2,3,4],"y":[81,99,56,82],"text":["Categoría: B<br>Período: Q1<br>Valor: 81<br>Tendencia: ↓","Categoría: B<br>Período: Q2<br>Valor: 99<br>Tendencia: ↓","Categoría: B<br>Período: Q3<br>Valor: 56<br>Tendencia: ↑","Categoría: B<br>Período: Q4<br>Valor: 82<br>Tendencia: ↓"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(33,144,140,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"B","legendgroup":"B","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"orientation":"v","width":[0.29999999999999982,0.29999999999999982,0.29999999999999982,0.30000000000000071],"base":[0,0,0,0],"x":[1.3,2.2999999999999998,3.2999999999999998,4.2999999999999998],"y":[75,79,97,55],"text":["Categoría: C<br>Período: Q1<br>Valor: 75<br>Tendencia: ↓","Categoría: C<br>Período: Q2<br>Valor: 79<br>Tendencia: →","Categoría: C<br>Período: Q3<br>Valor: 97<br>Tendencia: ↑","Categoría: C<br>Período: Q4<br>Valor: 55<br>Tendencia: ↑"],"type":"bar","textposition":"none","marker":{"autocolorscale":false,"color":"rgba(253,231,37,1)","line":{"width":1.8897637795275593,"color":"transparent"}},"name":"C","legendgroup":"C","showlegend":true,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null}],"layout":{"margin":{"t":74.447488584474883,"r":26.567040265670411,"b":68.742216687422157,"l":64.757160647571624},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"<b> Evolución por Categoría y Período <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":21.253632212536321},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,4.5999999999999996],"tickmode":"array","ticktext":["Q1","Q2","Q3","Q4"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["Q1","Q2","Q3","Q4"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835198},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(229,229,229,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"<b> Período <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[-4.9500000000000002,103.95],"tickmode":"array","ticktext":["0","25","50","75","100"],"tickvals":[0,25,50,75,100],"categoryorder":"array","categoryarray":["0","25","50","75","100"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":13.283520132835205},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(229,229,229,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"<b> Valor <\/b>","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":true,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Categoría","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative","hoverlabel":{"bgcolor":"white"}},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"45657365b748":{"x":{},"y":{},"fill":{},"text":{},"type":"bar"}},"cur_data":"45657365b748","visdat":{"45657365b748":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
@@ -1823,7 +1825,7 @@ Ventas
 <h3 class="anchored" data-anchor-id="gestión-de-espacio-y-composición">4.4 Gestión de Espacio y Composición</h3>
 <p>La gestión eficiente del espacio es crucial en visualizaciones complejas:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos varios gráficos relacionados</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos varios gráficos relacionados</span></span>
 <span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>p1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(datos_interactivos, </span>
 <span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> subcategoria, <span class="at">y =</span> valor)) <span class="sc">+</span></span>
 <span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>(<span class="fu">aes</span>(<span class="at">fill =</span> categoria)) <span class="sc">+</span></span>
@@ -1854,7 +1856,7 @@ Ventas
 <span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Fuente: Datos de ejemplo"</span>,</span>
 <span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">tag_levels =</span> <span class="st">"A"</span></span>
 <span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">&amp;</span></span>
-<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -1886,7 +1888,7 @@ Ventas
 <h3 class="anchored" data-anchor-id="diseño-accesible-con-paletas-de-colores">5.1 Diseño Accesible con Paletas de Colores</h3>
 <p>La accesibilidad en visualización de datos es fundamental. Aprenderemos a crear gráficos que sean accesibles para personas con daltonismo:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos de ejemplo</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos de ejemplo</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>datos_accesibles <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">categoria =</span> <span class="fu">rep</span>(LETTERS[<span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>], <span class="at">each =</span> <span class="dv">2</span>),</span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">grupo =</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">"Grupo 1"</span>, <span class="st">"Grupo 2"</span>), <span class="dv">6</span>),</span>
@@ -1922,7 +1924,7 @@ Ventas
 <span id="cb29-34"><a href="#cb29-34" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Comparación de Paletas de Colores Accesibles"</span>,</span>
 <span id="cb29-35"><a href="#cb29-35" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Diferentes opciones para mejorar la accesibilidad"</span>,</span>
 <span id="cb29-36"><a href="#cb29-36" aria-hidden="true" tabindex="-1"></a>    <span class="at">caption =</span> <span class="st">"Las paletas se han elegido considerando el daltonismo"</span></span>
-<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb29-37"><a href="#cb29-37" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1931,7 +1933,7 @@ Ventas
 </figure>
 </div>
 </div>
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># También podemos usar viridis que es accesible por defecto</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># También podemos usar viridis que es accesible por defecto</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>p4 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(datos_accesibles, </span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">x =</span> categoria, <span class="at">y =</span> valor, <span class="at">fill =</span> grupo)) <span class="sc">+</span></span>
 <span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>(<span class="at">stat =</span> <span class="st">"identity"</span>, <span class="at">position =</span> <span class="st">"dodge"</span>) <span class="sc">+</span></span>
@@ -1945,7 +1947,7 @@ Ventas
 <span id="cb30-12"><a href="#cb30-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
 <span id="cb30-13"><a href="#cb30-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-14"><a href="#cb30-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostramos el gráfico con viridis</span></span>
-<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>p4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb30-15"><a href="#cb30-15" aria-hidden="true" tabindex="-1"></a>p4</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -1960,7 +1962,7 @@ Ventas
 <h3 class="anchored" data-anchor-id="uso-de-formas-y-patrones">5.2 Uso de Formas y Patrones</h3>
 <p>No solo dependemos del color para diferenciar categorías:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos de ejemplo</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos de ejemplo</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>datos_patrones <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="dv">3</span>),</span>
 <span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="fu">rnorm</span>(<span class="dv">15</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>),</span>
@@ -2011,14 +2013,14 @@ Ventas
 <span id="cb31-49"><a href="#cb31-49" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
 <span id="cb31-50"><a href="#cb31-50" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-51"><a href="#cb31-51" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostramos los gráficos</span></span>
-<span id="cb31-52"><a href="#cb31-52" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">/</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb31-52"><a href="#cb31-52" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">/</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="diseño-claro-y-legible" class="level3">
 <h3 class="anchored" data-anchor-id="diseño-claro-y-legible">5.3 Diseño Claro y Legible</h3>
 <p>La claridad en la presentación es crucial:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos de ejemplo</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos de ejemplo</span></span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>datos_clarity <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mes =</span> <span class="fu">factor</span>(month.abb[<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>], <span class="at">levels =</span> month.abb[<span class="dv">1</span><span class="sc">:</span><span class="dv">12</span>]),</span>
 <span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">valor =</span> <span class="fu">sample</span>(<span class="dv">50</span><span class="sc">:</span><span class="dv">150</span>, <span class="dv">12</span>),</span>
@@ -2063,7 +2065,7 @@ Ventas
 <span id="cb32-43"><a href="#cb32-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Grilla sutil</span></span>
 <span id="cb32-44"><a href="#cb32-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.minor =</span> <span class="fu">element_blank</span>(),</span>
 <span id="cb32-45"><a href="#cb32-45" aria-hidden="true" tabindex="-1"></a>    <span class="at">panel.grid.major =</span> <span class="fu">element_line</span>(<span class="at">color =</span> <span class="st">"gray90"</span>)</span>
-<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb32-46"><a href="#cb32-46" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2078,7 +2080,7 @@ Ventas
 <h3 class="anchored" data-anchor-id="documentación-y-reproducibilidad">5.4 Documentación y Reproducibilidad</h3>
 <p>Es importante documentar nuestro código y hacerlo reproducible:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos una función reutilizable para gráficos de barras</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos una función reutilizable para gráficos de barras</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>crear_grafico_barras <span class="ot">&lt;-</span> <span class="cf">function</span>(datos, </span>
 <span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>                                var_x, </span>
 <span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>                                var_y, </span>
@@ -2137,13 +2139,13 @@ Ventas
 <span id="cb33-57"><a href="#cb33-57" aria-hidden="true" tabindex="-1"></a>  <span class="st">"categoria"</span>,</span>
 <span id="cb33-58"><a href="#cb33-58" aria-hidden="true" tabindex="-1"></a>  <span class="st">"valor"</span>,</span>
 <span id="cb33-59"><a href="#cb33-59" aria-hidden="true" tabindex="-1"></a>  <span class="at">titulo =</span> <span class="st">"Gráfico Simple"</span></span>
-<span id="cb33-60"><a href="#cb33-60" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb33-60"><a href="#cb33-60" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: `aes_string()` was deprecated in ggplot2 3.0.0.
 ℹ Please use tidy evaluation idioms with `aes()`.
 ℹ See also `vignette("ggplot2-in-packages")` for more information.</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">crear_grafico_barras</span>(</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>p2 <span class="ot">&lt;-</span> <span class="fu">crear_grafico_barras</span>(</span>
 <span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  datos_ejemplo,</span>
 <span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">"categoria"</span>,</span>
 <span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">"valor"</span>,</span>
@@ -2153,7 +2155,7 @@ Ventas
 <span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb35-10"><a href="#cb35-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Mostramos los gráficos</span></span>
-<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">/</span> p2</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb35-11"><a href="#cb35-11" aria-hidden="true" tabindex="-1"></a>p1 <span class="sc">/</span> p2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2171,7 +2173,7 @@ Ventas
 <h2 class="anchored" data-anchor-id="análisis-de-encuestas">6.1 Análisis de Encuestas</h2>
 <p>Veamos cómo visualizar datos típicos de encuestas con múltiples variables categóricas:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>n_encuestados <span class="ot">&lt;-</span> <span class="dv">1000</span></span>
 <span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Función para generar distribuciones diferentes por edad</span></span>
@@ -2274,7 +2276,7 @@ Ventas
 <span id="cb36-101"><a href="#cb36-101" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>, <span class="at">face =</span> <span class="st">"bold"</span>),</span>
 <span id="cb36-102"><a href="#cb36-102" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.subtitle =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">11</span>, <span class="at">color =</span> <span class="st">"gray40"</span>),</span>
 <span id="cb36-103"><a href="#cb36-103" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.margin =</span> <span class="fu">margin</span>(<span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>, <span class="dv">10</span>)</span>
-<span id="cb36-104"><a href="#cb36-104" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb36-104"><a href="#cb36-104" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2289,7 +2291,7 @@ Ventas
 <h2 class="anchored" data-anchor-id="análisis-de-series-temporales-categóricas">6.2 Análisis de Series Temporales Categóricas</h2>
 <p>Veamos cómo visualizar datos temporales con componentes categóricos:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos de series temporales</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos de series temporales</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>fechas <span class="ot">&lt;-</span> <span class="fu">seq.Date</span>(<span class="at">from =</span> <span class="fu">as.Date</span>(<span class="st">"2022-01-01"</span>),</span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">to =</span> <span class="fu">as.Date</span>(<span class="st">"2022-12-31"</span>),</span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">by =</span> <span class="st">"day"</span>)</span>
@@ -2357,7 +2359,7 @@ Ventas
 <span id="cb37-66"><a href="#cb37-66" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Análisis Temporal de Eventos"</span>,</span>
 <span id="cb37-67"><a href="#cb37-67" aria-hidden="true" tabindex="-1"></a>    <span class="at">subtitle =</span> <span class="st">"Patrones semanales y distribución de valores"</span>,</span>
 <span id="cb37-68"><a href="#cb37-68" aria-hidden="true" tabindex="-1"></a>    <span class="at">tag_levels =</span> <span class="st">"A"</span></span>
-<span id="cb37-69"><a href="#cb37-69" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb37-69"><a href="#cb37-69" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2372,7 +2374,7 @@ Ventas
 <h2 class="anchored" data-anchor-id="visualización-de-redes-sociales">6.3 Visualización de Redes Sociales</h2>
 <p>Veamos cómo visualizar datos de redes sociales con características categóricas:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos de red social simulados</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos datos de red social simulados</span></span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>n_nodos <span class="ot">&lt;-</span> <span class="dv">30</span></span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a></span>
@@ -2417,7 +2419,7 @@ Ventas
 <span id="cb38-43"><a href="#cb38-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="st">"Tamaño de Red"</span>,</span>
 <span id="cb38-44"><a href="#cb38-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">shape =</span> <span class="st">"Nivel de Actividad"</span></span>
 <span id="cb38-45"><a href="#cb38-45" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb38-46"><a href="#cb38-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb38-46"><a href="#cb38-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_graph</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -2558,13 +2560,14 @@ Ventas
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy
