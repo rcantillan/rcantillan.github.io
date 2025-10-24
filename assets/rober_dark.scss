@@ -1,7 +1,7 @@
 /*-- scss:defaults --*/
 
-// Importar fuente Raleway
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600&display=swap');
+// Importar fuente Inconsolata
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
 
 // Define first our base colors for dark theme
 $spc-primary: #E5E5E5;          // Gris claro
@@ -31,10 +31,10 @@ $body-bg:                    $spc-bg-0;
 $body-secondary:             #9DA3AA;
 
 // Fonts
-$font-family-sans-serif:     "Red Hat Text", "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$font-family-sans-serif:     "Inconsolata", monospace;
 $headings-font-weight:       300;
-$font-family-monospace:      "Dank Mono", SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-$headings-font-family:       "Raleway", sans-serif;
+$font-family-monospace:      "Inconsolata", monospace;
+$headings-font-family:       "Inconsolata", monospace;
 
 // Links
 $link-color:                  $secondary;

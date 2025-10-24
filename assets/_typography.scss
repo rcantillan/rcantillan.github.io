@@ -11,13 +11,13 @@ $sfi-bg-secondary: #f8fafc;   // Gris muy claro para fondos
 $sfi-border: #e2e8f0;         // Bordes sutiles
 
 // TIPOGRAFÍA REFINADA
-$sfi-heading-font: 'Inter', 'Raleway', sans-serif; // Más moderna que Raleway sola
-$sfi-body-font: 'Inter', system-ui, -apple-system, sans-serif;
+$sfi-heading-font: 'Inconsolata', monospace; // Tipografía uniforme en todo el sitio
+$sfi-body-font: 'Inconsolata', monospace;
 
 /*-- scss:rules --*/
 
-// 1. IMPORTAR INTER (más moderna que Raleway)
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+// 1. IMPORTAR INCONSOLATA
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
 
 // 2. JERARQUÍA TIPOGRÁFICA CLARA
 .page-title,
