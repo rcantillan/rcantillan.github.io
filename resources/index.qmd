@@ -1,13 +1,5 @@
 ---
 title: "Resources"
-listing:
-  contents: workshops
-  sort: "date desc"
-  type: grid
-  categories: true
-  sort-ui: true
-  filter-ui: true
-  fields: [workshop, ABM]
 page-layout: full
 title-block-banner: rgba(255, 15, 15, 0.53)
 banner-class: page-banner

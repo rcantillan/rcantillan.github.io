@@ -1,0 +1,22 @@
+---
+title: "Accessibility"
+page-layout: article
+---
+
+## Commitment to Inclusive Access
+
+I want everyone to be able to navigate, read, and learn from the material shared on this site. To that end, I actively review the layout, color palette, and interactive components to align with the [Web Content Accessibility Guidelines (WCAG) 2.1](https://www.w3.org/TR/WCAG21/).
+
+## Feedback
+
+If you encounter a barrier or would like to suggest an improvement, please reach out through the [contact form](contact.qmd) or send an email to <a href="mailto:roberto.cantillan@gmail.com">roberto.cantillan@gmail.com</a>. I appreciate learning about issues so that I can address them quickly.
+
+## Accessibility Practices
+
+- Provide descriptive alternative text for images and graphics.
+- Use accessible color contrasts for text and interactive elements.
+- Favor semantic headings and landmarks that support screen readers.
+- Offer captions, transcripts, or source files for audiovisual and data-heavy content when possible.
+- Test keyboard navigation to ensure important functionality does not require a mouse.
+
+Accessibility is an ongoing effort. As the site evolves, I will continue to iterate on these practices and document notable updates on this page.
