@@ -1,0 +1,14 @@
+---
+title: "Contact"
+page-layout: article
+---
+
+## Get in Touch
+
+I welcome questions about my research, speaking invitations, and collaboration ideas. You can contact me by email or through social media.
+
+- **Email:** <a href="mailto:roberto.cantillan@gmail.com">roberto.cantillan@gmail.com</a>
+- **GitHub:** [@rcantillan](https://github.com/rcantillan)
+- **LinkedIn:** [Roberto Cantillan Carrasco](https://cl.linkedin.com/in/roberto-cantillan-carrasco-67620517b)
+
+If you prefer, feel free to open an issue or discussion in the relevant GitHub repository and I will respond as soon as possible.
