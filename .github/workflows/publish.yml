@@ -24,7 +24,25 @@ jobs:
       - name: Install R packages
         shell: Rscript {0}
         run: |
-          install.packages(c("pacman", "rmarkdown", "downlit", "xml2"))
+          install.packages(c(
+            "pacman", "rmarkdown", "downlit", "xml2",
+            # Core packages for rendering and data manipulation
+            "knitr", "kableExtra", "tidyverse", "data.table",
+            # Visualization packages
+            "ggplot2", "patchwork", "ggrepel", "viridis", "RColorBrewer", 
+            "ggtext", "ggridges", "ggpattern", "gganimate", "ggraph",
+            # Statistical and modeling packages
+            "broom", "scales", "lmtest", "brms", "fixest", "car",
+            # Network analysis packages
+            "ergm", "network", "statnet", "sna", "Matrix", "igraph", 
+            "tidygraph",
+            # Additional utility packages
+            "tidyr", "dplyr", "osfr", "plotly", "plotrix", "texreg", 
+            "gridExtra", "sjlabelled", "sjPlot", "vcd", "ordinal", 
+            "egor", "haven", "stargazer", "janitor", "ggeffects", 
+            "questionr", "JWileymisc", "httr", "utils", "concorR", 
+            "ergm.ego"
+          ))
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
