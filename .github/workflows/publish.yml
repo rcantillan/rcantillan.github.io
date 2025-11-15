@@ -40,7 +40,7 @@ jobs:
 
       - name: Install minimal R packages for Quarto
         run: |
-          install.packages(c("rmarkdown", "knitr"), repos = "https://cloud.r-project.org")
+          install.packages(c("rmarkdown", "knitr", "pacman"), repos = "https://cloud.r-project.org")
         shell: Rscript {0}
 
       - name: Render and Publish
