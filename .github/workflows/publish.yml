@@ -38,15 +38,10 @@ jobs:
             libgit2-dev \
             libmagick++-dev
 
-      - name: Install R packages with caching
-        uses: r-lib/actions/setup-r-dependencies@v2
-        with:
-          cache-version: 2
-          extra-packages: |
-            any::pacman
-            any::rmarkdown
-            any::downlit
-            any::xml2
+      - name: Install minimal R packages for Quarto
+        run: |
+          install.packages(c("rmarkdown", "knitr"), repos = "https://cloud.r-project.org")
+        shell: Rscript {0}
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2
