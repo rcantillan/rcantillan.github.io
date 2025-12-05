@@ -2,14 +2,14 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.25">
+<meta name="generator" content="quarto-1.8.26">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Roberto Cantillan">
 <meta name="dcterms.date" content="2023-08-09">
 
-<title>Análisis de Redes Ego-céntricas – Roberto Cantillan</title>
+<title>Ego-centric Network Analysis – Roberto Cantillan</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -75,7 +75,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-24c2121c465d1e416670330144b9f0c4.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-8a5d2426d2772284d6c4e077af3c41fb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../../site_libs/bootstrap/bootstrap-b84f3661271bab6e3ce52e591ed9adc4.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -134,13 +134,13 @@ background-size: cover;
 </style>
 <script src="../../../site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="../../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
-<link href="../../../site_libs/htmltools-fill-0.5.8.1/fill.css" rel="stylesheet">
+<link href="../../../site_libs/htmltools-fill-0.5.9/fill.css" rel="stylesheet">
 <script src="../../../site_libs/htmlwidgets-1.6.4/htmlwidgets.js"></script>
-<script src="../../../site_libs/plotly-binding-4.10.4/plotly.js"></script>
+<script src="../../../site_libs/plotly-binding-4.11.0/plotly.js"></script>
 <script src="../../../site_libs/typedarray-0.1/typedarray.min.js"></script>
 <script src="../../../site_libs/jquery-3.5.1/jquery.min.js"></script>
-<link href="../../../site_libs/crosstalk-1.2.1/css/crosstalk.min.css" rel="stylesheet">
-<script src="../../../site_libs/crosstalk-1.2.1/js/crosstalk.min.js"></script>
+<link href="../../../site_libs/crosstalk-1.2.2/css/crosstalk.min.css" rel="stylesheet">
+<script src="../../../site_libs/crosstalk-1.2.2/js/crosstalk.min.js"></script>
 <link href="../../../site_libs/plotly-htmlwidgets-css-2.11.1/plotly-htmlwidgets.css" rel="stylesheet">
 <script src="../../../site_libs/plotly-main-2.11.1/plotly-latest.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
@@ -209,8 +209,8 @@ background-size: cover;
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">Análisis de Redes Ego-céntricas</h1>
-            <p class="subtitle lead">Descriptivos y Distancia Sociodemográfica en ELSOC 2017-2019</p>
+      <h1 class="title">Ego-centric Network Analysis</h1>
+            <p class="subtitle lead">Descriptive Statistics and Sociodemographic Distance in ELSOC 2017-2019</p>
                                 <div class="quarto-categories">
                 <div class="quarto-category">R</div>
                 <div class="quarto-category">Networks</div>
@@ -249,38 +249,38 @@ background-size: cover;
     <h2 id="toc-title">in this page</h2>
    
   <ul>
-  <li><a href="#introducción" id="toc-introducción" class="nav-link active" data-scroll-target="#introducción">Introducción</a></li>
-  <li><a href="#preparación-del-entorno" id="toc-preparación-del-entorno" class="nav-link" data-scroll-target="#preparación-del-entorno">Preparación del Entorno</a></li>
-  <li><a href="#carga-de-datos" id="toc-carga-de-datos" class="nav-link" data-scroll-target="#carga-de-datos">Carga de Datos</a></li>
-  <li><a href="#preparación-de-datos" id="toc-preparación-de-datos" class="nav-link" data-scroll-target="#preparación-de-datos">Preparación de datos</a>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#environment-setup" id="toc-environment-setup" class="nav-link" data-scroll-target="#environment-setup">Environment Setup</a></li>
+  <li><a href="#data-loading" id="toc-data-loading" class="nav-link" data-scroll-target="#data-loading">Data Loading</a></li>
+  <li><a href="#data-preparation" id="toc-data-preparation" class="nav-link" data-scroll-target="#data-preparation">Data Preparation</a>
   <ul class="collapse">
-  <li><a href="#construcción-de-base-de-datos-de-alteri" id="toc-construcción-de-base-de-datos-de-alteri" class="nav-link" data-scroll-target="#construcción-de-base-de-datos-de-alteri">Construcción de Base de Datos de Alteri</a></li>
-  <li><a href="#primer-alter" id="toc-primer-alter" class="nav-link" data-scroll-target="#primer-alter">Primer Alter</a></li>
-  <li><a href="#resto-de-alteri" id="toc-resto-de-alteri" class="nav-link" data-scroll-target="#resto-de-alteri">Resto de Alteri</a></li>
-  <li><a href="#identificación-de-alteri" id="toc-identificación-de-alteri" class="nav-link" data-scroll-target="#identificación-de-alteri">Identificación de Alteri</a></li>
-  <li><a href="#creación-de-base-de-datos-en-formato-long" id="toc-creación-de-base-de-datos-en-formato-long" class="nav-link" data-scroll-target="#creación-de-base-de-datos-en-formato-long">Creación de Base de Datos en Formato Long</a></li>
+  <li><a href="#building-the-alters-database" id="toc-building-the-alters-database" class="nav-link" data-scroll-target="#building-the-alters-database">Building the Alters Database</a></li>
+  <li><a href="#first-alter" id="toc-first-alter" class="nav-link" data-scroll-target="#first-alter">First Alter</a></li>
+  <li><a href="#remaining-alters" id="toc-remaining-alters" class="nav-link" data-scroll-target="#remaining-alters">Remaining Alters</a></li>
+  <li><a href="#identifying-alters" id="toc-identifying-alters" class="nav-link" data-scroll-target="#identifying-alters">Identifying Alters</a></li>
+  <li><a href="#building-the-long-format-dataset" id="toc-building-the-long-format-dataset" class="nav-link" data-scroll-target="#building-the-long-format-dataset">Building the Long-format Dataset</a></li>
   </ul></li>
-  <li><a href="#recodificación-de-variables" id="toc-recodificación-de-variables" class="nav-link" data-scroll-target="#recodificación-de-variables">Recodificación de Variables</a>
+  <li><a href="#variable-recoding" id="toc-variable-recoding" class="nav-link" data-scroll-target="#variable-recoding">Variable Recoding</a>
   <ul class="collapse">
-  <li><a href="#recodificación-de-atributos-de-alteri" id="toc-recodificación-de-atributos-de-alteri" class="nav-link" data-scroll-target="#recodificación-de-atributos-de-alteri">Recodificación de Atributos de Alteri</a></li>
-  <li><a href="#preparación-de-datos-de-ego" id="toc-preparación-de-datos-de-ego" class="nav-link" data-scroll-target="#preparación-de-datos-de-ego">Preparación de Datos de Ego</a></li>
-  <li><a href="#recodificación-de-variables-de-ego" id="toc-recodificación-de-variables-de-ego" class="nav-link" data-scroll-target="#recodificación-de-variables-de-ego">Recodificación de Variables de Ego</a></li>
-  <li><a href="#unión-de-datos-de-ego-y-alteri" id="toc-unión-de-datos-de-ego-y-alteri" class="nav-link" data-scroll-target="#unión-de-datos-de-ego-y-alteri">Unión de Datos de Ego y Alteri</a></li>
+  <li><a href="#recoding-alter-attributes" id="toc-recoding-alter-attributes" class="nav-link" data-scroll-target="#recoding-alter-attributes">Recoding Alter Attributes</a></li>
+  <li><a href="#preparing-ego-data" id="toc-preparing-ego-data" class="nav-link" data-scroll-target="#preparing-ego-data">Preparing Ego Data</a></li>
+  <li><a href="#recoding-ego-variables" id="toc-recoding-ego-variables" class="nav-link" data-scroll-target="#recoding-ego-variables">Recoding Ego Variables</a></li>
+  <li><a href="#joining-ego-and-alter-data" id="toc-joining-ego-and-alter-data" class="nav-link" data-scroll-target="#joining-ego-and-alter-data">Joining Ego and Alter Data</a></li>
   </ul></li>
-  <li><a href="#análisis-descriptivos" id="toc-análisis-descriptivos" class="nav-link" data-scroll-target="#análisis-descriptivos">Análisis Descriptivos</a>
+  <li><a href="#descriptive-analysis" id="toc-descriptive-analysis" class="nav-link" data-scroll-target="#descriptive-analysis">Descriptive Analysis</a>
   <ul class="collapse">
-  <li><a href="#descriptivos-alter" id="toc-descriptivos-alter" class="nav-link" data-scroll-target="#descriptivos-alter">Descriptivos (alter)</a></li>
-  <li><a href="#descriptivos-ego" id="toc-descriptivos-ego" class="nav-link" data-scroll-target="#descriptivos-ego">Descriptivos (ego)</a></li>
-  <li><a href="#análisis-de-homofilia-educativa" id="toc-análisis-de-homofilia-educativa" class="nav-link" data-scroll-target="#análisis-de-homofilia-educativa">Análisis de Homofilia Educativa</a></li>
-  <li><a href="#visualización-de-homofilia-educativa" id="toc-visualización-de-homofilia-educativa" class="nav-link" data-scroll-target="#visualización-de-homofilia-educativa">Visualización de Homofilia Educativa</a></li>
-  <li><a href="#análisis-de-relaciones-por-tipo" id="toc-análisis-de-relaciones-por-tipo" class="nav-link" data-scroll-target="#análisis-de-relaciones-por-tipo">Análisis de Relaciones por Tipo</a></li>
+  <li><a href="#descriptives-alter" id="toc-descriptives-alter" class="nav-link" data-scroll-target="#descriptives-alter">Descriptives (alter)</a></li>
+  <li><a href="#descriptives-ego" id="toc-descriptives-ego" class="nav-link" data-scroll-target="#descriptives-ego">Descriptives (ego)</a></li>
+  <li><a href="#educational-homophily-analysis" id="toc-educational-homophily-analysis" class="nav-link" data-scroll-target="#educational-homophily-analysis">Educational Homophily Analysis</a></li>
+  <li><a href="#visualizing-educational-homophily" id="toc-visualizing-educational-homophily" class="nav-link" data-scroll-target="#visualizing-educational-homophily">Visualizing Educational Homophily</a></li>
+  <li><a href="#relationship-analysis-by-type" id="toc-relationship-analysis-by-type" class="nav-link" data-scroll-target="#relationship-analysis-by-type">Relationship Analysis by Type</a></li>
   </ul></li>
-  <li><a href="#cálculo-de-distancias-sociodemográficas" id="toc-cálculo-de-distancias-sociodemográficas" class="nav-link" data-scroll-target="#cálculo-de-distancias-sociodemográficas">Cálculo de Distancias Sociodemográficas</a>
+  <li><a href="#calculating-sociodemographic-distances" id="toc-calculating-sociodemographic-distances" class="nav-link" data-scroll-target="#calculating-sociodemographic-distances">Calculating Sociodemographic Distances</a>
   <ul class="collapse">
-  <li><a href="#creación-de-vectores-de-distancia" id="toc-creación-de-vectores-de-distancia" class="nav-link" data-scroll-target="#creación-de-vectores-de-distancia">Creación de Vectores de Distancia</a></li>
-  <li><a href="#resumen-de-distancias" id="toc-resumen-de-distancias" class="nav-link" data-scroll-target="#resumen-de-distancias">Resumen de Distancias</a></li>
+  <li><a href="#creating-distance-vectors" id="toc-creating-distance-vectors" class="nav-link" data-scroll-target="#creating-distance-vectors">Creating Distance Vectors</a></li>
+  <li><a href="#distance-summary" id="toc-distance-summary" class="nav-link" data-scroll-target="#distance-summary">Distance Summary</a></li>
   </ul></li>
-  <li><a href="#bibliografía." id="toc-bibliografía." class="nav-link" data-scroll-target="#bibliografía.">Bibliografía.</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -291,9 +291,9 @@ background-size: cover;
 
 
 
-<section id="introducción" class="level2">
-<h2 class="anchored" data-anchor-id="introducción">Introducción</h2>
-<p>Este documento analiza en detalle las redes ego-céntricas utilizando datos de ELSOC 2017 (w2) y 2019 (w4). Construiremos una base de datos que integra información de egos (encuestados) y sus alteri (contactos mencionados), calculando posteriormente medidas de distancia sociodemográfica entre ellos.</p>
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>This document provides a detailed analysis of ego-centric networks using data from ELSOC 2017 (w2) and 2019 (w4). We build a database that integrates information about egos (respondents) and their alters (named contacts), and then calculate measures of sociodemographic distance between them.</p>
 <div id="fig-id" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-id-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -305,9 +305,9 @@ Figure&nbsp;1: Egonetwork
 </figure>
 </div>
 </section>
-<section id="preparación-del-entorno" class="level2">
-<h2 class="anchored" data-anchor-id="preparación-del-entorno">Preparación del Entorno</h2>
-<p>Primero cargaremos las librerías necesarias. El siguiente código utiliza <code>pacman::p_load()</code>, que tiene la ventaja de instalar los paquetes si no están presentes y luego cargarlos. Cada paquete cumple una función específica:</p>
+<section id="environment-setup" class="level2">
+<h2 class="anchored" data-anchor-id="environment-setup">Environment Setup</h2>
+<p>We begin by loading the required libraries. The following code uses <code>pacman::p_load()</code>, which installs packages if they are not already available and then loads them. Each package serves a specific purpose:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>pacman<span class="sc">::</span><span class="fu">p_load</span>(tidyverse,sjlabelled,sjPlot,vcd,texreg,ordinal, </span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>               egor,haven,car,dplyr,stargazer,janitor,gridExtra,</span>
@@ -315,9 +315,9 @@ Figure&nbsp;1: Egonetwork
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>               utils, plotly)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="carga-de-datos" class="level2">
-<h2 class="anchored" data-anchor-id="carga-de-datos">Carga de Datos</h2>
-<p>A continuación, cargamos las bases de datos de ELSOC. Estos archivos contienen la información de las olas 2017 y 2019. El formato .RData mantiene la estructura original de los datos, incluyendo etiquetas y metadatos:</p>
+<section id="data-loading" class="level2">
+<h2 class="anchored" data-anchor-id="data-loading">Data Loading</h2>
+<p>Next, we load the ELSOC datasets. These files contain information from the 2017 and 2019 waves. The .RData format preserves the original data structure, including labels and metadata:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#ELSOC 2017</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>url <span class="ot">&lt;-</span> <span class="st">"https://github.com/rcantillan/ricantillan.rbind.io/raw/main/dat/ELSOC/ELSOC_W02_v3.00_R.RData"</span></span>
@@ -327,28 +327,28 @@ Figure&nbsp;1: Egonetwork
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"ELSOC_W02_v3.00_R.RData"</span>) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="preparación-de-datos" class="level2">
-<h2 class="anchored" data-anchor-id="preparación-de-datos">Preparación de datos</h2>
-<p>Este paso es crucial para el análisis de redes. Utilizamos rename() para estandarizar el nombre de la variable identificadora en ambas bases de datos. El prefijo ‘.’ en .egoID sigue las convenciones del paquete egor para variables identificadoras:</p>
+<section id="data-preparation" class="level2">
+<h2 class="anchored" data-anchor-id="data-preparation">Data Preparation</h2>
+<p>This step is essential for network analysis. We use <code>rename()</code> to standardize the identifier variable across both datasets. The ‘.’ prefix in <code>.egoID</code> follows the conventions of the egor package for identifier variables:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> elsoc_2017 <span class="sc">%&gt;%</span> <span class="fu">rename</span>(<span class="at">.egoID =</span> idencuesta)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<section id="construcción-de-base-de-datos-de-alteri" class="level3">
-<h3 class="anchored" data-anchor-id="construcción-de-base-de-datos-de-alteri">Construcción de Base de Datos de Alteri</h3>
-<p>Ahora comenzamos la parte más compleja: la construcción de la base de datos de alteri. Para cada alter (contacto mencionado por el ego), necesitamos extraer múltiples características.</p>
+<section id="building-the-alters-database" class="level3">
+<h3 class="anchored" data-anchor-id="building-the-alters-database">Building the Alters Database</h3>
+<p>We now turn to the most complex part: constructing the alters database. For each alter (contact mentioned by the ego), we need to extract multiple characteristics.</p>
 </section>
-<section id="primer-alter" class="level3">
-<h3 class="anchored" data-anchor-id="primer-alter">Primer Alter</h3>
-<p>El siguiente código extrae la información del primer alter mencionado por cada ego. Analicemos cada variable seleccionada:</p>
+<section id="first-alter" class="level3">
+<h3 class="anchored" data-anchor-id="first-alter">First Alter</h3>
+<p>The following code extracts information for the first alter mentioned by each ego. The selected variables capture:</p>
 <ul>
-<li>alter_sexo: Género del contacto (1=Hombre, 2=Mujer)</li>
-<li>alter_edad: Edad en años</li>
-<li>alter_rel: Tipo de relación con ego (1=Familiar, 2=Amigo, etc.)</li>
-<li>alter_tiempo: Duración de la relación</li>
-<li>alter_barrio: Si vive en el mismo barrio que ego</li>
-<li>alter_educ: Nivel educativo</li>
-<li>alter_relig: Afiliación religiosa</li>
-<li>alter_ideol: Orientación política</li>
+<li>alter_sexo: Gender of the contact (1 = male, 2 = female)</li>
+<li>alter_edad: Age in years</li>
+<li>alter_rel: Type of relationship with the ego (1 = family, 2 = friend, etc.)</li>
+<li>alter_tiempo: Length of the relationship</li>
+<li>alter_barrio: Whether the alter lives in the same neighborhood as the ego</li>
+<li>alter_educ: Educational attainment</li>
+<li>alter_relig: Religious affiliation</li>
+<li>alter_ideol: Political orientation</li>
 </ul>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>alter_1 <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
@@ -363,9 +363,9 @@ Figure&nbsp;1: Egonetwork
 <span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>                      <span class="at">alter_ideol=</span>r13_ideol_01)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="resto-de-alteri" class="level3">
-<h3 class="anchored" data-anchor-id="resto-de-alteri">Resto de Alteri</h3>
-<p>Repetimos el mismo proceso para los alteri 2 al 5. La única diferencia es el sufijo en los nombres de las variables originales (_02, _03, etc.). Este código es repetitivo pero necesario para mantener la claridad en la estructura de los datos:</p>
+<section id="remaining-alters" class="level3">
+<h3 class="anchored" data-anchor-id="remaining-alters">Remaining Alters</h3>
+<p>We repeat the same process for alters 2 through 5. The only difference is the suffix in the original variable names (_02, _03, etc.). The code is repetitive but necessary to keep the data structure clear:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Segundo alter - sufijo _02 en variables originales</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>alter_2 <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
@@ -416,143 +416,143 @@ Figure&nbsp;1: Egonetwork
 <span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a>                      <span class="at">alter_ideol=</span>r13_ideol_05)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="identificación-de-alteri" class="level3">
-<h3 class="anchored" data-anchor-id="identificación-de-alteri">Identificación de Alteri</h3>
-<p>Para mantener el orden de los alteri en nuestra base de datos, creamos una variable numérica que identifica la posición en que fue mencionado cada alter. Esto es crucial para análisis posteriores que consideren el orden de mención:</p>
+<section id="identifying-alters" class="level3">
+<h3 class="anchored" data-anchor-id="identifying-alters">Identifying Alters</h3>
+<p>To preserve the order in which alters are stored, we create a numeric variable that captures the position in which each alter was mentioned. This is crucial for later analyses that consider mention order:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Asignamos números identificadores secuenciales</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>alter_1<span class="sc">$</span>n <span class="ot">&lt;-</span> <span class="dv">1</span>  <span class="co"># Primer alter mencionado</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>alter_2<span class="sc">$</span>n <span class="ot">&lt;-</span> <span class="dv">2</span>  <span class="co"># Segundo alter</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>alter_3<span class="sc">$</span>n <span class="ot">&lt;-</span> <span class="dv">3</span>  <span class="co"># Tercer alter</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>alter_4<span class="sc">$</span>n <span class="ot">&lt;-</span> <span class="dv">4</span>  <span class="co"># Cuarto alter</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>alter_5<span class="sc">$</span>n <span class="ot">&lt;-</span> <span class="dv">5</span>  <span class="co"># Quinto alter</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Assign sequential identifier numbers</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>alter_1<span class="sc">$</span>n <span class="ot">&lt;-</span> <span class="dv">1</span>  <span class="co"># First alter mentioned</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>alter_2<span class="sc">$</span>n <span class="ot">&lt;-</span> <span class="dv">2</span>  <span class="co"># Second alter</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>alter_3<span class="sc">$</span>n <span class="ot">&lt;-</span> <span class="dv">3</span>  <span class="co"># Third alter</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>alter_4<span class="sc">$</span>n <span class="ot">&lt;-</span> <span class="dv">4</span>  <span class="co"># Fourth alter</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>alter_5<span class="sc">$</span>n <span class="ot">&lt;-</span> <span class="dv">5</span>  <span class="co"># Fifth alter</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="creación-de-base-de-datos-en-formato-long" class="level3">
-<h3 class="anchored" data-anchor-id="creación-de-base-de-datos-en-formato-long">Creación de Base de Datos en Formato Long</h3>
-<p>Finalmente, combinamos todos los datos de alteri en un único conjunto de datos en formato longitudinal. Este paso es crucial porque:</p>
+<section id="building-the-long-format-dataset" class="level3">
+<h3 class="anchored" data-anchor-id="building-the-long-format-dataset">Building the Long-format Dataset</h3>
+<p>We then merge all alter information into a single long-format dataset. This step is crucial because it:</p>
 <ol type="1">
-<li>Permite un análisis más eficiente</li>
-<li>Facilita la comparación entre alteri</li>
-<li>Es el formato requerido por muchas funciones de análisis de redes</li>
+<li>Enables more efficient analysis</li>
+<li>Makes comparisons across alters easier</li>
+<li>Is the preferred structure for many network-analysis functions</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combinamos todas las bases de datos de alteri</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine all alter datasets</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>alteris <span class="ot">&lt;-</span> <span class="fu">rbind</span>(alter_1, alter_2, alter_3, alter_4, alter_5)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Ordenamos por ID de ego para mantener la estructura jerárquica</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Order by ego ID to keep the hierarchical structure</span></span>
 <span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>alteris <span class="ot">&lt;-</span> <span class="fu">arrange</span>(alteris, .egoID)</span>
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos un identificador único para cada alter</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a unique identifier for each alter</span></span>
 <span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>alteris <span class="ot">&lt;-</span> <span class="fu">rowid_to_column</span>(alteris, <span class="at">var =</span> <span class="st">".altID"</span>)</span>
 <span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertimos a tibble para mejor manipulación</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to tibble for easier manipulation</span></span>
 <span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>alteris <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(alteris)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
-<section id="recodificación-de-variables" class="level2">
-<h2 class="anchored" data-anchor-id="recodificación-de-variables">Recodificación de Variables</h2>
-<section id="recodificación-de-atributos-de-alteri" class="level3">
-<h3 class="anchored" data-anchor-id="recodificación-de-atributos-de-alteri">Recodificación de Atributos de Alteri</h3>
-<p>A continuación, transformamos las variables categóricas de los alteri para facilitar el análisis. Utilizamos la función <code>factor</code> para convertir las variables en factores y <code>Recode</code> del paquete <code>car</code> para recodificar los valores. Esta recodificación es crucial para:</p>
+<section id="variable-recoding" class="level2">
+<h2 class="anchored" data-anchor-id="variable-recoding">Variable Recoding</h2>
+<section id="recoding-alter-attributes" class="level3">
+<h3 class="anchored" data-anchor-id="recoding-alter-attributes">Recoding Alter Attributes</h3>
+<p>Next, we transform the alters’ categorical variables to make the analysis easier. We use <code>factor</code> to convert variables into factors and <code>Recode</code> from the <code>car</code> package to relabel the values. This recoding is crucial to:</p>
 <ol type="1">
-<li>Simplificar categorías</li>
-<li>Manejar valores perdidos</li>
-<li>Crear categorías interpretables</li>
+<li>Simplify categories</li>
+<li>Handle missing values</li>
+<li>Create interpretable groupings</li>
 </ol>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos nivel educativo</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 = básica, 2 = media, 3 = técnica, 4 = universitaria</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode educational level</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 = primary, 2 = secondary, 3 = vocational, 4 = university</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>alteris<span class="sc">$</span>alter_educ <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">Recode</span>(alteris<span class="sc">$</span>alter_educ,</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"1=1;2:3=2;4=3;5=4;-999=NA"</span>))</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos religión</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 1-5 representan diferentes afiliaciones religiosas</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode religion</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 1-5 represent different religious affiliations</span></span>
 <span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>alteris<span class="sc">$</span>alter_relig <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">Recode</span>(alteris<span class="sc">$</span>alter_relig,</span>
 <span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"1=1;2=2;3=3;4=4;5=5;-999=NA"</span>))</span>
 <span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos ideología política</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 1-6 representan el espectro político de izquierda a derecha</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode political ideology</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 1-6 represent the political spectrum from left to right</span></span>
 <span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>alteris<span class="sc">$</span>alter_ideol <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">Recode</span>(alteris<span class="sc">$</span>alter_ideol,</span>
 <span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                                    <span class="st">"1=1;2=2;3=3;4=4;5=5;6=6;-999=NA"</span>))</span>
 <span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos edad en grupos etarios</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode age into age groups</span></span>
 <span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 1 = 0-18, 2 = 19-29, 3 = 30-40, 4 = 41-51, 5 = 52-62, 6 = 63+</span></span>
 <span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>alteris<span class="sc">$</span>alter_edad <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">Recode</span>(alteris<span class="sc">$</span>alter_edad,</span>
 <span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"0:18=1;19:29=2;30:40=3;41:51=4;52:62=5;63:100=6"</span>))</span>
 <span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos sexo (1 = hombre, 2 = mujer)</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode sex (1 = male, 2 = female)</span></span>
 <span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>alteris<span class="sc">$</span>alter_sexo <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">Recode</span>(alteris<span class="sc">$</span>alter_sexo,</span>
 <span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>                                   <span class="st">"1=1;2=2"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="preparación-de-datos-de-ego" class="level3">
-<h3 class="anchored" data-anchor-id="preparación-de-datos-de-ego">Preparación de Datos de Ego</h3>
-<p>Ahora creamos un dataset con la información de los egos (encuestados). Seleccionamos variables equivalentes a las que tenemos para los alteri para poder hacer comparaciones directas:</p>
+<section id="preparing-ego-data" class="level3">
+<h3 class="anchored" data-anchor-id="preparing-ego-data">Preparing Ego Data</h3>
+<p>We now create a dataset with information about the egos (respondents). We select variables that mirror the alter attributes so we can make direct comparisons:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Seleccionamos y renombramos variables de ego</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>egos <span class="ot">&lt;-</span> a <span class="sc">%&gt;%</span></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       dplyr<span class="sc">::</span><span class="fu">select</span>(.egoID,                <span class="co"># ID del encuestado</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ego_sexo =</span> m0_sexo,    <span class="co"># Sexo del encuestado</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ego_edad =</span> m0_edad,    <span class="co"># Edad del encuestado</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ego_ideol =</span> c15,       <span class="co"># Ideología política</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ego_educ =</span> m01,        <span class="co"># Nivel educativo</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ego_relig =</span> m38)       <span class="co"># Religión</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>       dplyr<span class="sc">::</span><span class="fu">select</span>(.egoID,                <span class="co"># Respondent ID</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ego_sexo =</span> m0_sexo,    <span class="co"># Respondent sex</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ego_edad =</span> m0_edad,    <span class="co"># Respondent age</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ego_ideol =</span> c15,       <span class="co"># Political ideology</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ego_educ =</span> m01,        <span class="co"># Educational attainment</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ego_relig =</span> m38)       <span class="co"># Religion</span></span>
 <span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertimos a tibble para mejor manipulación</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to tibble for easier manipulation</span></span>
 <span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>egos <span class="ot">&lt;-</span> <span class="fu">as_tibble</span>(egos)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="recodificación-de-variables-de-ego" class="level3">
-<h3 class="anchored" data-anchor-id="recodificación-de-variables-de-ego">Recodificación de Variables de Ego</h3>
-<p>Al igual que con los alteri, recodificamos las variables de los egos para asegurar la comparabilidad:</p>
+<section id="recoding-ego-variables" class="level3">
+<h3 class="anchored" data-anchor-id="recoding-ego-variables">Recoding Ego Variables</h3>
+<p>As with the alters, we recode ego variables to ensure comparability:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos nivel educativo</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Agrupamos en 4 niveles: básica, media, técnica, universitaria</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode educational level</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Group into four levels: primary, secondary, vocational, university</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>egos<span class="sc">$</span>ego_educ <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">Recode</span>(egos<span class="sc">$</span>ego_educ,</span>
 <span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"1:3=1;4:5=2;6:7=3;8:10=4;-999:-888=NA"</span>))</span>
 <span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos religión</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Agrupamos en 5 categorías principales</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode religion</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Group into five main categories</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>egos<span class="sc">$</span>ego_relig <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">Recode</span>(egos<span class="sc">$</span>ego_relig,</span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"1=1;2=2;9=3;7:8=4;3:6=5;-999:-888=NA"</span>))</span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos ideología política</span></span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Escala de 1-6 donde 1 = extrema izquierda, 6 = extrema derecha</span></span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode political ideology</span></span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Scale from 1-6 where 1 = far left and 6 = far right</span></span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>egos<span class="sc">$</span>ego_ideol <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">Recode</span>(egos<span class="sc">$</span>ego_ideol,</span>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>                               <span class="st">"9:10=1;6:8=2;5=3;2:4=4;0:1=5;11:12=6;-999:-888=NA"</span>))</span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos edad en los mismos grupos que los alteri</span></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode age into the same groups used for alters</span></span>
 <span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a>egos<span class="sc">$</span>ego_edad <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">Recode</span>(egos<span class="sc">$</span>ego_edad,</span>
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"18=1;19:29=2;30:40=3;41:51=4;52:62=5;63:100=6"</span>))</span>
 <span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos sexo (1 = hombre, 2 = mujer)</span></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode sex (1 = male, 2 = female)</span></span>
 <span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>egos<span class="sc">$</span>ego_sexo <span class="ot">&lt;-</span> <span class="fu">factor</span>(<span class="fu">Recode</span>(egos<span class="sc">$</span>ego_sexo,</span>
 <span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>                              <span class="st">"1=1;2=2"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="unión-de-datos-de-ego-y-alteri" class="level3">
-<h3 class="anchored" data-anchor-id="unión-de-datos-de-ego-y-alteri">Unión de Datos de Ego y Alteri</h3>
-<p>Combinamos las bases de datos de egos y alteri mediante un left join, lo que nos permite mantener todos los alteri y sus correspondientes egos:</p>
+<section id="joining-ego-and-alter-data" class="level3">
+<h3 class="anchored" data-anchor-id="joining-ego-and-alter-data">Joining Ego and Alter Data</h3>
+<p>We combine the ego and alter datasets with a left join, which keeps all alters and their corresponding egos:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unimos las bases de datos usando el ID de ego como llave</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Join the datasets using the ego ID as the key</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>obs <span class="ot">&lt;-</span> <span class="fu">left_join</span>(alteris, egos, <span class="at">by =</span> <span class="st">".egoID"</span>)</span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos un indicador de caso</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a case indicator</span></span>
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>obs<span class="sc">$</span>case <span class="ot">&lt;-</span> <span class="dv">1</span></span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos valores perdidos</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode missing values</span></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>obs[obs <span class="sc">==</span> <span class="st">"-999"</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>obs[obs <span class="sc">==</span> <span class="st">"-888"</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
-<section id="análisis-descriptivos" class="level2">
-<h2 class="anchored" data-anchor-id="análisis-descriptivos">Análisis Descriptivos</h2>
-<section id="descriptivos-alter" class="level3">
-<h3 class="anchored" data-anchor-id="descriptivos-alter">Descriptivos (alter)</h3>
-<p>Observamos la frecuencia de las categorias de los atributos de alteris.</p>
+<section id="descriptive-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="descriptive-analysis">Descriptive Analysis</h2>
+<section id="descriptives-alter" class="level3">
+<h3 class="anchored" data-anchor-id="descriptives-alter">Descriptives (alter)</h3>
+<p>We examine the frequency distribution of the alter attributes.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">freq</span>(obs<span class="sc">$</span>alter_educ)) <span class="sc">%&gt;%</span><span class="fu">kable_paper</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -799,9 +799,9 @@ Figure&nbsp;1: Egonetwork
 </div>
 </div>
 </section>
-<section id="descriptivos-ego" class="level3">
-<h3 class="anchored" data-anchor-id="descriptivos-ego">Descriptivos (ego)</h3>
-<p>Observamos la frecuencia de las categorias de los atributos sociodemográficos de ego.</p>
+<section id="descriptives-ego" class="level3">
+<h3 class="anchored" data-anchor-id="descriptives-ego">Descriptives (ego)</h3>
+<p>We review the frequency distribution of the egos’ sociodemographic attributes.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">freq</span>(obs<span class="sc">$</span>ego_educ)) <span class="sc">%&gt;%</span><span class="fu">kable_paper</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
@@ -1014,29 +1014,29 @@ Figure&nbsp;1: Egonetwork
 </table>
 </div>
 </div>
-<p>Las tablas muestran la distribución de frecuencias para cada característica sociodemográfica. Las columnas representan: 1. La categoría de la variable 2. La frecuencia absoluta (número de casos) 3. El porcentaje del total</p>
-<p>Esta información nos permite entender la composición de la muestra tanto a nivel de egos como de alteri, y será fundamental para los análisis posteriores de homofilia y distancia social.</p>
+<p>The tables show the frequency distribution for each sociodemographic characteristic. The columns represent: 1. The variable category 2. The absolute frequency (number of cases) 3. The percentage of the total</p>
+<p>This information helps us understand the composition of the sample at both the ego and alter levels, and it will be essential for subsequent analyses of homophily and social distance.</p>
 </section>
-<section id="análisis-de-homofilia-educativa" class="level3">
-<h3 class="anchored" data-anchor-id="análisis-de-homofilia-educativa">Análisis de Homofilia Educativa</h3>
-<p>Examinamos la homofilia educativa mediante una tabla cruzada entre los niveles educativos de egos y alteri. Primero recodificamos las etiquetas para mejor interpretación:</p>
+<section id="educational-homophily-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="educational-homophily-analysis">Educational Homophily Analysis</h3>
+<p>We examine educational homophily with a cross-tabulation of the education levels of egos and alters. We first recode the labels to improve interpretation:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recodificamos etiquetas educativas</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode educational labels</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>obs <span class="ot">&lt;-</span> obs <span class="sc">%&gt;%</span></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">ego_educ =</span> <span class="fu">case_when</span>(</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>      ego_educ <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"básico"</span>,</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>      ego_educ <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"media"</span>,</span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>      ego_educ <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"técnica"</span>,</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"universit."</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>      ego_educ <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"primary"</span>,</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>      ego_educ <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"secondary"</span>,</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>      ego_educ <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"vocational"</span>,</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"university"</span></span>
 <span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
 <span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">mutate</span>(</span>
 <span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">alter_educ =</span> <span class="fu">case_when</span>(</span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>      alter_educ <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"básico"</span>,</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>      alter_educ <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"media"</span>,</span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>      alter_educ <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"técnica"</span>,</span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"universit."</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>      alter_educ <span class="sc">==</span> <span class="dv">1</span> <span class="sc">~</span> <span class="st">"primary"</span>,</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>      alter_educ <span class="sc">==</span> <span class="dv">2</span> <span class="sc">~</span> <span class="st">"secondary"</span>,</span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>      alter_educ <span class="sc">==</span> <span class="dv">3</span> <span class="sc">~</span> <span class="st">"vocational"</span>,</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>      <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"university"</span></span>
 <span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>    )</span>
 <span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a></span>
@@ -1044,7 +1044,7 @@ Figure&nbsp;1: Egonetwork
 <span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>table_cont <span class="ot">&lt;-</span> sjPlot<span class="sc">::</span><span class="fu">tab_xtab</span>(</span>
 <span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.row =</span> obs<span class="sc">$</span>ego_educ,</span>
 <span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>  <span class="at">var.col =</span> obs<span class="sc">$</span>alter_educ,</span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Homofilia Educativa en Redes Personales"</span>,</span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>  <span class="at">title =</span> <span class="st">"Educational Homophily in Personal Networks"</span>,</span>
 <span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.row.prc =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.summary =</span> <span class="cn">TRUE</span>,</span>
 <span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">show.col.prc =</span> <span class="cn">TRUE</span>,</span>
@@ -1053,7 +1053,7 @@ Figure&nbsp;1: Egonetwork
 <span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>table_cont</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <table style="border-collapse:collapse; border:none;">
-<caption style="font-weight: bold; text-align:left;">Homofilia Educativa en Redes Personales</caption>
+<caption style="font-weight: bold; text-align:left;">Educational Homophily in Personal Networks</caption>
  <tbody><tr>
  <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal; border-bottom:1px solid;" rowspan="2">ego_educ</th>
  <th style="border-top:double; text-align:center; font-style:italic; font-weight:normal;" colspan="4">alter_educ</th>
@@ -1061,54 +1061,54 @@ Figure&nbsp;1: Egonetwork
  </tr>
  
 <tr>
- <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">básico</td>
- <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">media</td>
- <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">técnica</td>
- <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">universit.</td>
+ <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">primary</td>
+ <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">secondary</td>
+ <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">university</td>
+ <td style="border-bottom:1px solid; text-align:center; padding:0.2cm;">vocational</td>
  </tr>
  
 <tr> 
-<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">básico</td>
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">primary</td>
 <td style="padding:0.2cm; text-align:center; "><span style="color:black;">570</span><br><span style="color:#333399;">19.1&nbsp;%</span><br><span style="color:#339933;">41.9&nbsp;%</span></td>
 <td style="padding:0.2cm; text-align:center; "><span style="color:black;">825</span><br><span style="color:#333399;">27.6&nbsp;%</span><br><span style="color:#339933;">23.3&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">89</span><br><span style="color:#333399;">3&nbsp;%</span><br><span style="color:#339933;">8.5&nbsp;%</span></td>
 <td style="padding:0.2cm; text-align:center; "><span style="color:black;">1501</span><br><span style="color:#333399;">50.3&nbsp;%</span><br><span style="color:#339933;">23.4&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">89</span><br><span style="color:#333399;">3&nbsp;%</span><br><span style="color:#339933;">8.5&nbsp;%</span></td>
 <td style="padding:0.2cm; text-align:center;  "><span style="color:black;">2985</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">24.1&nbsp;%</span></td> 
 </tr>
  
 <tr> 
-<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">media</td>
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">secondary</td>
 <td style="padding:0.2cm; text-align:center; "><span style="color:black;">622</span><br><span style="color:#333399;">11.9&nbsp;%</span><br><span style="color:#339933;">45.7&nbsp;%</span></td>
 <td style="padding:0.2cm; text-align:center; "><span style="color:black;">1881</span><br><span style="color:#333399;">36&nbsp;%</span><br><span style="color:#339933;">53.1&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">336</span><br><span style="color:#333399;">6.4&nbsp;%</span><br><span style="color:#339933;">32.2&nbsp;%</span></td>
 <td style="padding:0.2cm; text-align:center; "><span style="color:black;">2386</span><br><span style="color:#333399;">45.7&nbsp;%</span><br><span style="color:#339933;">37.2&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">336</span><br><span style="color:#333399;">6.4&nbsp;%</span><br><span style="color:#339933;">32.2&nbsp;%</span></td>
 <td style="padding:0.2cm; text-align:center;  "><span style="color:black;">5225</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">42.3&nbsp;%</span></td> 
 </tr>
  
 <tr> 
-<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">técnica</td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">116</span><br><span style="color:#333399;">5.8&nbsp;%</span><br><span style="color:#339933;">8.5&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">481</span><br><span style="color:#333399;">23.9&nbsp;%</span><br><span style="color:#339933;">13.6&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">389</span><br><span style="color:#333399;">19.4&nbsp;%</span><br><span style="color:#339933;">37.3&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">1024</span><br><span style="color:#333399;">50.9&nbsp;%</span><br><span style="color:#339933;">16&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">2010</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">16.3&nbsp;%</span></td> 
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">university</td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">54</span><br><span style="color:#333399;">2.5&nbsp;%</span><br><span style="color:#339933;">4&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">356</span><br><span style="color:#333399;">16.6&nbsp;%</span><br><span style="color:#339933;">10&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">1507</span><br><span style="color:#333399;">70.3&nbsp;%</span><br><span style="color:#339933;">23.5&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">228</span><br><span style="color:#333399;">10.6&nbsp;%</span><br><span style="color:#339933;">21.9&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">2145</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">17.3&nbsp;%</span></td> 
 </tr>
  
 <tr> 
-<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">universit.</td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">54</span><br><span style="color:#333399;">2.5&nbsp;%</span><br><span style="color:#339933;">4&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">356</span><br><span style="color:#333399;">16.6&nbsp;%</span><br><span style="color:#339933;">10&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">228</span><br><span style="color:#333399;">10.6&nbsp;%</span><br><span style="color:#339933;">21.9&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center; "><span style="color:black;">1507</span><br><span style="color:#333399;">70.3&nbsp;%</span><br><span style="color:#339933;">23.5&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">2145</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">17.3&nbsp;%</span></td> 
+<td style="padding:0.2cm;  text-align:left; vertical-align:middle;">vocational</td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">116</span><br><span style="color:#333399;">5.8&nbsp;%</span><br><span style="color:#339933;">8.5&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">481</span><br><span style="color:#333399;">23.9&nbsp;%</span><br><span style="color:#339933;">13.6&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">1024</span><br><span style="color:#333399;">50.9&nbsp;%</span><br><span style="color:#339933;">16&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center; "><span style="color:black;">389</span><br><span style="color:#333399;">19.4&nbsp;%</span><br><span style="color:#339933;">37.3&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center;  "><span style="color:black;">2010</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">16.3&nbsp;%</span></td> 
 </tr>
  
 <tr> 
 <td style="padding:0.2cm;  border-bottom:double; font-weight:bolder; font-style:italic; text-align:left; vertical-align:middle;">Total</td>
 <td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">1362</span><br><span style="color:#333399;">11&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td>
 <td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">3543</span><br><span style="color:#333399;">28.7&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td>
-<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">1042</span><br><span style="color:#333399;">8.4&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td>
 <td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">6418</span><br><span style="color:#333399;">51.9&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td>
+<td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">1042</span><br><span style="color:#333399;">8.4&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td>
 <td style="padding:0.2cm; text-align:center;   border-bottom:double;"><span style="color:black;">12365</span><br><span style="color:#333399;">100&nbsp;%</span><br><span style="color:#339933;">100&nbsp;%</span></td> 
 </tr>
 <tr><td style="text-align:right; font-size:0.9em; font-style:italic; padding:0.2cm;" colspan="6">χ<sup>2</sup>=1202.528 · df=9 · Cramer's V=0.180 · p=0.000</td> 
@@ -1118,45 +1118,45 @@ Figure&nbsp;1: Egonetwork
 </div>
 </div>
 </section>
-<section id="visualización-de-homofilia-educativa" class="level3">
-<h3 class="anchored" data-anchor-id="visualización-de-homofilia-educativa">Visualización de Homofilia Educativa</h3>
-<p>Creamos un heatmap para visualizar los patrones de homofilia educativa:</p>
+<section id="visualizing-educational-homophily" class="level3">
+<h3 class="anchored" data-anchor-id="visualizing-educational-homophily">Visualizing Educational Homophily</h3>
+<p>We create a heatmap to show educational homophily patterns:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Preparamos datos para el heatmap</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Prepare data for the heatmap</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>table <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">prop.table</span>(<span class="fu">table</span>(obs<span class="sc">$</span>ego_educ, obs<span class="sc">$</span>alter_educ)))</span>
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(table) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Ego_educ"</span>, <span class="st">"Alter_educ"</span>, <span class="st">"Prop"</span>)</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Formateamos la proporción para mostrar porcentaje con 2 decimales</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Format the proportions to display percentages with two decimals</span></span>
 <span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>table<span class="sc">$</span>tooltip_text <span class="ot">&lt;-</span> <span class="fu">sprintf</span>(</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Ego: %s&lt;br&gt;Alter: %s&lt;br&gt;Proporción: %.2f%%"</span>, </span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  table<span class="sc">$</span>Ego_educ, </span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  table<span class="sc">$</span>Alter_educ, </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"Ego: %s&lt;br&gt;Alter: %s&lt;br&gt;Share: %.2f%%"</span>,</span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  table<span class="sc">$</span>Ego_educ,</span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>  table<span class="sc">$</span>Alter_educ,</span>
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>  table<span class="sc">$</span>Prop <span class="sc">*</span> <span class="dv">100</span></span>
 <span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>)</span>
 <span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos el heatmap</span></span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Create the heatmap</span></span>
 <span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(table, <span class="fu">aes</span>(Ego_educ, Alter_educ)) <span class="sc">+</span></span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Prop, <span class="at">text =</span> tooltip_text)) <span class="sc">+</span>  <span class="co"># Añadimos el texto para el tooltip</span></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> Prop, <span class="at">text =</span> tooltip_text)) <span class="sc">+</span>  <span class="co"># Add tooltip text</span></span>
 <span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_gradient</span>(<span class="at">low =</span> <span class="st">"white"</span>, <span class="at">high =</span> <span class="st">"black"</span>) <span class="sc">+</span></span>
 <span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Heatmap de Homofilia Educativa"</span>,</span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Nivel Educativo de Ego"</span>,</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Nivel Educativo de Alter"</span>,</span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Proporción"</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Educational Homophily Heatmap"</span>,</span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Ego Educational Level"</span>,</span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Alter Educational Level"</span>,</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">fill =</span> <span class="st">"Proportion"</span></span>
 <span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Convertimos a plotly especificando qué variables mostrar en el tooltip</span></span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to plotly and specify which variables to display in the tooltip</span></span>
 <span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplotly</span>(p, <span class="at">tooltip =</span> <span class="st">"text"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
-<div class="plotly html-widget html-fill-item" id="htmlwidget-1701b03ec92e612037d2" style="width:100%;height:464px;"></div>
-<script type="application/json" data-for="htmlwidget-1701b03ec92e612037d2">{"x":{"data":[{"x":[1,2,3,4],"y":[1,2,3,4],"z":[[0.22126929674099488,0.24356775300171526,0.026586620926243566,0],[0.33061749571183535,0.78344768439108059,0.18310463121783876,0.12950257289879932],[0.015008576329331046,0.120926243567753,0.14365351629502573,0.074614065180102912],[0.6204974271012007,1,0.41595197255574617,0.62307032590051459]],"text":[["Ego: básico<br>Alter: básico<br>Proporción: 4.61%","Ego: media<br>Alter: básico<br>Proporción: 5.03%","Ego: técnica<br>Alter: básico<br>Proporción: 0.94%","Ego: universit.<br>Alter: básico<br>Proporción: 0.44%"],["Ego: básico<br>Alter: media<br>Proporción: 6.67%","Ego: media<br>Alter: media<br>Proporción: 15.21%","Ego: técnica<br>Alter: media<br>Proporción: 3.89%","Ego: universit.<br>Alter: media<br>Proporción: 2.88%"],["Ego: básico<br>Alter: técnica<br>Proporción: 0.72%","Ego: media<br>Alter: técnica<br>Proporción: 2.72%","Ego: técnica<br>Alter: técnica<br>Proporción: 3.15%","Ego: universit.<br>Alter: técnica<br>Proporción: 1.84%"],["Ego: básico<br>Alter: universit.<br>Proporción: 12.14%","Ego: media<br>Alter: universit.<br>Proporción: 19.30%","Ego: técnica<br>Alter: universit.<br>Proporción: 8.28%","Ego: universit.<br>Alter: universit.<br>Proporción: 12.19%"]],"colorscale":[[0,"#FFFFFF"],[0.015008576329331046,"#FBFBFB"],[0.026586620926243566,"#F7F7F7"],[0.074614065180102912,"#EAEAEA"],[0.120926243567753,"#DCDCDC"],[0.12950257289879932,"#DADADA"],[0.14365351629502573,"#D6D6D6"],[0.18310463121783876,"#CBCBCB"],[0.22126929674099488,"#C0C0C0"],[0.24356775300171526,"#BABABA"],[0.33061749571183535,"#A3A3A3"],[0.41595197255574617,"#8C8C8C"],[0.6204974271012007,"#595959"],[0.62307032590051459,"#595959"],[0.78344768439108059,"#343434"],[1,"#000000"]],"type":"heatmap","showscale":false,"autocolorscale":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1],"y":[1],"name":"4be64e2c1f4c4e49ce431b24846fbdf2","type":"scatter","mode":"markers","opacity":0,"hoverinfo":"skip","showlegend":false,"marker":{"color":[0,1],"colorscale":[[0,"#FFFFFF"],[0.0033444816053511683,"#FEFEFE"],[0.0066889632107023419,"#FDFDFD"],[0.010033444816053515,"#FCFCFC"],[0.013377926421404684,"#FBFBFB"],[0.016722408026755852,"#FAFAFA"],[0.020066889632107031,"#F9F9F9"],[0.023411371237458199,"#F8F8F8"],[0.026755852842809368,"#F7F7F7"],[0.030100334448160536,"#F6F6F6"],[0.033444816053511704,"#F5F5F5"],[0.03678929765886288,"#F4F4F4"],[0.040133779264214048,"#F3F3F3"],[0.043478260869565216,"#F2F2F2"],[0.046822742474916398,"#F1F1F1"],[0.050167224080267567,"#F1F1F1"],[0.053511705685618735,"#F0F0F0"],[0.056856187290969903,"#EFEFEF"],[0.060200668896321072,"#EEEEEE"],[0.063545150501672254,"#EDEDED"],[0.066889632107023408,"#ECECEC"],[0.070234113712374591,"#EBEBEB"],[0.073578595317725759,"#EAEAEA"],[0.076923076923076941,"#E9E9E9"],[0.080267558528428096,"#E8E8E8"],[0.083612040133779278,"#E7E7E7"],[0.086956521739130432,"#E6E6E6"],[0.090301003344481615,"#E5E5E5"],[0.093645484949832797,"#E4E4E4"],[0.096989966555183951,"#E3E3E3"],[0.10033444816053513,"#E2E2E2"],[0.10367892976588629,"#E1E1E1"],[0.10702341137123747,"#E0E0E0"],[0.11036789297658864,"#DFDFDF"],[0.11371237458193981,"#DEDEDE"],[0.11705685618729098,"#DEDEDE"],[0.12040133779264214,"#DDDDDD"],[0.12374581939799331,"#DCDCDC"],[0.12709030100334451,"#DBDBDB"],[0.13043478260869565,"#DADADA"],[0.13377926421404684,"#D9D9D9"],[0.13712374581939801,"#D8D8D8"],[0.14046822742474918,"#D7D7D7"],[0.14381270903010035,"#D6D6D6"],[0.14715719063545152,"#D5D5D5"],[0.15050167224080271,"#D4D4D4"],[0.15384615384615388,"#D3D3D3"],[0.15719063545150502,"#D2D2D2"],[0.16053511705685619,"#D1D1D1"],[0.16387959866220739,"#D0D0D0"],[0.16722408026755856,"#CFCFCF"],[0.1705685618729097,"#CECECE"],[0.17391304347826086,"#CECECE"],[0.17725752508361206,"#CDCDCD"],[0.18060200668896323,"#CCCCCC"],[0.1839464882943144,"#CBCBCB"],[0.18729096989966559,"#CACACA"],[0.19063545150501673,"#C9C9C9"],[0.1939799331103679,"#C8C8C8"],[0.19732441471571907,"#C7C7C7"],[0.20066889632107027,"#C6C6C6"],[0.20401337792642144,"#C5C5C5"],[0.20735785953177258,"#C4C4C4"],[0.21070234113712374,"#C3C3C3"],[0.21404682274247494,"#C2C2C2"],[0.21739130434782611,"#C2C2C2"],[0.22073578595317728,"#C1C1C1"],[0.22408026755852842,"#C0C0C0"],[0.22742474916387961,"#BFBFBF"],[0.23076923076923078,"#BEBEBE"],[0.23411371237458195,"#BDBDBD"],[0.23745819397993315,"#BCBCBC"],[0.24080267558528429,"#BBBBBB"],[0.24414715719063546,"#BABABA"],[0.24749163879598662,"#B9B9B9"],[0.25083612040133779,"#B8B8B8"],[0.25418060200668902,"#B7B7B7"],[0.25752508361204018,"#B7B7B7"],[0.2608695652173913,"#B6B6B6"],[0.26421404682274247,"#B5B5B5"],[0.26755852842809369,"#B4B4B4"],[0.27090301003344486,"#B3B3B3"],[0.27424749163879603,"#B2B2B2"],[0.27759197324414714,"#B1B1B1"],[0.28093645484949836,"#B0B0B0"],[0.28428093645484953,"#AFAFAF"],[0.2876254180602007,"#AEAEAE"],[0.29096989966555187,"#ADADAD"],[0.29431438127090304,"#ADADAD"],[0.2976588628762542,"#ACACAC"],[0.30100334448160537,"#ABABAB"],[0.30434782608695654,"#AAAAAA"],[0.30769230769230771,"#A9A9A9"],[0.31103678929765893,"#A8A8A8"],[0.31438127090301005,"#A7A7A7"],[0.31772575250836121,"#A6A6A6"],[0.32107023411371238,"#A5A5A5"],[0.32441471571906355,"#A5A5A5"],[0.32775919732441477,"#A4A4A4"],[0.33110367892976583,"#A3A3A3"],[0.33444816053511711,"#A2A2A2"],[0.33779264214046828,"#A1A1A1"],[0.34113712374581939,"#A0A0A0"],[0.34448160535117056,"#9F9F9F"],[0.34782608695652173,"#9E9E9E"],[0.3511705685618729,"#9D9D9D"],[0.35451505016722412,"#9D9D9D"],[0.35785953177257529,"#9C9C9C"],[0.36120401337792646,"#9B9B9B"],[0.36454849498327763,"#9A9A9A"],[0.3678929765886288,"#999999"],[0.37123745819397996,"#989898"],[0.37458193979933119,"#979797"],[0.37792642140468224,"#969696"],[0.38127090301003347,"#959595"],[0.38461538461538464,"#959595"],[0.38795986622073581,"#949494"],[0.39130434782608697,"#939393"],[0.39464882943143814,"#929292"],[0.39799331103678931,"#919191"],[0.40133779264214053,"#909090"],[0.4046822742474917,"#8F8F8F"],[0.40802675585284287,"#8E8E8E"],[0.41137123745819398,"#8E8E8E"],[0.41471571906354515,"#8D8D8D"],[0.41806020066889632,"#8C8C8C"],[0.42140468227424749,"#8B8B8B"],[0.42474916387959871,"#8A8A8A"],[0.42809364548494988,"#898989"],[0.43143812709030105,"#888888"],[0.43478260869565222,"#888888"],[0.43812709030100339,"#878787"],[0.44147157190635455,"#868686"],[0.44481605351170578,"#858585"],[0.44816053511705684,"#848484"],[0.45150501672240806,"#838383"],[0.45484949832775923,"#828282"],[0.4581939799331104,"#828282"],[0.46153846153846156,"#818181"],[0.46488294314381273,"#808080"],[0.4682274247491639,"#7F7F7F"],[0.47157190635451512,"#7E7E7E"],[0.47491638795986629,"#7D7D7D"],[0.47826086956521746,"#7C7C7C"],[0.48160535117056857,"#7C7C7C"],[0.48494983277591974,"#7B7B7B"],[0.48829431438127091,"#7A7A7A"],[0.49163879598662208,"#797979"],[0.49498327759197325,"#787878"],[0.49832775919732447,"#777777"],[0.50167224080267558,"#767676"],[0.50501672240802675,"#767676"],[0.50836120401337803,"#757575"],[0.5117056856187292,"#747474"],[0.51505016722408037,"#737373"],[0.51839464882943143,"#727272"],[0.52173913043478259,"#717171"],[0.52508361204013376,"#717171"],[0.52842809364548493,"#707070"],[0.5317725752508361,"#6F6F6F"],[0.53511705685618738,"#6E6E6E"],[0.53846153846153855,"#6D6D6D"],[0.54180602006688972,"#6C6C6C"],[0.54515050167224088,"#6C6C6C"],[0.54849498327759205,"#6B6B6B"],[0.55183946488294322,"#6A6A6A"],[0.55518394648829428,"#696969"],[0.55852842809364545,"#686868"],[0.56187290969899673,"#686868"],[0.56521739130434789,"#676767"],[0.56856187290969906,"#666666"],[0.57190635451505023,"#656565"],[0.5752508361204014,"#646464"],[0.57859531772575257,"#636363"],[0.58193979933110374,"#636363"],[0.5852842809364549,"#626262"],[0.58862876254180607,"#616161"],[0.59197324414715724,"#606060"],[0.59531772575250841,"#5F5F5F"],[0.59866220735785958,"#5F5F5F"],[0.60200668896321075,"#5E5E5E"],[0.60535117056856191,"#5D5D5D"],[0.60869565217391308,"#5C5C5C"],[0.61204013377926425,"#5B5B5B"],[0.61538461538461542,"#5B5B5B"],[0.61872909698996659,"#5A5A5A"],[0.62207357859531776,"#595959"],[0.62541806020066892,"#585858"],[0.62876254180602009,"#575757"],[0.63210702341137126,"#575757"],[0.63545150501672243,"#565656"],[0.6387959866220736,"#555555"],[0.64214046822742477,"#545454"],[0.64548494983277593,"#535353"],[0.64882943143812721,"#535353"],[0.65217391304347838,"#525252"],[0.65551839464882944,"#515151"],[0.65886287625418072,"#505050"],[0.66220735785953178,"#4F4F4F"],[0.66555183946488283,"#4F4F4F"],[0.66889632107023411,"#4E4E4E"],[0.67224080267558528,"#4D4D4D"],[0.67558528428093656,"#4C4C4C"],[0.67892976588628751,"#4C4C4C"],[0.68227424749163879,"#4B4B4B"],[0.68561872909699006,"#4A4A4A"],[0.68896321070234101,"#494949"],[0.69230769230769229,"#484848"],[0.69565217391304346,"#484848"],[0.69899665551839474,"#474747"],[0.70234113712374568,"#464646"],[0.70568561872909696,"#454545"],[0.70903010033444824,"#454545"],[0.71237458193979941,"#444444"],[0.71571906354515036,"#434343"],[0.71906354515050164,"#424242"],[0.72240802675585292,"#424242"],[0.72575250836120386,"#414141"],[0.72909698996655514,"#404040"],[0.73244147157190642,"#3F3F3F"],[0.73578595317725759,"#3E3E3E"],[0.73913043478260854,"#3E3E3E"],[0.74247491638795982,"#3D3D3D"],[0.7458193979933111,"#3C3C3C"],[0.74916387959866237,"#3B3B3B"],[0.75250836120401332,"#3B3B3B"],[0.75585284280936449,"#3A3A3A"],[0.75919732441471577,"#393939"],[0.76254180602006671,"#383838"],[0.76588628762541799,"#383838"],[0.76923076923076927,"#373737"],[0.77257525083612055,"#363636"],[0.7759197324414715,"#363636"],[0.77926421404682267,"#353535"],[0.78260869565217395,"#343434"],[0.78595317725752489,"#333333"],[0.78929765886287617,"#333333"],[0.79264214046822745,"#323232"],[0.79598662207357862,"#313131"],[0.79933110367892968,"#303030"],[0.80267558528428085,"#303030"],[0.80602006688963213,"#2F2F2F"],[0.8093645484949834,"#2E2E2E"],[0.81270903010033435,"#2E2E2E"],[0.81605351170568563,"#2D2D2D"],[0.8193979933110368,"#2C2C2C"],[0.82274247491638786,"#2B2B2B"],[0.82608695652173902,"#2B2B2B"],[0.8294314381270903,"#2A2A2A"],[0.83277591973244158,"#292929"],[0.83612040133779253,"#292929"],[0.83946488294314381,"#282828"],[0.84280936454849498,"#272727"],[0.84615384615384626,"#262626"],[0.8494983277591972,"#262626"],[0.85284280936454848,"#252525"],[0.85618729096989976,"#242424"],[0.85953177257525071,"#242424"],[0.86287625418060199,"#232323"],[0.86622073578595316,"#222222"],[0.86956521739130443,"#222222"],[0.87290969899665538,"#212121"],[0.87625418060200666,"#202020"],[0.87959866220735794,"#202020"],[0.88294314381270911,"#1F1F1F"],[0.88628762541806005,"#1E1E1E"],[0.88963210702341133,"#1E1E1E"],[0.89297658862876261,"#1D1D1D"],[0.89632107023411356,"#1C1C1C"],[0.89966555183946484,"#1C1C1C"],[0.90301003344481612,"#1B1B1B"],[0.90635451505016729,"#1A1A1A"],[0.90969899665551823,"#1A1A1A"],[0.91304347826086951,"#191919"],[0.91638795986622079,"#181818"],[0.91973244147157207,"#181818"],[0.92307692307692302,"#171717"],[0.92642140468227419,"#161616"],[0.92976588628762546,"#161616"],[0.93311036789297641,"#151515"],[0.93645484949832769,"#141414"],[0.93979933110367897,"#131313"],[0.94314381270903025,"#131313"],[0.9464882943143812,"#121212"],[0.94983277591973236,"#111111"],[0.95317725752508364,"#101010"],[0.95652173913043492,"#0F0F0F"],[0.95986622073578587,"#0E0E0E"],[0.96321070234113715,"#0D0D0D"],[0.96655518394648832,"#0C0C0C"],[0.96989966555183937,"#0B0B0B"],[0.97324414715719054,"#0A0A0A"],[0.97658862876254182,"#090909"],[0.9799331103678931,"#070707"],[0.98327759197324405,"#060606"],[0.98662207357859533,"#050505"],[0.98996655518394649,"#040404"],[0.99331103678929777,"#020202"],[0.99665551839464872,"#010101"],[1,"#000000"]],"colorbar":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"thickness":23.039999999999996,"title":"Proporción","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"tickmode":"array","ticktext":["0.05","0.10","0.15"],"tickvals":[0.24281982561463697,0.50705188679245294,0.77128394797026867],"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"ticklen":2,"len":0.5}},"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":43.762557077625573,"r":7.3059360730593621,"b":40.182648401826491,"l":84.018264840182667},"font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Heatmap de Homofilia Educativa","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,4.5999999999999996],"tickmode":"array","ticktext":["básico","media","técnica","universit."],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["básico","media","técnica","universit."],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"y","title":{"text":"Nivel Educativo de Ego","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,4.5999999999999996],"tickmode":"array","ticktext":["básico","media","técnica","universit."],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["básico","media","técnica","universit."],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0.66417600664176002,"zeroline":false,"anchor":"x","title":{"text":"Nivel Educativo de Alter","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Proporción","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"7069d5854cbfa":{"x":{},"y":{},"fill":{},"text":{},"type":"heatmap"}},"cur_data":"7069d5854cbfa","visdat":{"7069d5854cbfa":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div class="plotly html-widget html-fill-item" id="htmlwidget-bc54cddf39f1f1d52204" style="width:672px;height:480px;"></div>
+<script type="application/json" data-for="htmlwidget-bc54cddf39f1f1d52204">{"x":{"data":[{"x":[1,2,3,4],"y":[1,2,3,4],"z":[[0.22126929674099488,0.24356775300171526,0,0.026586620926243566],[0.33061749571183535,0.78344768439108059,0.12950257289879932,0.18310463121783876],[0.6204974271012007,1,0.62307032590051459,0.41595197255574617],[0.015008576329331046,0.120926243567753,0.074614065180102912,0.14365351629502573]],"text":[["Ego: primary<br>Alter: primary<br>Share: 4.61%","Ego: secondary<br>Alter: primary<br>Share: 5.03%","Ego: university<br>Alter: primary<br>Share: 0.44%","Ego: vocational<br>Alter: primary<br>Share: 0.94%"],["Ego: primary<br>Alter: secondary<br>Share: 6.67%","Ego: secondary<br>Alter: secondary<br>Share: 15.21%","Ego: university<br>Alter: secondary<br>Share: 2.88%","Ego: vocational<br>Alter: secondary<br>Share: 3.89%"],["Ego: primary<br>Alter: university<br>Share: 12.14%","Ego: secondary<br>Alter: university<br>Share: 19.30%","Ego: university<br>Alter: university<br>Share: 12.19%","Ego: vocational<br>Alter: university<br>Share: 8.28%"],["Ego: primary<br>Alter: vocational<br>Share: 0.72%","Ego: secondary<br>Alter: vocational<br>Share: 2.72%","Ego: university<br>Alter: vocational<br>Share: 1.84%","Ego: vocational<br>Alter: vocational<br>Share: 3.15%"]],"colorscale":[[0,"#FFFFFF"],[0.015008576329331046,"#FBFBFB"],[0.026586620926243566,"#F7F7F7"],[0.074614065180102912,"#EAEAEA"],[0.120926243567753,"#DCDCDC"],[0.12950257289879932,"#DADADA"],[0.14365351629502573,"#D6D6D6"],[0.18310463121783876,"#CBCBCB"],[0.22126929674099488,"#C0C0C0"],[0.24356775300171526,"#BABABA"],[0.33061749571183535,"#A3A3A3"],[0.41595197255574617,"#8C8C8C"],[0.6204974271012007,"#595959"],[0.62307032590051459,"#595959"],[0.78344768439108059,"#343434"],[1,"#000000"]],"type":"heatmap","showscale":false,"autocolorscale":false,"showlegend":false,"xaxis":"x","yaxis":"y","hoverinfo":"text","frame":null},{"x":[1],"y":[1],"name":"5d1be3350e7d21878f3685da40a178a2","type":"scatter","mode":"markers","opacity":0,"hoverinfo":"skip","showlegend":false,"marker":{"color":[0,1],"colorscale":[[0,"#FFFFFF"],[0.0033444816053511683,"#FEFEFE"],[0.0066889632107023419,"#FDFDFD"],[0.010033444816053515,"#FCFCFC"],[0.013377926421404684,"#FBFBFB"],[0.016722408026755852,"#FAFAFA"],[0.020066889632107031,"#F9F9F9"],[0.023411371237458199,"#F8F8F8"],[0.026755852842809368,"#F7F7F7"],[0.030100334448160536,"#F6F6F6"],[0.033444816053511704,"#F5F5F5"],[0.03678929765886288,"#F4F4F4"],[0.040133779264214048,"#F3F3F3"],[0.043478260869565216,"#F2F2F2"],[0.046822742474916398,"#F1F1F1"],[0.050167224080267567,"#F1F1F1"],[0.053511705685618735,"#F0F0F0"],[0.056856187290969903,"#EFEFEF"],[0.060200668896321072,"#EEEEEE"],[0.063545150501672254,"#EDEDED"],[0.066889632107023408,"#ECECEC"],[0.070234113712374591,"#EBEBEB"],[0.073578595317725759,"#EAEAEA"],[0.076923076923076941,"#E9E9E9"],[0.080267558528428096,"#E8E8E8"],[0.083612040133779278,"#E7E7E7"],[0.086956521739130432,"#E6E6E6"],[0.090301003344481615,"#E5E5E5"],[0.093645484949832797,"#E4E4E4"],[0.096989966555183951,"#E3E3E3"],[0.10033444816053513,"#E2E2E2"],[0.10367892976588629,"#E1E1E1"],[0.10702341137123747,"#E0E0E0"],[0.11036789297658864,"#DFDFDF"],[0.11371237458193981,"#DEDEDE"],[0.11705685618729098,"#DEDEDE"],[0.12040133779264214,"#DDDDDD"],[0.12374581939799331,"#DCDCDC"],[0.12709030100334451,"#DBDBDB"],[0.13043478260869565,"#DADADA"],[0.13377926421404684,"#D9D9D9"],[0.13712374581939801,"#D8D8D8"],[0.14046822742474918,"#D7D7D7"],[0.14381270903010035,"#D6D6D6"],[0.14715719063545152,"#D5D5D5"],[0.15050167224080271,"#D4D4D4"],[0.15384615384615388,"#D3D3D3"],[0.15719063545150502,"#D2D2D2"],[0.16053511705685619,"#D1D1D1"],[0.16387959866220739,"#D0D0D0"],[0.16722408026755856,"#CFCFCF"],[0.1705685618729097,"#CECECE"],[0.17391304347826086,"#CECECE"],[0.17725752508361206,"#CDCDCD"],[0.18060200668896323,"#CCCCCC"],[0.1839464882943144,"#CBCBCB"],[0.18729096989966559,"#CACACA"],[0.19063545150501673,"#C9C9C9"],[0.1939799331103679,"#C8C8C8"],[0.19732441471571907,"#C7C7C7"],[0.20066889632107027,"#C6C6C6"],[0.20401337792642144,"#C5C5C5"],[0.20735785953177258,"#C4C4C4"],[0.21070234113712374,"#C3C3C3"],[0.21404682274247494,"#C2C2C2"],[0.21739130434782611,"#C2C2C2"],[0.22073578595317728,"#C1C1C1"],[0.22408026755852842,"#C0C0C0"],[0.22742474916387961,"#BFBFBF"],[0.23076923076923078,"#BEBEBE"],[0.23411371237458195,"#BDBDBD"],[0.23745819397993315,"#BCBCBC"],[0.24080267558528429,"#BBBBBB"],[0.24414715719063546,"#BABABA"],[0.24749163879598662,"#B9B9B9"],[0.25083612040133779,"#B8B8B8"],[0.25418060200668902,"#B7B7B7"],[0.25752508361204018,"#B7B7B7"],[0.2608695652173913,"#B6B6B6"],[0.26421404682274247,"#B5B5B5"],[0.26755852842809369,"#B4B4B4"],[0.27090301003344486,"#B3B3B3"],[0.27424749163879603,"#B2B2B2"],[0.27759197324414714,"#B1B1B1"],[0.28093645484949836,"#B0B0B0"],[0.28428093645484953,"#AFAFAF"],[0.2876254180602007,"#AEAEAE"],[0.29096989966555187,"#ADADAD"],[0.29431438127090304,"#ADADAD"],[0.2976588628762542,"#ACACAC"],[0.30100334448160537,"#ABABAB"],[0.30434782608695654,"#AAAAAA"],[0.30769230769230771,"#A9A9A9"],[0.31103678929765893,"#A8A8A8"],[0.31438127090301005,"#A7A7A7"],[0.31772575250836121,"#A6A6A6"],[0.32107023411371238,"#A5A5A5"],[0.32441471571906355,"#A5A5A5"],[0.32775919732441477,"#A4A4A4"],[0.33110367892976583,"#A3A3A3"],[0.33444816053511711,"#A2A2A2"],[0.33779264214046828,"#A1A1A1"],[0.34113712374581939,"#A0A0A0"],[0.34448160535117056,"#9F9F9F"],[0.34782608695652173,"#9E9E9E"],[0.3511705685618729,"#9D9D9D"],[0.35451505016722412,"#9D9D9D"],[0.35785953177257529,"#9C9C9C"],[0.36120401337792646,"#9B9B9B"],[0.36454849498327763,"#9A9A9A"],[0.3678929765886288,"#999999"],[0.37123745819397996,"#989898"],[0.37458193979933119,"#979797"],[0.37792642140468224,"#969696"],[0.38127090301003347,"#959595"],[0.38461538461538464,"#959595"],[0.38795986622073581,"#949494"],[0.39130434782608697,"#939393"],[0.39464882943143814,"#929292"],[0.39799331103678931,"#919191"],[0.40133779264214053,"#909090"],[0.4046822742474917,"#8F8F8F"],[0.40802675585284287,"#8E8E8E"],[0.41137123745819398,"#8E8E8E"],[0.41471571906354515,"#8D8D8D"],[0.41806020066889632,"#8C8C8C"],[0.42140468227424749,"#8B8B8B"],[0.42474916387959871,"#8A8A8A"],[0.42809364548494988,"#898989"],[0.43143812709030105,"#888888"],[0.43478260869565222,"#888888"],[0.43812709030100339,"#878787"],[0.44147157190635455,"#868686"],[0.44481605351170578,"#858585"],[0.44816053511705684,"#848484"],[0.45150501672240806,"#838383"],[0.45484949832775923,"#828282"],[0.4581939799331104,"#828282"],[0.46153846153846156,"#818181"],[0.46488294314381273,"#808080"],[0.4682274247491639,"#7F7F7F"],[0.47157190635451512,"#7E7E7E"],[0.47491638795986629,"#7D7D7D"],[0.47826086956521746,"#7C7C7C"],[0.48160535117056857,"#7C7C7C"],[0.48494983277591974,"#7B7B7B"],[0.48829431438127091,"#7A7A7A"],[0.49163879598662208,"#797979"],[0.49498327759197325,"#787878"],[0.49832775919732447,"#777777"],[0.50167224080267558,"#767676"],[0.50501672240802675,"#767676"],[0.50836120401337803,"#757575"],[0.5117056856187292,"#747474"],[0.51505016722408037,"#737373"],[0.51839464882943143,"#727272"],[0.52173913043478259,"#717171"],[0.52508361204013376,"#717171"],[0.52842809364548493,"#707070"],[0.5317725752508361,"#6F6F6F"],[0.53511705685618738,"#6E6E6E"],[0.53846153846153855,"#6D6D6D"],[0.54180602006688972,"#6C6C6C"],[0.54515050167224088,"#6C6C6C"],[0.54849498327759205,"#6B6B6B"],[0.55183946488294322,"#6A6A6A"],[0.55518394648829428,"#696969"],[0.55852842809364545,"#686868"],[0.56187290969899673,"#686868"],[0.56521739130434789,"#676767"],[0.56856187290969906,"#666666"],[0.57190635451505023,"#656565"],[0.5752508361204014,"#646464"],[0.57859531772575257,"#636363"],[0.58193979933110374,"#636363"],[0.5852842809364549,"#626262"],[0.58862876254180607,"#616161"],[0.59197324414715724,"#606060"],[0.59531772575250841,"#5F5F5F"],[0.59866220735785958,"#5F5F5F"],[0.60200668896321075,"#5E5E5E"],[0.60535117056856191,"#5D5D5D"],[0.60869565217391308,"#5C5C5C"],[0.61204013377926425,"#5B5B5B"],[0.61538461538461542,"#5B5B5B"],[0.61872909698996659,"#5A5A5A"],[0.62207357859531776,"#595959"],[0.62541806020066892,"#585858"],[0.62876254180602009,"#575757"],[0.63210702341137126,"#575757"],[0.63545150501672243,"#565656"],[0.6387959866220736,"#555555"],[0.64214046822742477,"#545454"],[0.64548494983277593,"#535353"],[0.64882943143812721,"#535353"],[0.65217391304347838,"#525252"],[0.65551839464882944,"#515151"],[0.65886287625418072,"#505050"],[0.66220735785953178,"#4F4F4F"],[0.66555183946488283,"#4F4F4F"],[0.66889632107023411,"#4E4E4E"],[0.67224080267558528,"#4D4D4D"],[0.67558528428093656,"#4C4C4C"],[0.67892976588628751,"#4C4C4C"],[0.68227424749163879,"#4B4B4B"],[0.68561872909699006,"#4A4A4A"],[0.68896321070234101,"#494949"],[0.69230769230769229,"#484848"],[0.69565217391304346,"#484848"],[0.69899665551839474,"#474747"],[0.70234113712374568,"#464646"],[0.70568561872909696,"#454545"],[0.70903010033444824,"#454545"],[0.71237458193979941,"#444444"],[0.71571906354515036,"#434343"],[0.71906354515050164,"#424242"],[0.72240802675585292,"#424242"],[0.72575250836120386,"#414141"],[0.72909698996655514,"#404040"],[0.73244147157190642,"#3F3F3F"],[0.73578595317725759,"#3E3E3E"],[0.73913043478260854,"#3E3E3E"],[0.74247491638795982,"#3D3D3D"],[0.7458193979933111,"#3C3C3C"],[0.74916387959866237,"#3B3B3B"],[0.75250836120401332,"#3B3B3B"],[0.75585284280936449,"#3A3A3A"],[0.75919732441471577,"#393939"],[0.76254180602006671,"#383838"],[0.76588628762541799,"#383838"],[0.76923076923076927,"#373737"],[0.77257525083612055,"#363636"],[0.7759197324414715,"#363636"],[0.77926421404682267,"#353535"],[0.78260869565217395,"#343434"],[0.78595317725752489,"#333333"],[0.78929765886287617,"#333333"],[0.79264214046822745,"#323232"],[0.79598662207357862,"#313131"],[0.79933110367892968,"#303030"],[0.80267558528428085,"#303030"],[0.80602006688963213,"#2F2F2F"],[0.8093645484949834,"#2E2E2E"],[0.81270903010033435,"#2E2E2E"],[0.81605351170568563,"#2D2D2D"],[0.8193979933110368,"#2C2C2C"],[0.82274247491638786,"#2B2B2B"],[0.82608695652173902,"#2B2B2B"],[0.8294314381270903,"#2A2A2A"],[0.83277591973244158,"#292929"],[0.83612040133779253,"#292929"],[0.83946488294314381,"#282828"],[0.84280936454849498,"#272727"],[0.84615384615384626,"#262626"],[0.8494983277591972,"#262626"],[0.85284280936454848,"#252525"],[0.85618729096989976,"#242424"],[0.85953177257525071,"#242424"],[0.86287625418060199,"#232323"],[0.86622073578595316,"#222222"],[0.86956521739130443,"#222222"],[0.87290969899665538,"#212121"],[0.87625418060200666,"#202020"],[0.87959866220735794,"#202020"],[0.88294314381270911,"#1F1F1F"],[0.88628762541806005,"#1E1E1E"],[0.88963210702341133,"#1E1E1E"],[0.89297658862876261,"#1D1D1D"],[0.89632107023411356,"#1C1C1C"],[0.89966555183946484,"#1C1C1C"],[0.90301003344481612,"#1B1B1B"],[0.90635451505016729,"#1A1A1A"],[0.90969899665551823,"#1A1A1A"],[0.91304347826086951,"#191919"],[0.91638795986622079,"#181818"],[0.91973244147157207,"#181818"],[0.92307692307692302,"#171717"],[0.92642140468227419,"#161616"],[0.92976588628762546,"#161616"],[0.93311036789297641,"#151515"],[0.93645484949832769,"#141414"],[0.93979933110367897,"#131313"],[0.94314381270903025,"#131313"],[0.9464882943143812,"#121212"],[0.94983277591973236,"#111111"],[0.95317725752508364,"#101010"],[0.95652173913043492,"#0F0F0F"],[0.95986622073578587,"#0E0E0E"],[0.96321070234113715,"#0D0D0D"],[0.96655518394648832,"#0C0C0C"],[0.96989966555183937,"#0B0B0B"],[0.97324414715719054,"#0A0A0A"],[0.97658862876254182,"#090909"],[0.9799331103678931,"#070707"],[0.98327759197324405,"#060606"],[0.98662207357859533,"#050505"],[0.98996655518394649,"#040404"],[0.99331103678929777,"#020202"],[0.99665551839464872,"#010101"],[1,"#000000"]],"colorbar":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"thickness":23.039999999999996,"title":"Proportion","titlefont":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"tickmode":"array","ticktext":["0.05","0.10","0.15"],"tickvals":[0.24281982561463697,0.50705188679245294,0.77128394797026867],"tickfont":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"ticklen":2,"len":0.5}},"xaxis":"x","yaxis":"y","frame":null}],"layout":{"margin":{"t":40.840182648401829,"r":7.3059360730593621,"b":37.260273972602747,"l":84.018264840182667},"paper_bgcolor":"rgba(255,255,255,1)","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724},"title":{"text":"Educational Homophily Heatmap","font":{"color":"rgba(0,0,0,1)","family":"","size":17.534246575342465},"x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,4.5999999999999996],"tickmode":"array","ticktext":["primary","secondary","university","vocational"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["primary","secondary","university","vocational"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0,"zeroline":false,"anchor":"y","title":{"text":"Ego Educational Level","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"yaxis":{"domain":[0,1],"automargin":true,"type":"linear","autorange":false,"range":[0.40000000000000002,4.5999999999999996],"tickmode":"array","ticktext":["primary","secondary","university","vocational"],"tickvals":[1,2,3,4],"categoryorder":"array","categoryarray":["primary","secondary","university","vocational"],"nticks":null,"ticks":"","tickcolor":null,"ticklen":3.6529680365296811,"tickwidth":0,"showticklabels":true,"tickfont":{"color":"rgba(77,77,77,1)","family":"","size":11.68949771689498},"tickangle":-0,"showline":false,"linecolor":null,"linewidth":0,"showgrid":true,"gridcolor":"rgba(235,235,235,1)","gridwidth":0,"zeroline":false,"anchor":"x","title":{"text":"Alter Educational Level","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}},"hoverformat":".2f"},"shapes":[{"type":"rect","fillcolor":null,"line":{"color":null,"width":0,"linetype":[]},"yref":"paper","xref":"paper","layer":"below","x0":0,"x1":1,"y0":0,"y1":1}],"showlegend":false,"legend":{"bgcolor":null,"bordercolor":null,"borderwidth":0,"font":{"color":"rgba(0,0,0,1)","family":"","size":11.68949771689498},"title":{"text":"Proportion","font":{"color":"rgba(0,0,0,1)","family":"","size":14.611872146118724}}},"hovermode":"closest","barmode":"relative"},"config":{"doubleClick":"reset","modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"source":"A","attrs":{"36257e9a23e0":{"x":{},"y":{},"fill":{},"text":{},"type":"heatmap"}},"cur_data":"36257e9a23e0","visdat":{"36257e9a23e0":["function (y) ","x"]},"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.20000000000000001,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 </div>
 </div>
 </section>
-<section id="análisis-de-relaciones-por-tipo" class="level3">
-<h3 class="anchored" data-anchor-id="análisis-de-relaciones-por-tipo">Análisis de Relaciones por Tipo</h3>
-<p>Calculamos promedios de tiempo de relación según el tipo de vínculo:</p>
+<section id="relationship-analysis-by-type" class="level3">
+<h3 class="anchored" data-anchor-id="relationship-analysis-by-type">Relationship Analysis by Type</h3>
+<p>We calculate average relationship duration by tie type:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>obs <span class="sc">%&gt;%</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
@@ -1196,13 +1196,13 @@ Figure&nbsp;1: Egonetwork
 </div>
 </section>
 </section>
-<section id="cálculo-de-distancias-sociodemográficas" class="level2">
-<h2 class="anchored" data-anchor-id="cálculo-de-distancias-sociodemográficas">Cálculo de Distancias Sociodemográficas</h2>
-<section id="creación-de-vectores-de-distancia" class="level3">
-<h3 class="anchored" data-anchor-id="creación-de-vectores-de-distancia">Creación de Vectores de Distancia</h3>
-<p>Calculamos medidas de distancia sociodemográfica entre ego y alter. Un valor de 1 indica diferencia en el atributo:</p>
+<section id="calculating-sociodemographic-distances" class="level2">
+<h2 class="anchored" data-anchor-id="calculating-sociodemographic-distances">Calculating Sociodemographic Distances</h2>
+<section id="creating-distance-vectors" class="level3">
+<h3 class="anchored" data-anchor-id="creating-distance-vectors">Creating Distance Vectors</h3>
+<p>We compute sociodemographic distance measures between each ego and alter. A value of 1 indicates a difference in the attribute:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculamos distancias para cada dimensión</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate distances for each dimension</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>obs<span class="sc">$</span>sexo_dist <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(obs<span class="sc">$</span>alter_sexo <span class="sc">==</span> obs<span class="sc">$</span>ego_sexo, <span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>obs<span class="sc">$</span>edad_dist <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(obs<span class="sc">$</span>alter_edad <span class="sc">==</span> obs<span class="sc">$</span>ego_edad, <span class="dv">0</span>, <span class="dv">1</span>)</span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>obs<span class="sc">$</span>educ_dist <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(obs<span class="sc">$</span>alter_educ <span class="sc">==</span> obs<span class="sc">$</span>ego_educ, <span class="dv">0</span>, <span class="dv">1</span>)</span>
@@ -1210,11 +1210,11 @@ Figure&nbsp;1: Egonetwork
 <span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>obs<span class="sc">$</span>relig_dist <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(obs<span class="sc">$</span>alter_relig <span class="sc">==</span> obs<span class="sc">$</span>ego_relig, <span class="dv">0</span>, <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-<section id="resumen-de-distancias" class="level3">
-<h3 class="anchored" data-anchor-id="resumen-de-distancias">Resumen de Distancias</h3>
-<p>Finalmente, presentamos un resumen de las distancias sociodemográficas:</p>
+<section id="distance-summary" class="level3">
+<h3 class="anchored" data-anchor-id="distance-summary">Distance Summary</h3>
+<p>Finally, we present a summary of the sociodemographic distances:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Creamos tabla resumen de distancias</span></span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a summary table of distances</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kbl</span>(<span class="fu">egltable</span>(</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">c</span>(<span class="st">"sexo_dist"</span>, <span class="st">"edad_dist"</span>, <span class="st">"educ_dist"</span>, <span class="st">"ideol_dist"</span>, <span class="st">"relig_dist"</span>),</span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> obs,</span>
@@ -1254,13 +1254,13 @@ Figure&nbsp;1: Egonetwork
 </table>
 </div>
 </div>
-<p>Esta tabla final muestra el porcentaje de díadas ego-alter que presentan diferencias en cada dimensión sociodemográfica, permitiéndonos evaluar los patrones de homofilia en diferentes características.</p>
+<p>This final table shows the percentage of ego–alter dyads that differ in each sociodemographic dimension, allowing us to assess homophily patterns across characteristics.</p>
 </section>
 </section>
-<section id="bibliografía." class="level2">
-<h2 class="anchored" data-anchor-id="bibliografía.">Bibliografía.</h2>
+<section id="references" class="level1">
+<h1>References</h1>
 <ul>
-<li><p>Bargsted Valdés, M. A., Espinoza, V., &amp; Plaza, A. (2020). Pautas de Homofilia en Chile. Papers. Revista de Sociologia, 105(4), 583. https://doi.org/10.5565/rev/papers.2617</p></li>
+<li><p>Bargsted Valdés, M. A., Espinoza, V., &amp; Plaza, A. (2020). Homophily Patterns in Chile. Papers. Revista de Sociologia, 105(4), 583. https://doi.org/10.5565/rev/papers.2617</p></li>
 <li><p>Smith, J. A., McPherson, M., &amp; Smith-Lovin, L. (2014). Social Distance in the United States: Sex, Race, Religion, Age, and Education Homophily among Confidants, 1985 to 2004. American Sociological Review, 79(3), 432–456. https://doi.org/10.1177/0003122414531776</p></li>
 </ul>
 
@@ -1680,17 +1680,17 @@ Figure&nbsp;1: Egonetwork
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="../../../accessibility.qmd">
+    <a class="nav-link" href="../../../accessibility.html">
 <p>Accessibility</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../../contact.qmd">
+    <a class="nav-link" href="../../../contact.html">
 <p>Contact</p>
 </a>
   </li>  
     <li class="nav-item">
-    <a class="nav-link" href="../../../license.qmd">
+    <a class="nav-link" href="../../../license.html">
 <p>License</p>
 </a>
   </li>  
