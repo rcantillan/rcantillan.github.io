@@ -54,8 +54,8 @@ pacman::p_load(ggplot2,
 
 ### Load data
 ```{r}
-load("/home/rober/Documents/rcantillan.github.io/dat/ELSOC/ELSOC_W02_v3.00_R.RData")
-load("/home/rober/Documents/rcantillan.github.io/dat/ELSOC/ELSOC_W04_v2.01_R.RData")
+load("../../../dat/ELSOC/ELSOC_W02_v3.00_R.RData")
+load("../../../dat/ELSOC/ELSOC_W04_v2.01_R.RData")
 ```
 
 ### Subset 2017 
