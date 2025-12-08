@@ -49,3 +49,20 @@ I am a doctoral candidate in Sociology at the Pontificia Universidad Católica d
 
 :::
 <!-- hero-heading -->
+
+
+
+::: {.column-page-inset}
+
+## Recent Updates
+
+| | |
+|:---|:---|
+| **Nov 2025** | 📝 Paper accepted in *Sociology Journal*: "Network Effects in Labor Markets". |
+| **Oct 2025** | 🎤 Presented at the **COES Conference** on Social Stratification. |
+| **Sep 2025** | 💻 Updated the [course material](https://github.com/rcantillan) for SOC3070. |
+
+:::
+
+
+
