@@ -23,6 +23,8 @@ title-block-banner: featured.jpg
 title-block-banner-color: "rgba(0, 0, 0, 0.8)"
 title-block-style: default
 freeze: true
+execute:
+  cache: true
 ---
 
 ```{r setup, include=FALSE}

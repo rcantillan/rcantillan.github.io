@@ -10,6 +10,8 @@ image: "featured.jpg"
 title-block-banner: featured.jpg
 title-block-banner-color: "rgba(0,38,66,0.75)"
 title-block-style: default
+execute:
+  cache: true
 ---
 
 ## Introduction
@@ -23,13 +25,28 @@ This document provides a detailed analysis of ego-centric networks using data fr
 We begin by loading the required libraries. The following code uses `pacman::p_load()`, which installs packages if they are not already available and then loads them. Each package serves a specific purpose:
 
 ```{r}
+
 #| label: setup
 #| message: false
+#| warning: false
 
-pacman::p_load(tidyverse,sjlabelled,sjPlot,vcd,texreg,ordinal, 
-               egor,haven,car,dplyr,stargazer,janitor,gridExtra,
-               ggeffects, kableExtra, questionr, JWileymisc, httr,
-               utils, plotly)
+# Carga directa (rápida)
+library(tidyverse)
+library(sjlabelled)
+library(sjPlot)
+library(texreg)
+library(egor)
+library(haven)
+library(car)
+library(stargazer)
+library(janitor)
+library(gridExtra)
+library(ggeffects)
+library(kableExtra)
+library(questionr)
+library(JWileymisc)
+library(httr)
+library(plotly)
 ```
 
 ## Data Loading

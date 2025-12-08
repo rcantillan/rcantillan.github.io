@@ -45,24 +45,10 @@ resources:
 
 I am a doctoral candidate in Sociology at the Pontificia Universidad Católica de Chile and an assistant at the 'Millennium Nucleus for the Study of Labor Market Mismatch' (LM2C2). My doctoral research uses a structural and network perspective to analyze the patterns of mobility, diffusion, and segregation in labor markets from an intragenerational viewpoint.
 
-[Learn more about me &rarr;](/about){.about-links .subtitle}
-
+#### Recent Updates
+:::{style="font-size: 13px; margin-top: 1em;"}
+* **Dec 2025** — Presented *"Structurally Conditioned Diffusion Reproduces Skills-Based Stratification
+How Skill Requirements Propagate — And Why They Preserve Hierarchies"* at the International Conference "The future of Social Mobility" [Slides](https://rcantillan.github.io/slides/coes_mobility/slides.html) 
+:::
 :::
 <!-- hero-heading -->
-
-
-
-::: {.column-page-inset}
-
-## Recent Updates
-
-| | |
-|:---|:---|
-| **Nov 2025** | 📝 Paper accepted in *Sociology Journal*: "Network Effects in Labor Markets". |
-| **Oct 2025** | 🎤 Presented at the **COES Conference** on Social Stratification. |
-| **Sep 2025** | 💻 Updated the [course material](https://github.com/rcantillan) for SOC3070. |
-
-:::
-
-
-

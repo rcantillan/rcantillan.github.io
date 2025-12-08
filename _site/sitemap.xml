@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://rcantillan.github.io/index.html</loc>
-    <lastmod>2025-07-10T01:58:34.969Z</lastmod>
+    <lastmod>2025-12-08T04:53:50.929Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/publication/index.html</loc>
@@ -10,7 +10,7 @@
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/posts/01-multihomophily/index.html</loc>
-    <lastmod>2025-07-10T01:58:34.829Z</lastmod>
+    <lastmod>2025-12-08T03:36:46.396Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/posts/04-twomode-ergm/index.html</loc>
@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/posts/03-egodescriptives/index.html</loc>
-    <lastmod>2025-07-10T01:58:34.846Z</lastmod>
+    <lastmod>2025-12-08T04:02:51.167Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/about.html</loc>
@@ -70,7 +70,7 @@
   </url>
   <url>
     <loc>https://rcantillan.github.io/project/index.html</loc>
-    <lastmod>2025-07-10T01:58:34.969Z</lastmod>
+    <lastmod>2025-12-08T03:36:46.398Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/workshop/index.html</loc>
@@ -78,7 +78,7 @@
   </url>
   <url>
     <loc>https://rcantillan.github.io/resources/index.html</loc>
-    <lastmod>2025-07-10T18:33:38.691Z</lastmod>
+    <lastmod>2025-12-08T03:36:46.399Z</lastmod>
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/posts/09-skill_diffusion/01_model.html</loc>
@@ -90,6 +90,14 @@
   </url>
   <url>
     <loc>https://rcantillan.github.io/blog/posts/10-abm-skill-diffusion/01_abm_skill_diffusion.html</loc>
-    <lastmod>2025-07-30T02:59:30.709Z</lastmod>
+    <lastmod>2025-08-13T05:05:02.712Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/contact.html</loc>
+    <lastmod>2025-12-08T03:36:46.398Z</lastmod>
+  </url>
+  <url>
+    <loc>https://rcantillan.github.io/accessibility.html</loc>
+    <lastmod>2025-12-08T03:36:46.394Z</lastmod>
   </url>
 </urlset>
