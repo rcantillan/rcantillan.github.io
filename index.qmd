@@ -6,7 +6,7 @@ description: |
 subtitle: "Ph.D. (c) in Sociology <br> Pontificia Universidad Católica de Chile"
 image: img/originaltheoryor00wrig_0137.jpg
 image-alt: ""
-toc: false  <-- Agrega esto para borrar el menú lateral
+toc: false  
 about:
   template: solana
   image-width: 24em
