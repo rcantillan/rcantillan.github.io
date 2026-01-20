@@ -47,8 +47,10 @@ I am a doctoral candidate in Sociology at the Pontificia Universidad Católica d
 
 #### Recent Updates
 :::{style="font-size: 13px; margin-top: 1em;"}
-* **Dec 2025** — Presented *"Structurally Conditioned Diffusion Reproduces Skills-Based Stratification
-How Skill Requirements Propagate — And Why They Preserve Hierarchies"* at the International Conference "The future of Social Mobility" [Slides](https://rcantillan.github.io/slides/coes_mobility/slides.html) 
+* **Jan 2026** -- Presented "*"Structurally Conditioned Diffusion Reproduces Skills-Based Stratification
+How Skill Requirements Propagate — And Why They Preserve Hierarchies"* Online RC28 International Conference [Slides](https://rcantillan.github.io/slides/coes_mobility/slides.html) 
+* **Dec 2025** — Presented *"Structurally Conditioned Diffusion Reproduces Skills-Based Stratification 
+How Skill Requirements Propagate — And Why They Preserve Hierarchies"* at the International Conference "The future of Social Mobility". 
 :::
 :::
 <!-- hero-heading -->
