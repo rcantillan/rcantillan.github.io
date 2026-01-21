@@ -25,6 +25,9 @@ about:
     - text: "{{< ai google-scholar >}}"
       aria-label: "Google Scholar"
       href: https://scholar.google.com/citations?user=xZkAmvAAAAAJ&hl=es
+    - text: "{{< ai cv >}}"
+      aria-label: "Curriculum Vitae"
+      href: /pdf/CV_Roberto_Cantillan.pdf
 page-layout: full
 
 execute: 
