@@ -9,7 +9,7 @@ image-alt: ""
 toc: false  
 about:
   template: solana
-  image-width: 24em
+  image-width: 50em
   id: hero-heading
   links:
     - icon: github
@@ -18,8 +18,8 @@ about:
     - icon: linkedin
       aria-label: "LinkedIn"
       href: https://cl.linkedin.com/in/roberto-cantillan-carrasco-67620517b
-    - icon: mastodon
-      href: https://hachyderm.io/@
+    #- icon: mastodon
+    #  href: https://hachyderm.io/@
     - text: "{{< ai orcid >}}"
       href: https://orcid.org/0000-0003-0494-0692;
     - text: "{{< ai google-scholar >}}"
@@ -34,8 +34,8 @@ execute:
   
 header-includes: >
   <link rel="stylesheet" href="assets/index.css">
-resources:
-  - assets/index.css
+#resources:
+#  - assets/index.css
 ---
 
 <br><br>
