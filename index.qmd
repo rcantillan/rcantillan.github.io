@@ -9,7 +9,7 @@ image-alt: ""
 toc: false  
 about:
   template: solana
-  image-width: 50em
+  image-width: 30em
   id: hero-heading
   links:
     - icon: github

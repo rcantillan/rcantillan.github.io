@@ -26,8 +26,8 @@ body {
 
 .about-image {
   border-radius: 50%;
-  width: 20em;
-  height: 20em;
+  width: 15em;
+  height: 15em;
   object-fit: cover;
   box-shadow: 0 0 15px rgba(0,0,0,0.1);
 }
