@@ -44,5 +44,5 @@ Cantillan, R., & Herrera, J. (2020). Centralidad de actores y bloques en las red
 
 ### Book chapters 
 
-Plaza Reveco, A., Cantillan Carrasco, R., & Muñoz Rojas, B. (2023). Análisis multinivel para el estudio de redes egocéntricas: Aplicaciones en el estudio de la homofilia en Chile1. In "Redes Sociales: Teoría, métodos y aplicaciones en América Latina" (pp. 183–202). _Centro de Investigaciones Sociológicas (CIS)_. [View](https://libreria.cis.es/libros/redes-sociales-teoria-metodos-y-aplicaciones-en-america-latina/9788474769067/)
+Plaza Reveco, A., Cantillan Carrasco, R., & Muñoz Rojas, B. (2023). Análisis multinivel para el estudio de redes egocéntricas: Aplicaciones en el estudio de la homofilia en Chile1. In "Redes Sociales: Teoría, métodos y aplicaciones en América Latina" (pp. 183–202). _Centro de Investigaciones Sociológicas (CIS)_. [<i class="fas fa-file-pdf"></i>](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5825042)
 

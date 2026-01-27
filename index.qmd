@@ -27,7 +27,7 @@ about:
       href: https://scholar.google.com/citations?user=xZkAmvAAAAAJ&hl=es
     - text: "{{< ai cv >}}"
       aria-label: "Curriculum Vitae"
-      href: https://drive.google.com/file/d/1gpOvKNVqciCWElOViLYZu-EczwIR8PJI/view
+      href: https://drive.google.com/file/d/1x2SGtPjYEN9iz-deoq_8u1KUYhp8VETc/view
 page-layout: full
 
 execute: 
