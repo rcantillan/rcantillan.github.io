@@ -4,8 +4,8 @@
     "items": [
       "/talk/posts/IC2S2/index.html",
       "/talk/posts/CSS/index.html",
-      "/talk/posts/laboral_gender_segregation_II/index.html",
       "/talk/posts/laboral_gender_segregation/index.html",
+      "/talk/posts/laboral_gender_segregation_II/index.html",
       "/talk/posts/mobility_classes/index.html",
       "/talk/posts/multi-homphily/index.html"
     ]
@@ -17,8 +17,8 @@
       "/blog/posts/07-social_movements/index.html",
       "/blog/posts/01-multihomophily/index.html",
       "/blog/posts/04-twomode-ergm/index.html",
-      "/blog/posts/03-egodescriptives/index.html",
       "/blog/posts/06-ggplot/index.html",
+      "/blog/posts/03-egodescriptives/index.html",
       "/blog/posts/05_multihomophily/index.html"
     ]
   }
