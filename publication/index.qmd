@@ -18,13 +18,16 @@ On this page, you will find the results of projects I was involved in and submit
 
 ---
 
+### Working Papers & Preprints
+
+Cantillan, R., & Bucca, M. (2026). Structurally conditioned diffusion: How asymmetric trajectory channeling reproduces skills-based stratification. arXiv preprint. https://doi.org/10.48550/arXiv.2602.21369 <i class="fas fa-file-pdf"></i>
+
+Cantillan, R., Ahumada, G., & Espinoza, V. (2026). Multiple membership configurations and trust formation: Structural precarity in highly unequal societies. SocArXiv. https://doi.org/10.31235/osf.io/XXXXX <i class="fas fa-file-pdf"></i>
+
+
 ### Forthcoming
 
-Cantillan, R., & Bucca, M. (manuscript in preparation). Structurally conditioned diffusion: How asymmetric trajectory channeling reproduces skills-based stratification.
-
 Bucca, M., Cantillan, R., Molina, M., Pesando, L. (manuscript in preparation) Trickle-Down Names: How Social Class Shapes Naming Patterns
-
-Cantillan, R., Ahumada, G., & Espinoza, V. (manuscript in preparation). Multiple membership configurations and trust formation: Structural precarity in highly unequal societies.
 
 Ramond, Q. & Cantillan, R (manuscript in preparation) Neighborhood peer effects in school choice. 
 
