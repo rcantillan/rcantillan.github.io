@@ -405,10 +405,16 @@ td code:not(.sourceCode) {
 // ── HOME PAGE: imagen izquierda, texto a la derecha
 .quarto-about-solana .about-entity {
   flex-direction: row-reverse !important;
+  gap: 3rem !important;
+}
+
+.quarto-about-solana .about-entity .about-contents {
+  padding-left: 0 !important;
 }
 
 @media screen and (max-width: 768px) {
   .quarto-about-solana .about-entity {
     flex-direction: column-reverse !important;
+    gap: 1.5rem !important;
   }
 }
