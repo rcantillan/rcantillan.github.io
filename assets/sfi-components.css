@@ -78,12 +78,34 @@
   border-radius: 2px;
 }
 
-/* 4. HERO SECTION MEJORADO */
+/* 4. HERO SECTION - imagen izquierda, texto derecha */
 #hero-heading {
   padding: 4rem 2rem;
-  text-align: center;
+  text-align: left;
   max-width: 900px;
   margin: 0 auto;
+}
+
+/* Invertir columnas: imagen pasa a la izquierda, texto a la derecha */
+.quarto-about-solana {
+  display: flex !important;
+  flex-direction: row-reverse !important;
+  align-items: flex-start !important;
+  gap: 3rem !important;
+}
+
+.quarto-about-solana .about-image-container {
+  flex: 0 0 auto !important;
+}
+
+.quarto-about-solana .about-contents {
+  flex: 1 1 auto !important;
+}
+
+@media (max-width: 768px) {
+  .quarto-about-solana {
+    flex-direction: column !important;
+  }
 }
 
 #hero-heading .about-image {
