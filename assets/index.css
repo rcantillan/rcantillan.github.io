@@ -1,0 +1,22 @@
+/* HOME PAGE: imagen izquierda, todo el texto a la derecha */
+.quarto-about-solana {
+  display: flex !important;
+  flex-direction: row-reverse !important;
+  align-items: flex-start !important;
+  gap: 3rem !important;
+}
+
+.quarto-about-solana .about-image-container {
+  flex: 0 0 auto !important;
+}
+
+.quarto-about-solana .about-contents {
+  flex: 1 1 auto !important;
+  text-align: left !important;
+}
+
+@media screen and (max-width: 768px) {
+  .quarto-about-solana {
+    flex-direction: column !important;
+  }
+}
