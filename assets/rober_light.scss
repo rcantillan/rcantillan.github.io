@@ -405,7 +405,7 @@ td code:not(.sourceCode) {
 // ── HOME PAGE: imagen izquierda, todo el texto a la derecha
 .quarto-about-solana {
   display: flex !important;
-  flex-direction: row-reverse !important;
+  flex-direction: row !important;
   align-items: flex-start !important;
   gap: 3rem !important;
 
