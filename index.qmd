@@ -10,6 +10,7 @@ toc: false
 about:
   template: solana
   image-width: 30em
+  image-align: left
   id: hero-heading
   links:
     - icon: github
@@ -18,8 +19,6 @@ about:
     - icon: linkedin
       aria-label: "LinkedIn"
       href: https://cl.linkedin.com/in/roberto-cantillan-carrasco-67620517b
-    #- icon: mastodon
-    #  href: https://hachyderm.io/@
     - text: "{{< ai orcid >}}"
       href: https://orcid.org/0000-0003-0494-0692;
     - text: "{{< ai google-scholar >}}"
@@ -37,8 +36,6 @@ execute:
   
 header-includes: >
   <link rel="stylesheet" href="assets/index.css">
-#resources:
-#  - assets/index.css
 ---
 
 <br><br>
@@ -50,10 +47,8 @@ I am a doctoral candidate in Sociology at the Pontificia Universidad Católica d
 
 #### Recent Updates
 :::{style="font-size: 13px; margin-top: 1em;"}
-* **Jan 2026** -- Presented "*"Structurally Conditioned Diffusion Reproduces Skills-Based Stratification
-How Skill Requirements Propagate — And Why They Preserve Hierarchies"* Online RC28 International Conference [Slides](https://rcantillan.github.io/slides/coes_mobility/slides.html) 
-* **Dec 2025** — Presented *"Structurally Conditioned Diffusion Reproduces Skills-Based Stratification 
-How Skill Requirements Propagate — And Why They Preserve Hierarchies"* at the International Conference "The future of Social Mobility". 
+* **Jan 2026** -- Presented "*Structurally Conditioned Diffusion Reproduces Skills-Based Stratification How Skill Requirements Propagate — And Why They Preserve Hierarchies*" Online RC28 International Conference [Slides](https://rcantillan.github.io/slides/coes_mobility/slides.html) 
+* **Dec 2025** — Presented "*Structurally Conditioned Diffusion Reproduces Skills-Based Stratification How Skill Requirements Propagate — And Why They Preserve Hierarchies*" at the International Conference "The future of Social Mobility". 
 :::
 :::
 <!-- hero-heading -->
