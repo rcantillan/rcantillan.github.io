@@ -10,7 +10,6 @@ toc: false
 about:
   template: solana
   image-width: 30em
-  image-align: left
   id: hero-heading
   links:
     - icon: github
