@@ -1,0 +1,546 @@
+---
+title: "Status Without Intent: Gould's Equilibrium Theory of Hierarchy"
+subtitle: "Series: Status Models in Analytical Sociology"
+author: 
+  - name: "Roberto Cantillan"
+    affiliations: 
+        - name: "Department of Sociology, PUC"
+          address: "Santiago, Chile"
+
+date: today
+#bibliography: references.bib
+bibliographystyle: apa
+categories:
+  - Status Theory
+  - Network Models
+  - Nash Equilibrium
+  - Formal Models
+  - Social Stratification
+
+image: "featured.jpg"
+title-block-banner: featured.jpg
+title-block-banner-color: "rgba(0, 0, 0, 0.8)"
+title-block-style: default
+freeze: true
+execute:
+  cache: true
+---
+
+> **Second post in the series.** In the [previous entry](../skvoretz-fararo-1996/index.qmd) I discussed how Skvoretz and Fararo model hierarchy as a step-by-step *process* — a Markov chain in which precedence ties form act by act. This time I look at a paper that takes a radically different approach: instead of simulating a process, Gould derives what hierarchy must look like *at equilibrium*. The paper is **"The Origins of Status Hierarchies: A Formal Theory and Empirical Test"**, by Roger V. Gould, published in the *American Journal of Sociology* in 2002.
+
+---
+
+## The Puzzle
+
+Hierarchy is everywhere. Small task groups, street gangs, academic departments, infant quintuplets — all of them reliably sort their members into ranked positions. The puzzle is not that hierarchy exists, but why two fundamentally different explanations of it have coexisted for so long without resolution.
+
+The **individualist view** says: hierarchy reflects real differences. Those at the top are there because they contribute more, work harder, or are more talented. Rewards track merit. This is the implicit logic of human capital theory and much of economics.
+
+The **structuralist view** says: hierarchy is imposed. Privileged positions reproduce themselves regardless of who occupies them. What matters is not your talent but the social position you inherit or stumble into. This is the implicit logic of much of sociology.
+
+Both views have obvious problems. The individualist account struggles to explain why hierarchies are so much more rigid than underlying differences in talent. The structuralist account struggles to explain why hierarchies emerge even in brand-new groups with no prior positional structure — including, as we will see, among five genetically identical children.
+
+Gould's move is to propose a **third option**: hierarchy is neither a direct mirror of merit nor an artificially imposed structure. It is the *emergent equilibrium* of a social influence process that anyone can participate in without intending to produce any particular outcome.
+
+---
+
+## Two Forces in Tension
+
+The theoretical core of the paper rests on exactly two mechanisms, and understanding how they interact is the whole story.
+
+### Force 1: Social Influence Amplifies Differences
+
+When you assess someone's quality — their talent, worth, or importance — you do not form that judgment in a vacuum. You look at how others are treating them. This is the "Matthew effect" (Merton 1968): contributions of similar quality are evaluated differently depending on the status of the contributor. The researcher already at the top of the citation rankings gets credit for papers that would be ignored from an unknown author.
+
+Formally, Gould models this as: each actor's *perceived quality* is a weighted average of their intrinsic quality and the aggregate of attention they already receive from others.
+
+The consequence is dramatic: **social influence alone would produce winner-take-all hierarchies**. Even a tiny initial advantage gets fed through a cascade — more attention → higher perceived quality → even more attention → … — until one actor monopolizes nearly all positive attention. Pure social influence leads to radical inequality.
+
+But we rarely observe that. Why?
+
+### Force 2: Reciprocity Dampens the Cascade
+
+Here is the key insight. Status gestures are not free. Directing attention, esteem, or approval toward someone who does not return the favor is costly — not just economically, but socially and psychologically. It signals that you are subordinate to them.
+
+Gould models this as a preference for **symmetry in attachments**: actors experience a disutility whenever the attachment they direct to alter differs substantially from the attachment alter directs back to them. This applies in both directions: it is uncomfortable to admire someone who ignores you, but it is also uncomfortable to be cold toward someone who genuinely likes you.
+
+This reciprocity preference is what prevents the winner-take-all cascade. People want to pay attention to the highest-status actor, but not so much that the asymmetry becomes unbearable. So they balance their attention across alters, directing more toward higher-status ones but never abandoning lower-status ones entirely.
+
+The equilibrium that emerges from this trade-off is a **stable, graded hierarchy** — neither complete equality nor absolute winner-takes-all — in which the degree of inequality is determined by the balance between social influence and reciprocity concerns.
+
+---
+
+## The Formal Model
+
+### Setup
+
+Gould models a closed group of $n$ actors. Each actor $i$ chooses a vector of **attachments** $a_{ij}$ directed toward every other actor $j$. Think of an attachment as the amount of attention, esteem, or approval that $i$ directs toward $j$. Attachments can be positive (approval) or negative (disapproval).
+
+Actor $i$'s welfare depends on two things:
+
+1. **Quality of alters** — $i$ benefits from attaching to attractive others: $a_{ij} \cdot q_j$
+2. **Symmetry** — $i$ is hurt by asymmetric attachments, weighted by how much $i$ cares about the alter: $a_{ij}(a_{ij} - a_{ji})$
+
+Formally, for a three-person group:
+
+$$u_i = a_{ij}q_j + a_{ik}q_k - s\left[a_{ij}(a_{ij} - a_{ji}) + a_{ik}(a_{ik} - a_{ki})\right]$$
+
+where $s \geq 0$ is the weight placed on reciprocity relative to quality. When $s = 0$, only quality matters. As $s$ increases, reciprocity becomes increasingly important and status differences shrink.
+
+### The Equilibrium Attachment
+
+Maximizing each actor's welfare conditional on everyone else's choices yields the **Nash equilibrium allocation**:
+
+$$a^*_{ij} = \frac{q_j + \frac{1}{2}q_i}{s} \cdot \frac{1}{3} \qquad \text{(simplified)}$$
+
+In plain terms: the attention $i$ directs toward $j$ is proportional to **$j$'s quality** (the primary driver) and also to **$i$'s own quality** (because high-quality actors receive more in return, so they can afford to give more). The whole expression is shrunk by the reciprocity parameter $s$.
+
+### Social Influence Makes It Nonlinear
+
+When perceived quality is endogenous — each actor's quality in the eyes of others is partly determined by the aggregate attention they receive — the equilibrium relationship between underlying quality and choice status becomes **convex**. Small differences in intrinsic quality produce increasingly large differences in received attention. The higher the weight of social influence, the more dramatically small initial advantages get amplified into large status gaps.
+
+This is the formal expression of what we mean when we say a field has "stars" and "everyone else": not that the stars are dramatically more talented, but that a self-reinforcing social evaluation process has amplified modest differences into a bifurcated structure.
+
+---
+
+## Six Testable Predictions
+
+One of Gould's key methodological achievements is deriving **six propositions** in closed form from the model's equilibrium conditions. These can all be tested on social network data without measuring underlying quality directly.
+
+| Proposition | Prediction |
+|-------------|------------|
+| **P1** | More popular actors receive *weaker* attachments from less popular ones than they send back — i.e., dyadic asymmetry is proportional to status distance |
+| **P2** | This relationship weakens as group size increases |
+| **P3** | Actors similar in popularity direct similar patterns of attachment to others (structural equivalence) |
+| **P4** | If two actors have equal status, they direct identical attachments to every third party |
+| **P5** | Actors who receive more attention also *send* more attention — popularity and gregariousness are positively linked |
+| **P6** | The distribution of incoming attention (popularity) is *more unequal* than the distribution of outgoing attention (gregariousness) |
+
+---
+
+## The Interactive Explorer
+
+The widget below lets you explore the core mechanism of the model: how the **balance between social influence and reciprocity** shapes the resulting hierarchy.
+
+- **Quality** ($Q$): each actor starts with a different intrinsic quality score. The five actors are ordered from most to least attractive.
+- **Reciprocity** ($s$): how much actors dislike asymmetric attachments. Higher values flatten the hierarchy.
+- **Social influence** ($\rho$): how much perceived quality depends on received attention rather than intrinsic quality. Higher values amplify inequality.
+
+Pay attention to two things: (1) how choice status diverges from intrinsic quality as $\rho$ increases, and (2) how the network arrows grow thicker at the top as social influence dominates.
+
+```{=html}
+<div style="font-family:inherit;max-width:740px">
+  <div style="border:1px solid #e0dfd8;border-radius:10px;overflow:hidden;background:#fafaf9">
+
+    <!-- Controls -->
+    <div style="padding:14px 16px;border-bottom:1px solid #e0dfd8;background:#f5f4f0">
+      <div style="display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start">
+
+        <div style="flex:1;min-width:180px">
+          <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:4px">
+            Reciprocity weight <em>s</em>
+          </label>
+          <input type="range" id="gSliderS" min="0.5" max="5" step="0.1" value="2"
+            style="width:100%;accent-color:#185FA5">
+          <div style="font-size:12px;color:#888;margin-top:2px">
+            s = <span id="gValS">2.0</span>
+            &nbsp;·&nbsp; higher = flatter hierarchy
+          </div>
+        </div>
+
+        <div style="flex:1;min-width:180px">
+          <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:4px">
+            Social influence <em>ρ</em>
+          </label>
+          <input type="range" id="gSliderRho" min="0" max="0.85" step="0.01" value="0"
+            style="width:100%;accent-color:#B94A30">
+          <div style="font-size:12px;color:#888;margin-top:2px">
+            ρ = <span id="gValRho">0.00</span>
+            &nbsp;·&nbsp; higher = amplified inequality
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Main panels -->
+    <div style="display:flex;flex-wrap:wrap;background:#fff">
+
+      <!-- Network -->
+      <div style="flex:1;min-width:280px;border-right:1px solid #f0efe8;padding:10px 0">
+        <div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.05em;padding:0 14px 6px">Equilibrium attention network</div>
+        <svg id="gNetSvg" width="100%" viewBox="0 0 300 280" style="display:block"></svg>
+        <div style="font-size:11px;color:#aaa;padding:4px 14px">Node size ∝ choice status · Arrow thickness ∝ attachment strength</div>
+      </div>
+
+      <!-- Bar chart -->
+      <div style="flex:1;min-width:240px;padding:10px 0">
+        <div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.05em;padding:0 14px 6px">Quality vs. Choice Status</div>
+        <svg id="gBarSvg" width="100%" viewBox="0 0 280 260" style="display:block"></svg>
+        <div style="font-size:11px;color:#aaa;padding:4px 14px">Gray = intrinsic quality · Color = received attention at equilibrium</div>
+      </div>
+
+    </div>
+
+    <!-- Info row -->
+    <div id="gInfo" style="padding:10px 16px;font-size:13px;color:#555;border-top:1px solid #f0efe8;background:#f8f8f7;min-height:36px;line-height:1.6">
+      Move the sliders to explore how reciprocity and social influence shape the hierarchy.
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+
+  const Q_BASE = [2, 1, 0, -1, -2];
+  const LABELS = ["A","B","C","D","E"];
+  const N = 5;
+
+  // Actor color palette: dark blue (highest Q) → gray (lowest Q)
+  const ACTOR_FILL = ["#0C3D6B","#185FA5","#6C9CC9","#9AAFBE","#B0B5BB"];
+
+  const CX = 150, CY = 142, R = 100;
+  const angles = [270, 342, 54, 126, 198];
+  const pos = angles.map(deg => ({
+    x: CX + R * Math.cos(deg * Math.PI / 180),
+    y: CY + R * Math.sin(deg * Math.PI / 180)
+  }));
+
+  function computeModel(s, rho) {
+    let q = [...Q_BASE];
+    for (let iter = 0; iter < 300; iter++) {
+      const a = Array.from({length:N}, (_,i) =>
+        Array.from({length:N}, (_,j) => i===j ? 0 : (2*q[j]+q[i])/(3*s))
+      );
+      const cs = q.map((_,j) => a.reduce((sum,row,i) => sum+(i!==j?row[j]:0), 0));
+      const qn = Q_BASE.map((Qj,j) => (1-rho)*Qj + rho*cs[j]);
+      const diff = qn.reduce((d,v,j) => d+Math.abs(v-q[j]), 0);
+      q = qn;
+      if (diff < 1e-9) break;
+    }
+    const a = Array.from({length:N}, (_,i) =>
+      Array.from({length:N}, (_,j) => i===j ? 0 : (2*q[j]+q[i])/(3*s))
+    );
+    const cs = q.map((_,j) => a.reduce((sum,row,i) => sum+(i!==j?row[j]:0), 0));
+    return { q, a, cs };
+  }
+
+  function mkMarker(defs, id, color) {
+    const m = document.createElementNS(NS, "marker");
+    m.setAttribute("id", id);
+    m.setAttribute("viewBox", "0 0 8 8");
+    m.setAttribute("refX", "7"); m.setAttribute("refY", "4");
+    m.setAttribute("markerWidth", "4"); m.setAttribute("markerHeight", "4");
+    m.setAttribute("orient", "auto-start-reverse");
+    const p = document.createElementNS(NS, "path");
+    p.setAttribute("d", "M1 1L7 4L1 7");
+    p.setAttribute("fill", "none");
+    p.setAttribute("stroke", color);
+    p.setAttribute("stroke-width", "1.5");
+    p.setAttribute("stroke-linecap", "round");
+    m.appendChild(p); defs.appendChild(m);
+  }
+
+  function lerpRGB(c1, c2, t) {
+    return [0,1,2].map(i => Math.round(c1[i] + (c2[i]-c1[i])*t));
+  }
+  function hexToRGB(hex) {
+    return [1,3,5].map(i => parseInt(hex.slice(i,i+2),16));
+  }
+  const COL_WEAK   = hexToRGB("#B8D0E8");
+  const COL_STRONG = hexToRGB("#0C3D6B");
+
+  function drawNetwork(a, cs) {
+    const svg = document.getElementById("gNetSvg");
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const defs = document.createElementNS(NS, "defs");
+
+    // 3 shared markers (weak / medium / strong)
+    mkMarker(defs, "gAW", "#B8D0E8");
+    mkMarker(defs, "gAM", "#185FA5");
+    mkMarker(defs, "gAS", "#0C3D6B");
+    svg.appendChild(defs);
+
+    // Node radius proportional to choice status (range 14..26)
+    const minCS = Math.min(...cs), maxCS = Math.max(...cs);
+    const csSpan = maxCS - minCS || 1;
+    const nodeR = cs.map(c => 14 + 12*(c-minCS)/csSpan);
+
+    let maxA = 0;
+    for (let i=0;i<N;i++) for (let j=0;j<N;j++) if (i!==j) maxA = Math.max(maxA, a[i][j]);
+    if (maxA < 0.001) maxA = 1;
+
+    // Draw edges (before nodes so nodes render on top)
+    for (let i=0;i<N;i++) {
+      for (let j=0;j<N;j++) {
+        if (i===j || a[i][j] <= 0.001) continue;
+        const t  = a[i][j]/maxA;
+        const sw = Math.max(0.5, t*5);
+        const [r,g,b] = lerpRGB(COL_WEAK, COL_STRONG, t);
+        const color   = `rgb(${r},${g},${b})`;
+        const markId  = t>0.6 ? "gAS" : t>0.3 ? "gAM" : "gAW";
+
+        const pi=pos[i], pj=pos[j];
+        const dx=pj.x-pi.x, dy=pj.y-pi.y;
+        const len=Math.sqrt(dx*dx+dy*dy);
+        const perp={x:-dy/len, y:dx/len};
+        const off=5;
+        const x1=pi.x+(dx/len)*nodeR[i]+perp.x*off;
+        const y1=pi.y+(dy/len)*nodeR[i]+perp.y*off;
+        const x2=pj.x-(dx/len)*(nodeR[j]+5)+perp.x*off;
+        const y2=pj.y-(dy/len)*(nodeR[j]+5)+perp.y*off;
+
+        const ln=document.createElementNS(NS,"line");
+        ln.setAttribute("x1",x1); ln.setAttribute("y1",y1);
+        ln.setAttribute("x2",x2); ln.setAttribute("y2",y2);
+        ln.setAttribute("stroke",color);
+        ln.setAttribute("stroke-width",sw);
+        ln.setAttribute("opacity",0.2+0.8*t);
+        ln.setAttribute("marker-end",`url(#${markId})`);
+        svg.appendChild(ln);
+      }
+    }
+
+    // Draw nodes
+    for (let i=0;i<N;i++) {
+      const r=nodeR[i];
+      const c=document.createElementNS(NS,"circle");
+      c.setAttribute("cx",pos[i].x); c.setAttribute("cy",pos[i].y);
+      c.setAttribute("r",r);
+      c.setAttribute("fill",ACTOR_FILL[i]);
+      c.setAttribute("stroke","#fff"); c.setAttribute("stroke-width","2");
+      svg.appendChild(c);
+
+      const showSub = r >= 18;
+      const labelY  = showSub ? pos[i].y-4 : pos[i].y;
+
+      const tl=document.createElementNS(NS,"text");
+      tl.setAttribute("x",pos[i].x); tl.setAttribute("y",labelY);
+      tl.setAttribute("text-anchor","middle");
+      tl.setAttribute("dominant-baseline","central");
+      tl.setAttribute("font-size","12"); tl.setAttribute("font-weight","700");
+      tl.setAttribute("fill","#fff");
+      tl.textContent=LABELS[i];
+      svg.appendChild(tl);
+
+      if (showSub) {
+        const tv=document.createElementNS(NS,"text");
+        tv.setAttribute("x",pos[i].x); tv.setAttribute("y",pos[i].y+9);
+        tv.setAttribute("text-anchor","middle");
+        tv.setAttribute("font-size","8.5");
+        tv.setAttribute("fill","rgba(255,255,255,0.8)");
+        tv.textContent=cs[i].toFixed(1);
+        svg.appendChild(tv);
+      }
+    }
+  }
+
+  function drawBars(cs) {
+    const svg=document.getElementById("gBarSvg");
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+    const W=280, H=260;
+    const padL=36, padR=10, padT=24, padB=34;
+    const chartW=W-padL-padR, chartH=H-padT-padB;
+
+    const allVals=[...Q_BASE,...cs];
+    const minV=Math.floor(Math.min(...allVals))-0.4;
+    const maxV=Math.ceil(Math.max(...allVals))+0.4;
+    const range=maxV-minV;
+    const yScale=v => padT+chartH*(1-(v-minV)/range);
+    const y0=yScale(0);
+
+    // Grid lines + Y-axis tick labels
+    for (let v=Math.ceil(minV); v<=Math.floor(maxV); v++) {
+      const yv=yScale(v);
+      const gl=document.createElementNS(NS,"line");
+      gl.setAttribute("x1",padL); gl.setAttribute("y1",yv);
+      gl.setAttribute("x2",W-padR); gl.setAttribute("y2",yv);
+      gl.setAttribute("stroke",v===0?"#bbb":"#eee");
+      gl.setAttribute("stroke-width",v===0?"1":"0.8");
+      if (v===0) gl.setAttribute("stroke-dasharray","3 4");
+      svg.appendChild(gl);
+
+      const tk=document.createElementNS(NS,"line");
+      tk.setAttribute("x1",padL-4); tk.setAttribute("y1",yv);
+      tk.setAttribute("x2",padL);   tk.setAttribute("y2",yv);
+      tk.setAttribute("stroke","#bbb"); tk.setAttribute("stroke-width","1");
+      svg.appendChild(tk);
+
+      const lbl=document.createElementNS(NS,"text");
+      lbl.setAttribute("x",padL-7); lbl.setAttribute("y",yv);
+      lbl.setAttribute("text-anchor","end");
+      lbl.setAttribute("dominant-baseline","central");
+      lbl.setAttribute("font-size","9"); lbl.setAttribute("fill","#aaa");
+      lbl.textContent=v;
+      svg.appendChild(lbl);
+    }
+
+    // Y axis line
+    const yAx=document.createElementNS(NS,"line");
+    yAx.setAttribute("x1",padL); yAx.setAttribute("y1",padT);
+    yAx.setAttribute("x2",padL); yAx.setAttribute("y2",padT+chartH);
+    yAx.setAttribute("stroke","#ddd"); yAx.setAttribute("stroke-width","1");
+    svg.appendChild(yAx);
+
+    const groupW=chartW/N, barW=groupW*0.28;
+
+    for (let i=0;i<N;i++) {
+      const gx=padL+i*groupW+groupW/2;
+      const Qi=Q_BASE[i], CSi=cs[i];
+
+      // Q bar (gray)
+      const qH=Math.max(Math.abs(Qi)*chartH/range, 1);
+      const qY=Qi>=0 ? yScale(Qi) : y0;
+      const qR=document.createElementNS(NS,"rect");
+      qR.setAttribute("x",gx-barW-2); qR.setAttribute("y",qY);
+      qR.setAttribute("width",barW);  qR.setAttribute("height",qH);
+      qR.setAttribute("fill","#ccc"); qR.setAttribute("rx","2");
+      svg.appendChild(qR);
+
+      // CS bar (actor color)
+      const csH=Math.max(Math.abs(CSi)*chartH/range, 1);
+      const csY=CSi>=0 ? yScale(CSi) : y0;
+      const csR=document.createElementNS(NS,"rect");
+      csR.setAttribute("x",gx+2);    csR.setAttribute("y",csY);
+      csR.setAttribute("width",barW); csR.setAttribute("height",csH);
+      csR.setAttribute("fill",ACTOR_FILL[i]); csR.setAttribute("rx","2");
+      svg.appendChild(csR);
+
+      // CS value label above/below bar
+      const vLbl=document.createElementNS(NS,"text");
+      const vY=CSi>=0
+        ? Math.max(csY-3, padT+7)
+        : Math.min(csY+csH+9, padT+chartH-2);
+      vLbl.setAttribute("x",gx+2+barW/2); vLbl.setAttribute("y",vY);
+      vLbl.setAttribute("text-anchor","middle");
+      vLbl.setAttribute("font-size","8"); vLbl.setAttribute("fill","#888");
+      vLbl.textContent=CSi.toFixed(1);
+      svg.appendChild(vLbl);
+
+      // Actor label (colored to match bar)
+      const aLbl=document.createElementNS(NS,"text");
+      aLbl.setAttribute("x",gx); aLbl.setAttribute("y",padT+chartH+16);
+      aLbl.setAttribute("text-anchor","middle");
+      aLbl.setAttribute("font-size","11"); aLbl.setAttribute("font-weight","700");
+      aLbl.setAttribute("fill",ACTOR_FILL[i]);
+      aLbl.textContent=LABELS[i];
+      svg.appendChild(aLbl);
+    }
+
+    // Legend
+    [{fill:"#ccc",label:"Quality Q"},{fill:"#185FA5",label:"Choice status"}]
+      .forEach(({fill,label},idx) => {
+        const lx=padL+4+idx*90, ly=padT+4;
+        const r=document.createElementNS(NS,"rect");
+        r.setAttribute("x",lx); r.setAttribute("y",ly);
+        r.setAttribute("width",10); r.setAttribute("height",10);
+        r.setAttribute("fill",fill); r.setAttribute("rx","1");
+        svg.appendChild(r);
+        const t=document.createElementNS(NS,"text");
+        t.setAttribute("x",lx+13); t.setAttribute("y",ly+9);
+        t.setAttribute("font-size","10"); t.setAttribute("fill","#888");
+        t.textContent=label;
+        svg.appendChild(t);
+      });
+  }
+
+  function update() {
+    const s   = parseFloat(document.getElementById("gSliderS").value);
+    const rho = parseFloat(document.getElementById("gSliderRho").value);
+    document.getElementById("gValS").textContent   = s.toFixed(1);
+    document.getElementById("gValRho").textContent = rho.toFixed(2);
+
+    const {a, cs} = computeModel(s, rho);
+    drawNetwork(a, cs);
+    drawBars(cs);
+
+    const maxCS = Math.max(...cs), minCS = Math.min(...cs);
+    const ampRatio = ((maxCS-minCS)/(Math.max(...Q_BASE)-Math.min(...Q_BASE))).toFixed(2);
+
+    let msg;
+    if (rho < 0.1) {
+      msg = `ρ ≈ 0: no social influence. Choice status tracks intrinsic quality closely (amplification ×${ampRatio}).`;
+    } else if (rho < 0.5) {
+      msg = `Moderate social influence: status gaps amplified ×${ampRatio} relative to raw quality differences.`;
+    } else {
+      msg = `High social influence (ρ = ${rho.toFixed(2)}): amplification ×${ampRatio}. Modest quality gaps drive large status differences.`;
+    }
+    msg += s < 1.5
+      ? " Low reciprocity — actors freely defer, steepening the hierarchy."
+      : s > 3.5
+      ? " High reciprocity — actors resist asymmetric attachments, flattening the hierarchy."
+      : " Moderate reciprocity — graded, stable status order.";
+
+    document.getElementById("gInfo").textContent = msg;
+  }
+
+  document.getElementById("gSliderS").addEventListener("input", update);
+  document.getElementById("gSliderRho").addEventListener("input", update);
+  update();
+})();
+</script>
+```
+
+The key insight the widget makes visible: **when social influence (ρ) is high and reciprocity concern (s) is low, even tiny initial quality differences produce dramatically unequal status distributions.** Actors A and B — who are only slightly better than C — end up dominating the network not because of a proportional difference in merit, but because others' evaluations feed back into their perceived quality.
+
+---
+
+## Empirical Test: Three Datasets
+
+Gould tests the six propositions on three existing datasets, none of which was designed with this model in mind.
+
+**Bales task groups** (5–8 members). Bales's classic data record the number of times each group member verbally addressed each other member, aggregated across multiple groups. The data cleanly meet the model's requirements: unconstrained outdegree, variable attachment strength, non-symmetric ties. All six propositions are confirmed across all group sizes.
+
+**The Dionne quintuplets** (5 children, nearly 2 years of observation). This dataset is Gould's rhetorical masterstroke. William Blatz and colleagues recorded the number of times each of the five genetically identical children approached each of the others in play overtures. These children share essentially identical genetic endowments. Yet they developed a clear, differentiated hierarchy of play initiation. This is nearly direct evidence for the model's core claim: hierarchy can emerge from a social influence process operating on even negligible initial differences. All but one test is statistically significant.
+
+**Newcomb's fraternity** (17 members, 15 weeks). Each member ranked the others in terms of friendliness, once per week. The longitudinal structure allows a direct test of whether the network evolves *toward* the equilibrium predicted by the model. It does: the correspondence between status distance and dyadic asymmetry rises from .52 at week 1 to .80 by the end of the semester, then stabilizes. The model's equilibrium is not just a description of a state but a prediction about the direction of change.
+
+---
+
+## How This Connects to Skvoretz and Fararo (1996)
+
+Reading these two papers together reveals a productive complementarity.
+
+Skvoretz and Fararo simulate a **process** — a sequence of speech acts in which precedence ties form stochastically and cumulate into a hierarchy. Gould derives an **equilibrium** — the stable state toward which any rational adjustment process must converge. The two approaches are not in competition; they operate at different levels of abstraction.
+
+Where Skvoretz and Fararo focus on the *path* (how many acts does it take? which tie forms first?), Gould focuses on the *destination* (what must the final network look like, regardless of path?). Gould himself notes this explicitly, pointing to Skvoretz and Fararo (1996) as an example of the small-group tradition that his model builds on and departs from: their key regularities — that actors who receive more attention also send more, and that status proximity predicts structural similarity — are *axioms* in their model but *derived predictions* in Gould's.
+
+There is also a substantive difference in the mechanism. Skvoretz and Fararo's hierarchy consolidates through **bystanders** — people who form precedence ties simply by watching others interact. Gould's hierarchy consolidates through **reciprocity-constrained social influence** — people calibrate their gestures of esteem according to what the group already believes and what they can expect in return. The bystander mechanism is cognitive and structural; the reciprocity mechanism is motivational and relational. Both are plausible, and both are likely operating simultaneously in any real group.
+
+---
+
+## Why This Paper Matters
+
+Gould's model matters for at least three reasons.
+
+**It resolves a longstanding conceptual opposition.** By showing that hierarchy can emerge as the equilibrium of a decentralized social influence process, Gould demonstrates that the choice between "hierarchy reflects merit" and "hierarchy reflects power" is a false dichotomy. Hierarchy can reflect both, or neither, depending on the parameter values. The model makes the conditions for each outcome explicit.
+
+**It generates strong, falsifiable predictions.** The six propositions are not just plausible — they are derivable from a small set of assumptions and testable with data that do not require measuring underlying quality. This is methodologically rare in sociological theory.
+
+**It explains the ubiquity of roles.** The structural equivalence result (propositions 3 and 4) shows that the model does not just predict hierarchy — it predicts the clustering of actors into *roles*. Actors at similar points in the status distribution direct similar patterns of attention to others, forming structurally equivalent positions. This provides a formal micro-foundation for the role concept that does not presuppose a pre-existing social structure.
+
+For researchers working on social mobility, this is directly relevant: Gould's model implies that the translation of small individual differences into large positional differences is not a pathology but an equilibrium property of any social system where quality judgments are socially influenced. Reducing inequality, in this framework, requires either reducing the weight of social influence (ρ) or increasing the salience of reciprocity (s) — structural interventions, not individual ones.
+
+---
+
+## References
+
+::: {#refs}
+:::
+
+> Gould, R. V. (2002). The origins of status hierarchies: A formal theory and empirical test. *American Journal of Sociology*, 107(5), 1143–1178.
+>
+> Merton, R. K. (1968). The Matthew effect in science. *Science*, 159, 56–63.
+>
+> Skvoretz, J., & Fararo, T. J. (1996). Status and participation in task groups: A dynamic network model. *American Journal of Sociology*, 101(5), 1366–1414.
+>
+> Bales, R. F. (1956). Task status and likeability as a function of talking and listening in decision-making groups. In L. D. White (Ed.), *The State of the Social Sciences*. University of Chicago Press.
+>
+> Newcomb, T. M. (1961). *The Acquaintance Process*. Holt, Rinehart & Winston.
+>
+> Blatz, W. E. (1937). *The Five Sisters: A Study of the Dionne Quintuplets*. William Morrow.
+>
+> Berger, J., Cohen, B. P., & Zelditch, M. (1966). Status characteristics and expectation states. In J. Berger & M. Zelditch (Eds.), *Sociological Theories in Progress*, Vol. 1. Houghton Mifflin.
