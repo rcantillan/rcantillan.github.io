@@ -1,0 +1,679 @@
+---
+title: "Why the Best Firms Charge Less: Podolny's Status-Based Model of Market Competition"
+subtitle: "Series: Status Models in Analytical Sociology"
+author: 
+  - name: "Roberto Cantillan"
+    affiliations: 
+        - name: "Department of Sociology, PUC"
+          address: "Santiago, Chile"
+
+date: today
+#bibliography: references.bib
+bibliographystyle: apa
+categories:
+  - Status Theory
+  - Markets
+  - Economic Sociology
+  - Formal Models
+  - Social Stratification
+
+image: "featured.jpg"
+title-block-banner: featured.jpg
+title-block-banner-color: "rgba(0, 0, 0, 0.8)"
+title-block-style: default
+freeze: true
+execute:
+  cache: true
+---
+
+> **Third post in the series.** The [first entry](../skvoretz-fararo-1996/index.qmd) showed how precedence hierarchies form act by act in task groups. The [second](../gould-2002/index.qmd) derived the equilibrium network structure that any status-conscious group converges toward. This time, the same logic jumps scales — from small groups to markets. The paper is **"A Status-Based Model of Market Competition"**, by Joel M. Podolny, published in the *American Journal of Sociology* in 1993.
+
+---
+
+## The Puzzle
+
+Standard economics has a clean story about markets: producers compete on price and quality, consumers choose rationally, and competition drives profits to zero. If a producer can make a better product at a lower cost, it should expand until it corners the market — or at least until other producers match it.
+
+The empirical reality stubbornly refuses to cooperate. Markets for professional services, financial products, prestige goods, and knowledge-intensive industries exhibit *persistent, stable hierarchies* that do not erode despite intense competition. The top investment banks have occupied the top positions for decades. The top accounting firms hold their ground even when they charge more. In consulting, fashion, academia, and cuisine, a small group of elite producers reproduces its dominance year after year.
+
+Why don't lower-status competitors simply undercut the top firms on price and quality until the hierarchy collapses? And why don't the top firms exploit their advantages to simply take over the entire market?
+
+Podolny's answer is that these two puzzles — the stability at the top *and* the limit on expansion — are two sides of the same coin. They both follow from a single mechanism: **status**.
+
+---
+
+## What Is Status in a Market?
+
+Podolny defines a producer's market status as the **perceived quality** of its products relative to competitors — not actual quality, but perceived quality as read by consumers, investors, and peers.
+
+This distinction matters enormously. Quality, before a transaction is consummated, is unobservable. A corporate client hiring an investment bank cannot fully assess the bank's capabilities before signing. A patient choosing a hospital cannot evaluate surgical skill in advance. A scientist submitting to a journal cannot know reviewer quality before submission. In all these cases, buyers face genuine uncertainty.
+
+When quality is unobservable, buyers use **signals**. Status is one of the most powerful signals available: if a firm is perceived as high-quality by all the sophisticated actors in its market, that collective perception is itself evidence of underlying quality. Status, in this sense, is a signal of quality — but a peculiar one.
+
+What makes status peculiar as a signal is its **relational and second-order** character. Your status is not just a function of what you do; it is a function of *who you do it with*. A bank's perceived quality depends on which issuers it has worked with, which investors it has relationships with, and — crucially — which other banks appear alongside it in syndicate brackets. Status flows through ties. And because it flows through ties, the relationship between actual quality and perceived status is systematically **loose**.
+
+This loose linkage — not a tight one-to-one correspondence between quality and status — is the architectural foundation of the entire model.
+
+---
+
+## The Four Sources of Loose Linkage
+
+Podolny identifies four reasons why status and actual quality diverge:
+
+**1. Time lags.** Perceptions adjust slowly. A firm that genuinely improves its capabilities will not immediately see its status rise; a firm whose quality declines may retain its status for years. The lag is not random noise — it is structural inertia.
+
+**2. Stochastic diffusion.** Information about quality changes diffuses probabilistically through social networks. Not every improvement is detected, not every detection is communicated, and not every communication reaches the same audience.
+
+**3. Network mediation.** This is the most important source. A firm's network of exchange relations serves as an *access constraint*. If a low-status bank is not considered a credible alternative by the buyers of high-quality securities, those buyers will never interact with it — and therefore never update their perceptions based on direct experience. The network structure literally prevents the contact that could change minds. Conversely, loyal buyers of a high-status firm's products may never discover a decline in relative quality because they never look elsewhere. The 1970s automobile market is Podolny's example: Japanese cars improved dramatically, but most American consumers simply did not consider them as an option. It took the exogenous shock of the oil embargo to break the network-embedded buying patterns.
+
+**4. Second-order character.** Status is built from other signals — prices charged, clients served, partners chosen, awards received, syndicate positions held. Each of these intermediate signals is itself imperfect, making status more encompassing than simpler signals like education or warranties, but also more loosely tied to underlying quality.
+
+The loose linkage is not a bug but the feature that makes the whole system coherent. It is precisely because status and quality are not perfectly correlated that status can function as a durable structural position rather than a continuously recalibrated assessment.
+
+---
+
+## The Two-Sided Advantage of High Status
+
+Given this framework, Podolny works out the economic consequences of occupying a high-status position. The effects operate on both sides of the ledger.
+
+### Revenue Side
+
+High-status producers can command a premium. Buyers who are uncertain about quality will pay more for the association with a trusted name. This is the intuitive part — it explains why designer labels, elite universities, and top-tier consulting firms charge more. If $\theta$ is the premium a buyer is willing to pay per unit of status, and $s_h > s_l$ are the status levels of two producers, then the high-status producer can charge up to $\theta(s_h - s_l)$ more for the same product without losing customers.
+
+### Cost Side
+
+This is where the model becomes genuinely surprising. High-status producers do not just earn more — they *spend less* to produce the same quality good. Four mechanisms reduce costs:
+
+- **Lower advertising costs**: high-status firms spend less to communicate quality because their reputation does the signaling.
+- **Lower transaction costs**: partners, investors, and co-producers require less due diligence and less persuasion to engage with a high-status firm. The "stringent requirements" reputation of a top bank means that investors trust its syndicate members automatically.
+- **Lower financial costs**: high-status firms access capital at more favorable terms.
+- **Lower wage costs**: talented employees accept lower compensation in exchange for the status benefit of working for a prestigious employer — controlling for the (perceived) quality of the employee.
+
+The cost advantage is, in Podolny's account, more fundamental than the revenue advantage. It is what allows high-status producers to *protect their niche from below* even under intense price competition.
+
+---
+
+## The Matthew Effect in Markets — and Its Limits
+
+Together, the revenue and cost advantages of high status reproduce the **Matthew effect** at the market level: "unto every one that hath shall be given." The high-status producer earns more and spends less for the same quality output. This should trigger a runaway cascade — the highest-status firm should simply take over everything.
+
+But it does not. Why?
+
+Here Podolny introduces the **status constraint**, and this is where the model's elegance lies. The cost advantage of high status depends on the firm maintaining its *reputation for stringent requirements*. If Goldman Sachs decides to underwrite every junk bond it can find in order to maximize volume, two things happen: its association with lower-quality issuers and investors lowers how it is perceived; its costs rise because it can no longer rely on the automatic trust that made its operations cheap.
+
+In other words, **expansion into lower-status niches destroys the very mechanism that made expansion attractive**. The cost advantage was tied to occupying a particular position in the status order, not to inherent production capabilities. Moving down-market is self-undermining.
+
+The same logic applies in reverse for lower-status producers: attempting to invade the high-status niche is prohibitively costly precisely because their lower status makes every step more expensive. They cannot advertise cheaply, cannot attract talent cheaply, cannot form syndicates cheaply. The cost structure of the status order pins them in place.
+
+The result is a **stable hierarchy of niches**, each populated by producers whose cost-and-revenue profile makes it optimal to stay where they are. The market does not converge to equality or to monopoly — it converges to a tiered structure that reproduces itself because every actor, high and low, has an incentive to maintain it.
+
+---
+
+## The Counterintuitive Prediction: High Status → Lower Price
+
+This is where the model generates its most striking empirical prediction. In markets where the advantages of status are primarily on the **cost side** rather than the revenue side — markets where buyers are so price-sensitive that premium pricing is impossible — the model predicts the following:
+
+$$p_h < p_l$$
+
+Higher-status producers charge *lower* prices.
+
+The logic: if the status-based cost advantage cannot be captured through higher prices (because buyers defect at any premium), the high-status firm competes by underbidding. It can profitably bid just below its nearest competitor's cost floor. The lower-status firm cannot match this without taking a loss.
+
+The market for investment grade corporate debt in the 1980s is Podolny's test case — and it is a deliberately difficult one. Investment grade bonds are close to commodity products. Ratings agencies provide public quality assessments. "Loyalty is a basis point" was literally the aphorism of the industry: issuers would switch banks for the smallest price improvement. If status matters even here, it should matter almost anywhere.
+
+---
+
+## The Simulation: A Competitive Bidding Market
+
+The widget below simulates a competitive debt underwriting market with five banks of different status levels. For each deal that comes to market, banks decide whether they want it (based on its quality tier relative to their status) and bid competitively. Watch how the **status-cost-price** relationship plays out across different market scenarios.
+
+```{=html}
+<div style="font-family:inherit;max-width:740px">
+  <div style="border:1px solid #e0dfd8;border-radius:10px;overflow:hidden">
+
+    <!-- Controls row -->
+    <div style="padding:14px 16px;border-bottom:1px solid #e0dfd8;background:#f5f4f0;display:flex;flex-wrap:wrap;gap:18px;align-items:flex-start">
+      <div style="flex:1;min-width:160px">
+        <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:4px">Deal quality tier</label>
+        <input type="range" id="pDealQ" min="1" max="5" step="1" value="3" style="width:100%;accent-color:#185FA5">
+        <div style="font-size:12px;color:#888;margin-top:2px">Tier <span id="pDealQVal">3</span> of 5 &nbsp;·&nbsp; higher = better issuer</div>
+      </div>
+      <div style="flex:1;min-width:160px">
+        <label style="font-size:12px;font-weight:700;color:#555;display:block;margin-bottom:4px">Revenue premium θ</label>
+        <input type="range" id="pTheta" min="0" max="0.06" step="0.005" value="0" style="width:100%;accent-color:#B94A30">
+        <div style="font-size:12px;color:#888;margin-top:2px">θ = <span id="pThetaVal">0.000</span> &nbsp;·&nbsp; 0 = cost-only market</div>
+      </div>
+      <div style="flex:1;min-width:120px;display:flex;align-items:flex-end">
+        <button id="pRunBtn" style="width:100%;padding:8px 0;font-size:13px;font-weight:600;border-radius:6px;border:1px solid #185FA5;background:#185FA5;color:#fff;cursor:pointer">Run deal ▶</button>
+      </div>
+    </div>
+
+    <!-- Main panels -->
+    <div style="display:flex;flex-wrap:wrap;background:#fff">
+      <div style="flex:1;min-width:220px;border-right:1px solid #f0efe8;padding:12px 0">
+        <div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.05em;padding:0 14px 8px">Market banks</div>
+        <svg id="pBankSvg" width="100%" viewBox="0 0 240 300" style="display:block"></svg>
+      </div>
+      <div style="flex:1.2;min-width:260px;padding:12px 0">
+        <div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.05em;padding:0 14px 8px">Bidding dynamics</div>
+        <svg id="pBidSvg" width="100%" viewBox="0 0 300 300" style="display:block"></svg>
+      </div>
+    </div>
+
+    <!-- Log -->
+    <div id="pLog" style="padding:10px 16px;font-size:13px;color:#444;border-top:1px solid #f0efe8;background:#f8f8f7;min-height:52px;line-height:1.7">
+      Set the deal parameters and click <strong>Run deal</strong> to simulate a competitive bid.
+    </div>
+
+    <!-- Accumulated scatter -->
+    <div style="padding:10px 14px 12px;border-top:1px solid #f0efe8;background:#f5f4f0">
+      <div style="font-size:11px;font-weight:700;color:#888;text-transform:uppercase;letter-spacing:.05em;margin-bottom:4px">Status vs. winning spread — accumulated deals</div>
+      <svg id="pScatterSvg" width="100%" viewBox="0 0 580 88" style="display:block"></svg>
+      <div id="pScatterNote" style="font-size:11px;color:#aaa;margin-top:2px">Run deals across different tiers — the negative status–spread relationship should emerge.</div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+
+  const BANKS = [
+    { name: "Apex Partners",  status: 3.31, fill: "#0C3D6B" },
+    { name: "Crown Capital",  status: 2.87, fill: "#185FA5" },
+    { name: "Meridian Group", status: 2.02, fill: "#5C8ABF" },
+    { name: "Frontier Sec.",  status: 1.24, fill: "#8BADC7" },
+    { name: "Newbridge Inc.", status: 0.44, fill: "#9AAFBE" }
+  ];
+  const N = BANKS.length;
+  const TIER_FILLS = ["#D0E4F7","#8BADC7","#5C8ABF","#185FA5","#0C3D6B"];
+
+  const BASE_COST = 0.95, STATUS_COST_COEF = 0.12, QUALITY_COST_COEF = 0.04;
+  const STATUS_THRESHOLDS = [0, 0.6, 1.5, 2.3, 2.9];
+
+  function dealCost(status, dealQ) {
+    return BASE_COST - STATUS_COST_COEF * status + QUALITY_COST_COEF * dealQ;
+  }
+  function wantsDeal(idx, tier) {
+    const tooLow = tier < (idx === 0 ? 2 : idx === 1 ? 1 : 0);
+    return BANKS[idx].status >= STATUS_THRESHOLDS[tier - 1] * 0.6 && !tooLow;
+  }
+
+  let dealHistory = []; // {tier, winnerIdx, bid, cost}
+
+  // ── Bank panel ──────────────────────────────────────────────────
+  function drawBanks(dealTier, eligible, winner) {
+    const svg = document.getElementById("pBankSvg");
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const rowH = 54, padL = 12, barW = 82;
+
+    BANKS.forEach((b, i) => {
+      const y = 8 + i * rowH;
+      const isWin = winner === i;
+      const ok = eligible ? eligible.includes(i) : wantsDeal(i, dealTier);
+      const op = ok ? "1" : "0.28";
+
+      if (isWin) {
+        const bg = document.createElementNS(NS, "rect");
+        bg.setAttribute("x", padL - 4); bg.setAttribute("y", y - 2);
+        bg.setAttribute("width", 230); bg.setAttribute("height", rowH - 2);
+        bg.setAttribute("fill", "#E8F4E8"); bg.setAttribute("rx", "4");
+        svg.appendChild(bg);
+      }
+
+      // Color swatch
+      const sw = document.createElementNS(NS, "rect");
+      sw.setAttribute("x", padL); sw.setAttribute("y", y + 5);
+      sw.setAttribute("width", 6); sw.setAttribute("height", 6);
+      sw.setAttribute("fill", b.fill); sw.setAttribute("rx", "1");
+      sw.setAttribute("opacity", op);
+      svg.appendChild(sw);
+
+      // Name
+      const nt = document.createElementNS(NS, "text");
+      nt.setAttribute("x", padL + 10); nt.setAttribute("y", y + 12);
+      nt.setAttribute("font-size", "11.5");
+      nt.setAttribute("font-weight", isWin ? "700" : "500");
+      nt.setAttribute("fill", isWin ? "#1A6B1A" : ok ? "#333" : "#bbb");
+      nt.textContent = (isWin ? "★ " : "") + b.name;
+      svg.appendChild(nt);
+
+      // Status bar background
+      const bbg = document.createElementNS(NS, "rect");
+      bbg.setAttribute("x", padL + 10); bbg.setAttribute("y", y + 20);
+      bbg.setAttribute("width", barW); bbg.setAttribute("height", 7);
+      bbg.setAttribute("fill", "#f0f0f0"); bbg.setAttribute("rx", "2");
+      svg.appendChild(bbg);
+
+      // Status bar fill
+      const bfill = document.createElementNS(NS, "rect");
+      bfill.setAttribute("x", padL + 10); bfill.setAttribute("y", y + 20);
+      bfill.setAttribute("width", (b.status / 3.5) * barW);
+      bfill.setAttribute("height", 7);
+      bfill.setAttribute("fill", ok ? b.fill : "#ccc");
+      bfill.setAttribute("rx", "2"); bfill.setAttribute("opacity", op);
+      svg.appendChild(bfill);
+
+      // Status value
+      const sv = document.createElementNS(NS, "text");
+      sv.setAttribute("x", padL + 10 + barW + 5); sv.setAttribute("y", y + 26);
+      sv.setAttribute("font-size", "9.5"); sv.setAttribute("fill", ok ? "#666" : "#bbb");
+      sv.textContent = "s=" + b.status.toFixed(2);
+      svg.appendChild(sv);
+
+      // Cost floor for current tier
+      const cost = dealCost(b.status, dealTier);
+      const cl = document.createElementNS(NS, "text");
+      cl.setAttribute("x", padL + 10); cl.setAttribute("y", y + 41);
+      cl.setAttribute("font-size", "9");
+      cl.setAttribute("fill", ok ? (isWin ? "#1A6B1A" : "#999") : "#ccc");
+      cl.textContent = ok
+        ? "cost floor: " + (cost * 100).toFixed(1) + "bp"
+        : "ineligible for this tier";
+      svg.appendChild(cl);
+    });
+
+    const ft = document.createElementNS(NS, "text");
+    ft.setAttribute("x", padL); ft.setAttribute("y", N * rowH + 16);
+    ft.setAttribute("font-size", "9"); ft.setAttribute("fill", "#bbb");
+    ft.textContent = "Status score (higher = more prestigious)";
+    svg.appendChild(ft);
+  }
+
+  // ── Bid chart ───────────────────────────────────────────────────
+  function drawBids(dealTier, bids, winner) {
+    const svg = document.getElementById("pBidSvg");
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const W = 300, H = 300, padL = 50, padR = 12, padT = 32, padB = 38;
+    const chartW = W - padL - padR, chartH = H - padT - padB;
+
+    if (!bids || bids.length === 0) {
+      const t = document.createElementNS(NS, "text");
+      t.setAttribute("x", W / 2); t.setAttribute("y", H / 2);
+      t.setAttribute("text-anchor", "middle"); t.setAttribute("font-size", "13");
+      t.setAttribute("fill", "#bbb"); t.textContent = "Run a deal to see bids";
+      svg.appendChild(t);
+      return;
+    }
+
+    // Sort by status descending (highest-status on left)
+    const sorted = [...bids].sort((a, b) => BANKS[b.bankIdx].status - BANKS[a.bankIdx].status);
+
+    const allVals = sorted.flatMap(b => [b.cost, b.bid]);
+    const minV = Math.max(0, Math.min(...allVals) - 0.03);
+    const maxV = Math.min(1.5, Math.max(...allVals) + 0.05);
+    const range = maxV - minV;
+    const yScale = v => padT + chartH * (1 - (v - minV) / range);
+    const botY = padT + chartH;
+
+    // Dynamic Y-axis ticks
+    const step = range < 0.1 ? 0.01 : range < 0.25 ? 0.02 : 0.05;
+    for (let v = Math.ceil(minV / step) * step; v <= maxV + step / 2; v = Math.round((v + step) * 1e6) / 1e6) {
+      const yv = yScale(v);
+      if (yv < padT - 2 || yv > botY + 2) continue;
+      const gl = document.createElementNS(NS, "line");
+      gl.setAttribute("x1", padL); gl.setAttribute("y1", yv);
+      gl.setAttribute("x2", W - padR); gl.setAttribute("y2", yv);
+      gl.setAttribute("stroke", "#eee"); gl.setAttribute("stroke-width", "0.8");
+      svg.appendChild(gl);
+      const tk = document.createElementNS(NS, "line");
+      tk.setAttribute("x1", padL - 4); tk.setAttribute("y1", yv);
+      tk.setAttribute("x2", padL); tk.setAttribute("y2", yv);
+      tk.setAttribute("stroke", "#bbb"); tk.setAttribute("stroke-width", "1");
+      svg.appendChild(tk);
+      const tl = document.createElementNS(NS, "text");
+      tl.setAttribute("x", padL - 6); tl.setAttribute("y", yv);
+      tl.setAttribute("text-anchor", "end"); tl.setAttribute("dominant-baseline", "central");
+      tl.setAttribute("font-size", "8.5"); tl.setAttribute("fill", "#aaa");
+      tl.textContent = Math.round(v * 100) + "bp";
+      svg.appendChild(tl);
+    }
+
+    const ya = document.createElementNS(NS, "line");
+    ya.setAttribute("x1", padL); ya.setAttribute("y1", padT);
+    ya.setAttribute("x2", padL); ya.setAttribute("y2", botY);
+    ya.setAttribute("stroke", "#ddd"); ya.setAttribute("stroke-width", "1");
+    svg.appendChild(ya);
+
+    const groupW = chartW / sorted.length;
+    const barW = Math.min(groupW * 0.38, 30);
+
+    sorted.forEach((b, idx) => {
+      const bank = BANKS[b.bankIdx];
+      const isW = b.bankIdx === winner;
+      const gx = padL + idx * groupW + groupW / 2;
+      const costY = yScale(b.cost);
+      const bidY  = yScale(b.bid);
+
+      // Gray cost zone: minV → cost
+      const gR = document.createElementNS(NS, "rect");
+      gR.setAttribute("x", gx - barW / 2); gR.setAttribute("y", costY);
+      gR.setAttribute("width", barW); gR.setAttribute("height", Math.max(botY - costY, 1));
+      gR.setAttribute("fill", "#ddd"); gR.setAttribute("rx", "2");
+      svg.appendChild(gR);
+
+      // Profit margin zone: cost → bid
+      const mH = costY - bidY;
+      if (mH > 0.5) {
+        const mR = document.createElementNS(NS, "rect");
+        mR.setAttribute("x", gx - barW / 2); mR.setAttribute("y", bidY);
+        mR.setAttribute("width", barW); mR.setAttribute("height", mH);
+        mR.setAttribute("fill", isW ? "#1A7A1A" : bank.fill);
+        mR.setAttribute("rx", "2"); mR.setAttribute("opacity", isW ? "1" : "0.65");
+        svg.appendChild(mR);
+      }
+
+      // Bid value label
+      const vl = document.createElementNS(NS, "text");
+      vl.setAttribute("x", gx); vl.setAttribute("y", bidY - 4);
+      vl.setAttribute("text-anchor", "middle"); vl.setAttribute("font-size", "8.5");
+      vl.setAttribute("font-weight", isW ? "700" : "400");
+      vl.setAttribute("fill", isW ? "#1A7A1A" : "#666");
+      vl.textContent = Math.round(b.bid * 100) + "bp";
+      svg.appendChild(vl);
+
+      // WINS label
+      if (isW) {
+        const wt = document.createElementNS(NS, "text");
+        wt.setAttribute("x", gx); wt.setAttribute("y", padT + 14);
+        wt.setAttribute("text-anchor", "middle"); wt.setAttribute("font-size", "9");
+        wt.setAttribute("font-weight", "700"); wt.setAttribute("fill", "#1A7A1A");
+        wt.textContent = "WINS";
+        svg.appendChild(wt);
+      }
+
+      // Bank label
+      const lbl = document.createElementNS(NS, "text");
+      lbl.setAttribute("x", gx); lbl.setAttribute("y", botY + 14);
+      lbl.setAttribute("text-anchor", "middle"); lbl.setAttribute("font-size", "9");
+      lbl.setAttribute("fill", isW ? "#1A7A1A" : "#888");
+      lbl.setAttribute("font-weight", isW ? "700" : "400");
+      lbl.textContent = bank.name.split(" ")[0];
+      svg.appendChild(lbl);
+    });
+
+    // Legend
+    [{fill:"#ddd", label:"Cost floor"}, {fill:"#185FA5", label:"Profit margin"}]
+      .forEach(({fill, label}, k) => {
+        const lx = padL + k * 115, ly = padT - 22;
+        const r = document.createElementNS(NS, "rect");
+        r.setAttribute("x", lx); r.setAttribute("y", ly);
+        r.setAttribute("width", 10); r.setAttribute("height", 10);
+        r.setAttribute("fill", fill); r.setAttribute("rx", "1");
+        svg.appendChild(r);
+        const t = document.createElementNS(NS, "text");
+        t.setAttribute("x", lx + 13); t.setAttribute("y", ly + 9);
+        t.setAttribute("font-size", "9.5"); t.setAttribute("fill", "#888");
+        t.textContent = label;
+        svg.appendChild(t);
+      });
+
+    // Annotation: left = highest status
+    const ann = document.createElementNS(NS, "text");
+    ann.setAttribute("x", padL + 2); ann.setAttribute("y", botY + 28);
+    ann.setAttribute("font-size", "8.5"); ann.setAttribute("fill", "#aaa");
+    ann.textContent = "← highest status";
+    svg.appendChild(ann);
+    const ann2 = document.createElementNS(NS, "text");
+    ann2.setAttribute("x", W - padR - 2); ann2.setAttribute("y", botY + 28);
+    ann2.setAttribute("text-anchor", "end"); ann2.setAttribute("font-size", "8.5");
+    ann2.setAttribute("fill", "#aaa");
+    ann2.textContent = "lowest status →";
+    svg.appendChild(ann2);
+  }
+
+  // ── Scatter panel ───────────────────────────────────────────────
+  function drawScatter() {
+    const svg = document.getElementById("pScatterSvg");
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const W = 580, H = 88, padL = 40, padR = 12, padT = 6, padB = 26;
+    const chartW = W - padL - padR, chartH = H - padT - padB;
+
+    const allPts = dealHistory.flatMap(d =>
+      d.bids.map(b => ({ status: BANKS[b.bankIdx].status, bid: b.bid, isWin: b.isWin, tier: d.tier }))
+    );
+
+    if (allPts.length === 0) return;
+
+    const minB = Math.min(...allPts.map(p => p.bid)) * 0.97;
+    const maxB = Math.max(...allPts.map(p => p.bid)) * 1.03;
+    const rangeB = maxB - minB || 0.01;
+    const xScale = s => padL + (s / 3.5) * chartW;
+    const yScale = b => padT + chartH * (1 - (b - minB) / rangeB);
+    const botY = padT + chartH;
+
+    // Axes
+    [{x1:padL,y1:botY,x2:W-padR,y2:botY},{x1:padL,y1:padT,x2:padL,y2:botY}].forEach(a => {
+      const ln = document.createElementNS(NS, "line");
+      Object.entries(a).forEach(([k,v]) => ln.setAttribute(k, v));
+      ln.setAttribute("stroke", "#ddd"); ln.setAttribute("stroke-width", "1");
+      svg.appendChild(ln);
+    });
+
+    // X axis: bank name labels at their status positions
+    BANKS.forEach(b => {
+      const xl = document.createElementNS(NS, "text");
+      xl.setAttribute("x", xScale(b.status)); xl.setAttribute("y", botY + 13);
+      xl.setAttribute("text-anchor", "middle"); xl.setAttribute("font-size", "8");
+      xl.setAttribute("fill", "#bbb"); xl.textContent = b.name.split(" ")[0];
+      svg.appendChild(xl);
+      // Tick
+      const tk = document.createElementNS(NS, "line");
+      tk.setAttribute("x1", xScale(b.status)); tk.setAttribute("y1", botY);
+      tk.setAttribute("x2", xScale(b.status)); tk.setAttribute("y2", botY + 4);
+      tk.setAttribute("stroke", "#ccc"); tk.setAttribute("stroke-width", "1");
+      svg.appendChild(tk);
+    });
+
+    // Y axis ticks (2 labels)
+    [minB, maxB].forEach((v, k) => {
+      const yv = yScale(v);
+      const tl = document.createElementNS(NS, "text");
+      tl.setAttribute("x", padL - 4); tl.setAttribute("y", yv);
+      tl.setAttribute("text-anchor", "end"); tl.setAttribute("dominant-baseline", "central");
+      tl.setAttribute("font-size", "8"); tl.setAttribute("fill", "#bbb");
+      tl.textContent = Math.round(v * 100) + "bp";
+      svg.appendChild(tl);
+    });
+
+    // Trend line (linear regression on winners only) if >= 3 winners
+    const winners = allPts.filter(p => p.isWin);
+    if (winners.length >= 3) {
+      const n = winners.length;
+      const mX = winners.reduce((s,p) => s + p.status, 0) / n;
+      const mY = winners.reduce((s,p) => s + p.bid, 0) / n;
+      const num = winners.reduce((s,p) => s + (p.status - mX) * (p.bid - mY), 0);
+      const den = winners.reduce((s,p) => s + (p.status - mX) ** 2, 0);
+      if (den > 0) {
+        const slope = num / den;
+        const intercept = mY - slope * mX;
+        const x1s = 0, y1s = slope * x1s + intercept;
+        const x2s = 3.5, y2s = slope * x2s + intercept;
+        const tl = document.createElementNS(NS, "line");
+        tl.setAttribute("x1", xScale(x1s)); tl.setAttribute("y1", yScale(y1s));
+        tl.setAttribute("x2", xScale(x2s)); tl.setAttribute("y2", yScale(y2s));
+        tl.setAttribute("stroke", "#D85A30"); tl.setAttribute("stroke-width", "1.2");
+        tl.setAttribute("stroke-dasharray", "4 3"); tl.setAttribute("opacity", "0.8");
+        svg.appendChild(tl);
+        const dir = slope < 0 ? "↘ negative slope (model prediction confirmed)" : "↗ positive slope";
+        const ann = document.createElementNS(NS, "text");
+        ann.setAttribute("x", W - padR - 2); ann.setAttribute("y", padT + 9);
+        ann.setAttribute("text-anchor", "end"); ann.setAttribute("font-size", "8.5");
+        ann.setAttribute("fill", slope < 0 ? "#D85A30" : "#1A7A1A");
+        ann.textContent = dir;
+        svg.appendChild(ann);
+      }
+    }
+
+    // Points: non-winners (open circles) then winners (filled)
+    [false, true].forEach(showWin => {
+      allPts.filter(p => p.isWin === showWin).forEach(p => {
+        const jitter = (Math.random() - 0.5) * 6;
+        const cx = xScale(p.status) + jitter;
+        const cy = yScale(p.bid);
+        const circ = document.createElementNS(NS, "circle");
+        circ.setAttribute("cx", cx); circ.setAttribute("cy", cy);
+        circ.setAttribute("r", showWin ? 4.5 : 3);
+        circ.setAttribute("fill", showWin ? TIER_FILLS[p.tier - 1] : "none");
+        circ.setAttribute("stroke", TIER_FILLS[p.tier - 1]);
+        circ.setAttribute("stroke-width", showWin ? "1.5" : "1.2");
+        circ.setAttribute("opacity", showWin ? "0.9" : "0.5");
+        svg.appendChild(circ);
+      });
+    });
+
+    // Update note
+    const nw = winners.length;
+    document.getElementById("pScatterNote").textContent = nw === 0
+      ? "Run deals to accumulate data — the negative status–spread relationship should emerge."
+      : nw < 3
+      ? `${nw} deal${nw > 1 ? "s" : ""} so far. Run more (try different tiers) to see the trend.`
+      : `${nw} deals accumulated. Filled = winner, open = other eligible bids. Dashed line fits winners only.`;
+  }
+
+  // ── Run deal ────────────────────────────────────────────────────
+  function runDeal() {
+    const dealTier = parseInt(document.getElementById("pDealQ").value);
+    const theta = parseFloat(document.getElementById("pTheta").value);
+    const eligible = BANKS.map((_, i) => i).filter(i => wantsDeal(i, dealTier));
+
+    if (eligible.length === 0) {
+      document.getElementById("pLog").innerHTML = "No banks willing to bid on a Tier-" + dealTier + " deal.";
+      drawBanks(dealTier, [], null);
+      drawBids(dealTier, [], null);
+      return;
+    }
+
+    const bids = eligible.map(i => {
+      const cost = Math.max(0.05, dealCost(BANKS[i].status, dealTier));
+      const revenueAdv = theta * BANKS[i].status;
+      return { bankIdx: i, cost, revenueAdv };
+    });
+
+    bids.sort((a, b) => BANKS[b.bankIdx].status - BANKS[a.bankIdx].status);
+
+    bids.forEach((b, rank) => {
+      if (rank === 0) {
+        const next = rank + 1 < bids.length ? bids[rank + 1].cost : b.cost + 0.15;
+        b.bid = Math.max(b.cost + 0.003, next - 0.008 - b.revenueAdv);
+      } else {
+        b.bid = Math.max(b.cost + 0.003, b.cost + 0.05 + Math.random() * 0.03);
+      }
+    });
+
+    const profitable = bids.filter(b => b.bid >= b.cost);
+    if (profitable.length === 0) {
+      document.getElementById("pLog").innerHTML = "No profitable bids — market failure on this deal.";
+      return;
+    }
+    profitable.sort((a, b) => a.bid - b.bid);
+    const winObj = profitable[0];
+    const winner = winObj.bankIdx;
+    const winBank = BANKS[winner];
+
+    drawBanks(dealTier, eligible, winner);
+    drawBids(dealTier, bids, winner);
+
+    // Store all bids for scatter
+    dealHistory.unshift({
+      tier: dealTier,
+      bids: bids.map(b => ({ bankIdx: b.bankIdx, bid: b.bid, isWin: b.bankIdx === winner }))
+    });
+    if (dealHistory.length > 15) dealHistory = dealHistory.slice(0, 15);
+    drawScatter();
+
+    const spread = Math.round(winObj.bid * 100);
+    const margin = ((winObj.bid - winObj.cost) * 100).toFixed(1);
+    const thetaNote = theta > 0
+      ? ` Revenue premium (θ=${theta.toFixed(3)}) adds ${(theta * winBank.status * 100).toFixed(1)}bp above pure-cost floor.`
+      : " With θ=0, all advantage is on the cost side — status lowers costs, enabling a lower bid.";
+    document.getElementById("pLog").innerHTML =
+      `<strong>${winBank.name}</strong> (s=${winBank.status.toFixed(2)}) wins Tier-${dealTier} · ` +
+      `spread <strong>${spread}bp</strong> · margin <strong>${margin}bp</strong> above cost floor.${thetaNote}`;
+  }
+
+  document.getElementById("pDealQ").addEventListener("input", function () {
+    document.getElementById("pDealQVal").textContent = this.value;
+    drawBanks(parseInt(this.value), null, null);
+  });
+  document.getElementById("pTheta").addEventListener("input", function () {
+    document.getElementById("pThetaVal").textContent = parseFloat(this.value).toFixed(3);
+  });
+  document.getElementById("pRunBtn").addEventListener("click", runDeal);
+
+  drawBanks(3, null, null);
+  drawBids(3, [], null);
+  drawScatter();
+})();
+</script>
+```
+
+**Try this:** run several deals at θ = 0 (pure cost-side market). Notice that the highest-status bank consistently wins with the *lowest* spread — not because it charges a premium, but because its lower cost floor lets it undercut every competitor while still making a profit. Then increase θ and watch what changes: now high-status banks can also extract a revenue premium, bidding *above* their cost floor by a wider margin.
+
+---
+
+## The Empirical Test: Investment Banking, 1982–1987
+
+Podolny tests the model on 2,782 investment grade corporate bond underwritings from 1982 to 1987, drawn from the Securities Data Corporation database.
+
+**Measuring status.** The key measurement innovation is elegant: status is derived from *tombstone advertisements* — the announcements in financial publications that list the lead manager, co-managers, and syndicate members of every security offering, arranged in brackets of descending prestige. Banks are exquisitely status-conscious about their bracket position; in one famous 1987 incident, 10 banks withdrew from a $2.4 billion offering because 13 regional and minority-owned firms were listed ahead of them. Informal observation confirms that major bracket shifts are nearly nonexistent over any five-year period. Inter-year correlations in market share hover around .91 for investment grade debt — one of the most stable hierarchies documented in any competitive market.
+
+**The result.** Regressing percentage spread on status (controlling for deal size, bond rating, client relationship history, competitive vs. negotiated offering, and convertibility), Podolny finds:
+
+> STATUS has a statistically significant and *negative* impact on spread at p < .01.
+
+A unit increase in status reduces spread by .080 percentage points. The difference in status between second-ranked First Boston and fourteenth-ranked Kidder Peabody — about 1.03 units — translates into First Boston's ability to underbid Kidder Peabody by eight basis points. In a market where "loyalty is a basis point," eight basis points is a decisive advantage.
+
+This is precisely the counterintuitive result the theory predicts: in a cost-advantage market, the firm with the highest status charges the lowest price.
+
+---
+
+## How This Connects to the Series
+
+Reading Podolny alongside Gould (2002) makes the underlying unity of the mechanism visible.
+
+Gould showed that, at the individual level, small differences in perceived quality get amplified by social influence into large status gaps — and that reciprocity concerns prevent the cascade from producing winner-take-all outcomes. Podolny's model translates almost directly: at the market level, small differences in underlying quality get amplified by network-mediated status processes into large cost differentials — and the *status constraint* (the reputational risk of moving outside one's niche) prevents the high-status firm from taking over the entire market. In both cases, the same two forces are at work: amplification and a structural brake on runaway dominance.
+
+What Podolny adds is a mechanism for the brake that is specifically economic: the cost advantage of high status is niche-specific. The signal of quality that reduces transaction costs works only *within* the niche where that signal is credible. Expanding outside the niche destroys the signal — and with it, the cost advantage. High-status firms are therefore trapped in their own success.
+
+This insight travels well beyond investment banking. It applies to any market where quality is unobservable before the transaction, where status flows through relational networks, and where the reputation for selective standards is part of what makes a producer's product credible. Academic publishing, legal representation, hospital care, wine, architecture, software consulting — the logic is structurally identical.
+
+---
+
+## Why This Paper Matters
+
+Podolny's 1993 paper is one of the foundational documents of economic sociology's claim to a genuine theoretical contribution — not just a critique of economics, but a *model* that generates stronger and more accurate predictions than standard price theory in precisely those markets where price theory is weakest.
+
+Three contributions stand out.
+
+**It formalizes the signal character of status.** By connecting status to the economic concept of signaling (Spence 1974) while identifying what makes status different from simpler signals, Podolny gives sociology a precise vocabulary for engaging with economics on its own terms.
+
+**It explains niche stability.** Why do market hierarchies persist even when lower-quality firms could, in principle, invest their way up? The status constraint provides the answer: mobility is self-defeating because the cost structure of production is tied to the position one already occupies, not to the position one is trying to reach.
+
+**It predicts price inversion.** In cost-dominant markets, higher quality and higher status are associated with *lower* prices. This is not a paradox but a direct consequence of the model's logic — and it has been confirmed in investment banking, academic journal publishing, and several other professional service markets in subsequent research.
+
+For researchers studying labor markets and stratification, the implications are direct: the same mechanisms that prevent low-status firms from moving up in markets also prevent low-status workers from moving up in occupational hierarchies. Network embeddedness, signal credibility, and niche-specific cost structures operate at every scale at which status is organized.
+
+---
+
+## References
+
+::: {#refs}
+:::
+
+> Podolny, J. M. (1993). A status-based model of market competition. *American Journal of Sociology*, 98(4), 829–872.
+>
+> Merton, R. K. (1968). The Matthew effect in science. *Science*, 159, 56–63.
+>
+> Spence, A. M. (1974). *Market Signaling: Informational Transfer in Hiring and Related Screening Processes*. Harvard University Press.
+>
+> White, H. C. (1981). Where do markets come from? *American Journal of Sociology*, 87(3), 517–547.
+>
+> Gould, R. V. (2002). The origins of status hierarchies: A formal theory and empirical test. *American Journal of Sociology*, 107(5), 1143–1178.
+>
+> Skvoretz, J., & Fararo, T. J. (1996). Status and participation in task groups: A dynamic network model. *American Journal of Sociology*, 101(5), 1366–1414.
+>
+> Eccles, R. G., & Crane, D. B. (1988). *Doing Deals: Investment Banks at Work*. Harvard Business School Press.
+>
+> Frank, R. H. (1985). *Choosing the Right Pond: Human Behavior and the Quest for Status*. Oxford University Press.
