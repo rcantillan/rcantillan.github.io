@@ -2,15 +2,18 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.8.27">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Roberto Cantillan &amp; Mauricio Bucca">
-<meta name="dcterms.date" content="2026-03-08">
+<meta name="dcterms.date" content="2026-05-26">
 
 <title>Structurally Conditioned Diffusion: A Generalized Framework for Asymmetric Trajectory Channeling in Labor Markets – Roberto Cantillan</title>
 <style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
 div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -61,7 +64,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
-  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -90,15 +92,14 @@ div.csl-indent {
 <link href="../../../images/favicon.ico" rel="icon">
 <script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-5336f276065e24d5ef3b789cd03d20ab.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-df58a58052b55e393ee96285dd0abd71.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-7ae409e552d0c13e8f0f142d504bff0d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-e1747ec4f29b4bbc4bde0bdcb63f66f9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/bootstrap-icons-1.9.1/all.css" rel="stylesheet">
@@ -157,7 +158,7 @@ background-size: cover;
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
 const typesetMath = (el) => {
@@ -282,7 +283,7 @@ window.Quarto = {
       <div>
       <div class="quarto-title-meta-heading">Published</div>
       <div class="quarto-title-meta-contents">
-        <p class="date">March 8, 2026</p>
+        <p class="date">May 26, 2026</p>
       </div>
     </div>
     
@@ -353,7 +354,7 @@ window.Quarto = {
 
 <section id="introduction-from-employer-decisions-to-labor-market-structure" class="level1">
 <h1>Introduction: From Employer Decisions to Labor Market Structure</h1>
-<p>The architecture of inequality in the U.S. labor market is not a static blueprint but an actively reproduced, dynamic process. Its foundations lie in the everyday decisions of <strong>employers within organizations</strong>, who determine which skill requirements to establish for the occupations they manage. Foundational studies have demonstrated that the skill landscape itself is starkly polarized into two distinct domains—a socio-cognitive cluster associated with high wages and a sensory-physical one with low wages <span class="citation" data-cites="alabdulkareem_unpacking_2018">(<a href="#ref-alabdulkareem_unpacking_2018" role="doc-biblioref">Alabdulkareem et al. 2018</a>)</span>—and that this space has a nested, hierarchical architecture <span class="citation" data-cites="hosseinioun_skill_2025">(<a href="#ref-hosseinioun_skill_2025" role="doc-biblioref">Hosseinioun et al. 2025</a>)</span>. This structural view aligns with recent findings in intergenerational mobility research, which conceptualize occupations not as monolithic categories but as complex bundles of gradational characteristics, where it is often the underlying traits, rather than the job title itself, that are transmitted across generations <span class="citation" data-cites="york_gradationalism_2025">(<a href="#ref-york_gradationalism_2025" role="doc-biblioref">York, Song, and Xie 2025</a>)</span>.</p>
+<p>The architecture of inequality in the U.S. labor market is not a static blueprint but an actively reproduced, dynamic process. Its foundations lie in the everyday decisions of <strong>employers within organizations</strong>, who determine which skill requirements to establish for the occupations they manage. Foundational studies have demonstrated that the skill landscape itself is starkly polarized into two distinct domains—a socio-cognitive cluster associated with high wages and a sensory-physical one with low wages <span class="citation" data-cites="alabdulkareem_unpacking_2018">(<a href="#ref-alabdulkareem_unpacking_2018" role="doc-biblioref">Alabdulkareem et al. 2018</a>)</span>—and that this space has a nested, hierarchical architecture <span class="citation" data-cites="hosseinioun_skill_2025">(<a href="#ref-hosseinioun_skill_2025" role="doc-biblioref">Hosseinioun et al. 2025</a>)</span>. This structural view aligns with recent findings in intergenerational mobility research, which conceptualize occupations not as monolithic categories but as complex bundles of gradational characteristics, where it is often the underlying traits, rather than the job title itself, that are transmitted across generations <span class="citation" data-cites="york_gradationalism_2025">(<a href="#ref-york_gradationalism_2025" role="doc-biblioref">York et al. 2025</a>)</span>.</p>
 <p>Faced with uncertainty about which skill requirements will maximize productivity or prestige, employers often look to the practices of <strong>other organizations</strong> for guidance. They engage in a process of social learning and imitation, observing how similar organizations define skill requirements for comparable occupations. However, we argue this imitation is not random. It is governed by a powerful, yet poorly understood, mechanism of asymmetric filtering based on the <strong>cultural theorization</strong> of the skill itself. The nature of a skill—how it is socially interpreted and valued—fundamentally alters the pathways it can travel across the occupational status hierarchy as organizations adopt and adapt these requirements.</p>
 <p>The cumulative result of thousands of these guided, micro-level imitation decisions is a macro-level process we term <strong>Asymmetric Trajectory Channeling</strong>. This process actively sorts skills into divergent mobility paths—an upward “escalator” for cognitive skills and a “containment field” for physical ones—thus deepening labor market stratification from the demand side.</p>
 <p>This study moves beyond describing the consequences of polarization for workers (the supply side) to model the causal mechanisms on the demand side that generate it. By focusing on the rules that guide employer imitation <strong>between organizations</strong>, we explain how structural inequality is not merely a state, but an emergent process reproduced from the ground up through organizational decision-making.</p>
@@ -365,8 +366,8 @@ window.Quarto = {
 <h2 class="anchored" data-anchor-id="the-micro-foundations-of-imitation">The Micro-Foundations of Imitation</h2>
 <p>We extend this insight by arguing that <strong>employers imitate skill requirements according to fundamentally different logics depending on the type of skill in question</strong>. To understand why, we must first examine the micro-foundations of organizational imitation. The literature suggests three key mechanisms that drive one organization to adopt the practices of another:</p>
 <ol type="1">
-<li><p><strong>Uncertainty and Bounded Rationality:</strong> Under conditions of uncertainty about the relationship between means and ends, organizations often imitate others as a decision-making shortcut. Rather than calculating an optimal solution from scratch, imitation offers a viable solution with reduced search costs <span class="citation" data-cites="cyert_behavioral_2006 dimaggio_iron_1983">(<a href="#ref-cyert_behavioral_2006" role="doc-biblioref">Cyert, Cyert, and March 2006</a>; <a href="#ref-dimaggio_iron_1983" role="doc-biblioref">DiMaggio and Powell 1983</a>)</span>.</p></li>
-<li><p><strong>Prestige and Status-Seeking:</strong> Imitation is not just a response to uncertainty, but also a strategy to gain legitimacy and status. Organizations do not imitate just anyone; they emulate those they perceive to be more successful or prestigious <span class="citation" data-cites="strang_search_2001 bail_prestige_2019">(<a href="#ref-strang_search_2001" role="doc-biblioref">Strang and Macy 2001</a>; <a href="#ref-bail_prestige_2019" role="doc-biblioref">Bail, Brown, and Wimmer 2019</a>)</span>. This process of “adaptive emulation” <span class="citation" data-cites="strang_search_2001">(<a href="#ref-strang_search_2001" role="doc-biblioref">Strang and Macy 2001</a>)</span>, driven by “success stories,” creates an inherent directional bias in diffusion, where practices flow from high-status to low-status actors.</p></li>
+<li><p><strong>Uncertainty and Bounded Rationality:</strong> Under conditions of uncertainty about the relationship between means and ends, organizations often imitate others as a decision-making shortcut. Rather than calculating an optimal solution from scratch, imitation offers a viable solution with reduced search costs <span class="citation" data-cites="cyert_behavioral_2006 dimaggio_iron_1983">(<a href="#ref-cyert_behavioral_2006" role="doc-biblioref">Cyert et al. 2006</a>; <a href="#ref-dimaggio_iron_1983" role="doc-biblioref">DiMaggio and Powell 1983</a>)</span>.</p></li>
+<li><p><strong>Prestige and Status-Seeking:</strong> Imitation is not just a response to uncertainty, but also a strategy to gain legitimacy and status. Organizations do not imitate just anyone; they emulate those they perceive to be more successful or prestigious <span class="citation" data-cites="strang_search_2001 bail_prestige_2019">(<a href="#ref-strang_search_2001" role="doc-biblioref">Strang and Macy 2001</a>; <a href="#ref-bail_prestige_2019" role="doc-biblioref">Bail et al. 2019</a>)</span>. This process of “adaptive emulation” <span class="citation" data-cites="strang_search_2001">(<a href="#ref-strang_search_2001" role="doc-biblioref">Strang and Macy 2001</a>)</span>, driven by “success stories,” creates an inherent directional bias in diffusion, where practices flow from high-status to low-status actors.</p></li>
 <li><p><strong>Proximity and Network Structure:</strong> Influence is not global but is channeled through social and structural networks. The likelihood that one organization imitates another is strongly conditioned by proximity, whether geographic, social, or cultural <span class="citation" data-cites="hedstrom_contagious_1994 strang_spatial_1993">(<a href="#ref-hedstrom_contagious_1994" role="doc-biblioref">Hedström 1994</a>; <a href="#ref-strang_spatial_1993" role="doc-biblioref">Strang and Tuma 1993</a>)</span>. Actors are more influenced by their peers, direct competitors, or those with whom they maintain dense relationships.</p></li>
 </ol>
 </section>
@@ -377,7 +378,7 @@ window.Quarto = {
 <li><p><strong>Cognitive Skills as Portable Assets:</strong> Cognitive skills (analytical, interpersonal, managerial) are theorized as <strong>nested capabilities</strong>: they are abstract, broadly applicable, and perceived as portable assets associated with growth, learning, and adaptability. Under uncertainty, employers look toward <strong>prestigious exemplars</strong> <span class="citation" data-cites="strang_learning_2010">(<a href="#ref-strang_learning_2010" role="doc-biblioref">Strang 2010</a>)</span> that signal success and modernity. As a result, the diffusion of cognitive skills is driven primarily by <strong>aspirational emulation</strong>. They tend to diffuse <strong>upward</strong> through the occupational status hierarchy as organizations seek to imitate their high-status peers.</p></li>
 <li><p><strong>Physical Skills as Context-Dependent Competencies:</strong> In contrast, physical skills (manual, motor) are theorized as <strong>context-dependent competencies</strong>: they are tied to specific material settings, bodily execution, and legacy institutional constraints. They are less likely to be read as generalizable templates for upward mobility. Instead, their diffusion is based on functional rather than aspirational considerations. Therefore, the diffusion of physical skills is governed mainly by <strong>proximity and functional need</strong>, showing less directional bias or even <strong>containment effects</strong> within their current status segments.</p></li>
 </ul>
-<p>This bifurcation in diffusion logics is what we call <strong>Asymmetric Trajectory Channeling</strong>. While our model, for analytical clarity, uses a binary distinction, we treat skills as <strong>multidimensional bundles</strong> of traits, values, and dispositions <span class="citation" data-cites="york_gradationalism_2025">(<a href="#ref-york_gradationalism_2025" role="doc-biblioref">York, Song, and Xie 2025</a>)</span>. Employers imitate not just individual skills, but <strong>pieces of occupational identity</strong>.</p>
+<p>This bifurcation in diffusion logics is what we call <strong>Asymmetric Trajectory Channeling</strong>. While our model, for analytical clarity, uses a binary distinction, we treat skills as <strong>multidimensional bundles</strong> of traits, values, and dispositions <span class="citation" data-cites="york_gradationalism_2025">(<a href="#ref-york_gradationalism_2025" role="doc-biblioref">York et al. 2025</a>)</span>. Employers imitate not just individual skills, but <strong>pieces of occupational identity</strong>.</p>
 </section>
 <section id="piecewise-dual-process-diffusion-model" class="level2">
 <h2 class="anchored" data-anchor-id="piecewise-dual-process-diffusion-model">Piecewise Dual Process Diffusion Model</h2>
@@ -2287,15 +2288,15 @@ Structural Distance Coefficients:</code></pre>
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-alabdulkareem_unpacking_2018" class="csl-entry" role="listitem">
 Alabdulkareem, Ahmad, Morgan R. Frank, Lijun Sun, Bedoor AlShebli, César Hidalgo, and Iyad Rahwan. 2018. <span>“Unpacking the Polarization of Workplace Skills.”</span> <em>Science Advances</em> 4 (7): eaao6030. <a href="https://doi.org/10.1126/sciadv.aao6030">https://doi.org/10.1126/sciadv.aao6030</a>.
 </div>
 <div id="ref-bail_prestige_2019" class="csl-entry" role="listitem">
-Bail, Christopher A., Taylor W. Brown, and Andreas Wimmer. 2019. <span>“Prestige, Proximity, and Prejudice: How Google Search Terms Diffuse Across the World.”</span> <em>American Journal of Sociology</em> 124 (5): 1496–1548. <a href="https://doi.org/10.1086/702007">https://doi.org/10.1086/702007</a>.
+Bail, Christopher A., Taylor W. Brown, and Andreas Wimmer. 2019. <span>“Prestige, Proximity, and Prejudice: How Google Search Terms Diffuse Across the World.”</span> <em>American Journal of Sociology</em> 124 (5): 1496–548. <a href="https://doi.org/10.1086/702007">https://doi.org/10.1086/702007</a>.
 </div>
 <div id="ref-cyert_behavioral_2006" class="csl-entry" role="listitem">
-Cyert, Richard Michael, Richard Michael Cyert, and James G. March. 2006. <em>A Behavioral Theory of the Firm</em>. 2. ed., [Nachdr.]. Malden, <span>MA</span>: Blackwell Publishing.
+Cyert, Richard Michael, Richard Michael Cyert, and James G. March. 2006. <em>A Behavioral Theory of the Firm</em>. 2. ed., [Nachdr.]. Blackwell Publishing.
 </div>
 <div id="ref-dimaggio_iron_1983" class="csl-entry" role="listitem">
 DiMaggio, Paul, and Walter Powell. 1983. <span>“The Iron Cage Revisited: Institutional Isomorphism and Collective Rationality in Organizational Fields.”</span> <em>American Sociological Review</em> 48 (2): 147–60. <a href="https://doi.org/10.2307/2095101">https://doi.org/10.2307/2095101</a>.
@@ -2304,10 +2305,10 @@ DiMaggio, Paul, and Walter Powell. 1983. <span>“The Iron Cage Revisited: Insti
 Hedström, Peter. 1994. <span>“Contagious Collectivities: On the Spatial Diffusion of Swedish Trade Unions, 1890-1940.”</span> <em>American Journal of Sociology</em> 99 (5): 1157–79. <a href="https://doi.org/10.1086/230408">https://doi.org/10.1086/230408</a>.
 </div>
 <div id="ref-hosseinioun_skill_2025" class="csl-entry" role="listitem">
-Hosseinioun, Moh, Frank Neffke, Letian Zhang, and Hyejin Youn. 2025. <span>“Skill Dependencies Uncover Nested Human Capital.”</span> <em>Nature Human Behaviour</em>, February. <a href="https://doi.org/10.1038/s41562-024-02093-2">https://doi.org/10.1038/s41562-024-02093-2</a>.
+Hosseinioun, Moh, Frank Neffke, Letian Zhang, and Hyejin Youn. 2025. <span>“Skill Dependencies Uncover Nested Human Capital.”</span> <em>Nature Human Behaviour</em>, ahead of print, February 24. <a href="https://doi.org/10.1038/s41562-024-02093-2">https://doi.org/10.1038/s41562-024-02093-2</a>.
 </div>
 <div id="ref-strang_learning_2010" class="csl-entry" role="listitem">
-Strang, David. 2010. <em>Learning by Example: Imitation and Innovation at a Global Bank</em>. Princeton: Princeton University Press.
+Strang, David. 2010. <em>Learning by Example: Imitation and Innovation at a Global Bank</em>. Princeton University Press.
 </div>
 <div id="ref-strang_search_2001" class="csl-entry" role="listitem">
 Strang, David, and Michael W. Macy. 2001. <span>“In Search of Excellence: Fads, Success Stories, and Adaptive Emulation.”</span> <em>American Journal of Sociology</em> 107 (1): 147–82. <a href="https://doi.org/10.1086/323039">https://doi.org/10.1086/323039</a>.
