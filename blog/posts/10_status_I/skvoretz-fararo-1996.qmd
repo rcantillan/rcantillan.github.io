@@ -118,144 +118,159 @@ The process can be visualized concretely. Skvoretz and Fararo use the example of
 In the widget below you can follow the process **act by act**. Each click represents one speech act. Notice how the arrows form, and pay particular attention to how **bystanders** (those who only observe) generate the majority of ties.
 
 ```{=html}
-<style>
-  .sim-outer{font-family:inherit;margin:1.5rem 0}
-  .sim-wrapper{background:#f8f8f7;border:1px solid #e0dfd8;border-radius:10px;overflow:hidden}
-  .sim-controls{padding:12px 16px;border-bottom:1px solid #e0dfd8;display:flex;align-items:center;gap:12px;flex-wrap:wrap;background:#fff}
-  .sim-controls button{font-size:13px;padding:6px 16px;border-radius:6px;border:1px solid #ccc;background:#fff;cursor:pointer;color:#333;transition:background .15s}
-  .sim-controls button:hover{background:#f0eeea}
-  .sim-controls button:disabled{opacity:.4;cursor:default}
-  #step-counter-en{font-size:13px;color:#888}
-  #step-info-en{padding:10px 16px;font-size:14px;font-weight:500;color:#222;border-bottom:1px solid #e0dfd8;background:#fff;min-height:40px}
-  #log-en{padding:12px 16px;font-size:13px;color:#555;min-height:52px;line-height:1.6;background:#f8f8f7}
-  .legend-note{font-size:12px;color:#888;margin-top:8px;padding:0 4px}
-</style>
-
-<div class="sim-outer">
-<div class="sim-wrapper">
-  <div class="sim-controls">
-    <button id="btn-next-en" onclick="nextStepEn()">Next act ▶</button>
-    <button id="btn-reset-en" onclick="resetEn()">Reset</button>
-    <span id="step-counter-en">Step 0 — 0 of 15 ties</span>
+<div style="font-family:inherit">
+  <div style="border:1px solid #e0dfd8;border-radius:10px;overflow:hidden">
+    <div style="padding:10px 14px;border-bottom:1px solid #e0dfd8;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#fafaf9">
+      <button id="sfNext" style="font-size:13px;padding:6px 16px;border-radius:6px;border:1px solid #bbb;background:#fff;cursor:pointer;color:#222">Next act ▶</button>
+      <button id="sfReset" style="font-size:13px;padding:6px 16px;border-radius:6px;border:1px solid #bbb;background:#fff;cursor:pointer;color:#222">Reset</button>
+      <span id="sfCounter" style="font-size:13px;color:#888">Step 0 — 0 of 15 ties</span>
+    </div>
+    <div id="sfInfo" style="padding:10px 14px;font-size:14px;font-weight:600;color:#111;border-bottom:1px solid #e0dfd8;background:#fff;min-height:40px">No acts yet. Click "Next act" to begin.</div>
+    <svg id="sfSvg" width="100%" viewBox="0 0 580 300" style="display:block;background:#fff"></svg>
+    <div id="sfLog" style="padding:10px 14px;font-size:13px;color:#555;min-height:50px;line-height:1.6;background:#f8f8f7">Precedence ties will appear as the group interacts...</div>
+    <div style="font-size:11px;color:#999;padding:6px 14px 10px;background:#f8f8f7">⬤ Blue = high status (H1–H3, full professors) | ○ Gray = low status (L1–L3, asst. professors) | → Orange = new tie</div>
   </div>
-  <div id="step-info-en">No acts yet. Click "Next act" to begin.</div>
-  <svg id="sim-svg-en" width="100%" viewBox="0 0 640 340" style="display:block;background:#fff"></svg>
-  <div id="log-en">Precedence ties will appear as the group interacts...</div>
 </div>
-<p class="legend-note">⬤ Blue = high status (H1–H3, full professors) &nbsp;|&nbsp; ○ Gray = low status (L1–L3, assistant professors) &nbsp;|&nbsp; → Orange = new tie</p>
-</div>
-
 <script>
-(function(){
-  var actors = [
-    {id:0,label:'H1',x:190,y:80,high:true},
-    {id:1,label:'H2',x:320,y:60,high:true},
-    {id:2,label:'H3',x:450,y:80,high:true},
-    {id:3,label:'L1',x:190,y:260,high:false},
-    {id:4,label:'L2',x:320,y:280,high:false},
-    {id:5,label:'L3',x:450,y:260,high:false},
+(function () {
+  const actors = [
+    {id:0, label:"H1", x:170, y:70,  high:true},
+    {id:1, label:"H2", x:290, y:50,  high:true},
+    {id:2, label:"H3", x:410, y:70,  high:true},
+    {id:3, label:"L1", x:170, y:230, high:false},
+    {id:4, label:"L2", x:290, y:250, high:false},
+    {id:5, label:"L3", x:410, y:230, high:false}
   ];
-  var steps = [
-    {speaker:1,target:0,newTies:[[1,0],[1,3],[2,0]],
-     log:'H2 addresses H1 (proposes discussing faculty parking). Via bystanders → H2→H1, H2→L1, H3→H1.'},
-    {speaker:0,target:5,newTies:[[0,5],[0,3],[1,5],[2,5],[4,5]],
-     log:'H1 addresses L3 (suggests staff privileges also be considered). Via bystanders → H1→L3, H1→L1, H2→L3, H3→L3, L2→L3.'},
-    {speaker:3,target:4,newTies:[[1,4],[2,4]],
-     log:'L1 addresses L2 (staff should wait until faculty is resolved). Via bystanders → H2→L2, H3→L2.'},
-    {speaker:4,target:1,newTies:[],
-     log:'L2 addresses H2 expressing agreement. Act of deference — no new ties.'},
-    {speaker:3,target:1,newTies:[],
-     log:'L1 also agrees with H2. Act of deference — no new ties.'},
-    {speaker:4,target:1,newTies:[],
-     log:'L2 urges H2 to proceed with recommendations. Continued deference — no new ties.'},
-    {speaker:0,target:3,newTies:[[2,3],[4,3],[0,5],[5,3]],
-     log:'H1 addresses L1 ("staff privileges will be taken up last"). Via bystanders → H3→L1, L2→L1, H1→L3, L3→L1.'},
-    {speaker:2,target:0,newTies:[[3,0]],
-     log:'H3 addresses H1 in agreement. Via bystander → L1→H1.'},
-    {speaker:2,target:1,newTies:[[2,1]],
-     log:'H3 addresses H2 ("too few spaces on Campus East for full professors"). Direct effect → H3→H2. ✅ Complete status order in just 9 acts!'},
+
+  const steps = [
+    {spk:1, tgt:0, ties:[[1,0],[1,3],[2,0]],
+     log:"H2 addresses H1 (proposes faculty parking). Via bystanders: H2→H1, H2→L1, H3→H1."},
+    {spk:0, tgt:5, ties:[[0,5],[0,3],[1,5],[2,5],[4,5]],
+     log:"H1 addresses L3 (suggests staff privileges). Via bystanders: H1→L3, H1→L1, H2→L3, H3→L3, L2→L3."},
+    {spk:3, tgt:4, ties:[[1,4],[2,4]],
+     log:"L1 addresses L2 (staff should wait). Via bystanders: H2→L2, H3→L2."},
+    {spk:4, tgt:1, ties:[],
+     log:"L2 addresses H2 expressing agreement. Act of deference — no new ties."},
+    {spk:3, tgt:1, ties:[],
+     log:"L1 also agrees with H2. Act of deference — no new ties."},
+    {spk:4, tgt:1, ties:[],
+     log:"L2 urges H2 to proceed. Continued deference — no new ties."},
+    {spk:0, tgt:3, ties:[[2,3],[4,3],[0,5],[5,3]],
+     log:"H1 addresses L1 (staff last). Via bystanders: H3→L1, L2→L1, H1→L3, L3→L1."},
+    {spk:2, tgt:0, ties:[[3,0]],
+     log:"H3 addresses H1 in agreement. Via bystander: L1→H1."},
+    {spk:2, tgt:1, ties:[[2,1]],
+     log:"H3 addresses H2 (too few spaces for professors). Direct effect: H3→H2. ✅ Complete status order in just 9 acts!"}
   ];
-  var step=-1, formed=new Set(), allTies=[];
 
-  function pairKey(a,b){return a+'-'+b}
+  let step = -1, formed = {}, allTies = [];
+  const NS = "http://www.w3.org/2000/svg";
 
-  function resetEn(){
-    step=-1; formed=new Set(); allTies=[];
-    document.getElementById('step-counter-en').textContent='Step 0 — 0 of 15 ties';
-    document.getElementById('step-info-en').textContent='No acts yet. Click "Next act" to begin.';
-    document.getElementById('log-en').textContent='Precedence ties will appear as the group interacts...';
-    document.getElementById('btn-next-en').disabled=false;
-    drawEn([]);
+  const btnNext  = document.getElementById("sfNext");
+  const btnReset = document.getElementById("sfReset");
+  const counter  = document.getElementById("sfCounter");
+  const info     = document.getElementById("sfInfo");
+  const svgEl    = document.getElementById("sfSvg");
+  const logEl    = document.getElementById("sfLog");
+
+  function mkMarker(id, color) {
+    const marker = document.createElementNS(NS, "marker");
+    marker.setAttribute("id", id);
+    marker.setAttribute("viewBox", "0 0 10 10");
+    marker.setAttribute("refX", "8");
+    marker.setAttribute("refY", "5");
+    marker.setAttribute("markerWidth", "5");
+    marker.setAttribute("markerHeight", "5");
+    marker.setAttribute("orient", "auto-start-reverse");
+    const p = document.createElementNS(NS, "path");
+    p.setAttribute("d", "M2 1L8 5L2 9");
+    p.setAttribute("fill", "none");
+    p.setAttribute("stroke", color);
+    p.setAttribute("stroke-width", "1.5");
+    p.setAttribute("stroke-linecap", "round");
+    p.setAttribute("stroke-linejoin", "round");
+    marker.appendChild(p);
+    return marker;
   }
 
-  function nextStepEn(){
+  function draw(ties, spk, tgt) {
+    while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
+
+    const defs = document.createElementNS(NS, "defs");
+    defs.appendChild(mkMarker("sfArrOld", "#aaa"));
+    defs.appendChild(mkMarker("sfArrNew", "#D85A30"));
+    svgEl.appendChild(defs);
+
+    ties.forEach(t => {
+      const a = actors[t.from], b = actors[t.to];
+      const dx = b.x - a.x, dy = b.y - a.y, len = Math.sqrt(dx*dx + dy*dy), r = 22;
+      const ln = document.createElementNS(NS, "line");
+      ln.setAttribute("x1", a.x + (dx/len)*r);
+      ln.setAttribute("y1", a.y + (dy/len)*r);
+      ln.setAttribute("x2", b.x - (dx/len)*(r+4));
+      ln.setAttribute("y2", b.y - (dy/len)*(r+4));
+      ln.setAttribute("stroke", t.isNew ? "#D85A30" : "#bbb");
+      ln.setAttribute("stroke-width", t.isNew ? "2.5" : "1.2");
+      ln.setAttribute("marker-end", t.isNew ? "url(#sfArrNew)" : "url(#sfArrOld)");
+      ln.setAttribute("opacity", t.isNew ? "1" : "0.6");
+      svgEl.appendChild(ln);
+    });
+
+    actors.forEach((a, i) => {
+      let fill, stroke, sw, tc;
+      if      (i === spk)  { fill="#185FA5"; stroke="#0C447C"; sw=2.5; tc="#fff"; }
+      else if (i === tgt)  { fill="#0F6E56"; stroke="#085041"; sw=2.5; tc="#fff"; }
+      else if (a.high)     { fill="#E6F1FB"; stroke="#378ADD"; sw=1;   tc="#185FA5"; }
+      else                 { fill="#f1efe8"; stroke="#b4b2a9"; sw=1;   tc="#5f5e5a"; }
+      const c = document.createElementNS(NS, "circle");
+      c.setAttribute("cx", a.x); c.setAttribute("cy", a.y); c.setAttribute("r", 22);
+      c.setAttribute("fill", fill); c.setAttribute("stroke", stroke);
+      c.setAttribute("stroke-width", sw);
+      svgEl.appendChild(c);
+      const tx = document.createElementNS(NS, "text");
+      tx.setAttribute("x", a.x); tx.setAttribute("y", a.y);
+      tx.setAttribute("text-anchor", "middle");
+      tx.setAttribute("dominant-baseline", "central");
+      tx.setAttribute("font-size", "12");
+      tx.setAttribute("font-weight", "700");
+      tx.setAttribute("fill", tc);
+      tx.textContent = a.label;
+      svgEl.appendChild(tx);
+    });
+  }
+
+  function reset() {
+    step = -1; formed = {}; allTies = [];
+    counter.textContent = "Step 0 — 0 of 15 ties";
+    info.textContent    = 'No acts yet. Click "Next act" to begin.';
+    logEl.textContent   = "Precedence ties will appear as the group interacts...";
+    btnNext.disabled    = false;
+    draw([], undefined, undefined);
+  }
+
+  function next() {
     step++;
-    if(step>=steps.length){document.getElementById('btn-next-en').disabled=true;return;}
-    var s=steps[step];
-    allTies.forEach(function(t){t.isNew=false;});
-    s.newTies.forEach(function(t){
-      var k=pairKey(t[0],t[1]);
-      if(!formed.has(k)){formed.add(k);allTies.push({from:t[0],to:t[1],isNew:true});}
+    if (step >= steps.length) { btnNext.disabled = true; return; }
+    const s = steps[step];
+    allTies.forEach(t => { t.isNew = false; });
+    s.ties.forEach(t => {
+      const k = t[0] + "-" + t[1];
+      if (!formed[k]) { formed[k] = true; allTies.push({from:t[0], to:t[1], isNew:true}); }
     });
-    document.getElementById('step-counter-en').textContent='Step '+(step+1)+' of '+steps.length+' — '+formed.size+' of 15 ties';
-    document.getElementById('step-info-en').textContent='Act '+(step+1)+': '+actors[s.speaker].label+' addresses '+actors[s.target].label;
-    document.getElementById('log-en').textContent=s.log;
-    if(step===steps.length-1) document.getElementById('btn-next-en').disabled=true;
-    drawEn(allTies,s.speaker,s.target);
+    const total = Object.keys(formed).length;
+    counter.textContent = `Step ${step+1} of ${steps.length} — ${total} of 15 ties`;
+    info.textContent    = `Act ${step+1}: ${actors[s.spk].label} addresses ${actors[s.tgt].label}`;
+    logEl.textContent   = s.log;
+    if (step === steps.length - 1) btnNext.disabled = true;
+    draw(allTies, s.spk, s.tgt);
   }
 
-  function drawEn(ties,spk,tgt){
-    var svg=document.getElementById('sim-svg-en');
-    svg.innerHTML='<defs><marker id="arEN" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker></defs>';
-
-    ties.forEach(function(t){
-      var a=actors[t.from],b=actors[t.to];
-      var dx=b.x-a.x,dy=b.y-a.y,len=Math.sqrt(dx*dx+dy*dy),r=26;
-      var x1=a.x+(dx/len)*r,y1=a.y+(dy/len)*r,x2=b.x-(dx/len)*(r+4),y2=b.y-(dy/len)*(r+4);
-      var line=document.createElementNS('http://www.w3.org/2000/svg','line');
-      line.setAttribute('x1',x1);line.setAttribute('y1',y1);
-      line.setAttribute('x2',x2);line.setAttribute('y2',y2);
-      line.setAttribute('stroke',t.isNew?'#D85A30':'#aaa');
-      line.setAttribute('stroke-width',t.isNew?'2.5':'1.2');
-      line.setAttribute('marker-end','url(#arEN)');
-      line.setAttribute('opacity',t.isNew?'1':'0.5');
-      svg.appendChild(line);
-    });
-
-    actors.forEach(function(a,i){
-      var g=document.createElementNS('http://www.w3.org/2000/svg','g');
-      var c=document.createElementNS('http://www.w3.org/2000/svg','circle');
-      c.setAttribute('cx',a.x);c.setAttribute('cy',a.y);c.setAttribute('r',24);
-      var fill,stroke,sw,tc;
-      if(i===spk){fill='#185FA5';stroke='#0C447C';sw=2.5;tc='#fff';}
-      else if(i===tgt){fill='#0F6E56';stroke='#085041';sw=2.5;tc='#fff';}
-      else if(a.high){fill='#E6F1FB';stroke='#378ADD';sw=1;tc='#185FA5';}
-      else{fill='#f1efe8';stroke='#b4b2a9';sw=1;tc='#5f5e5a';}
-      c.setAttribute('fill',fill);c.setAttribute('stroke',stroke);c.setAttribute('stroke-width',sw);
-      g.appendChild(c);
-      var tx=document.createElementNS('http://www.w3.org/2000/svg','text');
-      tx.setAttribute('x',a.x);tx.setAttribute('y',a.y);
-      tx.setAttribute('text-anchor','middle');tx.setAttribute('dominant-baseline','central');
-      tx.setAttribute('font-size','13');tx.setAttribute('font-weight','600');tx.setAttribute('fill',tc);
-      tx.textContent=a.label;
-      g.appendChild(tx);
-      svg.appendChild(g);
-    });
-
-    if(spk!==undefined){
-      var note=document.createElementNS('http://www.w3.org/2000/svg','text');
-      note.setAttribute('x','32');note.setAttribute('y','320');
-      note.setAttribute('font-size','11');note.setAttribute('fill','#999');
-      note.textContent='Dark blue = speaker | Green = listener | Orange = new precedence tie';
-      svg.appendChild(note);
-    }
-  }
-
-  resetEn();
+  btnNext.addEventListener("click", next);
+  btnReset.addEventListener("click", reset);
+  reset();
 })();
 </script>
 ```
-
 The result in this example is striking: in just **9 speech acts**, the 6-person group forms all 15 precedence ties needed for a complete status order. And **14 of those 15 ties** emerged via bystander effects, not via the direct interactant effect.
 
 ---
