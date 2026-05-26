@@ -1,0 +1,715 @@
+---
+title: "When Does Merit Matter? An Agent-Based Model of Deference Exchange"
+subtitle: "Series: Status Models in Analytical Sociology"
+author: 
+  - name: "Roberto Cantillan"
+    affiliations: 
+        - name: "Department of Sociology, PUC"
+          address: "Santiago, Chile"
+
+date: today
+#bibliography: references.bib
+bibliographystyle: apa
+categories:
+  - Status Theory
+  - Agent-Based Models
+  - Computational Sociology
+  - Formal Models
+  - Social Stratification
+  - Inequality
+
+image: "featured.jpg"
+title-block-banner: featured.jpg
+title-block-banner-color: "rgba(0, 0, 0, 0.8)"
+title-block-style: default
+freeze: true
+execute:
+  cache: true
+---
+
+> **Fourth post in the series.** [Skvoretz & Fararo (1996)](../skvoretz-fararo-1996/index.qmd) modeled hierarchy as a step-by-step process. [Gould (2002)](../gould-2002/index.qmd) derived an equilibrium. [Podolny (1993)](../podolny-1993/index.qmd) extended the logic to markets. This final entry closes the circle: **"Heuristics, Interactions, and Status Hierarchies: An Agent-Based Model of Deference Exchange"**, by Gianluca Manzo and Delia Baldassarri, published in *Sociological Methods & Research* in 2015. It takes the two mechanisms at the heart of Gould's equilibrium model — social influence and reciprocity — and asks whether they actually generate what we observe in real status distributions. The answer, it turns out, depends almost entirely on *who interacts with whom*.
+
+---
+
+## The Empirical Puzzle
+
+Before asking what generates status hierarchies, Manzo and Baldassarri ask what status hierarchies actually look like. This is a surprisingly underspecified question in the formal literature — most models are validated against structural properties of social networks (as Gould did) or against specific experimental data, not against the aggregate distributional regularities that characterize income, wealth, academic citations, and social ties at scale.
+
+Three features stand out in virtually every empirical distribution of status resources:
+
+**1. Large and growing gap between quality and reward.** The difference in recognition, visibility, and material reward between the very top and the rest is consistently *larger* than the difference in underlying quality or contribution. Rosen (1981) called this the "magnification effect." It is not just that the best scientist gets more citations — they get vastly more than their marginal superiority in quality would predict.
+
+**2. Growing inequality that stops short of winner-take-all.** Status distributions are skewed — highly concentrated at the top — but they do not collapse into a monopoly. Gini coefficients for income, wealth, and citation counts are high and often rising, but the richest person never holds 100% of all wealth. Something consistently prevents the cascade from going all the way.
+
+**3. Constant rank reshuffling under stable macro-level asymmetry.** At the aggregate level, status distributions look stable. But at the individual level, ranks shift continuously. The same person who is highly cited this year may be eclipsed next year by a newcomer. The macro structure is durable; the micro assignments within it are not.
+
+Manzo and Baldassarri use these three patterns as their empirical benchmark. They then ask: do the existing formal models — specifically Gould (2002) and its extension by Lynn, Podolny, and Tao (2009) — actually reproduce these patterns?
+
+Their answer, after an extensive re-analysis, is **no, not reliably**. Gould's equilibrium model produces some of these patterns in some regions of the parameter space, but not coherently across all three indicators and not with realistic Gini values. The models also rest on behavioral assumptions — utility maximization, homogeneous agents, all-to-all interaction — that are not particularly realistic.
+
+So Manzo and Baldassarri build a new model from scratch, following what they call the **"TAPAS" principle**: *Take A Previous model And add Something*. They keep the two core mechanisms (social influence and reciprocity) but replace the behavioral and structural assumptions with more realistic alternatives.
+
+---
+
+## Three Unrealistic Assumptions They Fix
+
+### 1. Rational actors → Cognitive heuristics
+
+Gould models agents as utility maximizers who solve an optimization problem to determine how much deference to direct toward each alter. Manzo and Baldassarri argue this is cognitively implausible. Real actors do not solve welfare functions in their heads before deciding how deferential to be at a meeting.
+
+Instead, they model three simple cognitive shortcuts — **heuristics** — grounded in experimental evidence from social psychology and cognitive science:
+
+- An **imitation heuristic** for quality perception: when assessing someone's quality, look at how others are treating them.
+- A **sour grapes heuristic** for deference attribution: if someone is not reciprocating your deference, penalize them.
+- An **averaging heuristic** for status updating: compute others' status as a weighted average of past deference received, with more weight on recent gestures.
+
+### 2. Homogeneous agents → Individual-level heterogeneity
+
+Both Gould and LPT assume every actor has the same sensitivity to social influence, the same concern for reciprocity, and the same tolerance for interacting with status-dissimilar others. Manzo and Baldassarri allow each of these to vary across agents, making the model capable of capturing the empirical reality that some people are more susceptible to peer pressure, some more tolerant of asymmetric relationships, some more status-anxious than others.
+
+### 3. All-to-all interaction → Status homophily
+
+This is the most consequential change. Both prior models assume every actor potentially interacts with every other actor. Manzo and Baldassarri replace this with a **status homophily** rule: agents prefer to interact with others at a similar status level.
+
+This assumption is empirically well-documented — people tend to associate with social equals both in everyday life and in professional contexts. And its theoretical consequences, as we will see, are dramatic.
+
+---
+
+## The Four-Step Model
+
+The model is an agent-based simulation with $N = 30$ agents iterated over $T = 100$ time steps, replicated 100 times per parameter combination. Each iteration proceeds through four steps.
+
+### Step 1 — Partner selection: the "Sirens" heuristic
+
+Each agent determines which partners it is willing to interact with, based on status similarity. Like Ulysses binding himself to the mast to resist the Sirens' song, agents in the model restrain themselves from interacting with alluring but status-distant others — to protect against the psychological discomfort of unreciprocated deference.
+
+Formally, agent $i$ interacts with agent $j$ only if the status dissimilarity between them falls within an acceptable range:
+
+$$-h_i \cdot SR_t \leq SD_{ij}^t \leq h_i \cdot SR_t$$
+
+where $SR_t$ is the current range of the status distribution (highest minus lowest), $SD_{ij}^t$ is the status difference between $i$ and $j$, and $h_i \in [0,1]$ is agent $i$'s **heterophily** parameter — their tolerance for status-dissimilar interaction. When $h = 1$ for everyone, we recover the all-to-all scenario of prior models.
+
+### Step 2 — Quality perception: the "Imitation" heuristic
+
+After selecting partners, each agent assesses their quality. Because intrinsic quality is unobservable, agents rely on a combination of their own noisy assessment and what the group's prior behavior reveals:
+
+$$q_{ij}^t = (Q_j + \varepsilon_{ij}^t) + w_i \cdot S_j^{t-1}$$
+
+The first term is agent $i$'s direct (but error-prone) estimate of $j$'s quality. The second term is the **imitation heuristic**: agent $i$ uses $j$'s current status $S_j^{t-1}$ as a social signal of quality, weighted by $w_i$ — their sensitivity to social influence. High $w$ means strong Matthew effect: already-high-status agents are perceived as even higher quality.
+
+### Step 3 — Deference attribution: the "Sour Grapes" heuristic
+
+Based on the quality perception, agent $i$ decides how much deference to direct toward $j$. Here the reciprocity concern enters — modeled not as a utility term but as a behavioral rule:
+
+$$\text{if } ddd_{ij}^{t-1} \leq 0: \quad a_{ij}^t = q_{ij}^t$$
+
+$$\text{if } ddd_{ij}^{t-1} > 0: \quad a_{ij}^t = q_{ij}^t - s_i \cdot ddd_{ij}^{t-1}$$
+
+where $ddd_{ij} = a_{ij} - a_{ji}$ is the *difference in dyadic deference* — how much more $i$ gave than received. When $i$ received as much or more than they gave ($ddd \leq 0$), they assess $j$'s quality honestly. But when $i$ gave more than they received, they apply a **deference penalty**: like Aesop's fox deciding the grapes were sour after failing to reach them, ego devalues alter's status in proportion to the asymmetry they experienced.
+
+The parameter $s_i$ governs the intensity of this sour grapes reaction.
+
+### Step 4 — Status update: the "Averaging" heuristic
+
+Each agent's status is updated as a temporally weighted average of all deference gestures received, with more recent ones weighted more heavily:
+
+$$S_i^t = \frac{1}{N-1} \sum_{j \neq i} \frac{t^*}{t} \cdot a_{ji}^{t^*}$$
+
+This captures the empirical intuition that recent interactions are more cognitively salient than distant ones.
+
+---
+
+## The Central Finding: Homophily Is What Drives the Matthew Effect
+
+The paper's most counterintuitive and important result concerns the role of heterophily $h$ — the parameter controlling how willing agents are to interact across status boundaries.
+
+Manzo and Baldassarri show that **in a world where everyone interacts with everyone else ($h = 1$), social influence ($w$) produces almost no status inequality**. The mechanism self-cancels: if every agent interacts with every other, the status signal each agent emits is just the average of what everyone reflects back. The rich-get-richer dynamic never takes off because no agent's current status can gain a differential foothold in an all-to-all network.
+
+Conversely, when agents interact **locally with status-similar others** (low $h$), small initial differences in quality get amplified by the imitation heuristic into large and durable status gaps.
+
+Why? Because local interaction breaks the symmetric feedback loop. If $i$ mostly talks to other people like $i$, and $j$ mostly talks to people like $j$, then $i$'s status signal is amplified only within its own status neighborhood — and those signals do not get washed out by cross-status interactions that would pull the distribution back toward the mean.
+
+The best-performing specification of the model — the one that most closely reproduces all three empirical patterns simultaneously — is one where **low-status actors are more willing to interact across status boundaries than high-status actors**. This captures a well-documented empirical asymmetry: unreciprocated friendship nominations disproportionately involve low-status actors claiming friendship with high-status ones (Ball and Newman 2013). Low-status actors reach up; high-status actors retreat inward. This structural asymmetry in interaction is what sustains both the Matthew effect and the departure of the status distribution from winner-take-all.
+
+---
+
+## The Simulation: Run the Model Yourself
+
+The widget below implements the Manzo-Baldassarri ABM directly in your browser. A population of 20 agents with normally distributed intrinsic quality $Q$ exchange deference over multiple iterations. The three sliders control the core parameters. Watch three outcomes evolve in real time: the **status-quality gap** (how much status diverges from true quality), the **Gini coefficient** (overall inequality), and the **status-quality rank correlation** (how faithfully status mirrors the quality ranking).
+
+```{=html}
+<div style="font-family:inherit;max-width:740px">
+  <div style="border:1px solid #e0dfd8;border-radius:10px;overflow:hidden">
+
+    <!-- Controls -->
+    <div style="padding:14px 16px;border-bottom:1px solid #e0dfd8;background:#f5f4f0">
+      <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end">
+
+        <div style="flex:1;min-width:140px">
+          <label style="font-size:11px;font-weight:700;color:#555;display:block;margin-bottom:3px">
+            Imitation <em>w</em>
+          </label>
+          <input type="range" id="mbW" min="0" max="1" step="0.05" value="0.5"
+            style="width:100%;accent-color:#185FA5">
+          <div style="font-size:11px;color:#888;margin-top:1px">w = <span id="mbWv">0.50</span> · social influence</div>
+        </div>
+
+        <div style="flex:1;min-width:140px">
+          <label style="font-size:11px;font-weight:700;color:#555;display:block;margin-bottom:3px">
+            Sour grapes <em>s</em>
+          </label>
+          <input type="range" id="mbS" min="0" max="1" step="0.05" value="0.3"
+            style="width:100%;accent-color:#B94A30">
+          <div style="font-size:11px;color:#888;margin-top:1px">s = <span id="mbSv">0.30</span> · reciprocity penalty</div>
+        </div>
+
+        <div style="flex:1;min-width:140px">
+          <label style="font-size:11px;font-weight:700;color:#555;display:block;margin-bottom:3px">
+            Heterophily <em>h</em>
+          </label>
+          <input type="range" id="mbH" min="0.05" max="1" step="0.05" value="0.3"
+            style="width:100%;accent-color:#1A6B1A">
+          <div style="font-size:11px;color:#888;margin-top:1px">h = <span id="mbHv">0.30</span> · tolerance for distance</div>
+        </div>
+
+        <div style="min-width:90px;display:flex;flex-direction:column;gap:5px">
+          <button id="mbRun"
+            style="padding:7px 0;font-size:12px;font-weight:600;border-radius:5px;border:1px solid #185FA5;background:#185FA5;color:#fff;cursor:pointer;width:100%">
+            ▶ Run
+          </button>
+          <button id="mbReset"
+            style="padding:7px 0;font-size:12px;font-weight:500;border-radius:5px;border:1px solid #bbb;background:#fff;cursor:pointer;color:#444;width:100%">
+            Reset
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Panels -->
+    <div style="display:flex;flex-wrap:wrap;background:#fff">
+
+      <!-- Left: Q vs S scatter -->
+      <div style="flex:1;min-width:220px;border-right:1px solid #f0efe8;padding:10px 0">
+        <div style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.06em;padding:0 12px 6px">
+          Status vs. quality — iter <span id="mbIter">0</span>
+        </div>
+        <svg id="mbAgentSvg" width="100%" viewBox="0 0 220 280" style="display:block"></svg>
+        <div style="font-size:10px;color:#bbb;padding:2px 12px">
+          ● blue = S &gt; Q &nbsp;·&nbsp; ● slate = S ≈ Q &nbsp;·&nbsp; ● red = S &lt; Q &nbsp;·&nbsp; dashed = S = Q
+        </div>
+      </div>
+
+      <!-- Right: outcome trajectories -->
+      <div style="flex:1.3;min-width:260px;padding:10px 0">
+        <div style="font-size:10px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.06em;padding:0 12px 6px">
+          Macro outcomes over time
+        </div>
+        <svg id="mbTrajSvg" width="100%" viewBox="0 0 300 280" style="display:block"></svg>
+      </div>
+
+    </div>
+
+    <!-- Info -->
+    <div id="mbInfo"
+      style="padding:10px 16px;font-size:13px;color:#444;border-top:1px solid #f0efe8;background:#f8f8f7;min-height:44px;line-height:1.7">
+      Press <strong>Run</strong> to start. Try h = 1.0 first — then lower it and watch what changes.
+    </div>
+
+  </div>
+</div>
+
+<script>
+(function () {
+  const NS = "http://www.w3.org/2000/svg";
+  const N_AGENTS = 20;
+  const MAX_ITER  = 80;
+
+  let Q, status, aMatrix;
+  let histGini = [], histGap = [], histRho = [];
+  let iterCount = 0, timer = null;
+
+  function randNorm() {
+    let u = 0, v = 0;
+    while (!u) u = Math.random();
+    while (!v) v = Math.random();
+    return Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
+  }
+
+  function getParams() {
+    return {
+      w: parseFloat(document.getElementById("mbW").value),
+      s: parseFloat(document.getElementById("mbS").value),
+      h: parseFloat(document.getElementById("mbH").value)
+    };
+  }
+
+  function initModel() {
+    Q      = Array.from({length: N_AGENTS}, () => randNorm());
+    status = Q.map(q => q + randNorm() * 0.3);
+    aMatrix = Array.from({length: N_AGENTS}, () => new Array(N_AGENTS).fill(0));
+    for (let i = 0; i < N_AGENTS; i++)
+      for (let j = 0; j < N_AGENTS; j++)
+        if (i !== j) aMatrix[i][j] = Q[j] + randNorm() * 0.3;
+    histGini = []; histGap = []; histRho = [];
+    iterCount = 0;
+    computeStatus();
+    recordMetrics();
+  }
+
+  function computeStatus() {
+    for (let i = 0; i < N_AGENTS; i++) {
+      let sum = 0, cnt = 0;
+      for (let j = 0; j < N_AGENTS; j++)
+        if (i !== j) { sum += aMatrix[j][i]; cnt++; }
+      status[i] = cnt > 0 ? sum / cnt : 0;
+    }
+  }
+
+  function step() {
+    const {w, s, h} = getParams();
+    const minS = Math.min(...status), maxS = Math.max(...status);
+    const SR = maxS - minS || 1;
+    const newA = Array.from({length: N_AGENTS}, () => new Array(N_AGENTS).fill(0));
+
+    for (let i = 0; i < N_AGENTS; i++) {
+      const normSi = (status[i] - minS) / SR;
+      const h_i   = Math.min(1, h + (1 - normSi) * (1 - h) * 0.5);
+      for (let j = 0; j < N_AGENTS; j++) {
+        if (i === j) continue;
+        if (Math.abs(status[i] - status[j]) > h_i * SR) continue;
+        const qij = (Q[j] + randNorm() * 0.3) + w * status[j];
+        const ddd = aMatrix[i][j] - aMatrix[j][i];
+        newA[i][j] = ddd <= 0 ? qij : qij - s * ddd;
+      }
+      for (let j = 0; j < N_AGENTS; j++)
+        if (i !== j && newA[i][j] === 0 && aMatrix[i][j] !== 0)
+          newA[i][j] = aMatrix[i][j] * 0.95;
+    }
+
+    aMatrix = newA;
+    computeStatus();
+    recordMetrics();
+    iterCount++;
+  }
+
+  function gini(arr) {
+    const s = arr.map(Math.abs).sort((a, b) => a - b);
+    const n = s.length;
+    const mean = s.reduce((a, b) => a + b, 0) / n;
+    if (mean === 0) return 0;
+    let num = 0;
+    for (let i = 0; i < n; i++)
+      for (let j = 0; j < n; j++)
+        num += Math.abs(s[i] - s[j]);
+    return num / (2 * n * n * mean);
+  }
+
+  function spearman(x, y) {
+    const n = x.length;
+    const rankX = new Array(n), rankY = new Array(n);
+    x.map((_, i) => i).sort((a, b) => x[a] - x[b]).forEach((orig, r) => { rankX[orig] = r + 1; });
+    y.map((_, i) => i).sort((a, b) => y[a] - y[b]).forEach((orig, r) => { rankY[orig] = r + 1; });
+    let d2 = 0;
+    for (let i = 0; i < n; i++) d2 += (rankX[i] - rankY[i]) ** 2;
+    return 1 - 6 * d2 / (n * (n * n - 1));
+  }
+
+  function recordMetrics() {
+    histGini.push(gini(status));
+    histGap.push(status.reduce((acc, si, i) => acc + Math.abs(si - Q[i]), 0) / N_AGENTS);
+    histRho.push(spearman(Q, status));
+  }
+
+  // ── Scatter: Q (x) vs Status (y) ────────────────────────────────
+  function drawAgents() {
+    const svg = document.getElementById("mbAgentSvg");
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const W = 220, H = 280;
+    const padL = 30, padR = 10, padT = 22, padB = 30;
+    const chartW = W - padL - padR, chartH = H - padT - padB;
+
+    const allVals = [...Q, ...status];
+    const ext = Math.max(...allVals.map(Math.abs), 1.5) * 1.15;
+    const xSc = v => padL + ((v + ext) / (2 * ext)) * chartW;
+    const ySc = v => padT + (1 - (v + ext) / (2 * ext)) * chartH;
+
+    // Grid
+    const tvs = [-2, -1, 0, 1, 2].filter(v => Math.abs(v) < ext * 0.95);
+    tvs.forEach(v => {
+      const xv = xSc(v), yv = ySc(v);
+      const col = v === 0 ? "#e4e4e4" : "#f2f2f2";
+      const xgl = document.createElementNS(NS, "line");
+      xgl.setAttribute("x1", xv); xgl.setAttribute("y1", padT);
+      xgl.setAttribute("x2", xv); xgl.setAttribute("y2", padT + chartH);
+      xgl.setAttribute("stroke", col); xgl.setAttribute("stroke-width", "1");
+      svg.appendChild(xgl);
+      const ygl = document.createElementNS(NS, "line");
+      ygl.setAttribute("x1", padL); ygl.setAttribute("y1", yv);
+      ygl.setAttribute("x2", padL + chartW); ygl.setAttribute("y2", yv);
+      ygl.setAttribute("stroke", col); ygl.setAttribute("stroke-width", "1");
+      svg.appendChild(ygl);
+    });
+
+    // Diagonal S = Q (meritocracy reference)
+    const diag = document.createElementNS(NS, "line");
+    diag.setAttribute("x1", padL); diag.setAttribute("y1", padT + chartH);
+    diag.setAttribute("x2", padL + chartW); diag.setAttribute("y2", padT);
+    diag.setAttribute("stroke", "#c8c8c8"); diag.setAttribute("stroke-width", "1.3");
+    diag.setAttribute("stroke-dasharray", "5 3");
+    svg.appendChild(diag);
+
+    // Diagonal label
+    const dLbl = document.createElementNS(NS, "text");
+    dLbl.setAttribute("x", padL + chartW - 3); dLbl.setAttribute("y", padT + 10);
+    dLbl.setAttribute("text-anchor", "end"); dLbl.setAttribute("font-size", "8");
+    dLbl.setAttribute("fill", "#bbb"); dLbl.textContent = "S = Q";
+    svg.appendChild(dLbl);
+
+    // Axes
+    [[padL, padT + chartH, padL + chartW, padT + chartH],
+     [padL, padT, padL, padT + chartH]].forEach(([x1,y1,x2,y2]) => {
+      const ax = document.createElementNS(NS, "line");
+      ax.setAttribute("x1",x1); ax.setAttribute("y1",y1);
+      ax.setAttribute("x2",x2); ax.setAttribute("y2",y2);
+      ax.setAttribute("stroke","#d4d4d4"); ax.setAttribute("stroke-width","1");
+      svg.appendChild(ax);
+    });
+
+    // Tick marks and labels
+    tvs.forEach(v => {
+      const xv = xSc(v), yv = ySc(v);
+      const xtk = document.createElementNS(NS, "line");
+      xtk.setAttribute("x1", xv); xtk.setAttribute("y1", padT + chartH);
+      xtk.setAttribute("x2", xv); xtk.setAttribute("y2", padT + chartH + 4);
+      xtk.setAttribute("stroke", "#ccc"); xtk.setAttribute("stroke-width", "1");
+      svg.appendChild(xtk);
+      const xl = document.createElementNS(NS, "text");
+      xl.setAttribute("x", xv); xl.setAttribute("y", padT + chartH + 12);
+      xl.setAttribute("text-anchor", "middle"); xl.setAttribute("font-size", "8");
+      xl.setAttribute("fill", "#bbb"); xl.textContent = v;
+      svg.appendChild(xl);
+      const ytk = document.createElementNS(NS, "line");
+      ytk.setAttribute("x1", padL - 4); ytk.setAttribute("y1", yv);
+      ytk.setAttribute("x2", padL); ytk.setAttribute("y2", yv);
+      ytk.setAttribute("stroke", "#ccc"); ytk.setAttribute("stroke-width", "1");
+      svg.appendChild(ytk);
+      const yl = document.createElementNS(NS, "text");
+      yl.setAttribute("x", padL - 6); yl.setAttribute("y", yv);
+      yl.setAttribute("text-anchor", "end"); yl.setAttribute("dominant-baseline", "central");
+      yl.setAttribute("font-size", "8"); yl.setAttribute("fill", "#bbb"); yl.textContent = v;
+      svg.appendChild(yl);
+    });
+
+    // Agent dots
+    Q.forEach((qi, i) => {
+      const si = status[i];
+      const cx = xSc(qi), cy = ySc(si);
+      if (cx < padL - 2 || cx > padL + chartW + 2 || cy < padT - 2 || cy > padT + chartH + 2) return;
+      const diff = si - qi;
+      const col = diff > 0.35 ? "#185FA5" : diff < -0.35 ? "#B94A30" : "#6C9CC9";
+      const c = document.createElementNS(NS, "circle");
+      c.setAttribute("cx", cx); c.setAttribute("cy", cy); c.setAttribute("r", "5");
+      c.setAttribute("fill", col); c.setAttribute("opacity", "0.85");
+      c.setAttribute("stroke", "#fff"); c.setAttribute("stroke-width", "1.2");
+      svg.appendChild(c);
+    });
+
+    // Axis labels
+    const xLbl = document.createElementNS(NS, "text");
+    xLbl.setAttribute("x", padL + chartW / 2); xLbl.setAttribute("y", padT + chartH + 24);
+    xLbl.setAttribute("text-anchor", "middle"); xLbl.setAttribute("font-size", "9.5");
+    xLbl.setAttribute("fill", "#aaa"); xLbl.textContent = "Intrinsic quality Q";
+    svg.appendChild(xLbl);
+
+    const yLbl = document.createElementNS(NS, "text");
+    yLbl.setAttribute("x", 9); yLbl.setAttribute("y", padT + chartH / 2);
+    yLbl.setAttribute("text-anchor", "middle"); yLbl.setAttribute("dominant-baseline", "central");
+    yLbl.setAttribute("font-size", "9.5"); yLbl.setAttribute("fill", "#aaa");
+    yLbl.setAttribute("transform", `rotate(-90,9,${padT + chartH / 2})`);
+    yLbl.textContent = "Status S";
+    svg.appendChild(yLbl);
+  }
+
+  // ── Trajectory panels ────────────────────────────────────────────
+  function drawTrajectories() {
+    const svg = document.getElementById("mbTrajSvg");
+    while (svg.firstChild) svg.removeChild(svg.firstChild);
+    const W = 300, H = 280;
+    const padL = 38, padR = 10, padT = 14, padB = 24;
+    const chartW = W - padL - padR;
+    const panelH = (H - padT - padB - 16) / 3;
+    const xSc = t => padL + (t / MAX_ITER) * chartW;
+
+    const datasets = [
+      { data: histGini, label: "Gini",              color: "#B94A30", min: 0, max: 1,
+        refs: [{v: 0.5, label: "0.5", dash: "3 3"}] },
+      { data: histGap,  label: "Status–quality gap", color: "#185FA5", min: 0, max: null,
+        refs: [] },
+      { data: histRho,  label: "Rank correlation ρ", color: "#1A6B1A", min: -1, max: 1,
+        refs: [{v: 0, label: "0", dash: "2 3"}] }
+    ];
+
+    datasets.forEach((ds, pi) => {
+      const y0   = padT + pi * (panelH + 8);
+      const maxV = ds.max !== null ? ds.max : Math.max(...ds.data, 0.1) * 1.15;
+      const minV = ds.min;
+      const range = maxV - minV || 1;
+      const ySc  = v => y0 + panelH * (1 - (v - minV) / range);
+      const botY = y0 + panelH;
+
+      // Panel border
+      const pbr = document.createElementNS(NS, "rect");
+      pbr.setAttribute("x", padL); pbr.setAttribute("y", y0);
+      pbr.setAttribute("width", chartW); pbr.setAttribute("height", panelH);
+      pbr.setAttribute("fill", "none"); pbr.setAttribute("stroke", "#eeede6");
+      pbr.setAttribute("stroke-width", "1");
+      svg.appendChild(pbr);
+
+      // Reference lines
+      ds.refs.forEach(ref => {
+        const ry = ySc(ref.v);
+        if (ry < y0 - 1 || ry > botY + 1) return;
+        const rl = document.createElementNS(NS, "line");
+        rl.setAttribute("x1", padL); rl.setAttribute("y1", ry);
+        rl.setAttribute("x2", padL + chartW); rl.setAttribute("y2", ry);
+        rl.setAttribute("stroke", "#ccc"); rl.setAttribute("stroke-width", "1");
+        rl.setAttribute("stroke-dasharray", ref.dash);
+        svg.appendChild(rl);
+        const rt = document.createElementNS(NS, "text");
+        rt.setAttribute("x", padL + chartW - 2); rt.setAttribute("y", ry - 2);
+        rt.setAttribute("text-anchor", "end"); rt.setAttribute("font-size", "7.5");
+        rt.setAttribute("fill", "#bbb"); rt.textContent = ref.label;
+        svg.appendChild(rt);
+      });
+
+      // X tick marks every 20 iters (labels only on bottom panel)
+      [20, 40, 60, 80].forEach(t => {
+        const tx = xSc(t);
+        if (tx > padL + chartW + 1) return;
+        const tk = document.createElementNS(NS, "line");
+        tk.setAttribute("x1", tx); tk.setAttribute("y1", botY);
+        tk.setAttribute("x2", tx); tk.setAttribute("y2", botY + 3);
+        tk.setAttribute("stroke", "#ddd"); tk.setAttribute("stroke-width", "1");
+        svg.appendChild(tk);
+        if (pi === 2) {
+          const tl = document.createElementNS(NS, "text");
+          tl.setAttribute("x", tx); tl.setAttribute("y", botY + 11);
+          tl.setAttribute("text-anchor", "middle"); tl.setAttribute("font-size", "8");
+          tl.setAttribute("fill", "#bbb"); tl.textContent = t;
+          svg.appendChild(tl);
+        }
+      });
+
+      // Area fill under line
+      if (ds.data.length > 1) {
+        const areaBase = pi === 2 ? ySc(0) : botY;
+        let aD = `M${xSc(0)},${areaBase}`;
+        ds.data.forEach((v, t) => {
+          aD += `L${xSc(t).toFixed(1)},${Math.max(y0, Math.min(botY, ySc(v))).toFixed(1)}`;
+        });
+        aD += `L${xSc(ds.data.length - 1)},${areaBase}Z`;
+        const area = document.createElementNS(NS, "path");
+        area.setAttribute("d", aD); area.setAttribute("fill", ds.color);
+        area.setAttribute("opacity", "0.08");
+        svg.appendChild(area);
+      }
+
+      // Line
+      if (ds.data.length > 1) {
+        let d = "";
+        ds.data.forEach((v, t) => {
+          const x = xSc(t), y = Math.max(y0, Math.min(botY, ySc(v)));
+          d += (t === 0 ? "M" : "L") + x.toFixed(1) + "," + y.toFixed(1);
+        });
+        const path = document.createElementNS(NS, "path");
+        path.setAttribute("d", d); path.setAttribute("fill", "none");
+        path.setAttribute("stroke", ds.color); path.setAttribute("stroke-width", "2");
+        path.setAttribute("stroke-linejoin", "round");
+        svg.appendChild(path);
+        // End dot
+        const last = ds.data[ds.data.length - 1];
+        const dot = document.createElementNS(NS, "circle");
+        dot.setAttribute("cx", xSc(ds.data.length - 1));
+        dot.setAttribute("cy", Math.max(y0, Math.min(botY, ySc(last))));
+        dot.setAttribute("r", "3.5"); dot.setAttribute("fill", ds.color);
+        svg.appendChild(dot);
+      }
+
+      // Label + current value
+      const lbl = document.createElementNS(NS, "text");
+      lbl.setAttribute("x", padL + 4); lbl.setAttribute("y", y0 + 12);
+      lbl.setAttribute("font-size", "10"); lbl.setAttribute("fill", ds.color);
+      lbl.setAttribute("font-weight", "700");
+      lbl.textContent = ds.label + (ds.data.length > 0
+        ? " = " + ds.data[ds.data.length - 1].toFixed(3) : "");
+      svg.appendChild(lbl);
+
+      // Y axis ticks (min and max)
+      const yAx = document.createElementNS(NS, "line");
+      yAx.setAttribute("x1", padL); yAx.setAttribute("y1", y0);
+      yAx.setAttribute("x2", padL); yAx.setAttribute("y2", botY);
+      yAx.setAttribute("stroke", "#ddd"); yAx.setAttribute("stroke-width", "1");
+      svg.appendChild(yAx);
+
+      [minV, maxV].forEach(v => {
+        const ty = ySc(v);
+        if (ty < y0 - 2 || ty > botY + 2) return;
+        const tk = document.createElementNS(NS, "line");
+        tk.setAttribute("x1", padL - 4); tk.setAttribute("y1", ty);
+        tk.setAttribute("x2", padL); tk.setAttribute("y2", ty);
+        tk.setAttribute("stroke", "#ccc"); tk.setAttribute("stroke-width", "1");
+        svg.appendChild(tk);
+        const tl = document.createElementNS(NS, "text");
+        tl.setAttribute("x", padL - 6); tl.setAttribute("y", ty);
+        tl.setAttribute("text-anchor", "end"); tl.setAttribute("dominant-baseline", "central");
+        tl.setAttribute("font-size", "8"); tl.setAttribute("fill", "#bbb");
+        tl.textContent = v.toFixed(1);
+        svg.appendChild(tl);
+      });
+    });
+
+    // X axis label
+    const xl = document.createElementNS(NS, "text");
+    xl.setAttribute("x", padL + chartW / 2); xl.setAttribute("y", H - 2);
+    xl.setAttribute("text-anchor", "middle"); xl.setAttribute("font-size", "9");
+    xl.setAttribute("fill", "#bbb"); xl.textContent = "Iteration";
+    svg.appendChild(xl);
+  }
+
+  function updateInfo() {
+    const {w, s, h} = getParams();
+    if (iterCount === 0) {
+      document.getElementById("mbInfo").innerHTML =
+        "Press <strong>Run</strong> to start. Try h = 1.0 first — then lower it and watch what changes.";
+      return;
+    }
+    const g   = histGini[histGini.length - 1] || 0;
+    const gap = histGap[histGap.length - 1] || 0;
+    const rho = histRho[histRho.length - 1] || 0;
+    const done = iterCount >= MAX_ITER;
+    let msg = `Iter ${iterCount}${done ? " (done)" : ""} &nbsp;·&nbsp; `
+      + `Gini = <strong>${g.toFixed(3)}</strong> &nbsp;·&nbsp; `
+      + `Gap = <strong>${gap.toFixed(3)}</strong> &nbsp;·&nbsp; `
+      + `ρ = <strong>${rho.toFixed(3)}</strong>. `;
+    if (h > 0.8) {
+      msg += `h = ${h.toFixed(2)}: broad interaction — social influence self-cancels, inequality stays low (Gould's scenario).`;
+    } else if (h < 0.25) {
+      msg += `h = ${h.toFixed(2)}: agents interact mostly within their stratum. `
+           + (g > 0.4 ? "Matthew effect active: status has decoupled from merit." : "Local amplification underway.");
+    } else {
+      msg += rho > 0.7
+        ? "Status still tracks quality reasonably well."
+        : rho < 0.4
+        ? "Status has largely decoupled from underlying quality."
+        : "Status drifting from quality. Lower h further to amplify the effect.";
+    }
+    document.getElementById("mbInfo").innerHTML = msg;
+    document.getElementById("mbIter").textContent = iterCount;
+  }
+
+  function runStep() {
+    if (iterCount >= MAX_ITER) { stop(); return; }
+    step();
+    drawAgents();
+    drawTrajectories();
+    updateInfo();
+  }
+
+  function stop() {
+    if (timer) { clearInterval(timer); timer = null; }
+    document.getElementById("mbRun").textContent = "▶ Run";
+  }
+
+  function start() {
+    stop();
+    timer = setInterval(runStep, 80);
+    document.getElementById("mbRun").textContent = "⏸ Pause";
+  }
+
+  document.getElementById("mbRun").addEventListener("click", function () {
+    if (timer) { stop(); } else { if (iterCount === 0) initModel(); start(); }
+  });
+
+  document.getElementById("mbReset").addEventListener("click", function () {
+    stop();
+    initModel();
+    drawAgents();
+    drawTrajectories();
+    document.getElementById("mbRun").textContent = "▶ Run";
+    document.getElementById("mbInfo").innerHTML =
+      "Reset. Press <strong>Run</strong> to start again with new random agents.";
+  });
+
+  ["mbW","mbS","mbH"].forEach(id => {
+    document.getElementById(id).addEventListener("input", function () {
+      document.getElementById(id + "v").textContent = parseFloat(this.value).toFixed(2);
+    });
+  });
+
+  initModel();
+  drawAgents();
+  drawTrajectories();
+})();
+</script>
+```
+
+**Suggested experiments:**
+
+1. **Set h = 1.0, run.** This is Gould's original scenario: all-to-all interaction. The Gini barely rises. Social influence alone produces almost no inequality when everyone talks to everyone.
+2. **Lower h to 0.2–0.3, reset and run.** Now agents interact mostly within status strata. Watch the Gini climb and the status-quality rank correlation drop — status begins to depart from merit.
+3. **Raise w toward 1 with low h.** Stronger imitation + local interaction = fastest rise in inequality.
+4. **Raise s.** The sour grapes penalty counterbalances inequality — but notice it *also* reshuffles ranks more.
+
+---
+
+## What Does the Model Teach Us?
+
+Three conclusions stand out.
+
+**First: the Matthew effect requires local interaction.** Social influence alone, in an all-to-all interaction world, does not generate cumulative advantage. The commonly assumed mechanism — "people imitate each other's status assessments" — only amplifies inequality when it operates within status-segregated interaction niches. This is a fundamental insight: the structural condition for inequality amplification is not just cognitive (imitation) but relational (who talks to whom).
+
+**Second: reciprocity (sour grapes) has nonlinear, context-dependent effects.** In the homogeneous, all-to-all world, the sour grapes heuristic does not consistently counterbalance social influence. Its effects on the three outcome measures run in contradictory directions: it can reduce rank coherence and increase the status-quality gap even as it reduces concentration. Only in the heterogeneous, locally-interacting world do its counterbalancing properties become coherent.
+
+**Third: status-dependent heterophily is the key structural ingredient.** The scenario that best fits empirical distributions of income, wealth, and citations is one where low-status actors are more tolerant of cross-status interaction than high-status actors. This asymmetry — low reaching up, high retreating inward — sustains both amplification and the plateau that prevents winner-take-all outcomes.
+
+---
+
+## How This Closes the Series
+
+Reading all four papers together reveals a single conceptual arc.
+
+Skvoretz & Fararo (1996) identified the **bystander mechanism**: hierarchy forms not through bilateral negotiation but through the cumulative interpretations of observers. The act of watching generates precedence ties.
+
+Gould (2002) formalized the tension between **social influence** (amplifying) and **reciprocity** (dampening) as a Nash equilibrium, deriving network structure analytically without simulation.
+
+Podolny (1993) showed that the same amplification mechanism operates at the market level through **status as signal**, with the status constraint playing the role of the reciprocity dampener: high-status producers cannot expand downmarket without destroying the signal that made their advantage possible.
+
+Manzo & Baldassarri (2015) return to the micro level to interrogate the *conditions* under which amplification actually occurs. Their answer is relational: **the network of interactions**, not just the cognitive propensity to imitate, determines whether merit gets amplified into status or whether the two remain roughly aligned. Inequality needs infrastructure. That infrastructure is social homophily.
+
+The implications for research on social mobility are direct: if cumulative advantage requires local, status-segregated interaction, then interventions that increase cross-status contact — in schools, neighborhoods, workplaces — may be among the most structurally consequential tools for reducing the gap between merit and reward. Not because they change what people believe, but because they change who talks to whom.
+
+---
+
+## References
+
+::: {#refs}
+:::
+
+> Manzo, G., & Baldassarri, D. (2015). Heuristics, interactions, and status hierarchies: An agent-based model of deference exchange. *Sociological Methods & Research*, 44(2), 329–387.
+>
+> Gould, R. V. (2002). The origins of status hierarchies: A formal theory and empirical test. *American Journal of Sociology*, 107(5), 1143–1178.
+>
+> Lynn, F. B., Podolny, J. M., & Tao, L. (2009). A sociological (de)construction of the relationship between status and quality. *American Journal of Sociology*, 115(3), 755–804.
+>
+> Merton, R. K. (1968). The Matthew effect in science. *Science*, 159, 56–63.
+>
+> Rosen, S. (1981). The economics of superstars. *American Economic Review*, 71(5), 845–858.
+>
+> Skvoretz, J., & Fararo, T. J. (1996). Status and participation in task groups: A dynamic network model. *American Journal of Sociology*, 101(5), 1366–1414.
+>
+> Podolny, J. M. (1993). A status-based model of market competition. *American Journal of Sociology*, 98(4), 829–872.
+>
+> Ball, B., & Newman, M. E. J. (2013). Friendship networks and social status. *Network Science*, 1(1), 16–30.
+>
+> Gigerenzer, G., & Gaissmaier, W. (2011). Heuristic decision making. *Annual Review of Psychology*, 62, 451–482.
