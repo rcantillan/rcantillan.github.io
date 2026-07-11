@@ -153,6 +153,23 @@ background-size: cover;
 <script src="../../../site_libs/kePrint-0.0.1/kePrint.js"></script>
 <link href="../../../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
+<style>
+  /* Hide Google Translate's default UI; we drive it with our own navbar button */
+  #google_translate_element,
+  .goog-te-banner-frame.skiptranslate,
+  .goog-tooltip,
+  .goog-tooltip:hover { display: none !important; }
+  .goog-text-highlight { background: none !important; box-shadow: none !important; }
+  body { top: 0 !important; }
+</style>
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      { pageLanguage: 'auto', includedLanguages: 'en,es', autoDisplay: false },
+      'google_translate_element'
+    );
+  }
+</script>
 
 
 </head>
@@ -2908,6 +2925,9 @@ Wu, Lingfei, Dashun Wang, and James A. Evans. 2019. <span>“Large Teams Develop
     </div>
   </div>
 </footer>
+<div id="google_translate_element"></div>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async=""></script>
+<script src="../../../assets/lang-toggle.js" defer=""></script>
 <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;

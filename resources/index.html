@@ -85,6 +85,23 @@ ul.task-list li input[type="checkbox"] {
       }
 </style>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
+<style>
+  /* Hide Google Translate's default UI; we drive it with our own navbar button */
+  #google_translate_element,
+  .goog-te-banner-frame.skiptranslate,
+  .goog-tooltip,
+  .goog-tooltip:hover { display: none !important; }
+  .goog-text-highlight { background: none !important; box-shadow: none !important; }
+  body { top: 0 !important; }
+</style>
+<script>
+  function googleTranslateElementInit() {
+    new google.translate.TranslateElement(
+      { pageLanguage: 'auto', includedLanguages: 'en,es', autoDisplay: false },
+      'google_translate_element'
+    );
+  }
+</script>
 
 
 </head>
@@ -676,6 +693,9 @@ ul.task-list li input[type="checkbox"] {
     </div>
   </div>
 </footer>
+<div id="google_translate_element"></div>
+<script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async=""></script>
+<script src="../assets/lang-toggle.js" defer=""></script>
 <script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
 (function() {
   let previousOnload = window.onload;
