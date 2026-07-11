@@ -1,0 +1,72 @@
+---
+title: "Roberto Cantillan"
+pagetitle: "Roberto Cantillan"
+description: |
+  Sociólogo • Investigador • Analista de datos
+subtitle: "Candidato a Doctor en Sociología <br> Pontificia Universidad Católica de Chile"
+image: ../img/originaltheoryor00wrig_0137.jpg
+image-alt: "Ilustración histórica de una red"
+toc: false
+about:
+  template: solana
+  image-width: 30em
+  id: hero-heading
+  links:
+    - icon: github
+      aria-label: GitHub
+      href: https://github.com/rcantillan
+    - icon: linkedin
+      aria-label: LinkedIn
+      href: https://cl.linkedin.com/in/roberto-cantillan-carrasco-67620517b
+    - text: "{{< ai orcid >}}"
+      aria-label: ORCID
+      href: https://orcid.org/0000-0003-0494-0692
+    - text: "{{< ai google-scholar >}}"
+      aria-label: Google Scholar
+      href: https://scholar.google.com/citations?user=xZkAmvAAAAAJ&hl=es
+    - text: "{{< ai cv >}}"
+      aria-label: Currículum vitae
+      href: https://drive.google.com/file/d/1X3v5I7umTSALIlPmyLCYR2GmbVew22FZ/view
+page-layout: full
+execute:
+  freeze: false
+  echo: false
+  warning: false
+---
+
+<br><br>
+
+::: {#hero-heading}
+
+Soy candidato a Doctor en Sociología en la Pontificia Universidad Católica de Chile y asistente de investigación en el Núcleo Milenio para el Estudio de los Desajustes del Mercado Laboral (LM2C2). Mi investigación doctoral emplea una perspectiva estructural y de redes para analizar los patrones de movilidad, difusión y segregación en los mercados laborales desde un enfoque intrageneracional.
+
+[English version](/){.home-action}
+
+#### Investigación destacada
+
+::: {.home-highlights}
+::: {.home-highlight}
+**Preprint más reciente**
+
+Structurally Conditioned Diffusion: How Asymmetric Trajectory Channeling Reproduces Skills-Based Stratification
+
+[Leer artículo](https://doi.org/10.48550/arXiv.2602.21369){.home-action}
+:::
+
+::: {.home-highlight}
+**Presentación más reciente**
+
+A Matthew Effect in Occupational Skill Content
+
+[Ver diapositivas](https://rcantillan.github.io/slides/rc28_nyu/slides.html){.home-action}
+:::
+:::
+
+#### Novedades
+
+::: {.recent-updates}
+* **Ago 2026** — Presenté *A Matthew Effect in Occupational Skill Content* en RC28 NYU 2026. [Diapositivas](https://rcantillan.github.io/slides/rc28_nyu/slides.html)
+* **Ene 2026** — Presenté *Structurally Conditioned Diffusion* en la Conferencia Internacional RC28 de Sciences Po. [Diapositivas](https://rcantillan.github.io/slides/coes_mobility/slides.html)
+* **Dic 2025** — Presenté *Structurally Conditioned Diffusion* en la conferencia *The Future of Social Mobility*.
+:::
+:::

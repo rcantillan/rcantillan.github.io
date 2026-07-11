@@ -280,6 +280,69 @@ a {
   }
 }
 
+// Homepage research highlights and updates
+.quarto-about-solana {
+  .about-contents {
+    p, li {
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+  }
+
+  .home-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 0.8rem;
+    margin: 0.8rem 0 1.4rem;
+  }
+
+  .home-highlight {
+    border: 1px solid rgba(0, 100, 0, 0.22);
+    border-radius: 8px;
+    padding: 0.9rem;
+    background: #fafafa;
+
+    p {
+      font-size: 0.92rem;
+      line-height: 1.4;
+      margin-bottom: 0.65rem;
+    }
+  }
+
+  .home-action {
+    display: inline-block;
+    padding: 0.3rem 0.65rem;
+    border: 1px solid $secondary;
+    border-radius: 999px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .recent-updates {
+    margin-top: 0.7rem;
+
+    li {
+      font-size: 0.92rem;
+      margin-bottom: 0.55rem;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .quarto-about-solana {
+    padding: 1.25rem !important;
+    gap: 1.5rem !important;
+
+    .about-contents {
+      padding-left: 0 !important;
+    }
+
+    .home-highlights {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
 // Navbar links
 .navbar {
   .nav-link {

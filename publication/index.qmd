@@ -22,7 +22,7 @@ On this page, you will find the results of projects I was involved in and submit
 
 Cantillan, R., & Bucca, M. (2026). Structurally conditioned diffusion: How asymmetric trajectory channeling reproduces skills-based stratification. arXiv preprint. [https://doi.org/10.48550/arXiv.2602.21369](https://doi.org/10.48550/arXiv.2602.21369) [<i class="fas fa-file-pdf"></i>](https://doi.org/10.48550/arXiv.2602.21369)
 
-Cantillan, R., Ahumada, G., & Espinoza, V. (2026). Multiple membership configurations and trust formation: Structural precarity in highly unequal societies. SocArXiv. [hhttps://doi.org/10.31235/osf.io/6v9mt_v1](https://doi.org/10.31235/osf.io/6v9mt_v1) [<i class="fas fa-file-pdf"></i>](https://doi.org/10.31235/osf.io/6v9mt_v1)
+Cantillan, R., Ahumada, G., & Espinoza, V. (2026). Multiple membership configurations and trust formation: Structural precarity in highly unequal societies. SocArXiv. [https://doi.org/10.31235/osf.io/6v9mt_v1](https://doi.org/10.31235/osf.io/6v9mt_v1) [<i class="fas fa-file-pdf"></i>](https://doi.org/10.31235/osf.io/6v9mt_v1)
 
 
 ### Forthcoming
@@ -51,4 +51,3 @@ Cantillan, R., & Herrera, J. (2020). Centralidad de actores y bloques en las red
 ### Book chapters 
 
 Plaza Reveco, A., Cantillan Carrasco, R., & Muñoz Rojas, B. (2023). Análisis multinivel para el estudio de redes egocéntricas: Aplicaciones en el estudio de la homofilia en Chile1. In "Redes Sociales: Teoría, métodos y aplicaciones en América Latina" (pp. 183–202). _Centro de Investigaciones Sociológicas (CIS)_. [<i class="fas fa-file-pdf"></i>](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5825042)
-
