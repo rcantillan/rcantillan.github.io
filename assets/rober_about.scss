@@ -282,11 +282,21 @@ a {
 
 // Compact homepage: keep the full introduction and updates above the fold
 .quarto-about-solana {
+  // Use the space between the navbar and footer, then center the whole hero.
+  display: flex !important;
+  flex-direction: column !important;
+  min-height: calc(100vh - 8rem);
+  box-sizing: border-box;
+  align-items: center !important;
+  justify-content: center !important;
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+
   .about-entity {
     gap: 2rem !important;
-    align-items: flex-start !important;
-    padding-top: 1.25rem !important;
-    padding-bottom: 1rem !important;
+    align-items: center !important;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
   }
 
   .about-contents {
@@ -318,6 +328,7 @@ a {
 
 @media screen and (max-width: 768px) {
   .quarto-about-solana {
+    min-height: auto;
     padding: 1.25rem !important;
     gap: 1.5rem !important;
 

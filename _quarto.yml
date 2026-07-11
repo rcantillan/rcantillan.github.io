@@ -7,7 +7,9 @@ project:
     - "assets/lang-toggle.js"
 
 execute:
-  freeze: auto
+  # Computational pages are rendered locally and committed under _freeze.
+  # CI can therefore publish without installing R and its packages.
+  freeze: true
 
 website:
   title: "Roberto Cantillan"
