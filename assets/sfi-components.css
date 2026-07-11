@@ -90,7 +90,7 @@
 .quarto-about-solana {
   display: flex !important;
   flex-direction: row-reverse !important;
-  align-items: flex-start !important;
+  align-items: center !important;
   gap: 3rem !important;
 }
 

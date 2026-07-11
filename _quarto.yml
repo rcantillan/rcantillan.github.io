@@ -4,7 +4,8 @@ project:
   resources:
     - "images/"
     - "files/"
-    
+    - "assets/lang-toggle.js"
+
 execute:
   freeze: auto
 
@@ -33,7 +34,7 @@ website:
       - text: "Resources"
         href: resources/index.qmd
       - text: "ES"
-        aria-label: "Versión en español"
+        aria-label: "Traducir sitio / Translate site"
         href: es/index.qmd
       - icon: github
         href: https://github.com/rcantillan
@@ -79,6 +80,28 @@ format:
       sidebar-width: 250px
       body-width: 800px
       margin-width: 250px
-    include-in-header: 
+    include-in-header:
       text: |
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/academicons@1.9.1/css/academicons.min.css">
+        <style>
+          /* Hide Google Translate's default UI; we drive it with our own navbar button */
+          #google_translate_element,
+          .goog-te-banner-frame.skiptranslate,
+          .goog-tooltip,
+          .goog-tooltip:hover { display: none !important; }
+          .goog-text-highlight { background: none !important; box-shadow: none !important; }
+          body { top: 0 !important; }
+        </style>
+        <script>
+          function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+              { pageLanguage: 'auto', includedLanguages: 'en,es', autoDisplay: false },
+              'google_translate_element'
+            );
+          }
+        </script>
+    include-after-body:
+      text: |
+        <div id="google_translate_element"></div>
+        <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async></script>
+        <script src="/assets/lang-toggle.js" defer></script>
