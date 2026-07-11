@@ -285,7 +285,8 @@ a {
   // Use the space between the navbar and footer, then center the whole hero.
   display: flex !important;
   flex-direction: column !important;
-  min-height: calc(100vh - 8rem);
+  // Reserve enough room for Quarto's navbar, footer, and page spacing.
+  min-height: calc(100vh - 12rem);
   box-sizing: border-box;
   align-items: center !important;
   justify-content: center !important;
