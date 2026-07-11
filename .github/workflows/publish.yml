@@ -27,26 +27,9 @@ jobs:
         uses: actions/cache@v4
         with:
           path: ${{ env.R_LIBS_USER }}
-          key: ${{ runner.os }}-r-${{ hashFiles('**/DESCRIPTION', '**/renv.lock') }}-v1
+          key: ${{ runner.os }}-r-${{ hashFiles('**/DESCRIPTION', '**/renv.lock') }}-v2
           restore-keys: |
             ${{ runner.os }}-r-
-
-      - name: Install system dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y \
-            libxml2-dev \
-            libcurl4-openssl-dev \
-            libssl-dev \
-            libfontconfig1-dev \
-            libfreetype6-dev \
-            libpng-dev \
-            libtiff5-dev \
-            libjpeg-dev \
-            libharfbuzz-dev \
-            libfribidi-dev \
-            libgit2-dev \
-            libmagick++-dev
 
       - name: Install minimal R packages for Quarto
         run: |

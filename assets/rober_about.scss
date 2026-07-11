@@ -280,51 +280,39 @@ a {
   }
 }
 
-// Homepage research highlights and updates
+// Compact homepage: keep the full introduction and updates above the fold
 .quarto-about-solana {
+  .about-entity {
+    gap: 2rem !important;
+    align-items: flex-start !important;
+    padding-top: 1.25rem !important;
+    padding-bottom: 1rem !important;
+  }
+
   .about-contents {
     p, li {
-      font-size: 1rem;
-      line-height: 1.6;
+      font-size: 0.94rem;
+      line-height: 1.45;
     }
-  }
-
-  .home-highlights {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.8rem;
-    margin: 0.8rem 0 1.4rem;
-  }
-
-  .home-highlight {
-    border: 1px solid rgba(0, 100, 0, 0.22);
-    border-radius: 8px;
-    padding: 0.9rem;
-    background: #fafafa;
 
     p {
-      font-size: 0.92rem;
-      line-height: 1.4;
-      margin-bottom: 0.65rem;
+      margin-bottom: 0.75rem;
     }
-  }
-
-  .home-action {
-    display: inline-block;
-    padding: 0.3rem 0.65rem;
-    border: 1px solid $secondary;
-    border-radius: 999px;
-    font-weight: 600;
-    text-decoration: none;
   }
 
   .recent-updates {
-    margin-top: 0.7rem;
+    margin-top: 0.4rem;
 
     li {
-      font-size: 0.92rem;
-      margin-bottom: 0.55rem;
+      font-size: 0.86rem;
+      line-height: 1.35;
+      margin-bottom: 0.35rem;
     }
+  }
+
+  h4 {
+    margin-top: 0.8rem;
+    margin-bottom: 0.35rem;
   }
 }
 
@@ -337,8 +325,8 @@ a {
       padding-left: 0 !important;
     }
 
-    .home-highlights {
-      grid-template-columns: 1fr;
+    .about-entity {
+      align-items: center !important;
     }
   }
 }

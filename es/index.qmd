@@ -9,7 +9,7 @@ image-alt: "Ilustración histórica de una red"
 toc: false
 about:
   template: solana
-  image-width: 36em
+  image-width: 24em
   id: hero-heading
   links:
     - icon: github
@@ -34,39 +34,16 @@ execute:
   warning: false
 ---
 
-<br><br>
-
 ::: {#hero-heading}
 
 Soy candidato a Doctor en Sociología en la Pontificia Universidad Católica de Chile y asistente de investigación en el Núcleo Milenio para el Estudio de los Desajustes del Mercado Laboral (LM2C2). Mi investigación doctoral emplea una perspectiva estructural y de redes para analizar los patrones de movilidad, difusión y segregación en los mercados laborales desde un enfoque intrageneracional.
 
-[English version](/){.home-action}
-
-#### Investigación destacada
-
-::: {.home-highlights}
-::: {.home-highlight}
-**Preprint más reciente**
-
-Structurally Conditioned Diffusion: How Asymmetric Trajectory Channeling Reproduces Skills-Based Stratification
-
-[Leer artículo](https://doi.org/10.48550/arXiv.2602.21369){.home-action}
-:::
-
-::: {.home-highlight}
-**Presentación más reciente**
-
-A Matthew Effect in Occupational Skill Content
-
-[Ver diapositivas](https://rcantillan.github.io/slides/rc28_nyu/slides.html){.home-action}
-:::
-:::
+[EN](/)
 
 #### Novedades
 
 ::: {.recent-updates}
-* **Ago 2026** — Presenté *A Matthew Effect in Occupational Skill Content* en RC28 NYU 2026. [Diapositivas](https://rcantillan.github.io/slides/rc28_nyu/slides.html)
-* **Ene 2026** — Presenté *Structurally Conditioned Diffusion* en la Conferencia Internacional RC28 de Sciences Po. [Diapositivas](https://rcantillan.github.io/slides/coes_mobility/slides.html)
-* **Dic 2025** — Presenté *Structurally Conditioned Diffusion* en la conferencia *The Future of Social Mobility*.
+* **Ago 2026** — Presenté "*A Matthew Effect in Occupational Skill Content: Divergent Diffusion of Cognitive and Physical Skills Reinforces Inequality*" en RC28 NYU 2026. [Diapositivas](https://rcantillan.github.io/slides/rc28_nyu/slides.html)
+* **Ene 2026** — Presenté "*Structurally Conditioned Diffusion Reproduces Skills-Based Stratification: How Skill Requirements Propagate — And Why They Preserve Hierarchies*" en la Conferencia Internacional RC28 de Sciences Po. [Diapositivas](https://rcantillan.github.io/slides/coes_mobility/slides.html)
 :::
 :::

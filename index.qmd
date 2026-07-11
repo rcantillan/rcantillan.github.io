@@ -5,11 +5,11 @@ description: |
   Sociologist • Researcher • Data Analyst 
 subtitle: "Ph.D. (c) in Sociology <br> Pontificia Universidad Católica de Chile"
 image: img/originaltheoryor00wrig_0137.jpg
-image-alt: ""
+image-alt: "Historical illustration of a network"
 toc: false  
 about:
   template: solana
-  image-width: 36em
+  image-width: 24em
   id: hero-heading
   links:
     - icon: github
@@ -19,7 +19,8 @@ about:
       aria-label: "LinkedIn"
       href: https://cl.linkedin.com/in/roberto-cantillan-carrasco-67620517b
     - text: "{{< ai orcid >}}"
-      href: https://orcid.org/0000-0003-0494-0692;
+      aria-label: "ORCID"
+      href: https://orcid.org/0000-0003-0494-0692
     - text: "{{< ai google-scholar >}}"
       aria-label: "Google Scholar"
       href: https://scholar.google.com/citations?user=xZkAmvAAAAAJ&hl=es
@@ -35,17 +36,14 @@ execute:
   
 ---
 
-<br><br>
-
-
 ::: {#hero-heading}
 
 I am a doctoral candidate in Sociology at the Pontificia Universidad Católica de Chile and an assistant at the 'Millennium Nucleus for the Study of Labor Market Mismatch' (LM2C2). My doctoral research uses a structural and network perspective to analyze the patterns of mobility, diffusion, and segregation in labor markets from an intragenerational viewpoint.
 
 #### Recent Updates
-:::{style="font-size: 13px; margin-top: 1em;"}
+::: {.recent-updates}
 * **Aug 2026** — Presented "*A Matthew Effect in Occupational Skill Content: Divergent Diffusion of Cognitive and Physical Skills Reinforces Inequality*" at RC28 NYU 2026. [Slides](https://rcantillan.github.io/slides/rc28_nyu/slides.html)
-* **Jan 2026** -- Presented "*Structurally Conditioned Diffusion Reproduces Skills-Based Stratification How Skill Requirements Propagate — And Why They Preserve Hierarchies*" Online RC28 SciencePo International Conference [Slides](https://rcantillan.github.io/slides/coes_mobility/slides.html) 
+* **Jan 2026** — Presented "*Structurally Conditioned Diffusion Reproduces Skills-Based Stratification: How Skill Requirements Propagate — And Why They Preserve Hierarchies*" at the online RC28 Sciences Po International Conference. [Slides](https://rcantillan.github.io/slides/coes_mobility/slides.html)
 
 :::
 :::
