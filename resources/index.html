@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -40,10 +43,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-df58a58052b55e393ee96285dd0abd71.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-329e05da0e293ce14fd2954aa9ba5750.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-7510cb95182ffd59934c8a3cc117c43a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-c092ddf0db320c65230ccef5ec33c448.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
@@ -195,6 +198,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#workshops-tutorials" id="toc-workshops-tutorials" class="nav-link active" data-scroll-target="#workshops-tutorials">Workshops &amp; Tutorials</a>
   <ul class="collapse">
   <li><a href="#agent-based-modeling-con-r" id="toc-agent-based-modeling-con-r" class="nav-link" data-scroll-target="#agent-based-modeling-con-r">Agent-Based Modeling con R</a></li>
+  <li><a href="#git-and-github-from-positron" id="toc-git-and-github-from-positron" class="nav-link" data-scroll-target="#git-and-github-from-positron">Git and GitHub from Positron</a></li>
   </ul></li>
   <li><a href="#teaching" id="toc-teaching" class="nav-link" data-scroll-target="#teaching">Teaching</a></li>
   <li><a href="#recursos-adicionales" id="toc-recursos-adicionales" class="nav-link" data-scroll-target="#recursos-adicionales">Recursos Adicionales</a>
@@ -233,6 +237,26 @@ ul.task-list li input[type="checkbox"] {
 <p><strong>Requisitos previos:</strong></p>
 <ul>
 <li>Conocimientos de programación usando R</li>
+</ul>
+</section>
+<section id="git-and-github-from-positron" class="level3">
+<h3 class="anchored" data-anchor-id="git-and-github-from-positron">Git and GitHub from Positron</h3>
+<p><a href="git-positron.png" class="lightbox" data-gallery="quarto-lightbox-gallery-2"><img src="git-positron.png" class="img-fluid"></a></p>
+<p><a href="https://github.com/mobility-frontiers/taller-git-positron-codex">Repository <i class="fa-brands fa-github" aria-label="github"></i></a> · <a href="https://mobility-frontiers.github.io/taller-git-positron-codex/taller.html">View workshop <i class="fa-brands fa-external-link" aria-label="external-link"></i></a></p>
+<p><strong>Description:</strong> Introductory version control workshop focused on the collaborative R workflow in Positron. It covers authentication via personal access token, the lifecycle of a file across the working directory, staging area, and commit history, and the procedures for resolving conflicts when multiple people modify the same file. Includes a hands-on demo on a repository built specifically for this workshop.</p>
+<p><strong>Contents:</strong></p>
+<ul>
+<li>Personal access token authentication</li>
+<li>The pull → edit → commit → push cycle</li>
+<li>Merge conflict resolution</li>
+<li>Branches and pull requests</li>
+<li>Using the AI assistant in Positron</li>
+<li>Troubleshooting common Git errors</li>
+</ul>
+<p><strong>Prerequisites:</strong></p>
+<ul>
+<li>Positron and Git installed and configured</li>
+<li>GitHub personal access token</li>
 </ul>
 </section>
 </section>
