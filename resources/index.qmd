@@ -29,6 +29,28 @@ banner-class: page-banner
 
 - Conocimientos de programación usando R
 
+### Git and GitHub from Positron
+
+![](git-positron.png)
+
+[Repository {{< fa brands github >}}](https://github.com/mobility-frontiers/taller-git-positron-codex) · [View workshop {{< fa brands external-link >}}](https://mobility-frontiers.github.io/taller-git-positron-codex/taller.html)
+
+**Description:** Introductory version control workshop focused on the collaborative R workflow in Positron. It covers authentication via personal access token, the lifecycle of a file across the working directory, staging area, and commit history, and the procedures for resolving conflicts when multiple people modify the same file. Includes a hands-on demo on a repository built specifically for this workshop.
+
+**Contents:**
+
+- Personal access token authentication
+- The pull → edit → commit → push cycle
+- Merge conflict resolution
+- Branches and pull requests
+- Using the AI assistant in Positron
+- Troubleshooting common Git errors
+
+**Prerequisites:**
+
+- Positron and Git installed and configured
+- GitHub personal access token
+
 ## Teaching
 
 - [Introducción a las Ciencias Sociales Computacionales](https://github.com/rcantillan/OPR-219-CIencias-Sociales-Computacionales?tab=readme-ov-file)
