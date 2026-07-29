@@ -33,7 +33,7 @@ banner-class: page-banner
 
 ![](git-positron.png)
 
-[Repository {{< fa brands github >}}](https://github.com/mobility-frontiers/taller-git-positron-codex) · [View workshop {{< fa brands external-link >}}](https://mobility-frontiers.github.io/taller-git-positron-codex/taller.html)
+[Repository {{< fa brands github >}}](https://github.com/mobility-frontiers/taller-git-positron-codex) · [View workshop {{< fa external-link-alt >}}](https://mobility-frontiers.github.io/taller-git-positron-codex/taller.html)
 
 **Description:** Introductory version control workshop focused on the collaborative R workflow in Positron. It covers authentication via personal access token, the lifecycle of a file across the working directory, staging area, and commit history, and the procedures for resolving conflicts when multiple people modify the same file. Includes a hands-on demo on a repository built specifically for this workshop.
 
