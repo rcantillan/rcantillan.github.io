@@ -47,5 +47,3 @@ I am a doctoral candidate in Sociology at the Pontificia Universidad Católica d
 
 :::
 :::
-<!-- hero-heading -->
-upd
