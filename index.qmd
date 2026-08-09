@@ -42,7 +42,7 @@ I am a doctoral candidate in Sociology at the Pontificia Universidad Católica d
 
 #### Recent Updates
 ::: {.recent-updates}
-* **Aug 2026** — Presented "*A Matthew Effect in Occupational Skill Content: Divergent Diffusion of Cognitive and Physical Skills Reinforces Inequality*" at RC28 NYU 2026. [Slides](https://rcantillan.github.io/slides/rc28_nyu/slides.html)
+* **Aug 2026** — Presented "*A Matthew Effect in Occupational Skill Content: Divergent Diffusion of Cognitive and Physical Skills Reinforces Inequality*" at RC28 NYU 2026. [Slides](https://rcantillan.github.io/slides/rc28_nyu/slides_revised.html)
 * **Jan 2026** — Presented "*Structurally Conditioned Diffusion Reproduces Skills-Based Stratification: How Skill Requirements Propagate — And Why They Preserve Hierarchies*" at the online RC28 Sciences Po International Conference. [Slides](https://rcantillan.github.io/slides/coes_mobility/slides.html)
 
 :::
