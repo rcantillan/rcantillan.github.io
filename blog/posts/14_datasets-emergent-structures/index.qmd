@@ -1,0 +1,145 @@
+---
+title: "Data for Studying Emergent Structures in Human Interaction"
+subtitle: "A working list of datasets on networks, proximity, and behavior"
+author:
+  - name: "Roberto Cantillan"
+    affiliations:
+        - name: "Department of Sociology, PUC"
+          address: "Santiago, Chile"
+
+date: today
+categories:
+  - Datasets
+  - Social Networks
+  - Computational Social Science
+  - Human Behavior
+  - Open Data
+
+image: "featured.png"
+title-block-banner: featured.png
+title-block-banner-color: "rgba(0, 0, 0, 0.8)"
+title-block-style: default
+freeze: true
+---
+
+> A working list of datasets useful for research on how large-scale social structures — networks, group dynamics, contagion, status, and trust — emerge from micro-level patterns of human interaction and behavior. Each entry notes what the data captures and whether it is freely downloadable or requires a formal access request.
+
+---
+
+## 1–2. A Decade of Online News Forum Interactions (DerStandard)
+
+**Paper:** [Nature Scientific Data, s41597-026-07267-3](https://www.nature.com/articles/s41597-026-07267-3) · **Data:** [BSC Dataverse](https://dataverse.bsc.es/dataset.xhtml?persistentId=doi:10.82201/RVQGUG)
+
+Ten years (2013–2022) of threaded comments, votes, and topic tags from *Der Standard*, Austria's largest online newspaper: 75+ million comments, 400+ million up/downvotes, and 580,000+ articles from hundreds of thousands of registered users. Comment text is replaced by precomputed embeddings and identifiers are hashed for privacy, but the full threading structure, voting network, and topical metadata are preserved. Useful for studying opinion dynamics, polarization, status formation through voting, and how conversational structure emerges and decays over a decade in a single public sphere.
+
+**Access:** Open — CC-BY license, direct download, no application required.
+
+---
+
+## 3. ICPSR Study 300499
+
+[icpsr.umich.edu/sites/view/studies/300499](https://www.icpsr.umich.edu/sites/view/studies/300499)
+
+Hosted on ICPSR, the main U.S. social-science data archive. The study's full metadata could not be retrieved through automated means — the page is JavaScript-rendered and blocked to scrapers — so its exact title and scope should be confirmed directly in a browser before citing it.
+
+**Access:** ICPSR generally requires a (free) account for public-use files; restricted-use files additionally require an institutional affiliation and a signed data use agreement — check the study page for which tier this one falls under.
+
+---
+
+## 4. Multi-Scale Homophily and Signed/Directed Trust Networks
+
+**Paper:** [Communications Physics, s42005-025-02221-y](https://www.nature.com/articles/s42005-025-02221-y)
+
+This paper on structural balance in directed, signed networks draws on five datasets: **Bitcoin-Alpha** and **Bitcoin-OTC** (trust networks among cryptocurrency traders), **Slashdot** (friend/foe ties on a tech news site), **Epinions** (trust ties on a consumer review site), and **Pardus** (an MMORPG's full multiplex relationship network — see #12 below). Good for testing balance theory, trust propagation, and signed-tie dynamics at scale.
+
+**Access:** Bitcoin-Alpha, Bitcoin-OTC, Slashdot, and Epinions are openly available (commonly via SNAP/Kaggle mirrors). Pardus is not publicly redistributed — it must be requested from the original authors (Szell et al.).
+
+---
+
+## 5. DeZIM.panel (German Center for Integration and Migration Research)
+
+[datasearch.fdz.dezim-institut.de](https://datasearch.fdz.dezim-institut.de/item/de.dezim/ee56f59c-354f-4757-a4c9-e61f33f7bb0f/26)
+
+A representative, recurring longitudinal panel survey of the German population (recruited 2021, ~9,000 initial respondents, ~3,500 per wave), oversampling people with migration backgrounds. Covers migration biography, ethnic/national identity, transnational ties, discrimination experience, political attitudes, and social integration over time. Useful for studying how group boundaries, identity, and attitudes evolve structurally within a national population.
+
+**Access:** Restricted — released as a Scientific Use File; requires a formal application through DeZIM.fdz, proof of scientific affiliation, and a data use agreement.
+
+---
+
+## 6. Peer Relationships Among MSW Students (Social Network Data)
+
+[mavmatrix.uta.edu](https://mavmatrix.uta.edu/socialnetworksforsocialgood_datasets/2/)
+
+A longitudinal social network of 142 graduate students in a Master of Social Work program, tracking friendship, academic-discussion, and influence ties alongside demographics, belonging, stress, and multicultural-perspective measures. A small but clean case for studying tie formation and network emergence in a bounded cohort.
+
+**Access:** Open — CC-BY 4.0, no application required.
+
+---
+
+## 7. PLANET-NL — Population-Scale Social Network of the Netherlands
+
+[planetnl.org/data-planetnl](https://www.planetnl.org/data-planetnl)
+
+Built on Statistics Netherlands' "Person Network of the Netherlands," this is a population-scale multilayer network (family, household, neighborhood, work, school ties) covering nearly the entire Dutch population from 2009–2023. About as close as it gets to a full-population interaction structure for a modern nation-state, with a dedicated Python toolkit (`mlnlib`) for working with it.
+
+**Access:** Restricted — accessible only through CBS's secure Microdata remote-access environment; requires an approved research project and institutional affiliation with a CBS-authorized Dutch research institute. Not open.
+
+---
+
+## 8. Facebook100 University Networks
+
+**Cited in:** [Nature Communications, s41467-025-66415-2](https://www.nature.com/articles/s41467-025-66415-2) (ref. 83)
+
+The paper itself proposes a maximum-entropy model of multi-scale homophily and uses the classic **Facebook100** dataset (Traud et al. 2012) — full Facebook friendship networks from 100 U.S. colleges and universities, with sex, class year, and enrollment-status attributes. A benchmark dataset for homophily, community detection, and clustering-scale analysis.
+
+**Access:** Originally distributed on request from the authors; widely mirrored today, though provenance and terms vary by mirror — best to trace back to the original Traud et al. (2012) release when possible.
+
+---
+
+## 9. DyLNet — Dynamics of Language Networks (Preschool RFID Study)
+
+**Paper:** [Nature Scientific Data, s41597-022-01756-x](https://www.nature.com/articles/s41597-022-01756-x)
+
+Face-to-face proximity data from RFID sensors on 174 preschoolers and 32 staff in a French preschool, recorded every 5 seconds across a full school year, paired with sociodemographic surveys and language-development assessments. A rare high-resolution look at how children's interaction networks and language learning co-evolve.
+
+**Access:** Restricted — data usage agreement required to obtain the raw sensor data (the paper itself is open access, but data access is gated).
+
+---
+
+## 10. Higher-Order Group Dynamics (Formation, Growth, Dissolution)
+
+**Paper:** [Nature Communications, s41467-024-50918-5](https://www.nature.com/articles/s41467-024-50918-5)
+
+Uses higher-order (group-level, not just pairwise) network representations to study how social groups form and dissolve over time, drawing on the **Copenhagen Networks Study** (#11) and **DyLNet** (#9). Directly relevant for modeling emergent group structure rather than just dyadic ties.
+
+**Access:** Depends on the underlying dataset used — Copenhagen Networks Study is open; DyLNet requires a data use agreement (see above).
+
+---
+
+## 11. Copenhagen Networks Study
+
+**Paper:** [Nature Scientific Data, s41597-019-0325-x](https://www.nature.com/articles/s41597-019-0325-x)
+
+A multi-layer temporal network of 700+ Technical University of Denmark students over four weeks: Bluetooth proximity, call and SMS metadata, Facebook ties, and gender, at 5-minute resolution. One of the most widely reused high-resolution human-proximity datasets in network science.
+
+**Access:** Open — hosted on Figshare, downloadable as CSVs with no registration, includes sample analysis code.
+
+---
+
+## 12. Multirelational Organization of an Online Social World (Pardus)
+
+**Paper:** [PNAS, 10.1073/pnas.1004008107](https://www.pnas.org/doi/10.1073/pnas.1004008107)
+
+The original Szell, Lambiotte & Thurner (2010) study of the **Pardus** massive multiplayer game: a full multiplex network of ~300,000 players connected through six simultaneous relation types (friendship, communication, trade, enmity, attack, bounty). A foundational dataset for studying how positive and negative ties co-organize at population scale — the same Pardus data referenced in #4 above.
+
+**Access:** Restricted — not publicly redistributed; must be requested directly from the authors.
+
+---
+
+## Summary: Open vs. Restricted
+
+**Open, no application needed:** DerStandard forum data (#1–2), Bitcoin-Alpha/OTC, Slashdot, Epinions (#4), the MSW peer network (#6), the Copenhagen Networks Study (#11), and — with caveats about mirror provenance — Facebook100 (#8).
+
+**Requires a formal request, data use agreement, or restricted-access facility:** ICPSR 300499 (#3, tier unconfirmed), DeZIM.panel (#5), PLANET-NL / CBS Microdata (#7), DyLNet (#9), and Pardus (#4, #12).
+
+For studying how emergent structure arises from interaction patterns, the open datasets — the Copenhagen Networks Study, DerStandard, and Facebook100 — are the fastest path to reproducible work. The restricted ones — PLANET-NL, DeZIM.panel, and Pardus — offer much larger scale or richer relational typing, but demand more setup time and institutional backing.
