@@ -28,7 +28,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -247,6 +266,7 @@ background-size: cover;
   <li><a href="#dylnet-dynamics-of-language-networks-preschool-rfid-study" id="toc-dylnet-dynamics-of-language-networks-preschool-rfid-study" class="nav-link" data-scroll-target="#dylnet-dynamics-of-language-networks-preschool-rfid-study">12. DyLNet — Dynamics of Language Networks (Preschool RFID Study)</a></li>
   <li><a href="#copenhagen-networks-study" id="toc-copenhagen-networks-study" class="nav-link" data-scroll-target="#copenhagen-networks-study">13. Copenhagen Networks Study</a></li>
   <li><a href="#summary-open-vs.-restricted-access" id="toc-summary-open-vs.-restricted-access" class="nav-link" data-scroll-target="#summary-open-vs.-restricted-access">Summary: open vs.&nbsp;restricted access</a></li>
+  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
   </ul>
 </nav>
     </div>
@@ -354,6 +374,28 @@ background-size: cover;
 <p><strong>Open, no application needed:</strong> DerStandard forum data (#1), Bitcoin Alpha and Bitcoin OTC (#3–4), Slashdot (#5), Epinions (#6), the MSW peer network (#9), the Copenhagen Networks Study (#13), and — with caveats about mirror provenance — Facebook100 (#11).</p>
 <p><strong>Requires a formal application, data use agreement, or restricted-access facility:</strong> ICPSR 300499 (#2, tier unconfirmed), Pardus (#7), DeZIM.panel (#8), PLANET-NL / CBS Microdata (#10), and DyLNet (#12).</p>
 <p>For studying how relational structure emerges from interaction — tie formation, balance, homophily, group dynamics, diffusion — the open datasets (Copenhagen Networks Study, DerStandard, the signed trust networks, Facebook100) offer the fastest path to reproducible work. The restricted ones (PLANET-NL, DeZIM.panel, Pardus, DyLNet) offer much larger scale, richer relational typing, or developmental depth, but demand more setup time and institutional backing.</p>
+<hr>
+</section>
+<section id="references" class="level2">
+<h2 class="anchored" data-anchor-id="references">References</h2>
+<div id="refs" role="list">
+<p>Dai, S., Bouchet, H., Karsai, M., Chevrot, J.-P., Fleury, E., &amp; Nardy, A. (2022). Longitudinal data collection to follow social network and language development dynamics at preschool. <em>Scientific Data, 9</em>. https://doi.org/10.1038/s41597-022-01756-x</p>
+<p>DeZIM-Institut. (n.d.). <em>DeZIM.panel</em> [Data set]. Forschungsdatenzentrum DeZIM (DeZIM.fdz). https://datasearch.fdz.dezim-institut.de/item/de.dezim/ee56f59c-354f-4757-a4c9-e61f33f7bb0f/26</p>
+<p>Fraxanet, E., Gómez, V., Kaltenbrunner, A., &amp; Pellert, M. (2026). A decade of news forum interactions: Threaded conversations, signed votes, and topical tags. <em>Scientific Data</em>. https://doi.org/10.1038/s41597-026-07267-3</p>
+<p>Guha, R., Kumar, R., Raghavan, P., &amp; Tomkins, A. (2004). Propagation of trust and distrust. In <em>Proceedings of the 13th International Conference on World Wide Web</em> (pp.&nbsp;403–412). ACM. https://doi.org/10.1145/988672.988727</p>
+<p>Hao, B., Platnick, E., &amp; Kovács, I. A. (2025). Social balance in directed networks. <em>Communications Physics, 8</em>, Article 299. https://doi.org/10.1038/s42005-025-02221-y</p>
+<p>Iacopini, I., Karsai, M., &amp; Barrat, A. (2024). The temporal dynamics of group interactions in higher-order social networks. <em>Nature Communications, 15</em>, Article 7391. https://doi.org/10.1038/s41467-024-50918-5</p>
+<p>Inter-university Consortium for Political and Social Research. (n.d.). <em>Study 300499</em> [Data set]. ICPSR. https://www.icpsr.umich.edu/sites/view/studies/300499</p>
+<p>Kumar, S., Hooi, B., Makhija, D., Kumar, M., Faloutsos, C., &amp; Subrahmanian, V. S. (2018). REV2: Fraudulent user prediction in rating platforms. In <em>Proceedings of the 11th ACM International Conference on Web Search and Data Mining</em> (pp.&nbsp;333–341). ACM. https://doi.org/10.1145/3159652.3159729</p>
+<p>Kumar, S., Spezzano, F., Subrahmanian, V. S., &amp; Faloutsos, C. (2016). Edge weight prediction in weighted signed networks. In <em>2016 IEEE 16th International Conference on Data Mining</em> (pp.&nbsp;221–230). IEEE. https://doi.org/10.1109/ICDM.2016.0033</p>
+<p>Leskovec, J., Huttenlocher, D., &amp; Kleinberg, J. (2010). Signed networks in social media. In <em>Proceedings of the SIGCHI Conference on Human Factors in Computing Systems</em> (pp.&nbsp;1361–1370). ACM. https://doi.org/10.1145/1753326.1753532</p>
+<p>Mauldin, R. (2021). <em>Peer relationships among Master of Social Work students: Social network data</em> [Data set]. University of Texas at Arlington. https://mavmatrix.uta.edu/socialnetworksforsocialgood_datasets/2</p>
+<p>PLANET-NL. (n.d.). <em>Data</em>. Platform for Large-Scale Analysis of Networks. Retrieved September 2026, from https://www.planetnl.org/data-planetnl</p>
+<p>Rizi, A. K., Michielan, R., Stegehuis, C., &amp; Kivelä, M. (2025). Homophily within and across groups. <em>Nature Communications, 16</em>, Article 11351. https://doi.org/10.1038/s41467-025-66415-2</p>
+<p>Sapiezynski, P., Stopczynski, A., Lassen, D. D., &amp; Lehmann, S. (2019). Interaction data from the Copenhagen Networks Study. <em>Scientific Data, 6</em>, Article 315. https://doi.org/10.1038/s41597-019-0325-x</p>
+<p>Szell, M., Lambiotte, R., &amp; Thurner, S. (2010). Multirelational organization of large-scale social networks in an online world. <em>Proceedings of the National Academy of Sciences, 107</em>(31), 13636–13641. https://doi.org/10.1073/pnas.1004008107</p>
+<p>Traud, A. L., Mucha, P. J., &amp; Porter, M. A. (2012). Social structure of Facebook networks. <em>Physica A: Statistical Mechanics and Its Applications, 391</em>(16), 4165–4180. https://doi.org/10.1016/j.physa.2011.12.021</p>
+</div>
 
 
 </section>
