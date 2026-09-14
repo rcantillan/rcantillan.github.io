@@ -9,7 +9,7 @@
 <meta name="author" content="Roberto Cantillan">
 <meta name="dcterms.date" content="2026-09-14">
 
-<title>How Hierarchies Emerge in Groups: Skvoretz &amp; Fararo (1996) – Roberto Cantillan</title>
+<title>Data for Studying Emergent Structures in Human Interaction – Roberto Cantillan</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -28,26 +28,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -113,7 +94,7 @@ div.csl-indent {
 
       .quarto-title-block .quarto-title-banner {
         color: rgba(0, 0, 0, 0.8);
-background-image: url(featured.jpg);
+background-image: url(featured.png);
 background-size: cover;
       }
 </style>
@@ -136,35 +117,6 @@ background-size: cover;
   }
 </script>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 </head>
 
@@ -233,14 +185,14 @@ window.Quarto = {
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
     <div class="quarto-title column-body">
-      <h1 class="title">How Hierarchies Emerge in Groups: Skvoretz &amp; Fararo (1996)</h1>
-            <p class="subtitle lead">Series: Status Models in Analytical Sociology</p>
+      <h1 class="title">Data for Studying Emergent Structures in Human Interaction</h1>
+            <p class="subtitle lead">A working list of datasets on networks, proximity, and behavior</p>
                                 <div class="quarto-categories">
-                <div class="quarto-category">Status Theory</div>
-                <div class="quarto-category">Network Models</div>
-                <div class="quarto-category">Small Groups</div>
-                <div class="quarto-category">Formal Models</div>
-                <div class="quarto-category">Social Stratification</div>
+                <div class="quarto-category">Datasets</div>
+                <div class="quarto-category">Social Networks</div>
+                <div class="quarto-category">Computational Social Science</div>
+                <div class="quarto-category">Human Behavior</div>
+                <div class="quarto-category">Open Data</div>
               </div>
                   </div>
   </div>
@@ -281,23 +233,18 @@ window.Quarto = {
     <h2 id="toc-title">in this page</h2>
    
   <ul>
-  <li><a href="#the-question" id="toc-the-question" class="nav-link active" data-scroll-target="#the-question">The Question</a></li>
-  <li><a href="#three-traditions-the-paper-synthesizes" id="toc-three-traditions-the-paper-synthesizes" class="nav-link" data-scroll-target="#three-traditions-the-paper-synthesizes">Three Traditions the Paper Synthesizes</a>
-  <ul class="collapse">
-  <li><a href="#expectation-states-theory-berger-cohen-zelditch-1966" id="toc-expectation-states-theory-berger-cohen-zelditch-1966" class="nav-link" data-scroll-target="#expectation-states-theory-berger-cohen-zelditch-1966">1. Expectation States Theory (Berger, Cohen &amp; Zelditch, 1966)</a></li>
-  <li><a href="#log-linear-participation-model-balkwell-1995" id="toc-log-linear-participation-model-balkwell-1995" class="nav-link" data-scroll-target="#log-linear-participation-model-balkwell-1995">2. Log-linear Participation Model (Balkwell, 1995)</a></li>
-  <li><a href="#e-state-structuralism-fararo-skvoretz-1986" id="toc-e-state-structuralism-fararo-skvoretz-1986" class="nav-link" data-scroll-target="#e-state-structuralism-fararo-skvoretz-1986">3. E-state Structuralism (Fararo &amp; Skvoretz, 1986)</a></li>
-  </ul></li>
-  <li><a href="#the-model-in-plain-terms" id="toc-the-model-in-plain-terms" class="nav-link" data-scroll-target="#the-model-in-plain-terms">The Model in Plain Terms</a>
-  <ul class="collapse">
-  <li><a href="#the-central-concept-precedence-tie" id="toc-the-central-concept-precedence-tie" class="nav-link" data-scroll-target="#the-central-concept-precedence-tie">The Central Concept: Precedence Tie</a></li>
-  <li><a href="#the-five-axioms" id="toc-the-five-axioms" class="nav-link" data-scroll-target="#the-five-axioms">The Five Axioms</a></li>
-  <li><a href="#the-parameters" id="toc-the-parameters" class="nav-link" data-scroll-target="#the-parameters">The Parameters</a></li>
-  </ul></li>
-  <li><a href="#the-simulation-act-by-act" id="toc-the-simulation-act-by-act" class="nav-link" data-scroll-target="#the-simulation-act-by-act">The Simulation: Act by Act</a></li>
-  <li><a href="#what-does-the-model-predict" id="toc-what-does-the-model-predict" class="nav-link" data-scroll-target="#what-does-the-model-predict">What Does the Model Predict?</a></li>
-  <li><a href="#why-this-paper-matters" id="toc-why-this-paper-matters" class="nav-link" data-scroll-target="#why-this-paper-matters">Why This Paper Matters</a></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">References</a></li>
+  <li><a href="#a-decade-of-online-news-forum-interactions-derstandard" id="toc-a-decade-of-online-news-forum-interactions-derstandard" class="nav-link active" data-scroll-target="#a-decade-of-online-news-forum-interactions-derstandard">1–2. A Decade of Online News Forum Interactions (DerStandard)</a></li>
+  <li><a href="#icpsr-study-300499" id="toc-icpsr-study-300499" class="nav-link" data-scroll-target="#icpsr-study-300499">3. ICPSR Study 300499</a></li>
+  <li><a href="#multi-scale-homophily-and-signeddirected-trust-networks" id="toc-multi-scale-homophily-and-signeddirected-trust-networks" class="nav-link" data-scroll-target="#multi-scale-homophily-and-signeddirected-trust-networks">4. Multi-Scale Homophily and Signed/Directed Trust Networks</a></li>
+  <li><a href="#dezim.panel-german-center-for-integration-and-migration-research" id="toc-dezim.panel-german-center-for-integration-and-migration-research" class="nav-link" data-scroll-target="#dezim.panel-german-center-for-integration-and-migration-research">5. DeZIM.panel (German Center for Integration and Migration Research)</a></li>
+  <li><a href="#peer-relationships-among-msw-students-social-network-data" id="toc-peer-relationships-among-msw-students-social-network-data" class="nav-link" data-scroll-target="#peer-relationships-among-msw-students-social-network-data">6. Peer Relationships Among MSW Students (Social Network Data)</a></li>
+  <li><a href="#planet-nl-population-scale-social-network-of-the-netherlands" id="toc-planet-nl-population-scale-social-network-of-the-netherlands" class="nav-link" data-scroll-target="#planet-nl-population-scale-social-network-of-the-netherlands">7. PLANET-NL — Population-Scale Social Network of the Netherlands</a></li>
+  <li><a href="#facebook100-university-networks" id="toc-facebook100-university-networks" class="nav-link" data-scroll-target="#facebook100-university-networks">8. Facebook100 University Networks</a></li>
+  <li><a href="#dylnet-dynamics-of-language-networks-preschool-rfid-study" id="toc-dylnet-dynamics-of-language-networks-preschool-rfid-study" class="nav-link" data-scroll-target="#dylnet-dynamics-of-language-networks-preschool-rfid-study">9. DyLNet — Dynamics of Language Networks (Preschool RFID Study)</a></li>
+  <li><a href="#higher-order-group-dynamics-formation-growth-dissolution" id="toc-higher-order-group-dynamics-formation-growth-dissolution" class="nav-link" data-scroll-target="#higher-order-group-dynamics-formation-growth-dissolution">10. Higher-Order Group Dynamics (Formation, Growth, Dissolution)</a></li>
+  <li><a href="#copenhagen-networks-study" id="toc-copenhagen-networks-study" class="nav-link" data-scroll-target="#copenhagen-networks-study">11. Copenhagen Networks Study</a></li>
+  <li><a href="#multirelational-organization-of-an-online-social-world-pardus" id="toc-multirelational-organization-of-an-online-social-world-pardus" class="nav-link" data-scroll-target="#multirelational-organization-of-an-online-social-world-pardus">12. Multirelational Organization of an Online Social World (Pardus)</a></li>
+  <li><a href="#summary-open-vs.-restricted" id="toc-summary-open-vs.-restricted" class="nav-link" data-scroll-target="#summary-open-vs.-restricted">Summary: Open vs.&nbsp;Restricted</a></li>
   </ul>
 </nav>
     </div>
@@ -309,300 +256,91 @@ window.Quarto = {
 
 
 <blockquote class="blockquote">
-<p><strong>This is the first post in a series</strong> where I discuss — in accessible terms — formal models that explain how status is produced, consolidated, and transmitted in social interaction. The starting point is a paper published in the <em>American Journal of Sociology</em> in 1996: <strong>“Status and Participation in Task Groups: A Dynamic Network Model”</strong>, by John Skvoretz and Thomas J. Fararo.</p>
+<p>A working list of datasets useful for research on how large-scale social structures — networks, group dynamics, contagion, status, and trust — emerge from micro-level patterns of human interaction and behavior. Each entry notes what the data captures and whether it is freely downloadable or requires a formal access request.</p>
 </blockquote>
 <hr>
-<section id="the-question" class="level2">
-<h2 class="anchored" data-anchor-id="the-question">The Question</h2>
-<p>Imagine a jury deliberating, a faculty committee discussing parking policy, or a group of neighbors debating a drainage problem. Everyone arrives with different external statuses — rank, gender, ethnicity — but what happens <em>inside</em> the group is not fully determined by those prior differences.</p>
-<p>How does an internal order ultimately emerge? Who speaks more? Whom does everyone listen to? Can someone with low external status end up dominating the discussion?</p>
-<p>These questions motivate the Skvoretz and Fararo model.</p>
+<section id="a-decade-of-online-news-forum-interactions-derstandard" class="level2">
+<h2 class="anchored" data-anchor-id="a-decade-of-online-news-forum-interactions-derstandard">1–2. A Decade of Online News Forum Interactions (DerStandard)</h2>
+<p><strong>Paper:</strong> <a href="https://www.nature.com/articles/s41597-026-07267-3">Nature Scientific Data, s41597-026-07267-3</a> · <strong>Data:</strong> <a href="https://dataverse.bsc.es/dataset.xhtml?persistentId=doi:10.82201/RVQGUG">BSC Dataverse</a></p>
+<p>Ten years (2013–2022) of threaded comments, votes, and topic tags from <em>Der Standard</em>, Austria’s largest online newspaper: 75+ million comments, 400+ million up/downvotes, and 580,000+ articles from hundreds of thousands of registered users. Comment text is replaced by precomputed embeddings and identifiers are hashed for privacy, but the full threading structure, voting network, and topical metadata are preserved. Useful for studying opinion dynamics, polarization, status formation through voting, and how conversational structure emerges and decays over a decade in a single public sphere.</p>
+<p><strong>Access:</strong> Open — CC-BY license, direct download, no application required.</p>
 <hr>
 </section>
-<section id="three-traditions-the-paper-synthesizes" class="level2">
-<h2 class="anchored" data-anchor-id="three-traditions-the-paper-synthesizes">Three Traditions the Paper Synthesizes</h2>
-<p>The model does not appear out of nowhere. It is a synthesis of three prior lines of research, each with its own logic:</p>
-<section id="expectation-states-theory-berger-cohen-zelditch-1966" class="level3">
-<h3 class="anchored" data-anchor-id="expectation-states-theory-berger-cohen-zelditch-1966">1. Expectation States Theory (Berger, Cohen &amp; Zelditch, 1966)</h3>
-<p>This tradition starts from an empirical observation: when group members differ on some diffuse status characteristic — gender, race, educational level — that activates expectations about who is more competent at solving the group’s task.</p>
-<p>The central concept is the <strong>aggregate expectation state</strong>: each actor accumulates a value reflecting how much the group expects them to contribute. That value determines how much they participate, how much influence they exert, and how readily others accept their proposals.</p>
-<p>The limitation of this tradition, through the mid-1990s, was that its models were <em>static</em>: they described the final distribution of participation but not the <em>process</em> by which that distribution emerges act by act.</p>
-</section>
-<section id="log-linear-participation-model-balkwell-1995" class="level3">
-<h3 class="anchored" data-anchor-id="log-linear-participation-model-balkwell-1995">2. Log-linear Participation Model (Balkwell, 1995)</h3>
-<p>Balkwell proposes a concrete mathematical function that translates expectation states into probabilities of directed participation — that is, not only <em>how much</em> each person speaks, but <em>to whom</em> they speak.</p>
-<p>The empirical regularity it captures is elegant: if <em>i</em> outranks <em>j</em> in status, then <em>j</em> directs more acts to <em>i</em> than <em>i</em> directs to <em>j</em>. Those with higher status receive more participation from lower-ranked members and direct their own participation upward or toward equals.</p>
-<p><span class="math display">\[E(a_{ij}) = \exp(\alpha + \gamma_i + \delta\gamma_j), \quad \delta &gt; 1\]</span></p>
-<p>Skvoretz and Fararo embed this function directly into their dynamic model.</p>
-</section>
-<section id="e-state-structuralism-fararo-skvoretz-1986" class="level3">
-<h3 class="anchored" data-anchor-id="e-state-structuralism-fararo-skvoretz-1986">3. E-state Structuralism (Fararo &amp; Skvoretz, 1986)</h3>
-<p>This is the most important architectural piece. The idea is that actors develop <strong>relational orientations</strong> — called <em>E-states</em> — toward other actors that are not directly observable but that determine behavior.</p>
-<p>Originally developed to explain the formation of dominance hierarchies in animal groups (using data on chickens), the logic is as follows:</p>
-<ul>
-<li>The state of the network — who has precedence over whom — constrains the events that can occur in interaction.</li>
-<li>Interaction events, in turn, stochastically generate new ties in the network.</li>
-<li>The process is a <strong>Markov chain</strong> that may or may not converge to a completely transitive hierarchy.</li>
-</ul>
-<p>What Skvoretz and Fararo do in 1996 is reconfigure this framework for human discussion groups, incorporating the two prior traditions.</p>
+<section id="icpsr-study-300499" class="level2">
+<h2 class="anchored" data-anchor-id="icpsr-study-300499">3. ICPSR Study 300499</h2>
+<p><a href="https://www.icpsr.umich.edu/sites/view/studies/300499">icpsr.umich.edu/sites/view/studies/300499</a></p>
+<p>Hosted on ICPSR, the main U.S. social-science data archive. The study’s full metadata could not be retrieved through automated means — the page is JavaScript-rendered and blocked to scrapers — so its exact title and scope should be confirmed directly in a browser before citing it.</p>
+<p><strong>Access:</strong> ICPSR generally requires a (free) account for public-use files; restricted-use files additionally require an institutional affiliation and a signed data use agreement — check the study page for which tier this one falls under.</p>
 <hr>
 </section>
-</section>
-<section id="the-model-in-plain-terms" class="level2">
-<h2 class="anchored" data-anchor-id="the-model-in-plain-terms">The Model in Plain Terms</h2>
-<section id="the-central-concept-precedence-tie" class="level3">
-<h3 class="anchored" data-anchor-id="the-central-concept-precedence-tie">The Central Concept: Precedence Tie</h3>
-<p>The basic unit of the model is the <strong>precedence tie</strong>: if xPy, the group recognizes — implicitly, without anyone declaring it — that <em>x</em> has more internal status than <em>y</em>. Think of it as an invisible arrow: x → y.</p>
-<p>That arrow can arise from two sources:</p>
-<ul>
-<li><strong>External status</strong>: x is a full professor, y is an assistant professor. The rank difference automatically activates precedence.</li>
-<li><strong>Emergent behavior</strong>: x spoke first and with authority. The group interpreted this as a signal of competence, and the arrow formed.</li>
-</ul>
-</section>
-<section id="the-five-axioms" class="level3">
-<h3 class="anchored" data-anchor-id="the-five-axioms">The Five Axioms</h3>
-<p>The model is stated in five axioms that specify how the precedence network evolves act by act.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 26%">
-<col style="width: 23%">
-<col style="width: 50%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Axiom</th>
-<th>Name</th>
-<th>What it says</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>1</td>
-<td>Initial state</td>
-<td>At the outset, no ties exist. Clean slate.</td>
-</tr>
-<tr class="even">
-<td>2</td>
-<td>Stability</td>
-<td>Once a tie forms, it does not dissolve.</td>
-</tr>
-<tr class="odd">
-<td>3</td>
-<td>Interactant effect</td>
-<td>When x addresses y, xPy may form with a probability that depends on their external statuses.</td>
-</tr>
-<tr class="even">
-<td><strong>4</strong></td>
-<td><strong>Bystander effect</strong></td>
-<td><strong>When z observes x address y, z may also update its ties with x and y.</strong></td>
-</tr>
-<tr class="odd">
-<td>5</td>
-<td>Behavior</td>
-<td>The probability that x speaks next depends on their accumulated internal status.</td>
-</tr>
-</tbody>
-</table>
-<p><strong>Axiom 4</strong> is the most important and the most counterintuitive. Each speech act can generate up to <strong>8 precedence ties</strong> via bystanders, versus only 1 via the direct interactant effect. Hierarchies are consolidated primarily through those who <em>watch</em>, not those who <em>speak</em>.</p>
-</section>
-<section id="the-parameters" class="level3">
-<h3 class="anchored" data-anchor-id="the-parameters">The Parameters</h3>
-<p>The model has three main parameters:</p>
-<ul>
-<li><strong>η</strong> (<em>eta</em>): probability that the external status characteristic is activated in a given act.</li>
-<li><strong>π</strong> (<em>pi</em>): probability that a tie forms through behavioral interpretation (when external status is not activated).</li>
-<li><strong>θ = ρ·π</strong> (<em>theta</em>): probability of the bystander effect. By definition, θ ≤ π.</li>
-</ul>
+<section id="multi-scale-homophily-and-signeddirected-trust-networks" class="level2">
+<h2 class="anchored" data-anchor-id="multi-scale-homophily-and-signeddirected-trust-networks">4. Multi-Scale Homophily and Signed/Directed Trust Networks</h2>
+<p><strong>Paper:</strong> <a href="https://www.nature.com/articles/s42005-025-02221-y">Communications Physics, s42005-025-02221-y</a></p>
+<p>This paper on structural balance in directed, signed networks draws on five datasets: <strong>Bitcoin-Alpha</strong> and <strong>Bitcoin-OTC</strong> (trust networks among cryptocurrency traders), <strong>Slashdot</strong> (friend/foe ties on a tech news site), <strong>Epinions</strong> (trust ties on a consumer review site), and <strong>Pardus</strong> (an MMORPG’s full multiplex relationship network — see #12 below). Good for testing balance theory, trust propagation, and signed-tie dynamics at scale.</p>
+<p><strong>Access:</strong> Bitcoin-Alpha, Bitcoin-OTC, Slashdot, and Epinions are openly available (commonly via SNAP/Kaggle mirrors). Pardus is not publicly redistributed — it must be requested from the original authors (Szell et al.).</p>
 <hr>
 </section>
-</section>
-<section id="the-simulation-act-by-act" class="level2">
-<h2 class="anchored" data-anchor-id="the-simulation-act-by-act">The Simulation: Act by Act</h2>
-<p>The process can be visualized concretely. Skvoretz and Fararo use the example of a 6-person committee — 3 full professors (high status) and 3 assistant professors (low status) — discussing campus parking policy.</p>
-<p>In the widget below you can follow the process <strong>act by act</strong>. Each click represents one speech act. Notice how the arrows form, and pay particular attention to how <strong>bystanders</strong> (those who only observe) generate the majority of ties.</p>
-<div style="font-family:inherit">
-  <div style="border:1px solid #e0dfd8;border-radius:10px;overflow:hidden">
-    <div style="padding:10px 14px;border-bottom:1px solid #e0dfd8;display:flex;align-items:center;gap:10px;flex-wrap:wrap;background:#fafaf9">
-      <button id="sfNext" style="font-size:13px;padding:6px 16px;border-radius:6px;border:1px solid #bbb;background:#fff;cursor:pointer;color:#222">Next act ▶</button>
-      <button id="sfReset" style="font-size:13px;padding:6px 16px;border-radius:6px;border:1px solid #bbb;background:#fff;cursor:pointer;color:#222">Reset</button>
-      <span id="sfCounter" style="font-size:13px;color:#888">Step 0 — 0 of 15 ties</span>
-    </div>
-    <div id="sfInfo" style="padding:10px 14px;font-size:14px;font-weight:600;color:#111;border-bottom:1px solid #e0dfd8;background:#fff;min-height:40px">No acts yet. Click "Next act" to begin.</div>
-    <svg id="sfSvg" width="100%" viewbox="0 0 580 300" style="display:block;background:#fff"></svg>
-    <div id="sfLog" style="padding:10px 14px;font-size:13px;color:#555;min-height:50px;line-height:1.6;background:#f8f8f7">Precedence ties will appear as the group interacts...</div>
-    <div style="font-size:11px;color:#999;padding:6px 14px 10px;background:#f8f8f7">⬤ Blue = high status (H1–H3, full professors) | ○ Gray = low status (L1–L3, asst. professors) | → Orange = new tie</div>
-  </div>
-</div>
-<script>
-(function () {
-  const actors = [
-    {id:0, label:"H1", x:170, y:70,  high:true},
-    {id:1, label:"H2", x:290, y:50,  high:true},
-    {id:2, label:"H3", x:410, y:70,  high:true},
-    {id:3, label:"L1", x:170, y:230, high:false},
-    {id:4, label:"L2", x:290, y:250, high:false},
-    {id:5, label:"L3", x:410, y:230, high:false}
-  ];
-
-  const steps = [
-    {spk:1, tgt:0, ties:[[1,0],[1,3],[2,0]],
-     log:"H2 addresses H1 (proposes faculty parking). Via bystanders: H2→H1, H2→L1, H3→H1."},
-    {spk:0, tgt:5, ties:[[0,5],[0,3],[1,5],[2,5],[4,5]],
-     log:"H1 addresses L3 (suggests staff privileges). Via bystanders: H1→L3, H1→L1, H2→L3, H3→L3, L2→L3."},
-    {spk:3, tgt:4, ties:[[1,4],[2,4]],
-     log:"L1 addresses L2 (staff should wait). Via bystanders: H2→L2, H3→L2."},
-    {spk:4, tgt:1, ties:[],
-     log:"L2 addresses H2 expressing agreement. Act of deference — no new ties."},
-    {spk:3, tgt:1, ties:[],
-     log:"L1 also agrees with H2. Act of deference — no new ties."},
-    {spk:4, tgt:1, ties:[],
-     log:"L2 urges H2 to proceed. Continued deference — no new ties."},
-    {spk:0, tgt:3, ties:[[2,3],[4,3],[0,5],[5,3]],
-     log:"H1 addresses L1 (staff last). Via bystanders: H3→L1, L2→L1, H1→L3, L3→L1."},
-    {spk:2, tgt:0, ties:[[3,0]],
-     log:"H3 addresses H1 in agreement. Via bystander: L1→H1."},
-    {spk:2, tgt:1, ties:[[2,1]],
-     log:"H3 addresses H2 (too few spaces for professors). Direct effect: H3→H2. ✅ Complete status order in just 9 acts!"}
-  ];
-
-  let step = -1, formed = {}, allTies = [];
-  const NS = "http://www.w3.org/2000/svg";
-
-  const btnNext  = document.getElementById("sfNext");
-  const btnReset = document.getElementById("sfReset");
-  const counter  = document.getElementById("sfCounter");
-  const info     = document.getElementById("sfInfo");
-  const svgEl    = document.getElementById("sfSvg");
-  const logEl    = document.getElementById("sfLog");
-
-  function mkMarker(id, color) {
-    const marker = document.createElementNS(NS, "marker");
-    marker.setAttribute("id", id);
-    marker.setAttribute("viewBox", "0 0 10 10");
-    marker.setAttribute("refX", "8");
-    marker.setAttribute("refY", "5");
-    marker.setAttribute("markerWidth", "5");
-    marker.setAttribute("markerHeight", "5");
-    marker.setAttribute("orient", "auto-start-reverse");
-    const p = document.createElementNS(NS, "path");
-    p.setAttribute("d", "M2 1L8 5L2 9");
-    p.setAttribute("fill", "none");
-    p.setAttribute("stroke", color);
-    p.setAttribute("stroke-width", "1.5");
-    p.setAttribute("stroke-linecap", "round");
-    p.setAttribute("stroke-linejoin", "round");
-    marker.appendChild(p);
-    return marker;
-  }
-
-  function draw(ties, spk, tgt) {
-    while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
-
-    const defs = document.createElementNS(NS, "defs");
-    defs.appendChild(mkMarker("sfArrOld", "#aaa"));
-    defs.appendChild(mkMarker("sfArrNew", "#D85A30"));
-    svgEl.appendChild(defs);
-
-    ties.forEach(t => {
-      const a = actors[t.from], b = actors[t.to];
-      const dx = b.x - a.x, dy = b.y - a.y, len = Math.sqrt(dx*dx + dy*dy), r = 22;
-      const ln = document.createElementNS(NS, "line");
-      ln.setAttribute("x1", a.x + (dx/len)*r);
-      ln.setAttribute("y1", a.y + (dy/len)*r);
-      ln.setAttribute("x2", b.x - (dx/len)*(r+4));
-      ln.setAttribute("y2", b.y - (dy/len)*(r+4));
-      ln.setAttribute("stroke", t.isNew ? "#D85A30" : "#bbb");
-      ln.setAttribute("stroke-width", t.isNew ? "2.5" : "1.2");
-      ln.setAttribute("marker-end", t.isNew ? "url(#sfArrNew)" : "url(#sfArrOld)");
-      ln.setAttribute("opacity", t.isNew ? "1" : "0.6");
-      svgEl.appendChild(ln);
-    });
-
-    actors.forEach((a, i) => {
-      let fill, stroke, sw, tc;
-      if      (i === spk)  { fill="#185FA5"; stroke="#0C447C"; sw=2.5; tc="#fff"; }
-      else if (i === tgt)  { fill="#0F6E56"; stroke="#085041"; sw=2.5; tc="#fff"; }
-      else if (a.high)     { fill="#E6F1FB"; stroke="#378ADD"; sw=1;   tc="#185FA5"; }
-      else                 { fill="#f1efe8"; stroke="#b4b2a9"; sw=1;   tc="#5f5e5a"; }
-      const c = document.createElementNS(NS, "circle");
-      c.setAttribute("cx", a.x); c.setAttribute("cy", a.y); c.setAttribute("r", 22);
-      c.setAttribute("fill", fill); c.setAttribute("stroke", stroke);
-      c.setAttribute("stroke-width", sw);
-      svgEl.appendChild(c);
-      const tx = document.createElementNS(NS, "text");
-      tx.setAttribute("x", a.x); tx.setAttribute("y", a.y);
-      tx.setAttribute("text-anchor", "middle");
-      tx.setAttribute("dominant-baseline", "central");
-      tx.setAttribute("font-size", "12");
-      tx.setAttribute("font-weight", "700");
-      tx.setAttribute("fill", tc);
-      tx.textContent = a.label;
-      svgEl.appendChild(tx);
-    });
-  }
-
-  function reset() {
-    step = -1; formed = {}; allTies = [];
-    counter.textContent = "Step 0 — 0 of 15 ties";
-    info.textContent    = 'No acts yet. Click "Next act" to begin.';
-    logEl.textContent   = "Precedence ties will appear as the group interacts...";
-    btnNext.disabled    = false;
-    draw([], undefined, undefined);
-  }
-
-  function next() {
-    step++;
-    if (step >= steps.length) { btnNext.disabled = true; return; }
-    const s = steps[step];
-    allTies.forEach(t => { t.isNew = false; });
-    s.ties.forEach(t => {
-      const k = t[0] + "-" + t[1];
-      if (!formed[k]) { formed[k] = true; allTies.push({from:t[0], to:t[1], isNew:true}); }
-    });
-    const total = Object.keys(formed).length;
-    counter.textContent = `Step ${step+1} of ${steps.length} — ${total} of 15 ties`;
-    info.textContent    = `Act ${step+1}: ${actors[s.spk].label} addresses ${actors[s.tgt].label}`;
-    logEl.textContent   = s.log;
-    if (step === steps.length - 1) btnNext.disabled = true;
-    draw(allTies, s.spk, s.tgt);
-  }
-
-  btnNext.addEventListener("click", next);
-  btnReset.addEventListener("click", reset);
-  reset();
-})();
-</script>
-<p>The result in this example is striking: in just <strong>9 speech acts</strong>, the 6-person group forms all 15 precedence ties needed for a complete status order. And <strong>14 of those 15 ties</strong> emerged via bystander effects, not via the direct interactant effect.</p>
+<section id="dezim.panel-german-center-for-integration-and-migration-research" class="level2">
+<h2 class="anchored" data-anchor-id="dezim.panel-german-center-for-integration-and-migration-research">5. DeZIM.panel (German Center for Integration and Migration Research)</h2>
+<p><a href="https://datasearch.fdz.dezim-institut.de/item/de.dezim/ee56f59c-354f-4757-a4c9-e61f33f7bb0f/26">datasearch.fdz.dezim-institut.de</a></p>
+<p>A representative, recurring longitudinal panel survey of the German population (recruited 2021, ~9,000 initial respondents, ~3,500 per wave), oversampling people with migration backgrounds. Covers migration biography, ethnic/national identity, transnational ties, discrimination experience, political attitudes, and social integration over time. Useful for studying how group boundaries, identity, and attitudes evolve structurally within a national population.</p>
+<p><strong>Access:</strong> Restricted — released as a Scientific Use File; requires a formal application through DeZIM.fdz, proof of scientific affiliation, and a data use agreement.</p>
 <hr>
 </section>
-<section id="what-does-the-model-predict" class="level2">
-<h2 class="anchored" data-anchor-id="what-does-the-model-predict">What Does the Model Predict?</h2>
-<p>The simulation (100 runs per parameter combination) allows us to answer four concrete questions:</p>
-<p><strong>1. How long does it take the group to stabilize?</strong> It depends primarily on the bystander effect (θ). The larger θ, the fewer acts are needed before all pairs have a tie. Mixed-status groups converge faster than homogeneous ones.</p>
-<p><strong>2. How often does a fully transitive hierarchy emerge?</strong> Not always — and that matters. Complete transitivity is contingent, not guaranteed. It depends on the bystander effect being strong enough. This directly challenges the assumption of Fisek et al.&nbsp;(1991), who treated transitive hierarchies as the default outcome.</p>
-<p><strong>3. How much does speaking early matter?</strong> Quite a bit, especially when η and π take intermediate values. Whoever takes the floor early can capture precedence ties that then feed back into their future participation.</p>
-<p><strong>4. Can someone with low external status end up on top?</strong> Yes, under specific conditions — when η is low (external status is not easily activated) and π is high (behaviors are readily interpreted as status claims). This gives the model a more realistic prediction profile than its predecessors.</p>
+<section id="peer-relationships-among-msw-students-social-network-data" class="level2">
+<h2 class="anchored" data-anchor-id="peer-relationships-among-msw-students-social-network-data">6. Peer Relationships Among MSW Students (Social Network Data)</h2>
+<p><a href="https://mavmatrix.uta.edu/socialnetworksforsocialgood_datasets/2/">mavmatrix.uta.edu</a></p>
+<p>A longitudinal social network of 142 graduate students in a Master of Social Work program, tracking friendship, academic-discussion, and influence ties alongside demographics, belonging, stress, and multicultural-perspective measures. A small but clean case for studying tie formation and network emergence in a bounded cohort.</p>
+<p><strong>Access:</strong> Open — CC-BY 4.0, no application required.</p>
 <hr>
 </section>
-<section id="why-this-paper-matters" class="level2">
-<h2 class="anchored" data-anchor-id="why-this-paper-matters">Why This Paper Matters</h2>
-<p>Skvoretz and Fararo accomplish something few sociological models manage: <strong>linking the social psychology of small groups with network analysis</strong> in a formal model that is simultaneously mathematically rigorous and substantively interpretable.</p>
-<p>The bystander mechanism — that hierarchies are consolidated primarily through those who <em>observe</em>, not those who <em>speak</em> — is a lasting theoretical contribution. It suggests that status is not something negotiated bilaterally but something that emerges from the collective dynamics of observation and interpretation.</p>
-<p>For researchers working on social mobility, labor markets, or interaction networks, this paper offers a precise formal vocabulary for thinking about how hierarchical positions form, consolidate, and — under specific conditions — can be subverted.</p>
+<section id="planet-nl-population-scale-social-network-of-the-netherlands" class="level2">
+<h2 class="anchored" data-anchor-id="planet-nl-population-scale-social-network-of-the-netherlands">7. PLANET-NL — Population-Scale Social Network of the Netherlands</h2>
+<p><a href="https://www.planetnl.org/data-planetnl">planetnl.org/data-planetnl</a></p>
+<p>Built on Statistics Netherlands’ “Person Network of the Netherlands,” this is a population-scale multilayer network (family, household, neighborhood, work, school ties) covering nearly the entire Dutch population from 2009–2023. About as close as it gets to a full-population interaction structure for a modern nation-state, with a dedicated Python toolkit (<code>mlnlib</code>) for working with it.</p>
+<p><strong>Access:</strong> Restricted — accessible only through CBS’s secure Microdata remote-access environment; requires an approved research project and institutional affiliation with a CBS-authorized Dutch research institute. Not open.</p>
 <hr>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">References</h2>
-<div id="refs" role="list">
-
-</div>
-<blockquote class="blockquote">
-<p>Skvoretz, J., &amp; Fararo, T. J. (1996). Status and participation in task groups: A dynamic network model. <em>American Journal of Sociology</em>, 101(5), 1366–1414.</p>
-<p>Fararo, T. J., &amp; Skvoretz, J. (1986). E-state structuralism: A theoretical method. <em>American Sociological Review</em>, 51(4), 591–602.</p>
-<p>Balkwell, J. W. (1995). Status. In K. S. Cook, G. A. Fine, &amp; J. S. House (Eds.), <em>Sociological Perspectives on Social Psychology</em>. Allyn and Bacon.</p>
-<p>Fisek, M. H., Berger, J., &amp; Norman, R. Z. (1991). Participation in heterogeneous and homogeneous groups: A theoretical integration. <em>American Journal of Sociology</em>, 97(1), 114–142.</p>
-<p>Berger, J., Cohen, B. P., &amp; Zelditch, M. (1966). Status characteristics and expectation states. In J. Berger &amp; M. Zelditch (Eds.), <em>Sociological Theories in Progress</em>, Vol. 1. Houghton Mifflin.</p>
-</blockquote>
+<section id="facebook100-university-networks" class="level2">
+<h2 class="anchored" data-anchor-id="facebook100-university-networks">8. Facebook100 University Networks</h2>
+<p><strong>Cited in:</strong> <a href="https://www.nature.com/articles/s41467-025-66415-2">Nature Communications, s41467-025-66415-2</a> (ref. 83)</p>
+<p>The paper itself proposes a maximum-entropy model of multi-scale homophily and uses the classic <strong>Facebook100</strong> dataset (Traud et al.&nbsp;2012) — full Facebook friendship networks from 100 U.S. colleges and universities, with sex, class year, and enrollment-status attributes. A benchmark dataset for homophily, community detection, and clustering-scale analysis.</p>
+<p><strong>Access:</strong> Originally distributed on request from the authors; widely mirrored today, though provenance and terms vary by mirror — best to trace back to the original Traud et al.&nbsp;(2012) release when possible.</p>
+<hr>
+</section>
+<section id="dylnet-dynamics-of-language-networks-preschool-rfid-study" class="level2">
+<h2 class="anchored" data-anchor-id="dylnet-dynamics-of-language-networks-preschool-rfid-study">9. DyLNet — Dynamics of Language Networks (Preschool RFID Study)</h2>
+<p><strong>Paper:</strong> <a href="https://www.nature.com/articles/s41597-022-01756-x">Nature Scientific Data, s41597-022-01756-x</a></p>
+<p>Face-to-face proximity data from RFID sensors on 174 preschoolers and 32 staff in a French preschool, recorded every 5 seconds across a full school year, paired with sociodemographic surveys and language-development assessments. A rare high-resolution look at how children’s interaction networks and language learning co-evolve.</p>
+<p><strong>Access:</strong> Restricted — data usage agreement required to obtain the raw sensor data (the paper itself is open access, but data access is gated).</p>
+<hr>
+</section>
+<section id="higher-order-group-dynamics-formation-growth-dissolution" class="level2">
+<h2 class="anchored" data-anchor-id="higher-order-group-dynamics-formation-growth-dissolution">10. Higher-Order Group Dynamics (Formation, Growth, Dissolution)</h2>
+<p><strong>Paper:</strong> <a href="https://www.nature.com/articles/s41467-024-50918-5">Nature Communications, s41467-024-50918-5</a></p>
+<p>Uses higher-order (group-level, not just pairwise) network representations to study how social groups form and dissolve over time, drawing on the <strong>Copenhagen Networks Study</strong> (#11) and <strong>DyLNet</strong> (#9). Directly relevant for modeling emergent group structure rather than just dyadic ties.</p>
+<p><strong>Access:</strong> Depends on the underlying dataset used — Copenhagen Networks Study is open; DyLNet requires a data use agreement (see above).</p>
+<hr>
+</section>
+<section id="copenhagen-networks-study" class="level2">
+<h2 class="anchored" data-anchor-id="copenhagen-networks-study">11. Copenhagen Networks Study</h2>
+<p><strong>Paper:</strong> <a href="https://www.nature.com/articles/s41597-019-0325-x">Nature Scientific Data, s41597-019-0325-x</a></p>
+<p>A multi-layer temporal network of 700+ Technical University of Denmark students over four weeks: Bluetooth proximity, call and SMS metadata, Facebook ties, and gender, at 5-minute resolution. One of the most widely reused high-resolution human-proximity datasets in network science.</p>
+<p><strong>Access:</strong> Open — hosted on Figshare, downloadable as CSVs with no registration, includes sample analysis code.</p>
+<hr>
+</section>
+<section id="multirelational-organization-of-an-online-social-world-pardus" class="level2">
+<h2 class="anchored" data-anchor-id="multirelational-organization-of-an-online-social-world-pardus">12. Multirelational Organization of an Online Social World (Pardus)</h2>
+<p><strong>Paper:</strong> <a href="https://www.pnas.org/doi/10.1073/pnas.1004008107">PNAS, 10.1073/pnas.1004008107</a></p>
+<p>The original Szell, Lambiotte &amp; Thurner (2010) study of the <strong>Pardus</strong> massive multiplayer game: a full multiplex network of ~300,000 players connected through six simultaneous relation types (friendship, communication, trade, enmity, attack, bounty). A foundational dataset for studying how positive and negative ties co-organize at population scale — the same Pardus data referenced in #4 above.</p>
+<p><strong>Access:</strong> Restricted — not publicly redistributed; must be requested directly from the authors.</p>
+<hr>
+</section>
+<section id="summary-open-vs.-restricted" class="level2">
+<h2 class="anchored" data-anchor-id="summary-open-vs.-restricted">Summary: Open vs.&nbsp;Restricted</h2>
+<p><strong>Open, no application needed:</strong> DerStandard forum data (#1–2), Bitcoin-Alpha/OTC, Slashdot, Epinions (#4), the MSW peer network (#6), the Copenhagen Networks Study (#11), and — with caveats about mirror provenance — Facebook100 (#8).</p>
+<p><strong>Requires a formal request, data use agreement, or restricted-access facility:</strong> ICPSR 300499 (#3, tier unconfirmed), DeZIM.panel (#5), PLANET-NL / CBS Microdata (#7), DyLNet (#9), and Pardus (#4, #12).</p>
+<p>For studying how emergent structure arises from interaction patterns, the open datasets — the Copenhagen Networks Study, DerStandard, and Facebook100 — are the fastest path to reproducible work. The restricted ones — PLANET-NL, DeZIM.panel, and Pardus — offer much larger scale or richer relational typing, but demand more setup time and institutional backing.</p>
 
 
 </section>
