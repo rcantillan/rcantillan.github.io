@@ -104,6 +104,4 @@ Las posibilidades de moverse dependen de la posición de origen. Estudio restric
   </article>
 </div>
 :::
-
-[EN](/)
 :::

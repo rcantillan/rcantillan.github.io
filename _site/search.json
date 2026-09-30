@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Roberto Cantillan",
     "section": "",
-    "text": "I am a doctoral candidate in Sociology at the Pontificia Universidad Católica de Chile and an assistant at the ‘Millennium Nucleus for the Study of Labor Market Mismatch’ (LM2C2). My doctoral research uses a structural and network perspective to analyze the patterns of mobility, diffusion, and segregation in labor markets from an intragenerational viewpoint.\n\nRecent Updates\n\n\nAug 2026 — Presented “A Matthew Effect in Occupational Skill Content: Divergent Diffusion of Cognitive and Physical Skills Reinforces Inequality” at RC28 NYU 2026. Slides\nJan 2026 — Presented “Structurally Conditioned Diffusion Reproduces Skills-Based Stratification: How Skill Requirements Propagate — And Why They Preserve Hierarchies” at the online RC28 Sciences Po International Conference. Slides"
+    "text": "My research combines network science, formal models, computational experiments, and longitudinal data to understand unequal change in labor markets and social ties.\n\n\nExplore research Download CV Contact\n\n\n\n\nView research →\n\n\n\n01\n\n\nWork is changing. Not evenly. I study how skills and tasks diffuse across the occupational hierarchy amid technological change.\n\n\n\n02\n\n\nA tie is never just a dyad. I examine when available alternatives destabilize relationships and shape who replaces whom.\n\n\n\n03\n\n\nWhere people can move depends on where they stand. I study relational constraints on urban and intergenerational mobility.\n\n\n\n\n\n\n\nView all talks →\n\n\n\n\nOct 2026Upcoming\n\n\n\n\nOpportunity Sets and Relational Persistence · Social Networks Group – UC\n\n\nView slides →\n\n\n\nAug 2026\n\n\n\n\nRC28 Summer Meeting · New York University\n\n\nView slides →\n\n\n\nJan 2026\n\n\n\n\nRC28 International Conference · Sciences Po\n\n\nView slides →"
   },
   {
     "objectID": "publication/index.html",
@@ -1663,7 +1663,7 @@
     "href": "es/index.html",
     "title": "Roberto Cantillan",
     "section": "",
-    "text": "Soy candidato a Doctor en Sociología en la Pontificia Universidad Católica de Chile y asistente de investigación en el Núcleo Milenio para el Estudio de los Desajustes del Mercado Laboral (LM2C2). Mi investigación doctoral emplea una perspectiva estructural y de redes para analizar los patrones de movilidad, difusión y segregación en los mercados laborales desde un enfoque intrageneracional.\nEN\n\nNovedades\n\n\nAgo 2026 — Presenté “A Matthew Effect in Occupational Skill Content: Divergent Diffusion of Cognitive and Physical Skills Reinforces Inequality” en RC28 NYU 2026. Diapositivas\nEne 2026 — Presenté “Structurally Conditioned Diffusion Reproduces Skills-Based Stratification: How Skill Requirements Propagate — And Why They Preserve Hierarchies” en la Conferencia Internacional RC28 de Sciences Po. Diapositivas"
+    "text": "Mi investigación combina ciencia de redes, modelos formales, experimentos computacionales y datos longitudinales para comprender el cambio desigual en los mercados laborales y los vínculos sociales.\n\n\nExplorar investigación Descargar CV Contacto\n\n\n\n\nVer investigación →\n\n\n\n01\n\n\nEl trabajo está cambiando. No de manera uniforme. Estudio cómo las habilidades y tareas se difunden en la jerarquía ocupacional.\n\n\n\n02\n\n\nUn vínculo nunca es solo una díada. Examino cuándo las alternativas desestabilizan relaciones y condicionan quién reemplaza a quién.\n\n\n\n03\n\n\nLas posibilidades de moverse dependen de la posición de origen. Estudio restricciones relacionales a la movilidad urbana e intergeneracional.\n\n\n\n\n\n\n\nVer presentaciones →\n\n\n\n\nOct 2026Próxima\n\n\n\n\nOpportunity Sets and Relational Persistence · Grupo de Redes Sociales – UC\n\n\nVer diapositivas →\n\n\n\nAgo 2026\n\n\n\n\nRC28 Summer Meeting · New York University\n\n\nVer diapositivas →\n\n\n\nEne 2026\n\n\n\n\nConferencia Internacional RC28 · Sciences Po\n\n\nVer diapositivas →"
   },
   {
     "objectID": "blog/posts/14_datasets-emergent-structures/index.html",
@@ -1769,5 +1769,47 @@
     "title": "Data for Studying Emergent Structures in Human Interaction",
     "section": "Summary: open vs. restricted access",
     "text": "Summary: open vs. restricted access\nOpen, no application needed: DerStandard forum data (#1), Bitcoin Alpha and Bitcoin OTC (#3–4), Slashdot (#5), Epinions (#6), the MSW peer network (#9), the Copenhagen Networks Study (#13), and — with caveats about mirror provenance — Facebook100 (#11).\nRequires a formal application, data use agreement, or restricted-access facility: ICPSR 300499 (#2, tier unconfirmed), Pardus (#7), DeZIM.panel (#8), PLANET-NL / CBS Microdata (#10), and DyLNet (#12).\nFor studying how relational structure emerges from interaction — tie formation, balance, homophily, group dynamics, diffusion — the open datasets (Copenhagen Networks Study, DerStandard, the signed trust networks, Facebook100) offer the fastest path to reproducible work. The restricted ones (PLANET-NL, DeZIM.panel, Pardus, DyLNet) offer much larger scale, richer relational typing, or developmental depth, but demand more setup time and institutional backing."
+  },
+  {
+    "objectID": "index.html#i-study-how-work-and-relationships-changeand-how-inequality-is-reproduced.",
+    "href": "index.html#i-study-how-work-and-relationships-changeand-how-inequality-is-reproduced.",
+    "title": "Roberto Cantillan",
+    "section": "",
+    "text": "My research combines network science, formal models, computational experiments, and longitudinal data to understand unequal change in labor markets and social ties."
+  },
+  {
+    "objectID": "index.html#current-research",
+    "href": "index.html#current-research",
+    "title": "Roberto Cantillan",
+    "section": "",
+    "text": "View research →"
+  },
+  {
+    "objectID": "index.html#recent-work",
+    "href": "index.html#recent-work",
+    "title": "Roberto Cantillan",
+    "section": "",
+    "text": "View all talks →"
+  },
+  {
+    "objectID": "es/index.html#estudio-cómo-cambian-el-trabajo-y-las-relacionesy-cómo-se-reproduce-la-desigualdad.",
+    "href": "es/index.html#estudio-cómo-cambian-el-trabajo-y-las-relacionesy-cómo-se-reproduce-la-desigualdad.",
+    "title": "Roberto Cantillan",
+    "section": "",
+    "text": "Mi investigación combina ciencia de redes, modelos formales, experimentos computacionales y datos longitudinales para comprender el cambio desigual en los mercados laborales y los vínculos sociales."
+  },
+  {
+    "objectID": "es/index.html#investigación-actual",
+    "href": "es/index.html#investigación-actual",
+    "title": "Roberto Cantillan",
+    "section": "",
+    "text": "Ver investigación →"
+  },
+  {
+    "objectID": "es/index.html#trabajo-reciente",
+    "href": "es/index.html#trabajo-reciente",
+    "title": "Roberto Cantillan",
+    "section": "",
+    "text": "Ver presentaciones →"
   }
 ]
