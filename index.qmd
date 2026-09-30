@@ -38,10 +38,11 @@ execute:
 
 ::: {#hero-heading}
 
-I am a PhD candidate in Sociology at Pontificia Universidad Católica de Chile. My research examines how the content of work changes and how skills, tasks, and other work requirements spread, accumulate, and recede across occupations, jobs, and organizations amid rapid technological change, including advances in artificial intelligence. Using network analysis, formal models, computational experiments, and longitudinal data, I study why these changes follow unequal paths through the occupational structure and how they contribute to labor-market polarization and inequality. My broader work investigates how relational structures shape diffusion, the persistence of social ties, and urban and intergenerational mobility.
+I am a PhD candidate in Sociology at Pontificia Universidad Católica de Chile. My research examines how the content of work changes and how skills, tasks, and other work requirements spread, accumulate, and recede across occupations, jobs, and organizations amid rapid technological change, including advances in artificial intelligence. Using network analysis, formal models, computational experiments, and longitudinal data, I study why these changes follow unequal paths through the occupational structure and how they contribute to labor-market polarization and inequality. In a parallel line of research, I study relational persistence: when available alternatives threaten an existing tie, how opportunity sets shape tie stability, and who forms the replacement tie after a relationship dissolves. Emerging work extends this relational perspective to urban and intergenerational mobility.
 
 #### Recent Updates
 ::: {.recent-updates}
+* **Oct 2026** — Upcoming presentation, "*When Do Alternatives Threaten a Tie? Opportunity Sets and Relational Persistence*," at a research meeting of the [Social Networks Group – UC](https://socialnetworksuc.cl/en/). [Slides](https://rcantillan.github.io/slides/relational_persistence/slides.html#/title-slide)
 * **Aug 2026** — Presented "*A Matthew Effect in Occupational Skill Content: Divergent Diffusion of Cognitive and Physical Skills Reinforces Inequality*" at RC28 NYU 2026. [Slides](https://rcantillan.github.io/slides/rc28_nyu/slides_revised.html)
 * **Jan 2026** — Presented "*Structurally Conditioned Diffusion Reproduces Skills-Based Stratification: How Skill Requirements Propagate — And Why They Preserve Hierarchies*" at the online RC28 Sciences Po International Conference. [Slides](https://rcantillan.github.io/slides/coes_mobility/slides.html)
 
