@@ -26,7 +26,7 @@ about:
       href: https://scholar.google.com/citations?user=xZkAmvAAAAAJ&hl=es
     - text: "{{< ai cv >}}"
       aria-label: Currículum vitae
-      href: https://drive.google.com/file/d/1X3v5I7umTSALIlPmyLCYR2GmbVew22FZ/view
+      href: /pdf/CV_Roberto_Cantillan.pdf
 page-layout: full
 execute:
   freeze: false
@@ -36,7 +36,7 @@ execute:
 
 ::: {#hero-heading}
 
-Soy candidato a Doctor en Sociología en la Pontificia Universidad Católica de Chile y asistente de investigación en el Núcleo Milenio para el Estudio de los Desajustes del Mercado Laboral (LM2C2). Mi investigación doctoral emplea una perspectiva estructural y de redes para analizar los patrones de movilidad, difusión y segregación en los mercados laborales desde un enfoque intrageneracional.
+Soy candidato a Doctor en Sociología en la Pontificia Universidad Católica de Chile. Mi investigación examina cómo cambia el contenido del trabajo y cómo las habilidades, tareas y otros requerimientos laborales se difunden, acumulan y retraen entre ocupaciones, empleos y organizaciones en un contexto de acelerado cambio tecnológico, incluidos los avances en inteligencia artificial. Mediante análisis de redes, modelos formales, experimentos computacionales y datos longitudinales, estudio por qué estos cambios siguen trayectorias desiguales en la estructura ocupacional y cómo contribuyen a la polarización y la desigualdad en el mercado laboral. Mi trabajo también analiza cómo las estructuras relacionales influyen en la difusión, la persistencia de los vínculos sociales y la movilidad urbana e intergeneracional.
 
 [EN](/)
 

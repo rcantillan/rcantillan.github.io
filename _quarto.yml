@@ -4,6 +4,7 @@ project:
   resources:
     - "images/"
     - "files/"
+    - "pdf/"
     - "assets/lang-toggle.js"
 
 execute:

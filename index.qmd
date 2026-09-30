@@ -26,7 +26,7 @@ about:
       href: https://scholar.google.com/citations?user=xZkAmvAAAAAJ&hl=es
     - text: "{{< ai cv >}}"
       aria-label: "Curriculum Vitae"
-      href: https://drive.google.com/file/d/1X3v5I7umTSALIlPmyLCYR2GmbVew22FZ/view
+      href: /pdf/CV_Roberto_Cantillan.pdf
 page-layout: full
 
 execute: 
@@ -38,7 +38,7 @@ execute:
 
 ::: {#hero-heading}
 
-I am a doctoral candidate in Sociology at the Pontificia Universidad Católica de Chile and an assistant at the 'Millennium Nucleus for the Study of Labor Market Mismatch' (LM2C2). My doctoral research uses a structural and network perspective to analyze the patterns of mobility, diffusion, and segregation in labor markets from an intragenerational viewpoint.
+I am a PhD candidate in Sociology at Pontificia Universidad Católica de Chile. My research examines how the content of work changes and how skills, tasks, and other work requirements spread, accumulate, and recede across occupations, jobs, and organizations amid rapid technological change, including advances in artificial intelligence. Using network analysis, formal models, computational experiments, and longitudinal data, I study why these changes follow unequal paths through the occupational structure and how they contribute to labor-market polarization and inequality. My broader work investigates how relational structures shape diffusion, the persistence of social ties, and urban and intergenerational mobility.
 
 #### Recent Updates
 ::: {.recent-updates}
