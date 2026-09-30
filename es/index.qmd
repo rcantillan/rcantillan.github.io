@@ -2,7 +2,7 @@
 title: "Roberto Cantillan"
 pagetitle: "Roberto Cantillan"
 description: |
-  Sociólogo • Investigador • Analista de datos
+  Sociología • Ciencia de Redes • Estratificación y Desigualdad
 subtitle: "Candidato a Doctor en Sociología <br> Pontificia Universidad Católica de Chile"
 image: ../img/originaltheoryor00wrig_0137.jpg
 image-alt: "Ilustración histórica de una red"
@@ -24,9 +24,6 @@ about:
     - text: "{{< ai google-scholar >}}"
       aria-label: Google Scholar
       href: https://scholar.google.com/citations?user=xZkAmvAAAAAJ&hl=es
-    - text: "{{< ai cv >}}"
-      aria-label: Currículum vitae
-      href: /pdf/CV_Roberto_Cantillan.pdf
 page-layout: full
 execute:
   freeze: false
@@ -36,15 +33,77 @@ execute:
 
 ::: {#hero-heading}
 
-Soy candidato a Doctor en Sociología en la Pontificia Universidad Católica de Chile. Mi investigación examina cómo cambia el contenido del trabajo y cómo las habilidades, tareas y otros requerimientos laborales se difunden, acumulan y retraen entre ocupaciones, empleos y organizaciones en un contexto de acelerado cambio tecnológico, incluidos los avances en inteligencia artificial. Mediante análisis de redes, modelos formales, experimentos computacionales y datos longitudinales, estudio por qué estos cambios siguen trayectorias desiguales en la estructura ocupacional y cómo contribuyen a la polarización y la desigualdad en el mercado laboral. En una línea paralela, estudio la persistencia relacional: cuándo la disponibilidad de otros actores amenaza un vínculo existente, cómo los conjuntos de oportunidades condicionan su estabilidad y quién forma el vínculo de reemplazo tras la disolución de una relación. Nuevos trabajos extienden esta perspectiva relacional a la movilidad urbana e intergeneracional.
+::: {.hero-intro}
+## Estudio cómo cambian el trabajo y las relaciones—y cómo se reproduce la desigualdad.
+
+Mi investigación combina ciencia de redes, modelos formales, experimentos computacionales y datos longitudinales para comprender el cambio desigual en los mercados laborales y los vínculos sociales.
+:::
+
+::: {.hero-actions}
+[Explorar investigación](../about/index.qmd){.home-btn .home-btn-primary}
+[Descargar CV](/pdf/CV_Roberto_Cantillan.pdf){.home-btn .home-btn-secondary}
+[Contacto](../contact.qmd){.home-text-link}
+:::
+
+::: {.home-research}
+::: {.home-section-heading}
+## Investigación actual
+
+[Ver investigación →](../about/index.qmd){.home-section-link}
+:::
+
+::: {.home-research-grid}
+::: {.home-research-card}
+<span class="research-index">01</span>
+
+### Trabajo, habilidades y tecnología
+
+El trabajo está cambiando. No de manera uniforme. Estudio cómo las habilidades y tareas se difunden en la jerarquía ocupacional.
+:::
+
+::: {.home-research-card}
+<span class="research-index">02</span>
+
+### Persistencia relacional
+
+Un vínculo nunca es solo una díada. Examino cuándo las alternativas desestabilizan relaciones y condicionan quién reemplaza a quién.
+:::
+
+::: {.home-research-card}
+<span class="research-index">03</span>
+
+### Movilidad y desigualdad
+
+Las posibilidades de moverse dependen de la posición de origen. Estudio restricciones relacionales a la movilidad urbana e intergeneracional.
+:::
+:::
+:::
+
+::: {.home-recent}
+::: {.home-section-heading}
+## Trabajo reciente
+
+[Ver presentaciones →](../talk/index.qmd){.home-section-link}
+:::
+
+<div class="home-recent-list">
+  <article class="home-recent-item is-upcoming">
+    <div class="recent-meta"><span class="recent-date">Oct 2026</span><span class="recent-status">Próxima</span></div>
+    <div class="recent-copy"><h3>When Do Alternatives Threaten a Tie?</h3><p>Opportunity Sets and Relational Persistence · Grupo de Redes Sociales – UC</p></div>
+    <a href="https://rcantillan.github.io/slides/relational_persistence/slides.html#/title-slide">Ver diapositivas <span aria-hidden="true">→</span></a>
+  </article>
+  <article class="home-recent-item">
+    <div class="recent-meta"><span class="recent-date">Ago 2026</span></div>
+    <div class="recent-copy"><h3>A Matthew Effect in Occupational Skill Content</h3><p>RC28 Summer Meeting · New York University</p></div>
+    <a href="https://rcantillan.github.io/slides/rc28_nyu/slides_revised.html">Ver diapositivas <span aria-hidden="true">→</span></a>
+  </article>
+  <article class="home-recent-item">
+    <div class="recent-meta"><span class="recent-date">Ene 2026</span></div>
+    <div class="recent-copy"><h3>Structurally Conditioned Diffusion Reproduces Skills-Based Stratification</h3><p>Conferencia Internacional RC28 · Sciences Po</p></div>
+    <a href="https://rcantillan.github.io/slides/coes_mobility/slides.html">Ver diapositivas <span aria-hidden="true">→</span></a>
+  </article>
+</div>
+:::
 
 [EN](/)
-
-#### Novedades
-
-::: {.recent-updates}
-* **Oct 2026** — Próxima presentación, "*When Do Alternatives Threaten a Tie? Opportunity Sets and Relational Persistence*," en una reunión de investigación del [Grupo de Redes Sociales – UC](https://socialnetworksuc.cl/es/). [Diapositivas](https://rcantillan.github.io/slides/relational_persistence/slides.html#/title-slide)
-* **Ago 2026** — Presenté "*A Matthew Effect in Occupational Skill Content: Divergent Diffusion of Cognitive and Physical Skills Reinforces Inequality*" en RC28 NYU 2026. [Diapositivas](https://rcantillan.github.io/slides/rc28_nyu/slides.html)
-* **Ene 2026** — Presenté "*Structurally Conditioned Diffusion Reproduces Skills-Based Stratification: How Skill Requirements Propagate — And Why They Preserve Hierarchies*" en la Conferencia Internacional RC28 de Sciences Po. [Diapositivas](https://rcantillan.github.io/slides/coes_mobility/slides.html)
-:::
 :::
