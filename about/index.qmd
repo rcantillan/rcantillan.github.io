@@ -1,75 +1,44 @@
 ---
-title: "Research Overview"
+title: "About"
+description: "Research on work, social networks, and inequality."
 page-layout: full
-toc: true
+toc: false
+lang: en
+format:
+  html:
+    css: ../assets/about.css
+    body-classes: about-editorial
+    anchor-sections: false
 ---
 
-::: {.about-page}
-::: {.about-links}
-{{< fa brands github size=lg >}}
-{{< fa envelope size=lg >}}
-{{< fa file-alt size=lg >}}
+::: {.about-intro}
+I am a PhD candidate in Sociology at Pontificia Universidad Católica de Chile. I study how changes in work and social relationships are shaped by the structures in which they occur.
+
+My research connects the sociology of work, network science, and the study of inequality.
 :::
 
-::: {.overview-section}
-I am a PhD candidate in Sociology at Pontificia Universidad Católica de Chile. My main research examines how the content of work has changed over recent decades and how those changes are distributed across the occupational structure. I study how skills, tasks, and other work requirements spread, accumulate, and recede across occupations, jobs, and organizations amid rapid technological change, including advances in artificial intelligence. From a network science perspective, I treat these units as interdependent positions and ask why some kinds of work expand in high-status positions while others become concentrated in lower-status positions. A parallel line of research develops models of relational persistence, asking when alternatives threaten an existing tie and how opportunity sets shape stability and replacement. Across my projects, I combine network analysis, formal models, computational experiments, and longitudinal data to study polarization, inequality, and relational change.
-:::
+## Research
 
-::: {.research-grid}
-::: {.research-box}
-## Changing Content of Work
+### Work, skills & technology
 
-- Diffusion, accumulation, and decline of skills and tasks
-- Cognitive and physical requirements across the occupational hierarchy
-- Technological change and artificial intelligence in labor markets
-:::
+My main research examines how the skills and tasks required at work change over time. I ask why some requirements spread and accumulate in higher-status occupations while others become concentrated in lower-status work, and how these patterns contribute to labor-market polarization and inequality.
 
-::: {.research-box}
-## Networks and Inequality
+I approach occupations as connected rather than isolated: changes in one part of the occupational structure can create opportunities and constraints elsewhere. Technological change, including advances in artificial intelligence, is an important context for this work.
 
-- Directional diffusion and occupational polarization
-- Opportunity sets and the persistence of social ties
-- Network advantage across different stages of diffusion
-:::
+### Relational persistence
 
-::: {.research-box}
-## Methodological Innovation
+A parallel line of research asks when relationships persist and when they dissolve. I develop models of how available alternatives affect the stability of a tie and who forms a replacement relationship after it ends.
 
-- Network analysis and longitudinal occupational data
-- Formal models and computational experiments
-- Emerging applications to urban and intergenerational mobility
-:::
-:::
+Emerging projects extend this relational perspective to urban and intergenerational mobility.
 
-::: {.section-title}
-# Previous Research Experience
-:::
+## Approach
 
-::: {.research-grid}
-::: {.research-box}
-## Personal Networks
+I combine longitudinal data and network analysis with formal models and computational experiments. These approaches help me describe patterns of change and examine the mechanisms that could produce them.
 
-- Patterns of heterogeneity in personal networks across urban settings
-- Social capital distribution and network composition
-- Structural constraints in relationship formation
-- Homophily and Diversity
-:::
+## Background
 
-::: {.research-box}
-## Civil Society Studies
+My previous research has explored personal networks, social capital, civil society, and scientific collaboration. Across these topics, my interest has been in how social connections shape opportunities and constraints.
 
-- Organizational patterns in the third sector
-- Social movement emergence and evolution
-- Community engagement and collective action
-- Network structures in civic participation
-:::
-
-::: {.research-box}
-## Network Science Applications
-
-- Scientific collaboration networks
-- Knowledge diffusion processes
-- Structural analysis of complex social systems
-:::
-:::
+::: {.about-closing}
+[CV](../pdf/CV_Roberto_Cantillan.pdf) · [Publications](../publication/index.qmd) · [Contact](../contact.qmd)
 :::

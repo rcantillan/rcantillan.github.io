@@ -36,7 +36,7 @@
   }
 
   function findLangLink() {
-    var links = document.querySelectorAll(".navbar-nav .nav-link");
+    var links = document.querySelectorAll("[data-lang-toggle], .navbar-nav .nav-link");
     for (var i = 0; i < links.length; i++) {
       var href = links[i].getAttribute("href") || "";
       if (/(^|\/)es\/index\.html$/.test(href) || /(^|\/)es\/?$/.test(href)) {
