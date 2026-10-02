@@ -1,0 +1,27 @@
+/* A quiet reading layout, scoped to About only. */
+body.about-editorial { background: #fbfaf8; color: #303831; }
+.about-editorial #quarto-document-content {
+  display: block;
+  width: 100%;
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 56px 32px 72px;
+  font-family: Inconsolata, monospace;
+  font-size: 18px;
+  line-height: 1.65;
+}
+.about-editorial #title-block-header { margin-bottom: 28px; }
+.about-editorial h1.title { font-size: clamp(36px, 4vw, 48px); font-weight: 600; letter-spacing: -.035em; color: #303831; }
+.about-editorial .about-intro { font-size: 21px; line-height: 1.55; }
+.about-editorial p { margin-bottom: 18px; }
+.about-editorial h2 { margin: 40px 0 20px; padding: 0; border: 0; color: #285a47; font-size: 25px; font-weight: 600; letter-spacing: -.025em; }
+.about-editorial h3 { margin: 26px 0 12px; font-size: 20px; font-weight: 600; color: #303831; }
+.about-editorial main a { color: #245943; text-underline-offset: 4px; }
+.about-editorial main a:focus-visible { outline: 2px solid #245943; outline-offset: 5px; }
+.about-editorial .about-closing { margin-top: 36px; padding-top: 22px; border-top: 1px solid #dce2dc; }
+.about-editorial .about-closing p { margin-bottom: 0; }
+@media (max-width: 700px) {
+  .about-editorial #quarto-document-content { padding: 30px 22px 48px; font-size: 17px; }
+  .about-editorial .about-intro { font-size: 19px; }
+  .about-editorial h2 { margin-top: 32px; }
+}
