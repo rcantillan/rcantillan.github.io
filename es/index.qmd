@@ -27,7 +27,6 @@ format:
       </div>
       <figure><img src="../img/originaltheoryor00wrig_0137.jpg" alt="Ilustración histórica de estructuras celestes"></figure>
     </section>
-    <div class="interests"><span class="label">Líneas de investigación</span><div class="topics"><span>Trabajo, habilidades y tecnología</span><span>Vínculos sociales</span><span>Movilidad y desigualdad</span></div></div>
     <section class="work" aria-labelledby="updates">
       <div class="section-heading"><h2 id="updates">Novedades</h2></div>
       <article><time datetime="2026-10">Oct 2026</time><div><h3>When Do Alternatives Threaten a Tie?</h3><p>Social Networks Group · UC — Próxima presentación</p></div><a href="https://rcantillan.github.io/slides/relational_persistence/slides.html#/title-slide" aria-label="Diapositivas: When Do Alternatives Threaten a Tie?">Diapositivas ↗</a></article>
