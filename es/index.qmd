@@ -29,6 +29,7 @@ format:
     </section>
     <section class="work" aria-labelledby="updates">
       <div class="section-heading"><h2 id="updates">Novedades</h2></div>
+      <article><time datetime="2026-10">Oct 2026</time><div><h3>The Ties That Open a Community Are Not the Ties That Move It</h3><p>Social Networks Group · UC — Próxima presentación</p></div><a href="https://rcantillan.github.io/slides/relational_portability/slides.html#/title-slide" aria-label="Diapositivas: The Ties That Open a Community Are Not the Ties That Move It">Diapositivas ↗</a></article>
       <article><time datetime="2026-10">Oct 2026</time><div><h3>When Do Alternatives Threaten a Tie?</h3><p>Social Networks Group · UC — Próxima presentación</p></div><a href="https://rcantillan.github.io/slides/relational_persistence/slides.html#/title-slide" aria-label="Diapositivas: When Do Alternatives Threaten a Tie?">Diapositivas ↗</a></article>
       <article><time datetime="2026-08">Aug 2026</time><div><h3>A Matthew Effect in Occupational Skill Content</h3><p>RC28 Summer Meeting · New York University</p></div><a href="https://rcantillan.github.io/slides/rc28_nyu/slides_revised.html" aria-label="Diapositivas: A Matthew Effect in Occupational Skill Content">Diapositivas ↗</a></article>
     </section>
