@@ -1,7 +1,7 @@
 /*-- scss:defaults --*/
 
-// Importar fuente Inconsolata
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
+// Importar fuentes: Noto Sans (texto) + Inconsolata (código)
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 // Define first our base colors for dark theme
 $spc-primary: #E5E5E5;          // Gris claro
@@ -31,10 +31,10 @@ $body-bg:                    $spc-bg-0;
 $body-secondary:             #9DA3AA;
 
 // Fonts
-$font-family-sans-serif:     "Inconsolata", monospace;
+$font-family-sans-serif:     "Noto Sans", system-ui, sans-serif;
 $headings-font-weight:       300;
 $font-family-monospace:      "Inconsolata", monospace;
-$headings-font-family:       "Inconsolata", monospace;
+$headings-font-family:       "Noto Sans", system-ui, sans-serif;
 
 // Links
 $link-color:                  $secondary;

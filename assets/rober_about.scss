@@ -1,7 +1,7 @@
 /*-- scss:defaults --*/
 
-// Importar fuente Inconsolata
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
+// Importar fuentes: Noto Sans (texto) + Inconsolata (código)
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 // Define first our base colors
 $spc-primary: #524B44;    // Color marrón grisáceo (título)
@@ -356,7 +356,7 @@ a {
 
 // -----------------------------------------------------------------------------
 // Homepage editorial system
-// Keeps Inconsolata as the site's voice while adding hierarchy through scale,
+// Keeps Noto Sans as the site's voice while adding hierarchy through scale,
 // spacing, weight, and composition rather than a second font family.
 // -----------------------------------------------------------------------------
 

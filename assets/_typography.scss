@@ -11,13 +11,13 @@ $sfi-bg-secondary: #f8fafc;   // Gris muy claro para fondos
 $sfi-border: #e2e8f0;         // Bordes sutiles
 
 // TIPOGRAFÍA REFINADA
-$sfi-heading-font: 'Inconsolata', monospace; // Tipografía uniforme en todo el sitio
-$sfi-body-font: 'Inconsolata', monospace;
+$sfi-heading-font: 'Noto Sans', system-ui, sans-serif; // Tipografía uniforme en todo el sitio
+$sfi-body-font: 'Noto Sans', system-ui, sans-serif;
 
 /*-- scss:rules --*/
 
 // 1. IMPORTAR INCONSOLATA
-@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;600&family=Noto+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
 
 // 2. JERARQUÍA TIPOGRÁFICA CLARA
 .page-title,
