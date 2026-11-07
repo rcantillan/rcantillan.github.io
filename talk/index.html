@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.19">
+<meta name="generator" content="quarto-1.11.9">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -41,14 +41,15 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/scrollable-regions/scrollable-regions.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-11e57ec85a24b0a141eca6220e70c2c6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-a1fb71b8230547e7dabc44bbeae25b4d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-a98937e59fce33b0210976543d491d1b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-06207d87e86d692cd5ac17e824bc0622.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
@@ -102,12 +103,6 @@ ul.task-list li input[type="checkbox"] {
       window['quarto-listing-loaded']();
     }
   });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
   </script>
 <style>
 
@@ -166,11 +161,11 @@ window.Quarto = {
 
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg border-bottom" data-bs-theme="dark">
+    <nav class="navbar navbar-expand-lg border-bottom" data-bs-theme="dark" aria-label="Site">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a href="../index.html" class="navbar-brand navbar-brand-logo">
@@ -181,8 +176,7 @@ window.Quarto = {
     <span class="navbar-title">Roberto Cantillan</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -224,6 +218,7 @@ window.Quarto = {
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
 </div>
+            <div id="quarto-search" class="" title="Search"></div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
@@ -251,7 +246,7 @@ window.Quarto = {
         
     <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(6)</span></div><div class="category" data-category="Q29tcHV0YXRpb25hbCUyMFNvY2lhbCUyMFNjaWVuY2Vz">Computational Social Sciences <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Q29udGFnaW9u">Contagion <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RWdvJTIwTmV0d29ya3M=">Ego Networks <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RVJHTQ==">ERGM <span class="quarto-category-count">(1)</span></div><div class="category" data-category="SG9tb3BoaWx5">Homophily <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TmV0d29ya3M=">Networks <span class="quarto-category-count">(3)</span></div><div class="category" data-category="TmV0d29ya3MlMjBtb2JpbGl0eQ==">Networks mobility <span class="quarto-category-count">(3)</span></div><div class="category" data-category="Ug==">R <span class="quarto-category-count">(6)</span></div><div class="category" data-category="U2VncmVnYXRpb24=">Segregation <span class="quarto-category-count">(2)</span></div><div class="category" data-category="U2tpbGwlMjBEaWZmdXNpb24=">Skill Diffusion <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2xpZGVz">Slides <span class="quarto-category-count">(6)</span></div><div class="category" data-category="U29jaWFsJTIwbW9iaWxpdHk=">Social mobility <span class="quarto-category-count">(4)</span></div><div class="category" data-category="U29jaWFsJTIwU3RyYXRpZmljYXRpb24=">Social Stratification <span class="quarto-category-count">(1)</span></div><div class="category" data-category="VmFsdWUlMjBEaXNwbGFjZW1lbnQ=">Value Displacement <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content" tabindex="-1">
 
 
 
@@ -286,8 +281,8 @@ window.Quarto = {
     </div>
 </div>
 <div class="list grid quarto-listing-cols-2">
-<div class="g-col-1" data-index="0" data-categories="UiUyQ1NsaWRlcyUyQ1NvY2lhbCUyMFN0cmF0aWZpY2F0aW9uJTJDTmV0d29ya3MlMkNTa2lsbCUyMERpZmZ1c2lvbiUyQ1ZhbHVlJTIwRGlzcGxhY2VtZW50" data-listing-date-sort="1753056000000" data-listing-file-modified-sort="1791374790291" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="374">
-<a href="../talk/posts/IC2S2/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-categories="UiUyQ1NsaWRlcyUyQ1NvY2lhbCUyMFN0cmF0aWZpY2F0aW9uJTJDTmV0d29ya3MlMkNTa2lsbCUyMERpZmZ1c2lvbiUyQ1ZhbHVlJTIwRGlzcGxhY2VtZW50" data-listing-date-sort="1753056000000" data-listing-file-modified-sort="1794090873358" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="374">
+<a href="../talk/posts/IC2S2/index.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
 <img loading="lazy" src="../talk/posts/IC2S2/featured.jpg" class="thumbnail-image card-img" style="height: 150px;">
@@ -311,7 +306,7 @@ Asymmetric Trajectory Channeling in Labor Markets
 <div class="listing-category" onclick="window.quartoListingCategory('VmFsdWUlMjBEaXNwbGFjZW1lbnQ='); return false;">Value Displacement</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="card-text listing-description">
 This research addresses the paradox of persistent labor market stratification amidst dynamic economic change. Moving beyond traditional supply-side explanations, this study…
 </div>
 <div class="card-attribution card-text-small end">
@@ -322,8 +317,8 @@ Jul 21, 2025
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="UiUyQ1NsaWRlcyUyQ0NvbXB1dGF0aW9uYWwlMjBTb2NpYWwlMjBTY2llbmNlcw==" data-listing-date-sort="1730419200000" data-listing-file-modified-sort="1791374790281" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="186">
-<a href="../talk/posts/CSS/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="1" data-categories="UiUyQ1NsaWRlcyUyQ0NvbXB1dGF0aW9uYWwlMjBTb2NpYWwlMjBTY2llbmNlcw==" data-listing-date-sort="1730419200000" data-listing-file-modified-sort="1794090873351" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="186">
+<a href="../talk/posts/CSS/index.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
 <img loading="lazy" src="../talk/posts/CSS/featured.jpg" class="thumbnail-image card-img" style="height: 150px;">
@@ -341,7 +336,7 @@ Investigación social en la era digital
 <div class="listing-category" onclick="window.quartoListingCategory('Q29tcHV0YXRpb25hbCUyMFNvY2lhbCUyMFNjaWVuY2Vz'); return false;">Computational Social Sciences</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="card-text listing-description">
 El transcurso de la era de la información y las transformaciones tecnológicas que la acompañan conllevan oportunidades y retos inéditos para el progreso de la investigación…
 </div>
 <div class="card-attribution card-text-small end">
@@ -352,46 +347,8 @@ Nov 1, 2024
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="UiUyQ1NsaWRlcyUyQ1NvY2lhbCUyMG1vYmlsaXR5JTJDTmV0d29ya3MlMkNFUkdNJTJDU2VncmVnYXRpb24lMkNOZXR3b3JrcyUyMG1vYmlsaXR5" data-listing-date-sort="1700870400000" data-listing-file-modified-sort="1791374790300" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="271">
-<a href="../talk/posts/laboral_gender_segregation_II/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../talk/posts/laboral_gender_segregation_II/featured.jpg" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Movilidad ocupacional intrageneracional
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U2xpZGVz'); return false;">Slides</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U29jaWFsJTIwbW9iaWxpdHk='); return false;">Social mobility</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TmV0d29ya3M='); return false;">Networks</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RVJHTQ=='); return false;">ERGM</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U2VncmVnYXRpb24='); return false;">Segregation</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TmV0d29ya3MlMjBtb2JpbGl0eQ=='); return false;">Networks mobility</div>
-
-</div>
-<div class="card-text listing-description delink">
-La investigación aborda la persistente segregación ocupacional por género en Chile entre 2009-2020, enfocándose en cómo la movilidad ocupacional intrageneracional contribuye…
-</div>
-<div class="card-attribution card-text-small end">
-<div class="listing-date">
-Nov 25, 2023
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="UiUyQ1NsaWRlcyUyQ1NvY2lhbCUyMG1vYmlsaXR5JTJDTmV0d29ya3MlMkNDb250YWdpb24lMkNTZWdyZWdhdGlvbiUyQ05ldHdvcmtzJTIwbW9iaWxpdHk=" data-listing-date-sort="1700870400000" data-listing-file-modified-sort="1791374790294" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="348">
-<a href="../talk/posts/laboral_gender_segregation/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="2" data-categories="UiUyQ1NsaWRlcyUyQ1NvY2lhbCUyMG1vYmlsaXR5JTJDTmV0d29ya3MlMkNDb250YWdpb24lMkNTZWdyZWdhdGlvbiUyQ05ldHdvcmtzJTIwbW9iaWxpdHk=" data-listing-date-sort="1700870400000" data-listing-file-modified-sort="1794090873360" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="348">
+<a href="../talk/posts/laboral_gender_segregation/index.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
 <img loading="lazy" src="../talk/posts/laboral_gender_segregation/featured.jpg" class="thumbnail-image card-img" style="height: 150px;">
@@ -417,7 +374,7 @@ Movilidad ocupacional intrageneracional en Chile 2009 - 2020
 <div class="listing-category" onclick="window.quartoListingCategory('TmV0d29ya3MlMjBtb2JpbGl0eQ=='); return false;">Networks mobility</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="card-text listing-description">
 Chile presenta altos y persistentes niveles de desigualdad en la calidad del empleo. Problemas como la alta rotación laboral, la movilidad ocupacional estratificada y la…
 </div>
 <div class="card-attribution card-text-small end">
@@ -428,8 +385,46 @@ Nov 25, 2023
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="4" data-categories="UiUyQ1NsaWRlcyUyQ1NvY2lhbCUyMG1vYmlsaXR5JTJDTmV0d29ya3MlMjBtb2JpbGl0eQ==" data-listing-date-sort="1692144000000" data-listing-file-modified-sort="1791374790301" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="148">
-<a href="../talk/posts/mobility_classes/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="3" data-categories="UiUyQ1NsaWRlcyUyQ1NvY2lhbCUyMG1vYmlsaXR5JTJDTmV0d29ya3MlMkNFUkdNJTJDU2VncmVnYXRpb24lMkNOZXR3b3JrcyUyMG1vYmlsaXR5" data-listing-date-sort="1700870400000" data-listing-file-modified-sort="1794090873365" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="271">
+<a href="../talk/posts/laboral_gender_segregation_II/index.html" class="quarto-grid-link no-external-icon">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="../talk/posts/laboral_gender_segregation_II/featured.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Movilidad ocupacional intrageneracional
+</h5>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('Ug=='); return false;">R</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2xpZGVz'); return false;">Slides</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U29jaWFsJTIwbW9iaWxpdHk='); return false;">Social mobility</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TmV0d29ya3M='); return false;">Networks</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('RVJHTQ=='); return false;">ERGM</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('U2VncmVnYXRpb24='); return false;">Segregation</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('TmV0d29ya3MlMjBtb2JpbGl0eQ=='); return false;">Networks mobility</div>
+
+</div>
+<div class="card-text listing-description">
+La investigación aborda la persistente segregación ocupacional por género en Chile entre 2009-2020, enfocándose en cómo la movilidad ocupacional intrageneracional contribuye…
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+Nov 25, 2023
+</div>
+</div>
+</div>
+</div></a>
+</div>
+<div class="g-col-1" data-index="4" data-categories="UiUyQ1NsaWRlcyUyQ1NvY2lhbCUyMG1vYmlsaXR5JTJDTmV0d29ya3MlMjBtb2JpbGl0eQ==" data-listing-date-sort="1692144000000" data-listing-file-modified-sort="1794090873366" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="148">
+<a href="../talk/posts/mobility_classes/index.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
 <img loading="lazy" src="../talk/posts/mobility_classes/featured.jpg" class="thumbnail-image card-img" style="height: 150px;">
@@ -449,7 +444,7 @@ Clases de movilidad
 <div class="listing-category" onclick="window.quartoListingCategory('TmV0d29ya3MlMjBtb2JpbGl0eQ=='); return false;">Networks mobility</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="card-text listing-description">
 En este trabajo se concibe la estructura ocupacional como un sistema adaptativo de intercambio generalizado <span class="citation" data-cites="bearmanGeneralizedExchange1997">(Bearman 1997)</span>. En esta interpretación, diversas ocupaciones con…
 </div>
 <div class="card-attribution card-text-small end">
@@ -460,8 +455,8 @@ Aug 16, 2023
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="5" data-categories="UiUyQ1NsaWRlcyUyQ1NvY2lhbCUyMG1vYmlsaXR5JTJDRWdvJTIwTmV0d29ya3MlMkNIb21vcGhpbHk=" data-listing-date-sort="1680307200000" data-listing-file-modified-sort="1791374790302" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="721">
-<a href="../talk/posts/multi-homphily/index.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="5" data-categories="UiUyQ1NsaWRlcyUyQ1NvY2lhbCUyMG1vYmlsaXR5JTJDRWdvJTIwTmV0d29ya3MlMkNIb21vcGhpbHk=" data-listing-date-sort="1680307200000" data-listing-file-modified-sort="1794090873368" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="721">
+<a href="../talk/posts/multi-homphily/index.html" class="quarto-grid-link no-external-icon">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top">
 <img loading="lazy" src="../talk/posts/multi-homphily/featured.png" class="thumbnail-image card-img" style="height: 150px;">
@@ -483,7 +478,7 @@ Homofilia Multidimensional y movilidad social en Chile
 <div class="listing-category" onclick="window.quartoListingCategory('SG9tb3BoaWx5'); return false;">Homophily</div>
 
 </div>
-<div class="card-text listing-description delink">
+<div class="card-text listing-description">
 En el contexto chileno, la implantación de las reformas neoliberales en la década de 1980 delineó un proyecto de modernización cuyo propósito principal abarcó diversos…
 </div>
 <div class="card-attribution card-text-small end">
@@ -575,7 +570,8 @@ Apr 1, 2023
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
       // Inspect non-navigation links and adorn them if external
-     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      window.quartoDecorateExternalLinks = function (root) {
+     var links = (root || window.document).querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
       for (var i=0; i<links.length; i++) {
         const link = links[i];
         if (!isInternal(link.href)) {
@@ -584,8 +580,69 @@ Apr 1, 2023
           if (link.dataset.originalHref !== undefined) {
             link.href = link.dataset.originalHref;
           }
+          if (!link.classList.contains('no-external-icon')) {
+          }
         }
       }
+      };
+      window.quartoDecorateExternalLinks(window.document);
+    // Esc closes the popup (WCAG 1.4.13) and focus leaving both trigger and
+    // popup closes it (WCAG 2.4.11); tippy handles neither for interactive popups.
+    const hideOnEscAndFocusOut = {
+      name: 'hideOnEscAndFocusOut',
+      defaultValue: true,
+      fn(instance) {
+        const dismiss = () => {
+          // A show scheduled by the trigger delay would otherwise reopen it
+          instance.clearDelayTimeouts();
+          instance.hide();
+        };
+        const onKeyDown = (event) => {
+          if (event.key !== 'Escape') {
+            return;
+          }
+          // Keep Esc from also reaching page handlers (e.g. reveal.js overview),
+          // except an open reveal.js slide menu, which Esc should close too.
+          // The menu handles keys only when its keyboard option is on.
+          const menuHandlesEsc = window.Reveal?.getPlugin?.('menu')?.isOpen() &&
+            window.Reveal.getConfig().menu?.keyboard !== false;
+          if (!menuHandlesEsc) {
+            event.stopPropagation();
+          }
+          if (instance.popper.contains(window.document.activeElement)) {
+            // Disabled while refocusing so the focus trigger does not reopen it
+            instance.disable();
+            instance.reference.focus();
+            instance.enable();
+          }
+          dismiss();
+        };
+        const onFocusOut = (event) => {
+          const target = event.relatedTarget;
+          if (target && !instance.reference.contains(target) &&
+              !instance.popper.contains(target)) {
+            dismiss();
+          }
+        };
+        // On the trigger too: a click trigger (code-annotations: select) has no
+        // blur handling. Attached for the instance's lifetime so leaving the
+        // trigger also cancels a show still pending on the trigger delay.
+        instance.reference.addEventListener('focusout', onFocusOut);
+        return {
+          onShow() {
+            window.document.addEventListener('keydown', onKeyDown, true);
+            instance.popper.addEventListener('focusout', onFocusOut);
+          },
+          onHide() {
+            window.document.removeEventListener('keydown', onKeyDown, true);
+            instance.popper.removeEventListener('focusout', onFocusOut);
+          },
+          onDestroy() {
+            instance.reference.removeEventListener('focusout', onFocusOut);
+          },
+        };
+      },
+    };
     function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
       const config = {
         allowHTML: true,
@@ -599,6 +656,7 @@ Apr 1, 2023
         interactiveBorder: 10,
         theme: 'quarto',
         placement: 'bottom-start',
+        plugins: [hideOnEscAndFocusOut],
       };
       if (contentFn) {
         config.content = contentFn;
@@ -761,44 +819,54 @@ Apr 1, 2023
           const lineIds = lines.map((line) => {
             return targetCell + "-" + line;
           })
-          let top = null;
-          let height = null;
-          let parent = null;
+          // Each band is positioned against its own containing block, which is
+          // not the offsetParent of the lines, so place it from client rects.
+          const placeBand = (band, firstEl, lastEl, codeBlock) => {
+            const container = band.offsetParent;
+            if (container === null) {
+              return;
+            }
+            const containerRect = container.getBoundingClientRect();
+            // Reveal.js scales slides with a transform, so convert client
+            // pixels back to the CSS pixels of the container.
+            const scale = containerRect.height / container.offsetHeight || 1;
+            const firstRect = firstEl.getBoundingClientRect();
+            const lastRect = lastEl.getBoundingClientRect();
+            const top = (firstRect.top - containerRect.top) / scale - container.clientTop + container.scrollTop;
+            const height = (lastRect.bottom - firstRect.top) / scale;
+            band.style.top = top - 2 + "px";
+            band.style.height = height + 4 + "px";
+            if (codeBlock) {
+              // Without the copy button wrapper, the containing block is wider
+              // than the code block, so span the code block explicitly.
+              const blockRect = codeBlock.getBoundingClientRect();
+              band.style.left = (blockRect.left - containerRect.left) / scale - container.clientLeft + container.scrollLeft + "px";
+              band.style.width = blockRect.width / scale + "px";
+            }
+          };
           if (lineIds.length > 0) {
-              //compute the position of the single el (top and bottom and make a div)
-              const el = window.document.getElementById(lineIds[0]);
-              top = el.offsetTop;
-              height = el.offsetHeight;
-              parent = el.parentElement.parentElement;
-            if (lineIds.length > 1) {
-              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
-              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
-              height = bottom - top;
+            const el = window.document.getElementById(lineIds[0]);
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const parent = el.parentElement.parentElement;
+            // cook up a div (if necessary) and position it
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
             }
-            if (top !== null && height !== null && parent !== null) {
-              // cook up a div (if necessary) and position it 
-              let div = window.document.getElementById("code-annotation-line-highlight");
-              if (div === null) {
-                div = window.document.createElement("div");
-                div.setAttribute("id", "code-annotation-line-highlight");
-                div.style.position = 'absolute';
-                parent.appendChild(div);
-              }
-              div.style.top = top - 2 + "px";
-              div.style.height = height + 4 + "px";
-              div.style.left = 0;
-              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
-              if (gutterDiv === null) {
-                gutterDiv = window.document.createElement("div");
-                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
-                gutterDiv.style.position = 'absolute';
-                const codeCell = window.document.getElementById(targetCell);
-                const gutter = codeCell.querySelector('.code-annotation-gutter');
-                gutter.appendChild(gutterDiv);
-              }
-              gutterDiv.style.top = top - 2 + "px";
-              gutterDiv.style.height = height + 4 + "px";
+            placeBand(div, el, lastEl, parent.closest("div.sourceCode") || parent);
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
             }
+            placeBand(gutterDiv, el, lastEl);
             selectedAnnoteEl = annoteEl;
           }
         };
@@ -896,6 +964,9 @@ Apr 1, 2023
       }
     }
   });
+  </script>
+  <script type="application/javascript">
+  window.quartoScrollableRegionsLabels = {"code":"Scrollable code","output":"Scrollable output"};
   </script>
 </div> <!-- /content -->
 <footer class="footer">
