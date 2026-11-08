@@ -68,7 +68,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
@@ -85,17 +84,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-a1fb71b8230547e7dabc44bbeae25b4d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap-06207d87e86d692cd5ac17e824bc0622.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-069ef996a4d7998b8c2c63f09ca4a792.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/academicons-1.9.2/all.css" rel="stylesheet">
 <link href="../../../site_libs/quarto-contrib/academicons-1.9.2/size.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
-  "location": "navbar",
+  "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
-  "panel-placement": "end",
-  "type": "overlay",
+  "panel-placement": "start",
+  "type": "textbox",
   "limit": 50,
   "keyboard-shortcut": [
     "f",
@@ -193,69 +192,12 @@ window.Quarto = {
 };
 </script>
 
+<link rel="stylesheet" href="../../../assets/site-header.css">
 </head>
 
-<body class="nav-fixed quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
+<body class="quarto-light"><a id="quarto-skip-link" class="visually-hidden-focusable" href="#quarto-document-content">Skip to main content</a>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
-    <nav class="navbar navbar-expand-lg border-bottom" data-bs-theme="dark" aria-label="Site">
-      <div class="navbar-container container-fluid">
-      <div class="navbar-brand-container mx-auto">
-    <a href="../../../index.html" class="navbar-brand navbar-brand-logo">
-    <img src="../../../img/noun-small-world-network-6148828.png" alt="" class="navbar-logo light-content">
-    <img src="../../../img/noun-small-world-network-6148828.png" alt="" class="navbar-logo dark-content">
-    </a>
-    <a class="navbar-brand" href="../../../index.html">
-    <span class="navbar-title">Roberto Cantillan</span>
-    </a>
-  </div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
-  <span class="navbar-toggler-icon"></span>
-</button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav navbar-nav-scroll ms-auto">
-  <li class="nav-item">
-    <a class="nav-link" href="../../../about/index.html"> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../blog/index.html"> 
-<span class="menu-text">Blog</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../talk/index.html"> 
-<span class="menu-text">Talks</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../publication/index.html"> 
-<span class="menu-text">Publications</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../project/index.html"> 
-<span class="menu-text">Projects</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../resources/index.html"> 
-<span class="menu-text">Resources</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../../es/index.html"> 
-<span class="menu-text">ES</span></a>
-  </li>  
-  <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/rcantillan"> <i class="bi bi-github" role="img">
-</i> 
-<span class="menu-text"></span></a>
-  </li>  
-</ul>
-          </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
-</div>
-            <div id="quarto-search" class="" title="Search"></div>
-      </div> <!-- /container-fluid -->
-    </nav>
-</header>
 <!-- content -->
 <header id="title-block-header" class="quarto-title-block default page-columns page-full">
   <div class="quarto-title-banner page-columns page-full">
@@ -296,7 +238,7 @@ window.Quarto = {
     </div>
     
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -323,6 +265,15 @@ window.Quarto = {
     </div>
 <!-- main -->
 <main class="content quarto-banner-title-block" id="quarto-document-content" tabindex="-1">
+<header class="home-header" role="banner"><div class="wrap header-inner">
+    <a class="brand" href="../../../index.html" aria-label="Roberto Cantillan — Home"><img src="../../../img/noun-small-world-network-6148828.png" alt=""></a>
+    <nav aria-label="Main navigation">
+      <a href="../../../about/index.html">About</a><a href="../../../publication/index.html">Research</a><a href="../../../blog/index.html">Blog</a>
+      <details><summary>More</summary><div class="more"><a href="../../../talk/index.html">Talks</a><a href="../../../project/index.html">Projects</a><a href="../../../resources/index.html">Resources</a><a href="../../../contact.html">Contact</a></div></details>
+      <a class="lang" data-lang-toggle="" href="../../../es/index.html" lang="es" aria-label="Español">ES</a>
+    </nav>
+  </div></header>
+<script>/* Quarto injects this include inside <main>; hoist it to the top of <body>. */document.body.prepend(document.currentScript.previousElementSibling);</script>
 
 
 
